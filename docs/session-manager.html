@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Manager Guide - SCR Model Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="https://github.com/sdu-concurrency/SCR-model/blob/main/favicon.svg?raw=true">
+</head>
+<body>
+    <a href="https://github.com/sdu-concurrency/SCR-model" class="github-fork-ribbon" target="_blank" aria-label="Fork me on GitHub">Fork me on GitHub</a>
+    
+    <header class="header">
+        <h1>Supply Chain Resilience Assessment Tool</h1>
+        <p>Session Manager Guide</p>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">SCR-Model Docs</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="installation.html">Installation</a></li>
+                <li><a href="session-manager.html" class="active">Session Manager</a></li>
+                <li><a href="survey-participant.html">Survey Participant</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main">
+        <section class="hero">
+            <h2>👔 Session Manager Guide</h2>
+            <p>
+                Comprehensive guide for session managers on creating sessions, managing users, 
+                and analyzing survey results.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>📋 Table of Contents</h2>
+            <div class="toc">
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#user-roles">User Roles</a></li>
+                    <li><a href="#getting-started">Getting Started</a></li>
+                    <li><a href="#creating-a-session">Creating a Session</a></li>
+                    <li><a href="#managing-users">Managing Users</a></li>
+                    <li><a href="#viewing-results">Viewing Results</a></li>
+                    <li><a href="#language-switching">Language Switching</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    <li><a href="#glossary">Glossary</a></li>
+                    <li><a href="#ui-walkthrough">UI Walkthrough (with Screenshots)</a>
+                        <ul>
+                            <li><a href="#ui-session-overview">Session Overview</a></li>
+                            <li><a href="#ui-user-summary">Individual Assessment Summary</a></li>
+                            <li><a href="#ui-analysis2">Phase 2 Analysis</a></li>
+                            <li><a href="#ui-analysis3">Phase 3 Analysis</a></li>
+                            <li><a href="#ui-advancing">Advancing the Phase</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="overview">
+            <h2>🎯 Overview</h2>
+            
+            <h3>What is this tool?</h3>
+            <p>
+                The Supply Chain Resilience Assessment Tool helps organizations identify vulnerabilities 
+                and assess capabilities across their supply chain. It works in four phases:
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Map the supply chain</td>
+                        <td>Understand your supply chain structure</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Identify vulnerabilities and capabilities</td>
+                        <td>7-step survey for participants</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Prioritize and align</td>
+                        <td>Cross-organizational analysis & charts</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Prepare action plans</td>
+                        <td>Use the data to create concrete plans</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>About the project</h3>
+            <div class="info-box">
+                <h4>Project Details</h4>
+                <p>
+                    This tool is developed as part of the <strong>Cybersikkerhed og Forretningskontinuitet</strong> 
+                    (Cybersecurity and Business Continuity) project, funded by the 
+                    <a href="https://industriensfond.dk/projekt/cybersikkerhed-og-forretningskontinuitet/" target="_blank">Danish Industry Foundation (Industriens Fond)</a> 
+                    and carried out by researchers from the University of Southern Denmark (SDU) in partnership with 
+                    the Royal Danish Military Academy (Forsvarsakademiet).
+                </p>
+                <p>
+                    The project integrates cybersecurity into supply chain resilience work for Danish SMEs. 
+                    It builds directly on the earlier 
+                    <a href="https://industriensfond.dk/projekt/supply-chain-resilience/" target="_blank">Supply Chain Resilience project (2021-2023)</a>.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="user-roles">
+            <h2>👥 User Roles</h2>
+            <p>
+                The system has three main user roles with different capabilities:
+            </p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Capabilities</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Administrator</strong></td>
+                        <td>Creates sessions, views all data (PocketBase admin)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Session Manager</strong></td>
+                        <td>Views session overview, analysis dashboards, manages users</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Participant</strong></td>
+                        <td>Takes the survey (one per session)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="getting-started">
+            <h2>🚀 Getting Started - Administrator</h2>
+            
+            <h3>Login</h3>
+            <ol>
+                <li>Open the application in your browser</li>
+                <li>Navigate to the <strong>admin panel</strong> - add <code>/admin</code> to the URL (e.g. <code>http://localhost:5173/admin</code>)</li>
+                <li>Enter the admin credentials you created during the first-time setup wizard.</li>
+            </ol>
+
+            <div class="info-box">
+                <h4>ℹ️ No default credentials</h4>
+                <p>
+                    There are no pre-set admin credentials. The admin account is created by you during
+                    the PocketBase setup wizard on first startup (<code>/_/</code>). Use whatever email
+                    and password you chose at that time.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="creating-a-session">
+            <h2>🆕 Creating a Session</h2>
+            <p>
+                A <strong>session</strong> represents one assessment round for a specific organization or team.
+            </p>
+
+            <h3>Step-by-step</h3>
+            <ol>
+                <li>After logging in as admin, you'll see the <strong>Create Session</strong> form</li>
+                <li>Fill in the fields:</li>
+            </ol>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Session Name</strong></td>
+                        <td>✅</td>
+                        <td>A unique name for this assessment round. Click <strong>Validate</strong> to check availability</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Session Description</strong></td>
+                        <td>✅</td>
+                        <td>Brief description (e.g. "Q2 Supply Chain Review")</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Question Set</strong></td>
+                        <td>✅</td>
+                        <td>Currently only <code>supply_chain</code> available</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contact Email</strong></td>
+                        <td>✅</td>
+                        <td>Email for session-related communications</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contact Tel</strong></td>
+                        <td>No</td>
+                        <td>Optional phone number</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Start Date</strong></td>
+                        <td>No</td>
+                        <td>Session start (defaults to today)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>End Date</strong></td>
+                        <td>No</td>
+                        <td>Session end (defaults to 30 days from now)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ol start="3">
+                <li>Click <strong>Create</strong></li>
+            </ol>
+
+            <h3>What happens next?</h3>
+            <p>
+                The system automatically:
+            </p>
+            <ul>
+                <li>Creates <strong>10 participant accounts</strong> (named <code>[session]-n1</code> through <code>[session]-n10</code>)</li>
+                <li>Creates <strong>1 session manager account</strong> (named <code>[session]-s</code>)</li>
+                <li>Generates a <strong>unique login token</strong> for each user (valid for 1 month)</li>
+                <li>Shows the session manager credentials on screen</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>📋 Important</h4>
+                <p>
+                    Copy the session manager credentials immediately! The password is only shown once.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="managing-users">
+            <h2>👥 Managing Users</h2>
+
+            <h3>Viewing the user list</h3>
+            <p>
+                After creating a session, navigate to the session overview:
+            </p>
+            <pre><code>/session/[session-name]</code></pre>
+            
+            <p>
+                The page shows:
+            </p>
+            <ul>
+                <li>Session details (description, contact info, dates)</li>
+                <li>Phase progress tracker</li>
+                <li><strong>Assessment submission status</strong> - a table with all 11 users</li>
+                <li>For each user: username, status, and a <strong>Copy Link</strong> button</li>
+            </ul>
+
+            <h3>User statuses</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Ready</strong></td>
+                        <td>User has been created but hasn't started</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unfinished</strong></td>
+                        <td>User has started the survey but hasn't submitted</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Done</strong></td>
+                        <td>User has completed and submitted the survey</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Distributing access links</h3>
+            <ol>
+                <li>Click <strong>Copy Link</strong> next to a user to copy their unique survey link</li>
+                <li>Send this link to the participant (via email, chat, etc.)</li>
+                <li>The link contains a built-in token - the participant does NOT need a password</li>
+            </ol>
+        </section>
+
+        <section class="section" id="viewing-results">
+            <h2>📊 Viewing Results - Session Manager</h2>
+
+            <h3>Session Overview Dashboard</h3>
+            <p>
+                As a session manager (username ending in <code>-s</code>):
+            </p>
+            <ol>
+                <li>Log in with your session manager credentials on the home page</li>
+                <li>You'll be redirected to the session overview</li>
+                <li>The overview shows completion status for each participant</li>
+            </ol>
+
+            <h3>Analysis Dashboards</h3>
+            <p>
+                Access the analysis views from the session overview:
+            </p>
+            <ul>
+                <li><strong>Analysis 2</strong> - Vulnerability assessment results with charts</li>
+                <li><strong>Analysis 3</strong> - Capability prioritization visualization</li>
+            </ul>
+            
+            <p>
+                These views aggregate all participants' responses and show:
+            </p>
+            <ul>
+                <li>Which vulnerabilities were ranked highest across the organization</li>
+                <li>Capability levels across different areas</li>
+                <li>Comparison charts for cross-organizational alignment</li>
+            </ul>
+
+            <div class="info-box">
+                <h4>📊 Tip</h4>
+                <p>
+                    The analysis becomes more meaningful as more participants submit their surveys.
+                </p>
+            </div>
+
+            <h3>Setting your password</h3>
+            <p>
+                As a session manager, you'll be prompted to set a password on first login:
+            </p>
+            <ol>
+                <li>Enter a secure password</li>
+                <li>Confirm the password</li>
+                <li>Click <strong>Save</strong></li>
+            </ol>
+            <p>
+                This password replaces the auto-generated token for future logins.
+            </p>
+        </section>
+
+        <section class="section" id="language-switching">
+            <h2>🌐 Language Switching</h2>
+            <p>
+                The interface supports <strong>English</strong> and <strong>Danish (Dansk)</strong>.
+            </p>
+
+            <h3>To switch:</h3>
+            <ol>
+                <li>Click the <strong>🌐</strong> (globe) icon in the top-right corner</li>
+                <li>Select your preferred language from the dropdown</li>
+                <li>The entire interface switches immediately</li>
+            </ol>
+
+            <div class="info-box">
+                <h4>🇩🇰 Danish Support</h4>
+                <p>
+                    Danish translations cover the survey form, analysis views, and admin interface.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="troubleshooting">
+            <h2>❓ Troubleshooting</h2>
+
+            <h3>"Session name is not available"</h3>
+            <p>
+                The session name must be unique. Try a different name or check if a session with that name 
+                already exists.
+            </p>
+
+            <h3>"Access restrict, user do not have privilege"</h3>
+            <p>
+                You're trying to access a page your account doesn't have permission for. Common causes:
+            </p>
+            <ul>
+                <li>A participant trying to access the admin panel</li>
+                <li>A PocketBase admin trying to access analysis views (use a session manager account instead)</li>
+            </ul>
+
+            <h3>"Failed to authenticate"</h3>
+            <p>
+                Check that your username and password/token are correct. For participants, make sure you're 
+                using the link provided by your session manager.
+            </p>
+
+            <h3>Survey answers not saving</h3>
+            <p>
+                Ensure JavaScript is enabled in your browser. The survey auto-saves to local storage as 
+                you progress through the form.
+            </p>
+
+            <h3>Token expired</h3>
+            <p>
+                Session user tokens are valid for 1 month. If a token expires:
+            </p>
+            <ol>
+                <li>Go to the session overview page (<code>/session/[session-name]</code>)</li>
+                <li>Find the user in the <strong>Assessment submission status</strong> table</li>
+                <li>Click <strong>Reload New Token</strong> for that user</li>
+                <li>Click <strong>Copy Link</strong> and share the updated link with the participant</li>
+            </ol>
+        </section>
+
+        <section class="section" id="glossary">
+            <h2>📚 Glossary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Session</strong></td>
+                        <td>One assessment round - contains 10 participants + 1 manager</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Token</strong></td>
+                        <td>A unique login key for participants (no password needed)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vulnerability</strong></td>
+                        <td>A weakness in the supply chain that could cause disruption</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Capability</strong></td>
+                        <td>An organizational strength that helps manage supply chain risk</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Session Manager</strong></td>
+                        <td>The super user of a session - can view all results</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PocketBase</strong></td>
+                        <td>The backend framework (database + API + admin UI)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FormKit</strong></td>
+                        <td>The library used to build and render the survey forms</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2>📖 Related Documentation</h2>
+            <div class="cards">
+                <div class="card">
+                    <h4>👔 Session Manager</h4>
+                    <p>You are currently reading the Session Manager guide.</p>
+                </div>
+                <div class="card">
+                    <h4>📝 Survey Participant</h4>
+                    <p>Guide for participants on how to complete the survey.</p>
+                    <p><a href="survey-participant.html" class="btn">Read More</a></p>
+                </div>
+                <div class="card">
+                    <h4>🛡️ Admin</h4>
+                    <p>Platform administration and PocketBase backend management.</p>
+                    <p><a href="admin.html" class="btn">Read More</a></p>
+                </div>
+                <div class="card">
+                    <h4>⚙️ Installation</h4>
+                    <p>Setup and deployment guide for development and production.</p>
+                    <p><a href="installation.html" class="btn">Read More</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section class="section" id="ui-walkthrough">
+            <h2>🖥️ UI Walkthrough (with Screenshots)</h2>
+            <p>
+                The following screenshots show the actual session manager interface running
+                against a live session named <strong>"test"</strong> with participants
+                <code>test-n1</code> through <code>test-n8</code>.
+            </p>
+
+            <!-- ── Session Overview ── -->
+            <h3 id="ui-session-overview">Session Overview (<code>/session/:sessionName</code>)</h3>
+            <p>
+                After login you land on the session overview. The top of the page shows:
+            </p>
+            <ul>
+                <li>The <strong>session name</strong> and a horizontal <strong>phase indicator</strong> (the active phase is highlighted in dark red).</li>
+                <li>Session metadata: description, contact email and phone number.</li>
+                <li>A small <strong>organisation chart</strong> thumbnailing all participant icons.</li>
+            </ul>
+            <figure style="margin:1rem 0;">
+                <img src="screenshots/sm_02_top.png" alt="Session overview – top section showing session name and phase indicator"
+                     style="max-width:100%;border:1px solid #e2e8f0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08);" />
+                <figcaption style="font-size:.8rem;color:#64748b;margin-top:.4rem;">
+                    Session overview – top area with session name and active phase indicator.
+                </figcaption>
+            </figure>
+
+            <p>Scrolling down reveals the <strong>Assessment Submission Status</strong> section:</p>
+            <ul>
+                <li>Users who have submitted show a green <strong>Done</strong> badge and a <strong>Summary</strong> link.</li>
+                <li>Users who have not yet submitted show a blue <strong>Ready</strong> badge.</li>
+                <li>Each user entry shows <strong>Token Status</strong>, expiry time, a <strong>Reload new Token</strong> button, and a <strong>Copy Link</strong> button.</li>
+            </ul>
+            <figure style="margin:1rem 0;">
+                <img src="screenshots/sm_01_overview.png" alt="Session overview – participant list with Done/Ready badges"
+                     style="max-width:100%;border:1px solid #e2e8f0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08);" />
+                <figcaption style="font-size:.8rem;color:#64748b;margin-top:.4rem;">
+                    Full session overview scroll – participant list. Users test-n1, test-n2, test-n3 have
+                    <strong>Done</strong> status; the remaining users are <strong>Ready</strong>.
+                </figcaption>
+            </figure>
+
+            <!-- ── Individual Summary ── -->
+            <h3 id="ui-user-summary">Individual Assessment Summary (<code>/session/:sessionName/survey/:username/view</code>)</h3>
+            <p>
+                Click the <strong>Summary</strong> link next to any <strong>Done</strong> user.
+                The breadcrumb shows <em>🏠 &gt; username</em>.
+            </p>
+            <p>The card contains:</p>
+            <ul>
+                <li><strong>Job Function</strong> and <strong>Company</strong> of the participant, plus submission date.</li>
+                <li>A sortable <strong>vulnerability table</strong> with columns:
+                    <em>Vulnerability · Impact · Likelihood · Risk Level (Impact × Likelihood)</em>.</li>
+                <li>A <strong>▶</strong> expander per row; clicking it reveals the capabilities
+                    selected for that vulnerability (Capability · Importance · Current Ability · Difference).</li>
+                <li><strong>+ Expand All</strong> / <strong>— Collapse All</strong> buttons for the whole table.</li>
+            </ul>
+            <figure style="margin:1rem 0;">
+                <img src="screenshots/sm_04_user_summary_n1.png" alt="Individual assessment summary for test-n1"
+                     style="max-width:100%;border:1px solid #e2e8f0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08);" />
+                <figcaption style="font-size:.8rem;color:#64748b;margin-top:.4rem;">
+                    Assessment summary for <strong>test-n1</strong> (Job Function: Purchase, Company: Test Company).
+                </figcaption>
+            </figure>
+
+            <p>Example with all rows expanded (test-n3 – 4 vulnerabilities × 3 capabilities each):</p>
+            <figure style="margin:1rem 0;">
+                <img src="screenshots/sm_08_user_n3_expanded.png" alt="Expanded assessment summary for test-n3"
+                     style="max-width:100%;border:1px solid #e2e8f0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08);" />
+                <figcaption style="font-size:.8rem;color:#64748b;margin-top:.4rem;">
+                    Expanded view for <strong>test-n3</strong> (Sales, Beta Manufacturing GmbH). The
+                    <strong>Difference</strong> badge (orange/green/red) = Importance − Current Ability.
+                </figcaption>
+            </figure>
+
+            <h4>Risk Level colour coding</h4>
+            <table>
+                <thead><tr><th>Score (Impact × Likelihood)</th><th>Level</th><th>Badge colour</th></tr></thead>
+                <tbody>
+                    <tr><td>1 – 8</td><td>Low</td><td style="background:#16a34a;color:#fff;font-weight:600;">Low (green)</td></tr>
+                    <tr><td>9 – 16</td><td>Medium</td><td style="background:#f97316;color:#fff;font-weight:600;">Medium (orange)</td></tr>
+                    <tr><td>17 – 25</td><td>High</td><td style="background:#dc2626;color:#fff;font-weight:600;">High (red)</td></tr>
+                </tbody>
+            </table>
+
+            <!-- ── Phase 2 Analysis ── -->
+            <h3 id="ui-analysis2">Phase 2 Analysis (<code>/session/:sessionName/analysis2</code>)</h3>
+            <p>
+                Click <strong>Summary</strong> in the Phase 2 panel header on the session overview.
+                This page aggregates all submitted assessments.
+            </p>
+            <figure style="margin:1rem 0;">
+                <img src="screenshots/sm_06_analysis2.png" alt="Phase 2 Analysis page"
+                     style="max-width:100%;border:1px solid #e2e8f0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08);" />
+                <figcaption style="font-size:.8rem;color:#64748b;margin-top:.4rem;">
+                    Phase 2 Analysis for session "test". Shows vulnerability frequency/risk bar chart,
+                    a sortable vulnerability table, functional vulnerability summary grouped by job function,
+                    and capability charts.
+                </figcaption>
+            </figure>
+
+            <p>Key sections on this page:</p>
+            <table>
+                <thead><tr><th>Section</th><th>What it shows</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Summary of Selected Vulnerabilities</strong> (bar chart)</td>
+                        <td>
+                            Blue = occurrence count; Red = average risk level;
+                            Yellow = total risk among all participants who selected it.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vulnerability table</strong></td>
+                        <td>Sortable: Vulnerability · Total Risk Level · Occurrences · Average Level.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Functional Vulnerabilities table</strong></td>
+                        <td>Grouped by Job Function with priority rank per vulnerability.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Summary Vulnerabilities</strong></td>
+                        <td>Expandable rows showing each vulnerability's occurrence count and per-participant breakdown.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Summary of Capabilities</strong> (bar chart)</td>
+                        <td>Blue = how often each capability was selected; Red = sum of capability gaps.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Capability Distribution by Category</strong></td>
+                        <td>Groups capabilities by category, showing frequency and gap.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ── Phase 3 Analysis ── -->
+            <h3 id="ui-analysis3">Phase 3 Analysis (<code>/session/:sessionName/analysis3</code>)</h3>
+            <p>
+                Available after advancing to Phase 3. This page shows the <strong>session manager's own
+                assessment</strong> — the vulnerabilities and capabilities they entered via their survey form.
+                It requires the session manager to have submitted their own form first; if not, the page
+                shows: <em>"Assessment data is missing, make sure you have submitted the form."</em>
+            </p>
+            <p>The page displays:</p>
+            <ul>
+                <li><strong>Company</strong> name and <strong>Date</strong> of submission.</li>
+                <li>A sortable <strong>vulnerability table</strong> (same layout as the individual
+                    summary view): Vulnerability · Impact · Likelihood · Risk Level badge.</li>
+                <li><strong>+ Expand All</strong> / <strong>— Collapse All</strong> buttons to reveal
+                    the capabilities for each vulnerability (Capability · Importance · Current Ability ·
+                    Difference).</li>
+                <li>A <strong>Print</strong> button to produce a print-friendly layout.</li>
+            </ul>
+            <figure style="margin:1rem 0;">
+                <img src="screenshots/sm_09_analysis3_filled.png" alt="Phase 3 Analysis – filled with session manager's assessment"
+                     style="max-width:100%;border:1px solid #e2e8f0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08);" />
+                <figcaption style="font-size:.8rem;color:#64748b;margin-top:.4rem;">
+                    Phase 3 Analysis with all rows expanded. The session manager's two vulnerabilities
+                    (S2_4 – Insufficient sales pipeline, risk&nbsp;20; S1_5 – Other (Finance), risk&nbsp;12)
+                    are visible with their associated capabilities and gap scores.
+                </figcaption>
+            </figure>
+
+            <!-- ── Advancing phases ── -->
+            <h3 id="ui-advancing">Advancing the Phase</h3>
+            <p>
+                When at least one participant has status <strong>Done</strong> in Phase 2, an
+                info banner appears inside the Phase 2 panel with an
+                <strong>Advance to Phase 3</strong> button.
+                Clicking it updates <code>current_step</code> to <code>3</code> and reloads the page.
+            </p>
+            <p>
+                To roll back from Phase 3 to Phase 2, a <strong>Back to Phase 2</strong> button
+                appears in the Phase 3 panel header.
+            </p>
+
+        </section>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <p class="back-to-top"><a href="#top">↑ Back to Top</a></p>
+    </main>
+
+    <footer class="footer">
+        <p><strong>Supply Chain Resilience Assessment Tool Documentation</strong></p>
+        <p>Developed by University of Southern Denmark (SDU) & Royal Danish Military Academy</p>
+        <p>Funded by Danish Industry Foundation (Industriens Fond)</p>
+        <div class="footer-links">
+            <a href="https://github.com/sdu-concurrency/SCR-model" target="_blank">GitHub Repository</a>
+            <a href="https://cyber-smv.dk/" target="_blank">Project Website</a>
+            <a href="https://industriensfond.dk/" target="_blank">Industriens Fond</a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+            Last updated: June 2025 | Documentation version: 1.0
+        </p>
+    </footer>
+</body>
+</html>

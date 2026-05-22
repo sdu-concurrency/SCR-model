@@ -1,0 +1,21 @@
+# Secrets and environment
+.env
+*.env.local
+
+# PocketBase data (runtime DB, uploads, logs)
+pb_data/
+
+# Docker build cache
+.docker/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+.env.production

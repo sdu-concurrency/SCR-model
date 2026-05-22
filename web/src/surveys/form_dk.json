@@ -1,0 +1,1391 @@
+[
+	{
+		"$formkit": "step",
+		"id": "step_1",
+		"name": "step_1",
+		"key": "step_1",
+		"label": "Jobfunktion",
+		"stepActionsClass": "mt-4",
+		"children": [
+			{
+				"$formkit": "select",
+				"name": "job_function",
+				"id": "job_function",
+				"label": "Jobfunktion",
+				"placeholder": "Klik og vælg, hvilken afdeling din jobfunktion passer bedst ind i.",
+				"validation": "required",
+				"options": {
+					"Indkøb": "Indkøb",
+					"Produktion": "Produktion",
+					"Salg": "Salg",
+					"Produktudvikling": "Produktudvikling",
+					"Økonomi / IT": "Økonomi / IT",
+					"Andet": "Andet"
+				}
+			},
+			{
+				"$formkit": "text",
+				"id": "job_function_other",
+				"name": "job_function_other",
+				"if": "$get(job_function).value === 'Andet'",
+				"key": "job_function_other",
+				"placeholder": "Ved valg af 'Andet', angiv anden afdeling nedenfor.",
+				"label": "Jobfunktion, Andet",
+				"validation": "required"
+			},
+			{
+				"$formkit": "text",
+				"name": "virksomhed",
+				"id": "virksomhed",
+				"label": "Virksomhed",
+				"placeholder": "Indtast virksomhed i dette felt",
+				"validation": "required"
+			},
+			{
+				"$formkit": "hidden",
+				"id": "dato",
+				"name": "dato"
+			}
+		]
+	},
+	{
+		"$formkit": "step",
+		"id": "step_2",
+		"name": "step_2",
+		"key": "step_2",
+		"label": "Prioritering",
+		"stepActionsClass": "mt-4",
+		"children": [
+			{
+				"$el": "h2",
+				"children": "Prioritering",
+				"attrs": {
+					"class": "text-2xl mb-4"
+				}
+			},
+			{
+				"$el": "p",
+				"children": "Klik herunder og vælg op til 10 sårbarheder, som du mener, har betydning for virksomhedens supply chain præstationer og resultater. Sårbarhederne prioriteres, så den sårbarhed, der efter din vurdering har størst betydning, ligger som nr. 1. Den, der har næststørst betydning, ligger som nr. 2 etc.",
+				"attrs": {
+					"class": "mb-4"
+				}
+			},
+			{
+				"$cmp": "Divider",
+				"props": {
+					"layout": "horizontal"
+				},
+				"attrs": {
+					"class": "flex w-full"
+				}
+			},
+			{
+				"$formkit": "list",
+				"id": "priority_list",
+				"name": "priority_list",
+				"children": [
+					{
+						"$formkit": "group",
+						"id": "priority_group_1",
+						"name": "priority_group_1",
+						"children": [
+							{
+								"$el": "h2",
+								"children": "Sårbarheder 1",
+								"attrs": {
+									"class": "text-xl"
+								}
+							},
+							{
+								"$formkit": "select",
+								"id": "vulnerability_1",
+								"name": "vulnerability",
+								"label": "Sårbarheder",
+								"validation": "distinct_vulnerability|required|required_note_if_other|no_none",
+								"placeholder": "Vælg Sårbarhed",
+								"options": {
+									"None": "-",
+									"S1_1": "S1.1 Aktivers omsætningshastighed",
+									"S1_2": "S1.2 Adgang til likviditet",
+									"S1_3": "S1.3 Høj binding i arbejdskapital (net working capital - NWC)",
+									"S1_4": "S1.4 Lavt cash flow",
+									"S1_5": "S1.5 Andet",
+									"S2_1": "S2.1 Uforudsigelig efterspørgsel",
+									"S2_2": "S2.2 Manglende salg",
+									"S2_3": "S2.3 Produktudviklingspipeline",
+									"S2_4": "S2.4 Utilstrækkelig salgspipeline",
+									"S2_5": "S2.5 Kunder ændrer hyppigt på ordrer",
+									"S2_6": "S2.6 Kundeafhængighed",
+									"S2_7": "S2.7 Utilstrækkeligt produktsortiment",
+									"S2_8": "S2.8 For stort sortiment",
+									"S2_9": "S2.9 Produktansvar/kundeerstatning",
+									"S2_10": "S2.10 Brandimage",
+									"S2_11": "S2.11 Time to market udfordringer",
+									"S2_12": "S2.12 Presset på tid",
+									"S2_13": "S2.13 Ikke profitable kunder",
+									"S2_14": "S2.14 Manglende markedsfokus",
+									"S2_15": "S2.15 For lav transportkapacitet",
+									"S2_16": "S2.16 Andet",
+									"S3_1": "S3.1 For lav produktionskapacitet",
+									"S3_2": "S3.2 Udstyrs pålidelighed",
+									"S3_3": "S3.3 Produktion sker ikke på de rigtige lokationer",
+									"S3_4": "S3.4 Udokumenterede processer",
+									"S3_5": "S3.5 For driftsorienteret",
+									"S3_6": "S3.6 Mangel på tværgående samarbejde (silodannelse)",
+									"S3_7": "S3.7 Mangel på menneskelige ressourcer",
+									"S3_8": "S3.8 Mangel på kompetencer",
+									"S3_9": "S3.9 For meget tavs viden",
+									"S3_10": "S3.10 For høj personaleomsætning",
+									"S3_11": "S3.11 For afhængig af nøglepersoner",
+									"S3_12": "S3.12 For få finansielle ressourcer",
+									"S3_13": "S3.13 Kvalitet",
+									"S3_14": "S3.14 Manglende vedligehold",
+									"S3_15": "S3.15 Utilstrækkeligt produktionsgrundlag",
+									"S3_16": "S3.16 Andet",
+									"S4_1": "S4.1 Utilstrækkelige systemer",
+									"S4_2": "S4.2 Mangler IT-sikkerhed",
+									"S4_3": "S4.3 Mangler kvalitetsstyring",
+									"S4_4": "S4.4 For lav datakvalitet",
+									"S4_5": "S4.5 For lav datatilgængelighed",
+									"S4_6": "S4.6 For få/forkerte KPI'er",
+									"S4_7": "S4.7 Modstridende KPI'er",
+									"S4_8": "S4.8 Utilstrækkelig anvendelse af systemer",
+									"S4_9": "S4.9 Andet",
+									"S5_1": "S5.1 For lav leverandørkapacitet",
+									"S5_2": "S5.2 Manglende tilgængelighed af råvarer og forsyninger",
+									"S5_3": "S5.3 For lav leverandørpålidelighed",
+									"S5_4": "S5.4 Afhængighed af leverandørrelationer",
+									"S5_5": "S5.5 Manglende adgang til leverandørkompetencer",
+									"S5_6": "S5.6 For lidt fokus på nye leverandører",
+									"S5_7": "S5.7 Leverandørkonkurs",
+									"S5_8": "S5.8 Krav til produktrenhed",
+									"S5_9": "S5.9 Andet",
+									"S6_1": "S6.1 Manglende gennemsigtighed",
+									"S6_2": "S6.2 Prispres fra kunder/leverandører",
+									"S6_3": "S6.3 For høj/lav vækst",
+									"S6_4": "S6.4 Im- og eksportrestriktioner/kanaler",
+									"S6_5": "S6.5 For stor kompleksitet",
+									"S6_6": "S6.6 Andet",
+									"S7_1": "S7.1 Geopolitiske forstyrrelser",
+									"S7_2": "S7.2 Udsving i priser og valutakurser",
+									"S7_3": "S7.3 Terrorisme/sabotage",
+									"S7_4": "S7.4 Spionage/tyveri",
+									"S7_5": "S7.5 Cyberangreb",
+									"S7_6": "S7.6 Konkurrenternes innovation",
+									"S7_7": "S7.7 Sociale/demografiske/ kulturelle ændringer",
+									"S7_8": "S7.8 Krav om CSR/bæredygtighed/FN's verdensmål/ESG/kædeansvar",
+									"S7_9": "S7.9 Politiske regulatoriske ændringer",
+									"S7_10": "S7.10 Interessenter/NGO'er",
+									"S7_11": "S7.11 Disruptions",
+									"S7_12": "S7.12 Uklar/manglende IP- rettigheder",
+									"S7_13": "S7.13 Strejke(r)",
+									"S7_14": "S7.14 Andet"
+								}
+							},
+							{
+								"$formkit": "text",
+								"id": "note_vulnerability_1",
+								"name": "note_vulnerability",
+								"label": "Note",
+								"placeholder": "Frivillig udfyldelse, påkrævet, hvis 'Andet' er valgt."
+							}
+						]
+					}
+				]
+			},
+			{
+				"$el": "div",
+				"attrs": {
+					"class": "flex w-full justify-between gap-4"
+				},
+				"children": [
+					{
+						"$cmp": "AddQuestionButton",
+						"if": "$get(priority_list).value.length < 10",
+						"key": "add_question_button",
+						"props": {
+							"label": "Tilføj ny sårbarhed",
+							"add_target": "priority_list",
+							"add_survey_step_index": 1,
+							"onAddQuestion": "$survey.onAddQuestion"
+						}
+					},
+					{
+						"$cmp": "DeleteQuestionButton",
+						"if": "$get(priority_list).value.length > 1",
+						"key": "delete_question_button",
+						"props": {
+							"label": "Fjern seneste sårbarhed",
+							"delete_target": "priority_list",
+							"delete_survey_step_index": 1,
+							"onDeleteQuestion": "$survey.onDeleteQuestion"
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		"$formkit": "step",
+		"id": "step_3",
+		"name": "step_3",
+		"key": "step_3",
+		"label": "Risikovurdering",
+		"stepActionsClass": "mt-4",
+		"children": [
+			{
+				"$el": "h2",
+				"children": "Risikovurdering af sårbarheder",
+				"attrs": {
+					"class": "text-2xl mb-4"
+				}
+			},
+			{
+				"$el": "p",
+				"children": "Her vurderer du, hvor meget de enkelte sårbarheder påvirker din virksomheds supply chain performance (Indflydelse/Impact). 1 = Meget lav indflydelse og 5 = Meget høj indflydelse. Du skal også vurdere sandsynligheden for, at de enkelte sårbarheder rent faktisk vil finde sted. 1 = Meget lav sandsynlighed og 5 = Meget høj sandsynlighed."
+			},
+			{
+				"$cmp": "Divider",
+				"props": {
+					"layout": "horizontal"
+				},
+				"attrs": {
+					"class": "flex w-full"
+				}
+			},
+			{
+				"$formkit": "list",
+				"id": "risk_list",
+				"name": "risk_list",
+				"children": [
+					{
+						"for": [
+							"item",
+							"key",
+							"$get(priority_list).value"
+						],
+						"$formkit": "group",
+						"id": "$: \"risk_group_\" + ($key + 1)",
+						"name": "$: \"risk_group_\" + ($key + 1)",
+						"attrs": {
+							"class": "mt-4"
+						},
+						"children": [
+							{
+								"$el": "h1",
+								"attrs": {
+									"class": "text-xl"
+								},
+								"if": "$get('vulnerability_' + ($key + 1)).value",
+								"key": "header"
+							},
+							{
+								"$el": "span",
+								"key": "note",
+								"attrs": {
+									"class": "text-sm"
+								},
+								"if": "$get('note_vulnerability_' + ($key + 1)).value",
+								"children": "$get('note_vulnerability_' + ($key + 1)).value"
+							},
+							{
+								"$formkit": "hidden",
+								"id": "$: \"risk_vulnerability_\" + ($key + 1)",
+								"name": "vulnerability",
+								"modelValue": "$get('vulnerability_' + ($key + 1)).value"
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"impact_\" + ($key + 1)",
+								"name": "impact",
+								"label": "Indflydelse/ Impact på supply chainen",
+								"placeholder": "Vælg værdi fra 1 til 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								],
+								"validation": "required"
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"likelihood_\" + ($key + 1)",
+								"name": "likelihood",
+								"label": "Sandsynlighed for at sårbarheden vil finde sted",
+								"placeholder": "Vælg værdi fra 1 til 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								],
+								"validation": "required"
+							},
+							{
+								"$formkit": "hidden",
+								"number": "integer",
+								"id": "$: \"risk_level_\" + ($key + 1)",
+								"name": "risk_level",
+								"modelValue": "$get('impact_' + ($key + 1)).value * $get('likelihood_' + ($key + 1)).value"
+							},
+							{
+								"$cmp": "Message",
+								"props": {
+									"severity": "info"
+								},
+								"if": "$get('impact_' + ($key + 1)).value && $get('likelihood_' + ($key + 1)).value",
+								"children": "$: \"Risikoniveau (Impact x Sandsynlighed): \" + ($get('risk_level_' + ($key + 1)).value)"
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"for": [
+			"item",
+			"key",
+			"$get(priority_list).value"
+		],
+		"$formkit": "step",
+		"id": "$: \"step_\" + ($key + 4)",
+		"name": "$: \"step_\" + ($key + 4)",
+		"key": "$: \"step_\" + ($key + 4)",
+		"label": "$: \"Sårbarhed \" + ($key + 1)",
+		"stepActionsClass": "mt-4",
+		"__raw__sectionsSchema": {
+			"stepNext": {
+				"$el": "div",
+				"if": "$isLastStep === false || $stepIndex === 0",
+				"children": [
+					{
+						"$cmp": "FormKit",
+						"bind": "$nextAttrs",
+						"props": {
+							"type": "button",
+							"label": {
+								"if": "$nextLabel",
+								"then": "$nextLabel",
+								"else": "$ui.next.value"
+							},
+							"disabled": false,
+							"data-next": "$isLastStep === false",
+							"onClick": "$handlers.next"
+						}
+					}
+				]
+			},
+			"stepPrevious": {
+				"$el": "div",
+				"if": "$isFirstStep === false",
+				"children": [
+					{
+						"$cmp": "FormKit",
+						"bind": "$previousAttrs",
+						"props": {
+							"type": "button",
+							"label": {
+								"if": "$previousLabel",
+								"then": "$previousLabel",
+								"else": "$ui.prev.value"
+							},
+							"data-prev": "$isFirstStep === false",
+							"disabled": false,
+							"onClick": "$handlers.previous"
+						}
+					}
+				]
+			}
+		},
+		"children": [
+			{
+				"$el": "h2",
+				"children": "$: \"Kapabiliteter til at håndtere sårbarhed \" + ($key + 1)",
+				"attrs": {
+					"class": "text-2xl mb-4"
+				}
+			},
+			{
+				"$el": "h2",
+				"children": "Vælg op til 5 kapabiliteter, der kan håndtere sårbarheden, og vurder derefter din opfattelse af 'Aktuel evne' og dens 'Vigtighed' på en skala fra 1 til 5. 1 = Meget lav evne og 5 = Meget høj evne, 1 = Meget lav vigtighed og 5 = Meget høj vigtighed.",
+				"attrs": {
+					"class": "mb-4"
+				}
+			},
+			{
+				"$el": "h3",
+				"key": "header_vulnerability",
+				"attrs": {
+					"class": "text-xl font-bold"
+				},
+				"if": "$get('vulnerability_' + ($key + 1)).value",
+				"children": "$: $t('survey.V1.' + ($get('vulnerability_' + ($key + 1)).value))"
+			},
+			{
+				"$el": "span",
+				"attrs": {
+					"class": "text-sm"
+				},
+				"key": "header_note_vulnerability",
+				"if": "$get('note_vulnerability_' + ($key + 1)).value",
+				"children": "$get('note_vulnerability_' + ($key + 1)).value"
+			},
+			{
+				"$el": "div",
+				"attrs": {
+					"class": "flex flex-row mt-2 w-full"
+				},
+				"children": [
+					{
+						"$el": "div",
+						"attrs": {
+							"class": "card w-full text-base/loose"
+						},
+						"children": [
+							{
+								"$el": "div",
+								"attrs": {
+									"class": "p-4"
+								},
+								"children": [
+									{
+										"$el": "h2",
+										"attrs": {
+											"class": "text-lg font-bold"
+										},
+										"children": "Indflydelse"
+									},
+									{
+										"$el": "p",
+										"attrs": {
+											"class": "p-4"
+										},
+										"children": "$get('impact_' + ($key + 1)).value"
+									}
+								]
+							}
+						]
+					},
+					{
+						"$cmp": "Divider",
+						"props": {
+							"layout": "vertical"
+						},
+						"attrs": {
+							"class": "flex w-full"
+						}
+					},
+					{
+						"$el": "div",
+						"attrs": {
+							"class": "card w-full"
+						},
+						"children": [
+							{
+								"$el": "div",
+								"attrs": {
+									"class": "p-4"
+								},
+								"children": [
+									{
+										"$el": "h2",
+										"attrs": {
+											"class": "text-lg font-bold"
+										},
+										"children": "Sandsynlighed"
+									},
+									{
+										"$el": "p",
+										"attrs": {
+											"class": "p-4"
+										},
+										"children": "$get('likelihood_' + ($key + 1)).value"
+									}
+								]
+							}
+						]
+					},
+					{
+						"$cmp": "Divider",
+						"props": {
+							"layout": "vertical"
+						},
+						"attrs": {
+							"class": "flex w-full"
+						}
+					},
+					{
+						"$el": "div",
+						"attrs": {
+							"class": "card w-full"
+						},
+						"children": [
+							{
+								"$el": "div",
+								"attrs": {
+									"class": "p-4"
+								},
+								"children": [
+									{
+										"$el": "h2",
+										"attrs": {
+											"class": "text-lg font-bold"
+										},
+										"children": "Risikoniveau (Impact x Sandsynlighed)"
+									},
+									{
+										"$el": "p",
+										"attrs": {
+											"class": "p-4"
+										},
+										"children": "$get('risk_level_' + ($key + 1)).value"
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			{
+				"$el": "p",
+				"attrs": {
+					"class": "text-sm text-right italic"
+				},
+				"children": "Data fra tidligere trin"
+			},
+			{
+				"$formkit": "hidden",
+				"id": "$: \"cap_vulnerability_\" + ($key + 1)",
+				"name": "vulnerability",
+				"modelValue": "$get('vulnerability_' + ($key + 1)).value"
+			},
+			{
+				"$formkit": "list",
+				"id": "$: \"capability_list_\" + ($key + 1)",
+				"name": "capability_list",
+				"children": [
+					{
+						"$el": "h2",
+						"children": "Kapabiliteter 1)",
+						"attrs": {
+							"class": "text-xl"
+						}
+					},
+					{
+						"$formkit": "group",
+						"id": "$: \"capability_group_\" + ($key + 1)",
+						"name": "capability_group",
+						"children": [
+							{
+								"$formkit": "select",
+								"id": "$: \"capability_\" + ($key + 1) + \"_1\"",
+								"name": "capability",
+								"validation": "distinct_capability|required|required_note_if_other|no_none",
+								"label": "Kapabilitet",
+								"help": "Vælg kapabiliteter der kan håndtere sårbarheden",
+								"placeholder": "Vælg kapaciteter, eller lad det stå tomt, hvis der ikke er mere relevant element",
+								"options": {
+									"None": "-",
+									"K1_1": "K1.1 Aktivernes udnyttelsesgrad",
+									"K1_2": "K1.2 Adgang til likviditet",
+									"K1_3": "K1.3 Forsikringer",
+									"K1_4": "K1.4 Prismargen",
+									"K1_5": "K1.5 For- og efterkalkulation",
+									"K1_6": "K1.6 Cash flow",
+									"K1_7": "K1.7 Betalingsbetingelser/konditioner",
+									"K1_8": "K1.8 Fokus på arbejdskapital (NWC)",
+									"K1_9": "K1.9 Fokus på kunde-/produktlønsomhed",
+									"K1_10": "K1.10 Andet",
+									"K2_1": "K2.1 Kundeloyalitet/-fastholdelse",
+									"K2_2": "K2.2 Markedsandele",
+									"K2_3": "K2.3 Evne til at skabe kunderelationer",
+									"K2_4": "K2.4 Evne til markedsspredning",
+									"K2_5": "K2.5 Kundekommunikation",
+									"K2_6": "K2.6 Kundesegmentering",
+									"K2_7": "K2.7 Forecasting",
+									"K2_8": "K2.8 Samarbejde om forecasting",
+									"K2_9": "K2.9 Produktdifferentiering",
+									"K2_10": "K2.10 Alternative distributionskanaler",
+									"K2_11": "K2.11 Attraktivt produktsortiment",
+									"K2_12": "K2.12 Salgspipeline",
+									"K2_13": "K2.13 Udviklingsprojekter/-pipeline",
+									"K2_14": "K2.14 Hurtigere time to market (TTM)",
+									"K2_15": "K2.15 Evnen til at produktsanere",
+									"K2_16": "K2.16 Andet",
+									"K3_1": "K3.1 Fælles komponenter",
+									"K3_2": "K3.2 Flere standardprodukter/komponenter",
+									"K3_3": "K3.3 Modulært produktdesign",
+									"K3_4": "K3.4 Evne til at reducere produktvarianter",
+									"K3_5": "K3.5 Reservekapacitet",
+									"K3_6": "K3.6 Produktionsgrundlag",
+									"K3_7": "K3.7 Ind- og udfasning af produkter",
+									"K3_8": "K3.8 Evne til at forebygge fejl",
+									"K3_9": "K3.9 Kvalitet/kvalitetsstyring",
+									"K3_10": "K3.10 Produktivitet/eliminering af spild",
+									"K3_11": "K3.11 Optimere produktionstid",
+									"K3_12": "K3.12 Hurtig omstilling",
+									"K3_13": "K3.13 Fleksibel/skalerbar kapacitet",
+									"K3_14": "K3.14 Udskyde disponering/produktion",
+									"K3_15": "K3.15 Systematisk vedligeholdelse",
+									"K3_16": "K3.16 Standardiserede arbejdsgange/processer",
+									"K3_17": "K3.17 Dokumentation af arbejdsgange/processer",
+									"K3_18": "K3.18 Kontinuerlige forbedringer",
+									"K3_19": "K3.19 Produktion de rigtige steder",
+									"K3_20": "K3.20 Outsourcing - Make or Buy analyser",
+									"K3_21": "K3.21 Andet",
+									"K4_1": "K4.1 IT-understøttet lagerstyring",
+									"K4_2": "K4.2 Lokationsstyring",
+									"K4_3": "K4.3 Sikkerhedslager",
+									"K4_4": "K4.4 Min./max. Styring",
+									"K4_5": "K4.5 ABC-vareanalyser",
+									"K4_6": "K4.6 Fokus på døde varer/ukurans",
+									"K4_7": "K4.7 Andet",
+									"K5_1": "K5.1 At være en attraktiv kunde",
+									"K5_2": "K5.2 Substitution af råvarer, halvfabrikata og komponenter",
+									"K5_3": "K5.3 Flere leverandører/forsyningskilder",
+									"K5_4": "K5.4 Evne til at skabe leverandørrelationer",
+									"K5_5": "K5.5 Prioriterer (segmenterer) leverandører",
+									"K5_6": "K5.6 Leverandørvurdering og -audit",
+									"K5_7": "K5.7 Leverandørudvikling",
+									"K5_8": "K5.9 Viden om forsyningsmarkedet",
+									"K5_9": "K5.9 Differentieret tilgang til leverandørerne",
+									"K5_10": "K5.10 Preferred part liste",
+									"K5_11": "K5.11 Preferred leverandør liste",
+									"K5_12": "K5.12 Andet",
+									"K6_1": "K6.1 Informationsudveksling - internt",
+									"K6_2": "K6.2 Informationsudveksling - eksternt",
+									"K6_3": "K6.3 Brug af tidssvarende informationsteknologi",
+									"K6_4": "K6.4 Cybersikkerhed",
+									"K6_5": "K6.5 Overvågning af early warning signaler",
+									"K6_6": "K6.6 Ejerskab af stamdata",
+									"K6_7": "K6.7 Brug af systemers potentiale",
+									"K6_8": "K6.8 Andet",
+									"K7_1": "K7.1 Relationsledelse",
+									"K7_2": "K7.2 Uddelegering og ansvarliggøres",
+									"K7_3": "K7.3 Eksekveringsevne/evnen til at beslutte",
+									"K7_4": "K7.4 Medarbejderinvolvering",
+									"K7_5": "K7.5 Læring/benchmarking",
+									"K7_6": "K7.6 Kommunikation",
+									"K7_7": "K7.7 Adgang til kvalificeret arbejdskraft",
+									"K7_8": "K7.8 Evner at tiltrække nye medarbejdere",
+									"K7_9": "K7.9 Kriseledelse",
+									"K7_10": "K7.10 Risikoledelse",
+									"K7_11": "K7.11 Lobbyisme",
+									"K7_12": "K7.12 Bredde i kompetenceprofiler",
+									"K7_13": "K7.13 Kreativ problemløsning",
+									"K7_14": "K7.14 Fokus på kernekompetencer",
+									"K7_15": "K7.15 Design for manufacturing/supply chain •",
+									"K7_16": "K7.16 Sales & Operations Planning",
+									"K7_17": "K7.17 Digitalisering",
+									"K7_18": "K7.18 Rette KPI'er på funktions- og virksomhedsniveau",
+									"K7_19": "K7.19 IP-rettigheder",
+									"K7_20": "K7.20 Arbejder ud fra nedfældet supply chain strategi",
+									"K7_21": "K7.21 Kulturforståelse",
+									"K7_22": "K7.22 Krydstræning",
+									"K7_23": "K7.23 Andet"
+								}
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"current_ability_\" + ($key + 1) + \"_1\"",
+								"name": "current_ability",
+								"label": "Nuværende evne",
+								"placeholder": "Vælg værdi fra 1 til 5",
+								"validation": "required",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"importance_\" + ($key + 1) + \"_1\"",
+								"name": "importance",
+								"label": "Vigtighed",
+								"placeholder": "Vælg værdi fra 1 til 5",
+								"validation": "required",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "text",
+								"id": "$: \"note_capability_\" + ($key + 1) + \"_1\"",
+								"name": "note_capability",
+								"label": "Note",
+								"placeholder": "Frivillig udfyldelse, påkrævet, hvis 'Andet' er valgt."
+							}
+						]
+					},
+					{
+						"$el": "h2",
+						"children": "Kapabiliteter 2)",
+						"attrs": {
+							"class": "text-xl"
+						}
+					},
+					{
+						"$formkit": "group",
+						"id": "$: \"capability_group_\" + ($key + 1)",
+						"name": "capability_group",
+						"children": [
+							{
+								"$formkit": "select",
+								"id": "$: \"capability_\" + ($key + 1) + \"_2\"",
+								"name": "capability",
+								"validation": "distinct_capability|required_note_if_other",
+								"label": "Kapabilitet",
+								"help": "Vælg kapabiliteter der kan håndtere sårbarheden",
+								"placeholder": "Vælg kapaciteter, eller lad det stå tomt, hvis der ikke er mere relevant element",
+								"options": {
+									"None": "-",
+									"K1_1": "K1.1 Aktivernes udnyttelsesgrad",
+									"K1_2": "K1.2 Adgang til likviditet",
+									"K1_3": "K1.3 Forsikringer",
+									"K1_4": "K1.4 Prismargen",
+									"K1_5": "K1.5 For- og efterkalkulation",
+									"K1_6": "K1.6 Cash flow",
+									"K1_7": "K1.7 Betalingsbetingelser/konditioner",
+									"K1_8": "K1.8 Fokus på arbejdskapital (NWC)",
+									"K1_9": "K1.9 Fokus på kunde-/produktlønsomhed",
+									"K1_10": "K1.10 Andet",
+									"K2_1": "K2.1 Kundeloyalitet/-fastholdelse",
+									"K2_2": "K2.2 Markedsandele",
+									"K2_3": "K2.3 Evne til at skabe kunderelationer",
+									"K2_4": "K2.4 Evne til markedsspredning",
+									"K2_5": "K2.5 Kundekommunikation",
+									"K2_6": "K2.6 Kundesegmentering",
+									"K2_7": "K2.7 Forecasting",
+									"K2_8": "K2.8 Samarbejde om forecasting",
+									"K2_9": "K2.9 Produktdifferentiering",
+									"K2_10": "K2.10 Alternative distributionskanaler",
+									"K2_11": "K2.11 Attraktivt produktsortiment",
+									"K2_12": "K2.12 Salgspipeline",
+									"K2_13": "K2.13 Udviklingsprojekter/-pipeline",
+									"K2_14": "K2.14 Hurtigere time to market (TTM)",
+									"K2_15": "K2.15 Evnen til at produktsanere",
+									"K2_16": "K2.16 Andet",
+									"K3_1": "K3.1 Fælles komponenter",
+									"K3_2": "K3.2 Flere standardprodukter/komponenter",
+									"K3_3": "K3.3 Modulært produktdesign",
+									"K3_4": "K3.4 Evne til at reducere produktvarianter",
+									"K3_5": "K3.5 Reservekapacitet",
+									"K3_6": "K3.6 Produktionsgrundlag",
+									"K3_7": "K3.7 Ind- og udfasning af produkter",
+									"K3_8": "K3.8 Evne til at forebygge fejl",
+									"K3_9": "K3.9 Kvalitet/kvalitetsstyring",
+									"K3_10": "K3.10 Produktivitet/eliminering af spild",
+									"K3_11": "K3.11 Optimere produktionstid",
+									"K3_12": "K3.12 Hurtig omstilling",
+									"K3_13": "K3.13 Fleksibel/skalerbar kapacitet",
+									"K3_14": "K3.14 Udskyde disponering/produktion",
+									"K3_15": "K3.15 Systematisk vedligeholdelse",
+									"K3_16": "K3.16 Standardiserede arbejdsgange/processer",
+									"K3_17": "K3.17 Dokumentation af arbejdsgange/processer",
+									"K3_18": "K3.18 Kontinuerlige forbedringer",
+									"K3_19": "K3.19 Produktion de rigtige steder",
+									"K3_20": "K3.20 Outsourcing - Make or Buy analyser",
+									"K3_21": "K3.21 Andet",
+									"K4_1": "K4.1 IT-understøttet lagerstyring",
+									"K4_2": "K4.2 Lokationsstyring",
+									"K4_3": "K4.3 Sikkerhedslager",
+									"K4_4": "K4.4 Min./max. Styring",
+									"K4_5": "K4.5 ABC-vareanalyser",
+									"K4_6": "K4.6 Fokus på døde varer/ukurans",
+									"K4_7": "K4.7 Andet",
+									"K5_1": "K5.1 At være en attraktiv kunde",
+									"K5_2": "K5.2 Substitution af råvarer halvfabrikata og komponenter",
+									"K5_3": "K5.3 Flere leverandører/forsyningskilder",
+									"K5_4": "K5.4 Evne til at skabe leverandørrelationer",
+									"K5_5": "K5.5 Prioriterer (segmenterer) leverandører",
+									"K5_6": "K5.6 Leverandørvurdering og -audit",
+									"K5_7": "K5.7 Leverandørudvikling",
+									"K5_8": "K5.9 Viden om forsyningsmarkedet",
+									"K5_9": "K5.9 Differentieret tilgang til leverandørerne",
+									"K5_10": "K5.10 Preferred part liste",
+									"K5_11": "K5.11 Preferred leverandør liste",
+									"K5_12": "K5.12 Andet",
+									"K6_1": "K6.1 Informationsudveksling - internt",
+									"K6_2": "K6.2 Informationsudveksling - eksternt",
+									"K6_3": "K6.3 Brug af tidssvarende informationsteknologi",
+									"K6_4": "K6.4 Cybersikkerhed",
+									"K6_5": "K6.5 Overvågning af early warning signaler",
+									"K6_6": "K6.6 Ejerskab af stamdata",
+									"K6_7": "K6.7 Brug af systemers potentiale",
+									"K6_8": "K6.8 Andet",
+									"K7_1": "K7.1 Relationsledelse",
+									"K7_2": "K7.2 Uddelegering og ansvarliggøres",
+									"K7_3": "K7.3 Eksekveringsevne/evnen til at beslutte",
+									"K7_4": "K7.4 Medarbejderinvolvering",
+									"K7_5": "K7.5 Læring/benchmarking",
+									"K7_6": "K7.6 Kommunikation",
+									"K7_7": "K7.7 Adgang til kvalificeret arbejdskraft",
+									"K7_8": "K7.8 Evner at tiltrække nye medarbejdere",
+									"K7_9": "K7.9 Kriseledelse",
+									"K7_10": "K7.10 Risikoledelse",
+									"K7_11": "K7.11 Lobbyisme",
+									"K7_12": "K7.12 Bredde i kompetenceprofiler",
+									"K7_13": "K7.13 Kreativ problemløsning",
+									"K7_14": "K7.14 Fokus på kernekompetencer",
+									"K7_15": "K7.15 Design for manufacturing/supply chain •",
+									"K7_16": "K7.16 Sales & Operations Planning",
+									"K7_17": "K7.17 Digitalisering",
+									"K7_18": "K7.18 Rette KPI'er på funktions- og virksomhedsniveau",
+									"K7_19": "K7.19 IP-rettigheder",
+									"K7_20": "K7.20 Arbejder ud fra nedfældet supply chain strategi",
+									"K7_21": "K7.21 Kulturforståelse",
+									"K7_22": "K7.22 Krydstræning",
+									"K7_23": "K7.23 Andet"
+								}
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"current_ability_\" + ($key + 1) + \"_2\"",
+								"name": "current_ability",
+								"label": "Nuværende evne",
+								"placeholder": "Vælg værdi fra 1 til 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"importance_\" + ($key + 1) + \"_2\"",
+								"name": "importance",
+								"label": "Vigtighed",
+								"placeholder": "Vælg værdi fra 1 til 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "text",
+								"id": "$: \"note_capability_\" + ($key + 1) + \"_2\"",
+								"name": "note_capability",
+								"label": "Note",
+								"placeholder": "Frivillig udfyldelse, påkrævet, hvis 'Andet' er valgt."
+							}
+						]
+					},
+					{
+						"$el": "h2",
+						"children": "Kapabiliteter 3)",
+						"attrs": {
+							"class": "text-xl"
+						}
+					},
+					{
+						"$formkit": "group",
+						"id": "$: \"capability_group_\" + ($key + 1)",
+						"name": "capability_group",
+						"children": [
+							{
+								"$formkit": "select",
+								"id": "$: \"capability_\" + ($key + 1) + \"_3\"",
+								"name": "capability",
+								"validation": "distinct_capability|required_note_if_other",
+								"label": "Kapabilitet",
+								"help": "Vælg kapabiliteter der kan håndtere sårbarheden",
+								"placeholder": "Vælg kapaciteter, eller lad det stå tomt, hvis der ikke er mere relevant element",
+								"options": {
+									"None": "-",
+									"K1_1": "K1.1 Aktivernes udnyttelsesgrad",
+									"K1_2": "K1.2 Adgang til likviditet",
+									"K1_3": "K1.3 Forsikringer",
+									"K1_4": "K1.4 Prismargen",
+									"K1_5": "K1.5 For- og efterkalkulation",
+									"K1_6": "K1.6 Cash flow",
+									"K1_7": "K1.7 Betalingsbetingelser/konditioner",
+									"K1_8": "K1.8 Fokus på arbejdskapital (NWC)",
+									"K1_9": "K1.9 Fokus på kunde-/produktlønsomhed",
+									"K1_10": "K1.10 Andet",
+									"K2_1": "K2.1 Kundeloyalitet/-fastholdelse",
+									"K2_2": "K2.2 Markedsandele",
+									"K2_3": "K2.3 Evne til at skabe kunderelationer",
+									"K2_4": "K2.4 Evne til markedsspredning",
+									"K2_5": "K2.5 Kundekommunikation",
+									"K2_6": "K2.6 Kundesegmentering",
+									"K2_7": "K2.7 Forecasting",
+									"K2_8": "K2.8 Samarbejde om forecasting",
+									"K2_9": "K2.9 Produktdifferentiering",
+									"K2_10": "K2.10 Alternative distributionskanaler",
+									"K2_11": "K2.11 Attraktivt produktsortiment",
+									"K2_12": "K2.12 Salgspipeline",
+									"K2_13": "K2.13 Udviklingsprojekter/-pipeline",
+									"K2_14": "K2.14 Hurtigere time to market (TTM)",
+									"K2_15": "K2.15 Evnen til at produktsanere",
+									"K2_16": "K2.16 Andet",
+									"K3_1": "K3.1 Fælles komponenter",
+									"K3_2": "K3.2 Flere standardprodukter/komponenter",
+									"K3_3": "K3.3 Modulært produktdesign",
+									"K3_4": "K3.4 Evne til at reducere produktvarianter",
+									"K3_5": "K3.5 Reservekapacitet",
+									"K3_6": "K3.6 Produktionsgrundlag",
+									"K3_7": "K3.7 Ind- og udfasning af produkter",
+									"K3_8": "K3.8 Evne til at forebygge fejl",
+									"K3_9": "K3.9 Kvalitet/kvalitetsstyring",
+									"K3_10": "K3.10 Produktivitet/eliminering af spild",
+									"K3_11": "K3.11 Optimere produktionstid",
+									"K3_12": "K3.12 Hurtig omstilling",
+									"K3_13": "K3.13 Fleksibel/skalerbar kapacitet",
+									"K3_14": "K3.14 Udskyde disponering/produktion",
+									"K3_15": "K3.15 Systematisk vedligeholdelse",
+									"K3_16": "K3.16 Standardiserede arbejdsgange/processer",
+									"K3_17": "K3.17 Dokumentation af arbejdsgange/processer",
+									"K3_18": "K3.18 Kontinuerlige forbedringer",
+									"K3_19": "K3.19 Produktion de rigtige steder",
+									"K3_20": "K3.20 Outsourcing - Make or Buy analyser",
+									"K3_21": "K3.21 Andet",
+									"K4_1": "K4.1 IT-understøttet lagerstyring",
+									"K4_2": "K4.2 Lokationsstyring",
+									"K4_3": "K4.3 Sikkerhedslager",
+									"K4_4": "K4.4 Min./max. Styring",
+									"K4_5": "K4.5 ABC-vareanalyser",
+									"K4_6": "K4.6 Fokus på døde varer/ukurans",
+									"K4_7": "K4.7 Andet",
+									"K5_1": "K5.1 At være en attraktiv kunde",
+									"K5_2": "K5.2 Substitution af råvarer halvfabrikata og komponenter",
+									"K5_3": "K5.3 Flere leverandører/forsyningskilder",
+									"K5_4": "K5.4 Evne til at skabe leverandørrelationer",
+									"K5_5": "K5.5 Prioriterer (segmenterer) leverandører",
+									"K5_6": "K5.6 Leverandørvurdering og -audit",
+									"K5_7": "K5.7 Leverandørudvikling",
+									"K5_8": "K5.9 Viden om forsyningsmarkedet",
+									"K5_9": "K5.9 Differentieret tilgang til leverandørerne",
+									"K5_10": "K5.10 Preferred part liste",
+									"K5_11": "K5.11 Preferred leverandør liste",
+									"K5_12": "K5.12 Andet",
+									"K6_1": "K6.1 Informationsudveksling - internt",
+									"K6_2": "K6.2 Informationsudveksling - eksternt",
+									"K6_3": "K6.3 Brug af tidssvarende informationsteknologi",
+									"K6_4": "K6.4 Cybersikkerhed",
+									"K6_5": "K6.5 Overvågning af early warning signaler",
+									"K6_6": "K6.6 Ejerskab af stamdata",
+									"K6_7": "K6.7 Brug af systemers potentiale",
+									"K6_8": "K6.8 Andet",
+									"K7_1": "K7.1 Relationsledelse",
+									"K7_2": "K7.2 Uddelegering og ansvarliggøres",
+									"K7_3": "K7.3 Eksekveringsevne/evnen til at beslutte",
+									"K7_4": "K7.4 Medarbejderinvolvering",
+									"K7_5": "K7.5 Læring/benchmarking",
+									"K7_6": "K7.6 Kommunikation",
+									"K7_7": "K7.7 Adgang til kvalificeret arbejdskraft",
+									"K7_8": "K7.8 Evner at tiltrække nye medarbejdere",
+									"K7_9": "K7.9 Kriseledelse",
+									"K7_10": "K7.10 Risikoledelse",
+									"K7_11": "K7.11 Lobbyisme",
+									"K7_12": "K7.12 Bredde i kompetenceprofiler",
+									"K7_13": "K7.13 Kreativ problemløsning",
+									"K7_14": "K7.14 Fokus på kernekompetencer",
+									"K7_15": "K7.15 Design for manufacturing/supply chain •",
+									"K7_16": "K7.16 Sales & Operations Planning",
+									"K7_17": "K7.17 Digitalisering",
+									"K7_18": "K7.18 Rette KPI'er på funktions- og virksomhedsniveau",
+									"K7_19": "K7.19 IP-rettigheder",
+									"K7_20": "K7.20 Arbejder ud fra nedfældet supply chain strategi",
+									"K7_21": "K7.21 Kulturforståelse",
+									"K7_22": "K7.22 Krydstræning",
+									"K7_23": "K7.23 Andet"
+								}
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"current_ability_\" + ($key + 1) + \"_3\"",
+								"name": "current_ability",
+								"label": "Nuværende evne",
+								"placeholder": "Vælg værdi fra 1 til 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"importance_\" + ($key + 1) + \"_3\"",
+								"name": "importance",
+								"label": "Vigtighed",
+								"placeholder": "Vælg værdi fra 1 til 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "text",
+								"id": "$: \"note_capability_\" + ($key + 1) + \"_3\"",
+								"name": "note_capability",
+								"label": "Note",
+								"placeholder": "Frivillig udfyldelse, påkrævet, hvis 'Andet' er valgt."
+							}
+						]
+					},
+					{
+						"$el": "h2",
+						"children": "Kapabiliteter 4)",
+						"attrs": {
+							"class": "text-xl"
+						}
+					},
+					{
+						"$formkit": "group",
+						"id": "$: \"capability_group_\" + ($key + 1)",
+						"name": "capability_group",
+						"children": [
+							{
+								"$formkit": "select",
+								"id": "$: \"capability_\" + ($key + 1) + \"_4\"",
+								"name": "capability",
+								"validation": "distinct_capability|required_note_if_other",
+								"label": "Kapabilitet",
+								"help": "Vælg kapabiliteter der kan håndtere sårbarheden",
+								"placeholder": "Vælg kapaciteter, eller lad det stå tomt, hvis der ikke er mere relevant element",
+								"options": {
+									"None": "-",
+									"K1_1": "K1.1 Aktivernes udnyttelsesgrad",
+									"K1_2": "K1.2 Adgang til likviditet",
+									"K1_3": "K1.3 Forsikringer",
+									"K1_4": "K1.4 Prismargen",
+									"K1_5": "K1.5 For- og efterkalkulation",
+									"K1_6": "K1.6 Cash flow",
+									"K1_7": "K1.7 Betalingsbetingelser/konditioner",
+									"K1_8": "K1.8 Fokus på arbejdskapital (NWC)",
+									"K1_9": "K1.9 Fokus på kunde-/produktlønsomhed",
+									"K1_10": "K1.10 Andet",
+									"K2_1": "K2.1 Kundeloyalitet/-fastholdelse",
+									"K2_2": "K2.2 Markedsandele",
+									"K2_3": "K2.3 Evne til at skabe kunderelationer",
+									"K2_4": "K2.4 Evne til markedsspredning",
+									"K2_5": "K2.5 Kundekommunikation",
+									"K2_6": "K2.6 Kundesegmentering",
+									"K2_7": "K2.7 Forecasting",
+									"K2_8": "K2.8 Samarbejde om forecasting",
+									"K2_9": "K2.9 Produktdifferentiering",
+									"K2_10": "K2.10 Alternative distributionskanaler",
+									"K2_11": "K2.11 Attraktivt produktsortiment",
+									"K2_12": "K2.12 Salgspipeline",
+									"K2_13": "K2.13 Udviklingsprojekter/-pipeline",
+									"K2_14": "K2.14 Hurtigere time to market (TTM)",
+									"K2_15": "K2.15 Evnen til at produktsanere",
+									"K2_16": "K2.16 Andet",
+									"K3_1": "K3.1 Fælles komponenter",
+									"K3_2": "K3.2 Flere standardprodukter/komponenter",
+									"K3_3": "K3.3 Modulært produktdesign",
+									"K3_4": "K3.4 Evne til at reducere produktvarianter",
+									"K3_5": "K3.5 Reservekapacitet",
+									"K3_6": "K3.6 Produktionsgrundlag",
+									"K3_7": "K3.7 Ind- og udfasning af produkter",
+									"K3_8": "K3.8 Evne til at forebygge fejl",
+									"K3_9": "K3.9 Kvalitet/kvalitetsstyring",
+									"K3_10": "K3.10 Produktivitet/eliminering af spild",
+									"K3_11": "K3.11 Optimere produktionstid",
+									"K3_12": "K3.12 Hurtig omstilling",
+									"K3_13": "K3.13 Fleksibel/skalerbar kapacitet",
+									"K3_14": "K3.14 Udskyde disponering/produktion",
+									"K3_15": "K3.15 Systematisk vedligeholdelse",
+									"K3_16": "K3.16 Standardiserede arbejdsgange/processer",
+									"K3_17": "K3.17 Dokumentation af arbejdsgange/processer",
+									"K3_18": "K3.18 Kontinuerlige forbedringer",
+									"K3_19": "K3.19 Produktion de rigtige steder",
+									"K3_20": "K3.20 Outsourcing - Make or Buy analyser",
+									"K3_21": "K3.21 Andet",
+									"K4_1": "K4.1 IT-understøttet lagerstyring",
+									"K4_2": "K4.2 Lokationsstyring",
+									"K4_3": "K4.3 Sikkerhedslager",
+									"K4_4": "K4.4 Min./max. Styring",
+									"K4_5": "K4.5 ABC-vareanalyser",
+									"K4_6": "K4.6 Fokus på døde varer/ukurans",
+									"K4_7": "K4.7 Andet",
+									"K5_1": "K5.1 At være en attraktiv kunde",
+									"K5_2": "K5.2 Substitution af råvarer halvfabrikata og komponenter",
+									"K5_3": "K5.3 Flere leverandører/forsyningskilder",
+									"K5_4": "K5.4 Evne til at skabe leverandørrelationer",
+									"K5_5": "K5.5 Prioriterer (segmenterer) leverandører",
+									"K5_6": "K5.6 Leverandørvurdering og -audit",
+									"K5_7": "K5.7 Leverandørudvikling",
+									"K5_8": "K5.9 Viden om forsyningsmarkedet",
+									"K5_9": "K5.9 Differentieret tilgang til leverandørerne",
+									"K5_10": "K5.10 Preferred part liste",
+									"K5_11": "K5.11 Preferred leverandør liste",
+									"K5_12": "K5.12 Andet",
+									"K6_1": "K6.1 Informationsudveksling - internt",
+									"K6_2": "K6.2 Informationsudveksling - eksternt",
+									"K6_3": "K6.3 Brug af tidssvarende informationsteknologi",
+									"K6_4": "K6.4 Cybersikkerhed",
+									"K6_5": "K6.5 Overvågning af early warning signaler",
+									"K6_6": "K6.6 Ejerskab af stamdata",
+									"K6_7": "K6.7 Brug af systemers potentiale",
+									"K6_8": "K6.8 Andet",
+									"K7_1": "K7.1 Relationsledelse",
+									"K7_2": "K7.2 Uddelegering og ansvarliggøres",
+									"K7_3": "K7.3 Eksekveringsevne/evnen til at beslutte",
+									"K7_4": "K7.4 Medarbejderinvolvering",
+									"K7_5": "K7.5 Læring/benchmarking",
+									"K7_6": "K7.6 Kommunikation",
+									"K7_7": "K7.7 Adgang til kvalificeret arbejdskraft",
+									"K7_8": "K7.8 Evner at tiltrække nye medarbejdere",
+									"K7_9": "K7.9 Kriseledelse",
+									"K7_10": "K7.10 Risikoledelse",
+									"K7_11": "K7.11 Lobbyisme",
+									"K7_12": "K7.12 Bredde i kompetenceprofiler",
+									"K7_13": "K7.13 Kreativ problemløsning",
+									"K7_14": "K7.14 Fokus på kernekompetencer",
+									"K7_15": "K7.15 Design for manufacturing/supply chain •",
+									"K7_16": "K7.16 Sales & Operations Planning",
+									"K7_17": "K7.17 Digitalisering",
+									"K7_18": "K7.18 Rette KPI'er på funktions- og virksomhedsniveau",
+									"K7_19": "K7.19 IP-rettigheder",
+									"K7_20": "K7.20 Arbejder ud fra nedfældet supply chain strategi",
+									"K7_21": "K7.21 Kulturforståelse",
+									"K7_22": "K7.22 Krydstræning",
+									"K7_23": "K7.23 Andet"
+								}
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"current_ability_\" + ($key + 1) + \"_4\"",
+								"name": "current_ability",
+								"label": "Nuværende evne",
+								"placeholder": "Vælg værdi fra 1 til 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"importance_\" + ($key + 1) + \"_4\"",
+								"name": "importance",
+								"label": "Vigtighed",
+								"placeholder": "Vælg værdi fra 1 til 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "text",
+								"id": "$: \"note_capability_\" + ($key + 1) + \"_4\"",
+								"name": "note_capability",
+								"label": "Note",
+								"placeholder": "Frivillig udfyldelse, påkrævet, hvis 'Andet' er valgt."
+							}
+						]
+					},
+					{
+						"$el": "h2",
+						"children": "Kapabiliteter 5)",
+						"attrs": {
+							"class": "text-xl"
+						}
+					},
+					{
+						"$formkit": "group",
+						"id": "$: \"capability_group_\" + ($key + 1)",
+						"name": "capability_group",
+						"children": [
+							{
+								"$formkit": "select",
+								"id": "$: \"capability_\" + ($key + 1) + \"_5\"",
+								"name": "capability",
+								"validation": "distinct_capability|required_note_if_other",
+								"label": "Kapabilitet",
+								"help": "Vælg kapabiliteter der kan håndtere sårbarheden",
+								"placeholder": "Vælg kapaciteter, eller lad det stå tomt, hvis der ikke er mere relevant element",
+								"options": {
+									"None": "-",
+									"K1_1": "K1.1 Aktivernes udnyttelsesgrad",
+									"K1_2": "K1.2 Adgang til likviditet",
+									"K1_3": "K1.3 Forsikringer",
+									"K1_4": "K1.4 Prismargen",
+									"K1_5": "K1.5 For- og efterkalkulation",
+									"K1_6": "K1.6 Cash flow",
+									"K1_7": "K1.7 Betalingsbetingelser/konditioner",
+									"K1_8": "K1.8 Fokus på arbejdskapital (NWC)",
+									"K1_9": "K1.9 Fokus på kunde-/produktlønsomhed",
+									"K1_10": "K1.10 Andet",
+									"K2_1": "K2.1 Kundeloyalitet/-fastholdelse",
+									"K2_2": "K2.2 Markedsandele",
+									"K2_3": "K2.3 Evne til at skabe kunderelationer",
+									"K2_4": "K2.4 Evne til markedsspredning",
+									"K2_5": "K2.5 Kundekommunikation",
+									"K2_6": "K2.6 Kundesegmentering",
+									"K2_7": "K2.7 Forecasting",
+									"K2_8": "K2.8 Samarbejde om forecasting",
+									"K2_9": "K2.9 Produktdifferentiering",
+									"K2_10": "K2.10 Alternative distributionskanaler",
+									"K2_11": "K2.11 Attraktivt produktsortiment",
+									"K2_12": "K2.12 Salgspipeline",
+									"K2_13": "K2.13 Udviklingsprojekter/-pipeline",
+									"K2_14": "K2.14 Hurtigere time to market (TTM)",
+									"K2_15": "K2.15 Evnen til at produktsanere",
+									"K2_16": "K2.16 Andet",
+									"K3_1": "K3.1 Fælles komponenter",
+									"K3_2": "K3.2 Flere standardprodukter/komponenter",
+									"K3_3": "K3.3 Modulært produktdesign",
+									"K3_4": "K3.4 Evne til at reducere produktvarianter",
+									"K3_5": "K3.5 Reservekapacitet",
+									"K3_6": "K3.6 Produktionsgrundlag",
+									"K3_7": "K3.7 Ind- og udfasning af produkter",
+									"K3_8": "K3.8 Evne til at forebygge fejl",
+									"K3_9": "K3.9 Kvalitet/kvalitetsstyring",
+									"K3_10": "K3.10 Produktivitet/eliminering af spild",
+									"K3_11": "K3.11 Optimere produktionstid",
+									"K3_12": "K3.12 Hurtig omstilling",
+									"K3_13": "K3.13 Fleksibel/skalerbar kapacitet",
+									"K3_14": "K3.14 Udskyde disponering/produktion",
+									"K3_15": "K3.15 Systematisk vedligeholdelse",
+									"K3_16": "K3.16 Standardiserede arbejdsgange/processer",
+									"K3_17": "K3.17 Dokumentation af arbejdsgange/processer",
+									"K3_18": "K3.18 Kontinuerlige forbedringer",
+									"K3_19": "K3.19 Produktion de rigtige steder",
+									"K3_20": "K3.20 Outsourcing - Make or Buy analyser",
+									"K3_21": "K3.21 Andet",
+									"K4_1": "K4.1 IT-understøttet lagerstyring",
+									"K4_2": "K4.2 Lokationsstyring",
+									"K4_3": "K4.3 Sikkerhedslager",
+									"K4_4": "K4.4 Min./max. Styring",
+									"K4_5": "K4.5 ABC-vareanalyser",
+									"K4_6": "K4.6 Fokus på døde varer/ukurans",
+									"K4_7": "K4.7 Andet",
+									"K5_1": "K5.1 At være en attraktiv kunde",
+									"K5_2": "K5.2 Substitution af råvarer halvfabrikata og komponenter",
+									"K5_3": "K5.3 Flere leverandører/forsyningskilder",
+									"K5_4": "K5.4 Evne til at skabe leverandørrelationer",
+									"K5_5": "K5.5 Prioriterer (segmenterer) leverandører",
+									"K5_6": "K5.6 Leverandørvurdering og -audit",
+									"K5_7": "K5.7 Leverandørudvikling",
+									"K5_8": "K5.9 Viden om forsyningsmarkedet",
+									"K5_9": "K5.9 Differentieret tilgang til leverandørerne",
+									"K5_10": "K5.10 Preferred part liste",
+									"K5_11": "K5.11 Preferred leverandør liste",
+									"K5_12": "K5.12 Andet",
+									"K6_1": "K6.1 Informationsudveksling - internt",
+									"K6_2": "K6.2 Informationsudveksling - eksternt",
+									"K6_3": "K6.3 Brug af tidssvarende informationsteknologi",
+									"K6_4": "K6.4 Cybersikkerhed",
+									"K6_5": "K6.5 Overvågning af early warning signaler",
+									"K6_6": "K6.6 Ejerskab af stamdata",
+									"K6_7": "K6.7 Brug af systemers potentiale",
+									"K6_8": "K6.8 Andet",
+									"K7_1": "K7.1 Relationsledelse",
+									"K7_2": "K7.2 Uddelegering og ansvarliggøres",
+									"K7_3": "K7.3 Eksekveringsevne/evnen til at beslutte",
+									"K7_4": "K7.4 Medarbejderinvolvering",
+									"K7_5": "K7.5 Læring/benchmarking",
+									"K7_6": "K7.6 Kommunikation",
+									"K7_7": "K7.7 Adgang til kvalificeret arbejdskraft",
+									"K7_8": "K7.8 Evner at tiltrække nye medarbejdere",
+									"K7_9": "K7.9 Kriseledelse",
+									"K7_10": "K7.10 Risikoledelse",
+									"K7_11": "K7.11 Lobbyisme",
+									"K7_12": "K7.12 Bredde i kompetenceprofiler",
+									"K7_13": "K7.13 Kreativ problemløsning",
+									"K7_14": "K7.14 Fokus på kernekompetencer",
+									"K7_15": "K7.15 Design for manufacturing/supply chain •",
+									"K7_16": "K7.16 Sales & Operations Planning",
+									"K7_17": "K7.17 Digitalisering",
+									"K7_18": "K7.18 Rette KPI'er på funktions- og virksomhedsniveau",
+									"K7_19": "K7.19 IP-rettigheder",
+									"K7_20": "K7.20 Arbejder ud fra nedfældet supply chain strategi",
+									"K7_21": "K7.21 Kulturforståelse",
+									"K7_22": "K7.22 Krydstræning",
+									"K7_23": "K7.23 Andet"
+								}
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"current_ability_\" + ($key + 1) + \"_5\"",
+								"name": "current_ability",
+								"label": "Nuværende evne",
+								"placeholder": "Vælg værdi fra 1 til 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"importance_\" + ($key + 1) + \"_5\"",
+								"name": "importance",
+								"label": "Vigtighed",
+								"placeholder": "Vælg værdi fra 1 til 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "text",
+								"id": "$: \"note_capability_\" + ($key + 1) + \"_5\"",
+								"name": "note_capability",
+								"label": "Note",
+								"placeholder": "Frivillig udfyldelse, påkrævet, hvis 'Andet' er valgt."
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"$formkit": "step",
+		"id": "step_99_summary",
+		"name": "step_99_summary",
+		"label": "Summary",
+		"props": {
+			"validStepIcon": "submit"
+		},
+		"stepActionsClass": "mt-4",
+		"children": [
+			{
+				"$cmp": "FormResultSummary",
+				"props": {
+					"data": "$get(form).value",
+					"hide-job-function": "$is_super",
+					"is-show-summary": "$isShowSummary"
+				}
+			},
+			{
+				"$formkit": "submit",
+				"outerClass": "mt-4 float-right"
+			}
+		]
+	}
+]

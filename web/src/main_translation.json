@@ -1,0 +1,1995 @@
+{
+  "header": {
+    "menu": {
+      "en": "Menu",
+      "dk": "Menu"
+    },
+    "language": {
+      "en": "Language",
+      "dk": "Language"
+    }
+  },
+  "change_password": {
+    "password_label": {
+      "en": "Enter password",
+      "dk": "Indtast adgangskode"
+    },
+    "password_confirm_label": {
+      "en": "Confirm password",
+      "dk": "Bekræfte adgangskode"
+    }
+  },
+  "home": {
+    "desc": {
+      "da": "Supply Chain Resilience Assessment Tool er udviklet i et projekt finansieret af Industriens Fond (se www.scr-smv.dk) og er udført af forskere fra Syddansk Universitet. Vurderingsværktøjet videreudvikles i et nyt projekt ”Cybersikkerhed og Business Continuity” også finansieret af Industriens Fond (www.cyber-smv.dk).",
+      "en": "The Supply Chain Resilience Assessment Tool has been developed in a project funded by the Danish Industry Foundation (see www.scr-smv.dk) and has been carried out by researchers from University of Southern Denmark. The assessment tool is further developed in a new project \"Cybersecurity and Business Continuity\" also funded by the Danish Industry Foundation (www.cyber-smv.dk)."
+    }
+  },
+  "toast_contact_admin": {
+    "da": "kontakt venligst administrator",
+    "en": "please contact administrator"
+  },
+  "toast_survey_updated": {
+    "da": "Undersøgelsen er opdateret",
+    "en": "Assessment updated"
+  },
+  "toast_survey_submitted": {
+    "da": "Undersøgelse indsendt",
+    "en": "Assessment submitted"
+  },
+  "user_dialog": {
+    "session": {
+      "da": "Session",
+      "en": "Session"
+    },
+    "role": {
+      "da": "Rolle",
+      "en": "Role"
+    },
+    "form_status": {
+      "da": "Formularindsendelsesstatus",
+      "en": "Form Submission Status"
+    },
+    "username": {
+      "da": "Brugernavn",
+      "en": "Username"
+    },
+    "password": {
+      "da": "Adgangskode",
+      "en": "Password"
+    },
+    "header_login": {
+      "da": "Login (til session manager)",
+      "en": "Login (for session manager)"
+    },
+    "header_user": {
+      "da": "Bruger",
+      "en": "User"
+    },
+    "complete": {
+      "da": "Komplet",
+      "en": "Complete"
+    },
+    "phase": {
+      "da": "Fase",
+      "en": "Phase"
+    }
+  },
+  "survey_start": {
+    "header": {
+      "da": "Velkommen",
+      "en": "Welcome"
+    },
+    "text": {
+      "da": "Klik nedenfor for at starte undersøgelsen",
+      "en": "Click below to start the assessment"
+    },
+    "link_to_survey": {
+      "da": "Gå til spørgeskemaet",
+      "en": "Go to survey form"
+    }
+  },
+  "survey_end": {
+    "header": {
+      "da": "Undersøgelse indsendt",
+      "en": "Assessment Submitted"
+    },
+    "text": {
+      "da": "Klik nedenfor for at se resultatet",
+      "en": "Click below to view the assessment summary"
+    },
+    "link_to_result": {
+      "da": "Gå til undersøgelsesresultatet",
+      "en": "Go to assessment summary"
+    }
+  },
+  "session_create": {
+    "header": {
+      "da": "Opret session",
+      "en": "Create Session"
+    },
+    "name_label": {
+      "da": "Opret session",
+      "en": "Session Name"
+    },
+    "description_label": {
+      "da": "Sessionsbeskrivelse",
+      "en": "Session Description"
+    },
+    "questions_label": {
+      "da": "Sessions spørgsmålssæt",
+      "en": "Session question set"
+    },
+    "contact_email_label": {
+      "da": "Kontakt Email",
+      "en": "Contact Email"
+    },
+    "contact_tel_label": {
+      "da": "Kontakt Tlf",
+      "en": "Contact Tel"
+    },
+    "start_date_label": {
+      "da": "Start dato",
+      "en": "Start Date"
+    },
+    "end_date_label": {
+      "da": "Slutdato",
+      "en": "End Date"
+    },
+    "submit_label": {
+      "da": "Oprette",
+      "en": "Create"
+    },
+    "success_text": {
+      "da": "Session oprettet",
+      "en": "Session created"
+    },
+    "link_to_overview": {
+      "da": "Gå til sessionsoversigtssiden",
+      "en": "Go to the session overview page"
+    },
+    "validate_button": {
+      "da": "Validér",
+      "en": "Validate"
+    },
+    "validating": {
+      "da": "Validerer sessionsnavn...",
+      "en": "Validating session name..."
+    },
+    "name_required": {
+      "da": "Sessionsnavn er påkrævet",
+      "en": "Session name is required"
+    },
+    "name_exists": {
+      "da": "Sessionsnavn eksisterer allerede",
+      "en": "Session name already exists"
+    },
+    "validation_success": {
+      "da": "Gyldig",
+      "en": "Valid"
+    },
+    "name_available": {
+      "da": "Sessionsnavnet er tilgængeligt",
+      "en": "Session name is available"
+    },
+    "name_validated": {
+      "da": "Sessionsnavnet er valideret med succes",
+      "en": "Session name validated successfully"
+    },
+    "validation_required": {
+      "da": "Validering påkrævet",
+      "en": "Validation Required"
+    },
+    "validate_name_first": {
+      "da": "Venligst validér sessionsnavnet før indsendelse",
+      "en": "Please validate the session name before submitting"
+    },
+    "validate_name_hint": {
+      "da": "Venligst validér sessionsnavnet først",
+      "en": "Please validate the session name first"
+    }
+  },
+  "phase_display": {
+    "phase_1": {
+      "da": "Kortlæg forsyningskæden",
+      "en": "Map the supply chain"
+    },
+    "phase_2": {
+      "da": "Identificer sårbarheder og kapabiliteter",
+      "en": "Identify vulnerabilities and capabilities"
+    },
+    "phase_3": {
+      "da": "Prioriter og skab tværorganisatorisk alignment",
+      "en": "Prioritize and create cross-organizational alignment"
+    },
+    "phase_4": {
+      "da": "Udarbejd handleplaner",
+      "en": "Prepare action plans"
+    }
+  },
+  "session_view": {
+    "header_status_complete": {
+      "da": "Komplet",
+      "en": "Complete"
+    },
+    "phase": {
+      "da": "Fase {current}",
+      "en": "Phase {current}"
+    },
+    "description": {
+      "da": "Beskrivelse",
+      "en": "Description"
+    },
+    "email": {
+      "da": "Kontakt Email",
+      "en": "Contact Email"
+    },
+    "tel": {
+      "da": "tlf.",
+      "en": "tel."
+    },
+    "survey_status_header": {
+      "da": "Undersøgelsesindsendelsesstatus",
+      "en": "Assessment submission status"
+    },
+    "summary": {
+      "da": "Oversigt",
+      "en": "Summary"
+    },
+    "last_updated": {
+      "da": "Sidste opdatering: {date}",
+      "en": "Last update: {date}"
+    },
+    "to_phase_3_desc": {
+      "da": "Er vurderingerne for fase 2 gennemført?",
+      "en": "Are assessments for Phase 2 completed?"
+    },
+    "to_phase_3_btn": {
+      "da": "Gå videre til fase 3",
+      "en": "Advance to Phase 3"
+    },
+    "to_phase_2_desc": {
+      "da": "Ønsker du at vende tilbage til fase 2?",
+      "en": "Do you wish to return to Phase 2?"
+    },
+    "to_phase_2_btn": {
+      "da": "Vend tilbage til fase 2",
+      "en": "Return to Phase 2"
+    }
+  },
+  "analysis_2": {
+    "capability_chart": {
+      "da": "Opsummering over kapabilitet",
+      "en": "Summary of Capabilities"
+    },
+    "capability_chart_count": {
+      "da": "Almindelige kapabilitet tæller",
+      "en": "Common capabilities count"
+    },
+    "capability_chart_sum": {
+      "da": "Summen af forskel",
+      "en": "Sum of Difference"
+    },
+    "common_vulnerabilities_label": {
+      "da": "Oversigt over udvalgte sårbarheder",
+      "en": "Summary of Selected Vulnerabilities"
+    },
+    "common_vulnerabilities_risk_avg_label": {
+      "da": "Gennemsnit af almindelige sårbarheder risikoniveau",
+      "en": "Average of common vulnerabilities risk level"
+    },
+    "common_vulnerabilities_risk_sum_label": {
+      "da": "Samlet risikoniveau blandt deltagere",
+      "en": "Total risk level among participants"
+    },
+    "common_vulnerabilities_count_label": {
+      "da": "Antal almindelige sårbarheder",
+      "en": "Occurrences of common vulnerabilities"
+    },
+    "header": {
+      "da": "Fase 2 Analyse",
+      "en": "Phase 2 Analysis"
+    },
+    "session": {
+      "da": "Session",
+      "en": "Session"
+    },
+    "vulnerability": {
+      "da": "Sårbarhed",
+      "en": "Vulnerability"
+    },
+    "notes": {
+      "da": "Noter",
+      "en": "Notes"
+    },
+    "capability": {
+      "da": "Kapabilitet",
+      "en": "Capability"
+    },
+    "capabilities": {
+      "da": "Kapabiliteter",
+      "en": "Capabilities"
+    },
+    "current_ability": {
+      "da": "Nuværende evne",
+      "en": "Current Ability"
+    },
+    "importance": {
+      "da": "Vigtighed",
+      "en": "Importance"
+    },
+    "difference": {
+      "da": "Forskel",
+      "en": "Difference"
+    },
+    "sum": {
+      "da": "Samlet risikoniveau",
+      "en": "Total risk level"
+    },
+    "count": {
+      "da": "Hændelser",
+      "en": "Occurrences"
+    },
+    "functional_vulnerabilities": {
+      "da": "Funktionelle sårbarheder",
+      "en": "Functional Vulnerabilities"
+    },
+    "vulnerabilities_summary_header": {
+      "da": "Opsummering af sårbarheder",
+      "en": "Summary Vulnerabilities"
+    },
+    "vulnerabilities_graph_description": {
+      "content": {
+        "en": "This chart compares common vulnerabilities by their frequency and risk levels. {first} show how often each vulnerability selected by the participants, {second} represent the average risk level, and {third} indicate the total risk level among participants.",
+        "da": "Dette diagram sammenligner almindelige sårbarheder ud fra deres hyppighed og risikoniveauer. {first} viser, hvor ofte hver sårbarhed blev valgt af deltagerne,{second} repræsenterer det gennemsnitlige risikoniveau, og {third} angiver det samlede risikoniveau blandt deltagerne"
+      },
+      "first": {
+        "da": "De blå søjler",
+        "en": "Blue bars"
+      },
+      "second": {
+        "da": "de røde søjler",
+        "en": "red bars"
+      },
+      "third": {
+        "da": "de gule søjler",
+        "en": "yellow bars"
+      }
+    },
+    "capability_summary": {
+      "da": "Kapacitetsoversigt",
+      "en": "Capability Summary"
+    },
+    "risk_level_avg": {
+      "da": "Gennemsnitligt risikoniveau",
+      "en": "Average risk level"
+    },
+    "priority": {
+      "da": "Prioritet",
+      "en": "Priority"
+    },
+    "job_function": {
+      "da": "Funktionsområde",
+      "en": "Job Function"
+    },
+    "capabilities_graph_description": {
+      "content": {
+        "en": "This chart compares common capabilities by their frequency and gap between importance and current ability. {first} show how often each vulnerability selected by the participants, {second} represent the average of gap between importance and current ability",
+        "da": "Dette diagram sammenligner almindelige kapabiliteter ud fra deres hyppighed og risikoniveauer. {first} viser, hvor ofte hver kapabiliteter blev valgt af deltagerne,{second} repræsenterer gennemsnittet af forskellen mellem vigtighed og nuværende evne."
+      },
+      "first": {
+        "da": "De blå søjler",
+        "en": "Blue bars"
+      },
+      "second": {
+        "da": "de røde søjler",
+        "en": "red bars"
+      }
+    }
+  },
+  "analysis_3": {
+    "header": {
+      "da": "Fase 3 Analyse",
+      "en": "Phase 3 Analysis"
+    },
+    "session": {
+      "da": "Session",
+      "en": "Session"
+    },
+    "summary_header": {
+      "da": "Oversigtstabel",
+      "en": "Summary Table"
+    },
+    "table_columns": {
+      "vulnerability": {
+        "da": "Sårbarhed",
+        "en": "Vulnerability"
+      },
+      "impact": {
+        "da": "Indflydelse",
+        "en": "Impact"
+      },
+      "likelihood": {
+        "da": "Sandsynlighed",
+        "en": "Likelihood"
+      },
+      "risk_level": {
+        "da": "Risikoniveau (Indflydelse * Sandsynlighed)",
+        "en": "Risk Level (Impact x Likelihood)"
+      },
+      "capability": {
+        "da": "Kapabilitet",
+        "en": "Capability"
+      },
+      "current_ability": {
+        "da": "Nuværende evne",
+        "en": "Current Ability"
+      },
+      "importance": {
+        "da": "Vigtighed",
+        "en": "Importance"
+      },
+      "difference": {
+        "da": "Forskel",
+        "en": "Difference"
+      }
+    }
+  },
+  "session_user": {
+    "survey_status_label": {
+      "da": "Assessment status",
+      "en": "Assessment status"
+    },
+    "summary_label": {
+      "da": "Summary",
+      "en": "Summary"
+    },
+    "survey_link_label": {
+      "da": "Assessment Link",
+      "en": "Assessment Link"
+    }
+  },
+  "form_status": {
+    "ready": {
+      "da": "Klar",
+      "en": "Ready"
+    },
+    "unfinished": {
+      "da": "Ufærdig",
+      "en": "Unfinished"
+    },
+    "done": {
+      "da": "Færdig",
+      "en": "Done"
+    }
+  },
+  "copy_user_password": {
+    "summary": {
+      "da": "Data kopieret",
+      "en": "Data copied"
+    },
+    "detail": {
+      "da": "Link for {username} er kopieret",
+      "en": "Link for {username} is copied"
+    },
+    "button_label": {
+      "da": "Kopier link",
+      "en": "Copy Link"
+    },
+    "username": {
+      "da": "Brugernavn",
+      "en": "Username"
+    },
+    "password": {
+      "da": "Adgangskode",
+      "en": "Password"
+    }
+  },
+  "survey_summary": {
+    "header": {
+      "da": "Sammenfatning af undersøgelsen",
+      "en": "Assessment Summary"
+    },
+    "expand_all": {
+      "da": "Udvid alle",
+      "en": "Expand All"
+    },
+    "collapse_all": {
+      "da": "Skjul alle",
+      "en": "Collapse All"
+    },
+    "jobfunction": {
+      "da": "Funktionsområde",
+      "en": "Job Function"
+    },
+    "virksomhed": {
+      "da": "Virksomhed",
+      "en": "Company"
+    },
+    "dato": {
+      "da": "Dato",
+      "en": "Date"
+    },
+    "table_columns": {
+      "vulnerability": {
+        "da": "Sårbarhed",
+        "en": "Vulnerability"
+      },
+      "impact": {
+        "da": "Indflydelse",
+        "en": "Impact"
+      },
+      "likelihood": {
+        "da": "Sandsynlighed",
+        "en": "Likelihood"
+      },
+      "risk_level": {
+        "da": "Risikoniveau (Indflydelse * Sandsynlighed)",
+        "en": "Risk Level (Impact x Likelihood)"
+      },
+      "capability": {
+        "da": "Kapabilitet",
+        "en": "Capability"
+      },
+      "current_ability": {
+        "da": "Nuværende evne",
+        "en": "Current Ability"
+      },
+      "importance": {
+        "da": "Vigtighed",
+        "en": "Importance"
+      },
+      "difference": {
+        "da": "Forskel",
+        "en": "Difference Current Ability "
+      },
+      "current_ability_avg": {
+        "da": "Nuværende evne (gns.)",
+        "en": "Current Ability (avg.)"
+      },
+      "importance_avg": {
+        "da": "Vigtighed (gns.)",
+        "en": "Importance (avg.)"
+      },
+      "difference_avg": {
+        "da": "Forskel (gns.)",
+        "en": "Difference (avg.)"
+      }
+    },
+    "data_missing": {
+      "da": "Undersøgelsesdata mangler, sørg for at have indsendt formularen",
+      "en": "Assessment data is missing, make sure you have submitted the form."
+    }
+  },
+  "survey_title_2": {
+    "da": "Fase 2 - vurdering af sårbarheder og kapabiliteter: {username}",
+    "en": "Phase 2 - assessment of vulnerabilities and capabilities: {username}"
+  },
+  "survey_title_3": {
+    "da": "Fase 3 - prioriter og skab tværorganisatorisk alignment: {username}",
+    "en": "Phase 3 - prioritize and create cross-organizational alignment: {username}"
+  },
+  "form": {
+    "new": {
+      "step_1": {
+        "step_label": {
+          "da": "Jobfunktion",
+          "en": "Job Function"
+        },
+        "select_jobfunction_label": {
+          "da": "Jobfunktion",
+          "en": "Job Function"
+        },
+        "select_jobfunction_placeholder": {
+          "da": "Klik og vælg, hvilken afdeling din jobfunktion passer bedst ind i.",
+          "en": "Click and choose which department your job function fits best into."
+        },
+        "select_jobfunction_options": {
+          "Indkøb": {
+            "da": "Indkøb",
+            "en": "Purchase"
+          },
+          "Produktion": {
+            "da": "Produktion",
+            "en": "Production"
+          },
+          "Salg": {
+            "da": "Salg",
+            "en": "Sales"
+          },
+          "Produktudvikling": {
+            "da": "Produktudvikling",
+            "en": "Product Development"
+          },
+          "Økonomi / IT": {
+            "da": "Økonomi / IT",
+            "en": "Economy / IT"
+          },
+          "Andet": {
+            "da": "Andet",
+            "en": "Other"
+          }
+        },
+        "select_jobfunctionother_label": {
+          "da": "Andet",
+          "en": "Other"
+        },
+        "select_other_placeholder": {
+          "da": "I tilfælde af »Andet«, uddyb venligst.",
+          "en": "In case of 'Other', please elaborate."
+        },
+        "select_company_label": {
+          "da": "Virksomhed",
+          "en": "Company"
+        },
+        "select_company_placeholder": {
+          "da": "Indtast virksomhed.",
+          "en": "Enter your company."
+        }
+      },
+      "step_2": {
+        "step_label": {
+          "da": "Sårbarhed",
+          "en": "Vulnerability"
+        },
+        "select_jobfunction_label": {
+          "da": "Sårbarhed",
+          "en": "Vulnerability"
+        },
+        "inplace_vulnerability_label": {
+          "da": "Vælg Sårbarhed",
+          "en": "Select Vulnerability"
+        },
+        "remove_button": {
+          "da": "Fjern denne sårbarhed",
+          "en": "Remove this vulnerability"
+        },
+        "vulnerability_label": {
+          "da": "Sårbarheder",
+          "en": "Vulnerability"
+        },
+        "risk_assessment_label": {
+          "da": "Risikovurdering",
+          "en": "Risk Assessment"
+        },
+        "risk_management_sub_label": {
+          "da": "Vælg sandsynligheden for, at sårbarheden opstår, og den potentielle alvorlighed af sårbarhedens indvirkning. Overvej følgende definitioner:",
+          "en": "Select the likelihood of the vulnerability occurring and the potential severity of the vulnerability's impact. Consider the following definitions:"
+        },
+        "risk_management_impact": {
+          "da": "Indflydelse",
+          "en": "Impact"
+        },
+        "risk_management_likelihood": {
+          "da": "Sandsynlighed",
+          "en": "Likelihood"
+        },
+        "risk_management_likelihood_help_list": {
+          "1": {
+            "da": "Very Likely: Næsten sikker på at forekomme.",
+            "en": "Very Likely: Almost certain to occur."
+          },
+          "2": {
+            "da": "Likely: Vil sandsynligvis forekomme.",
+            "en": "Likely: Probably will occur."
+          },
+          "3": {
+            "da": "Possible: Kan forekomme på et tidspunkt.",
+            "en": "Possible: Might occur at some time."
+          },
+          "4": {
+            "da": "Unlikely: Kan forekomme på et tidspunkt.",
+            "en": "Unlikely: Could occur at some time."
+          },
+          "5": {
+            "da": "Very Unlikely: Meget usandsynligt, at det sker.",
+            "en": "Very Unlikely: Highly unlikely to occur."
+          }
+        },
+        "risk_management_impact_help_list": {
+          "1": {
+            "da": "Negligible: Ingen væsentlig påvirkning.",
+            "en": "Negligible: No significant impact."
+          },
+          "2": {
+            "da": "Minor: Minimal påvirkning, der let kan genoprettes.",
+            "en": "Minor: Minimal impact, easily recoverable."
+          },
+          "3": {
+            "da": "Moderate: Mærkbar påvirkning, kræver en vis indsats for at genoprette.",
+            "en": "Moderate: Noticeable impact, requires some effort to recover."
+          },
+          "4": {
+            "da": "Significant: Stor påvirkning, kræver en betydelig indsats og ressourcer at genoprette.",
+            "en": "Significant: Major impact, requires substantial effort and resources to recover."
+          },
+          "5": {
+            "da": "Severe: Katastrofal påvirkning, der potentielt kan føre til virksomhedssvigt.",
+            "en": "Severe: Catastrophic impact, potentially leading to business failure."
+          }
+        },
+        "capability_label": {
+          "da": "Kapabiliteter til at håndtere sårbarhed",
+          "en": "Capabilities to mitigate vulnerability"
+        },
+        "capability_help": {
+          "da": "Vælg op til 5 kapabiliteter, der kan håndtere sårbarheden, og vurder derefter din opfattelse af 'Aktuel evne' og dens 'Vigtighed' på en skala fra 1 til 5. 1 = Meget lav evne og 5 = Meget høj evne, 1 = Meget lav vigtighed og 5 = Meget høj vigtighed.",
+          "en": "Select up to 5 capabilities that can address the vulnerability, then rate your perception of 'Current ability' and its 'Importance' on a scale of 1 to 5. 1 = Very Low Capability and 5 = Very High Capability, 1 = Very Low importance and 5 = Very high importance."
+        },
+        "current_ability_label": {
+          "da": "Nuværende evne",
+          "en": "Current Ability"
+        },
+        "importance_label": {
+          "da": "Vigtighed",
+          "en": "Importance"
+        },
+        "capability_toomany_error_summary": {
+          "da": "For mange evner",
+          "en": "Too many capabilities"
+        },
+        "capability_toomany_error_detail": {
+          "da": "Du kan vælge op til 5 evner",
+          "en": "You may choose up to 5 capabilities."
+        }
+      },
+      "step_addmore": {
+        "step_label": {
+          "da": "Tilføj mere sårbarhed",
+          "en": "Add more Vulnerability"
+        },
+        "add_button": {
+          "da": "Tilføj mere sårbarhed",
+          "en": "Add more Vulnerability"
+        },
+        "next_button": {
+          "da": "Fortsæt til resumé",
+          "en": "Proceed to Summary"
+        }
+      }
+    },
+    "step_2": {
+      "add_vulnerability_button": {
+        "da": "Tilføj ny sårbarhed",
+        "en": "Add new vulnerability"
+      },
+      "delete_vulnerability_button": {
+        "da": "Fjern seneste sårbarhed",
+        "en": "Remove latest vulnerability"
+      },
+      "step_label": {
+        "da": "Prioritering",
+        "en": "Prioritization"
+      },
+      "step_instruction": {
+        "da": "Klik herunder og vælg op til 10 sårbarheder, som du mener, har betydning for virksomhedens supply chain præstationer og resultater. Sårbarhederne prioriteres, så den sårbarhed, der efter din vurdering har størst betydning, ligger som nr. 1. Den, der har næststørst betydning, ligger som nr. 2 etc.",
+        "en": "Click below and select up to 10 vulnerabilities that you believe are important to the company's supply chain performance and results. The vulnerabilities are prioritized, so that the vulnerability that, according to your assessment, is most important is number 1. The one with the second most importance is number 2, etc."
+      },
+      "priority_header": {
+        "da": "Sårbarheder",
+        "en": "Vulnerability"
+      },
+      "vulnerability_label": {
+        "da": "Sårbarheder",
+        "en": "Vulnerability"
+      },
+      "vulnerability_placeholder": {
+        "da": "Vælg Sårbarhed",
+        "en": "Select Vulnerability"
+      },
+      "vulnerability_options": {
+        "undefined": {
+          "en": "",
+          "da": ""
+        },
+        "None": {
+          "en": "",
+          "da": ""
+        },
+        "S1_1": {
+          "en": "V1.1 Asset turnover",
+          "da": "S1.1 Aktivers omsætningshastighed"
+        },
+        "S1_2": {
+          "en": "V1.2 Access to liquidity",
+          "da": "S1.2 Adgang til likviditet"
+        },
+        "S1_3": {
+          "en": "V1.3 High level of net working capital",
+          "da": "S1.3 Høj binding i arbejdskapital (net working capital - NWC)"
+        },
+        "S1_4": {
+          "en": "V1.4 Low cash flow",
+          "da": "S1.4 Lavt cash flow"
+        },
+        "S1_5": {
+          "en": "V1.5 Other",
+          "da": "S1.5 Andet"
+        },
+        "S2_1": {
+          "en": "V2.1 Unpredictability of demand",
+          "da": "S2.1 Uforudsigelig efterspørgsel"
+        },
+        "S2_2": {
+          "en": "V2.2 Lacks of sale",
+          "da": "S2.2 Manglende salg"
+        },
+        "S2_3": {
+          "en": "V2.3 Product development pipeline",
+          "da": "S2.3 Produktudviklingspipeline"
+        },
+        "S2_4": {
+          "en": "V2.4 Insufficient sales pipeline",
+          "da": "S2.4 Utilstrækkelig salgspipeline"
+        },
+        "S2_5": {
+          "en": "V2.5 Customers frequently make changes in orders",
+          "da": "S2.5 Kunder ændrer hyppigt på ordrer"
+        },
+        "S2_6": {
+          "en": "V2.6 Customer dependency",
+          "da": "S2.6 Kundeafhængighed"
+        },
+        "S2_7": {
+          "en": "V2.7 Insufficient product assortment",
+          "da": "S2.7 Utilstrækkeligt produktsortiment"
+        },
+        "S2_8": {
+          "en": "V2.8 Too large assortment",
+          "da": "S2.8 For stort sortiment"
+        },
+        "S2_9": {
+          "en": "V2.9 Product liability/compensation",
+          "da": "S2.9 Produktansvar/kundeerstatning"
+        },
+        "S2_10": {
+          "en": "V2.10 Brand image",
+          "da": "S2.10 Brandimage"
+        },
+        "S2_11": {
+          "en": "V2.11 Time to market challenges",
+          "da": "S2.11 Time to market udfordringer"
+        },
+        "S2_12": {
+          "en": "V2.12 Time pressure",
+          "da": "S2.12 Presset på tid"
+        },
+        "S2_13": {
+          "en": "V2.13 Unprofitable customers",
+          "da": "S2.13 Ikke profitable kunder"
+        },
+        "S2_14": {
+          "en": "V2.14 Lack of market focus",
+          "da": "S2.14 Manglende markedsfokus"
+        },
+        "S2_15": {
+          "en": "V2.15 Too low transport capacity",
+          "da": "S2.15 For lav transportkapacitet"
+        },
+        "S2_16": {
+          "en": "V2.16 Other",
+          "da": "S2.16 Andet"
+        },
+        "S3_1": {
+          "en": "V3.1 Too low production capacity",
+          "da": "S3.1 For lav produktionskapacitet"
+        },
+        "S3_2": {
+          "en": "V3.2 Reliability of equipments",
+          "da": "S3.2 Udstyrs pålidelighed"
+        },
+        "S3_3": {
+          "en": "V3.3 Manufacturing does not take place at the right locations",
+          "da": "S3.3 Produktion sker ikke på de rigtige lokationer"
+        },
+        "S3_4": {
+          "en": "V3.4 Undocumented processes",
+          "da": "S3.4 Udokumenterede processer"
+        },
+        "S3_5": {
+          "en": "V3.5 A too-high operational focus",
+          "da": "S3.5 For driftsorienteret"
+        },
+        "S3_6": {
+          "en": "V3.6 Lack of cross-functional collaboration (silo-culture)",
+          "da": "S3.6 Mangel på tværgående samarbejde (silodannelse)"
+        },
+        "S3_7": {
+          "en": "V3.7 Lack of human resources",
+          "da": "S3.7 Mangel på menneskelige ressourcer"
+        },
+        "S3_8": {
+          "en": "V3.8 Lack of competencies",
+          "da": "S3.8 Mangel på kompetencer"
+        },
+        "S3_9": {
+          "en": "V3.9 Too much tacit knowledge",
+          "da": "S3.9 For meget tavs viden"
+        },
+        "S3_10": {
+          "en": "V3.10 Too high staff turnover",
+          "da": "S3.10 For høj personaleomsætning"
+        },
+        "S3_11": {
+          "en": "V3.11 Too dependent on key persons",
+          "da": "S3.11 For afhængig af nøglepersoner"
+        },
+        "S3_12": {
+          "en": "V3.12 Lack of financial resources",
+          "da": "S3.12 For få finansielle ressourcer"
+        },
+        "S3_13": {
+          "en": "V3.13 Quality",
+          "da": "S3.13 Kvalitet"
+        },
+        "S3_14": {
+          "en": "V3.14 Lack of maintenance",
+          "da": "S3.14 Manglende vedligehold"
+        },
+        "S3_15": {
+          "en": "V3.15 Insufficient foundation of production (master data)",
+          "da": "S3.15 Utilstrækkeligt produktionsgrundlag"
+        },
+        "S3_16": {
+          "en": "V3.16 Other",
+          "da": "S3.16 Andet"
+        },
+        "S4_1": {
+          "en": "V4.1 Insufficient systems",
+          "da": "S4.1 Utilstrækkelige systemer"
+        },
+        "S4_2": {
+          "en": "V4.2 Lack of IT security",
+          "da": "S4.2 Mangler IT-sikkerhed"
+        },
+        "S4_3": {
+          "en": "V4.3 Lack of Quality Management",
+          "da": "S4.3 Mangler kvalitetsstyring"
+        },
+        "S4_4": {
+          "en": "V4.4 Too low data quality",
+          "da": "S4.4 For lav datakvalitet"
+        },
+        "S4_5": {
+          "en": "V4.5 Too low data accessibility",
+          "da": "S4.5 For lav datatilgængelighed"
+        },
+        "S4_6": {
+          "en": "V4.6 Too few/wrong KPI's",
+          "da": "S4.6 For få/forkerte KPI'er"
+        },
+        "S4_7": {
+          "en": "V4.7 Conflicting KPI's",
+          "da": "S4.7 Modstridende KPI'er"
+        },
+        "S4_8": {
+          "en": "V4.8 Insufficient use of systems",
+          "da": "S4.8 Utilstrækkelig anvendelse af systemer"
+        },
+        "S4_9": {
+          "en": "V4.9 Other",
+          "da": "S4.9 Andet"
+        },
+        "S5_1": {
+          "en": "V5.1 Too low supplier capacity",
+          "da": "S5.1 For lav leverandørkapacitet"
+        },
+        "S5_2": {
+          "en": "V5.2 Lack of accessibility of raw materials and supplies",
+          "da": "S5.2 Manglende tilgængelighed af råvarer og forsyninger"
+        },
+        "S5_3": {
+          "en": "V5.3 Too low supplier reliability",
+          "da": "S5.3 For lav leverandørpålidelighed"
+        },
+        "S5_4": {
+          "en": "V5.4 Dependency on Supplier Relations",
+          "da": "S5.4 Afhængighed af leverandørrelationer"
+        },
+        "S5_5": {
+          "en": "V5.5 Lack of access to supplier competencies",
+          "da": "S5.5 Manglende adgang til leverandørkompetencer"
+        },
+        "S5_6": {
+          "en": "V5.6 Too little focus on new suppliers",
+          "da": "S5.6 For lidt fokus på nye leverandører"
+        },
+        "S5_7": {
+          "en": "V5.7 Supplier bankruptcy",
+          "da": "S5.7 Leverandørkonkurs"
+        },
+        "S5_8": {
+          "en": "V5.8 Requirements for product purity",
+          "da": "S5.8 Krav til produktrenhed"
+        },
+        "S5_9": {
+          "en": "V5.9 Other",
+          "da": "S5.9 Andet"
+        },
+        "S6_1": {
+          "en": "V6.1 Lack of transparency",
+          "da": "S6.1 Manglende gennemsigtighed"
+        },
+        "S6_2": {
+          "en": "V6.2 Price pressures from customers/suppliers",
+          "da": "S6.2 Prispres fra kunder/leverandører"
+        },
+        "S6_3": {
+          "en": "V6.3 Too high/low growth",
+          "da": "S6.3 For høj/lav vækst"
+        },
+        "S6_4": {
+          "en": "V6.4 Import and export restrictions/channels",
+          "da": "S6.4 Im- og eksportrestriktioner/kanaler"
+        },
+        "S6_5": {
+          "en": "V6.5 Too high complexity",
+          "da": "S6.5 For stor kompleksitet"
+        },
+        "S6_6": {
+          "en": "V6.6 Other",
+          "da": "S6.6 Andet"
+        },
+        "S7_1": {
+          "en": "V7.1 Geopolitical disruptions",
+          "da": "S7.1 Geopolitiske forstyrrelser"
+        },
+        "S7_2": {
+          "en": "V7.2 Fluctuations in prices and exchange rates",
+          "da": "S7.2 Udsving i priser og valutakurser"
+        },
+        "S7_3": {
+          "en": "V7.3 Terrorism/sabotage",
+          "da": "S7.3 Terrorisme/sabotage"
+        },
+        "S7_4": {
+          "en": "V7.4 Espionage/theft",
+          "da": "S7.4 Spionage/tyveri"
+        },
+        "S7_5": {
+          "en": "V7.5 Cyber-attack",
+          "da": "S7.5 Cyberangreb"
+        },
+        "S7_6": {
+          "en": "V7.6 Competitors innovation",
+          "da": "S7.6 Konkurrenternes innovation"
+        },
+        "S7_7": {
+          "en": "V7.7 Social/demographic/cultural changes",
+          "da": "S7.7 Sociale/demografiske/ kulturelle ændringer"
+        },
+        "S7_8": {
+          "en": "V7.8 Requirements for CSR/sustainability/ESG/UN SDG's",
+          "da": "S7.8 Krav om CSR/bæredygtighed/FN's verdensmål/ESG/kædeansvar"
+        },
+        "S7_9": {
+          "en": "V7.9 Political regulatory changes",
+          "da": "S7.9 Politiske regulatoriske ændringer"
+        },
+        "S7_10": {
+          "en": "V7.10 Stakeholders/NGO's",
+          "da": "S7.10 Interessenter/NGO'er"
+        },
+        "S7_11": {
+          "en": "V7.11 Disruptions",
+          "da": "S7.11 Disruptions"
+        },
+        "S7_12": {
+          "en": "V7.12 Unclear/lack of IPR",
+          "da": "S7.12 Uklar/manglende IP- rettigheder"
+        },
+        "S7_13": {
+          "en": "V7.13 Strikes",
+          "da": "S7.13 Strejke(r)"
+        },
+        "S7_14": {
+          "en": "V7.14 Other",
+          "da": "S7.14 Andet"
+        }
+      },
+      "note_vulnerability_label": {
+        "en": "Note",
+        "da": "Note"
+      },
+      "note_vulnerability_placeholder": {
+        "en": "Voluntary completion, required if 'Other' is selected.",
+        "da": "Frivillig udfyldelse, påkrævet, hvis 'Andet' er valgt."
+      }
+    },
+    "step_3": {
+      "step_label": {
+        "da": "Risikovurdering",
+        "en": "Risk Assessment"
+      },
+      "step_header": {
+        "da": "Risikovurdering af sårbarheder",
+        "en": "Risk assessment of Vulnerabilities"
+      },
+      "step_instruction": {
+        "da": "Her vurderer du, hvor meget de enkelte sårbarheder påvirker din virksomheds supply chain performance (Indflydelse/Impact). 1 = Meget lav indflydelse og 5 = Meget høj indflydelse. Du skal også vurdere sandsynligheden for, at de enkelte sårbarheder rent faktisk vil finde sted. 1 = Meget lav sandsynlighed og 5 = Meget høj sandsynlighed.",
+        "en": "Here you assess how much the individual vulnerabilities will affect your company's supply chain performance (Influence/Impact). Very low impact = 1 and very high impact = 5. You also assess the probability that the individual vulnerabilities will actually occur. Very low probability = 1 and very high probability = 5."
+      },
+      "priority_header": {
+        "da": "Prioritet",
+        "en": "Priority"
+      },
+      "impact_label": {
+        "da": "Indflydelse/ Impact på supply chainen",
+        "en": "Influence/ Impact on the supply chain"
+      },
+      "likelihood_label": {
+        "da": "Sandsynlighed for at sårbarheden vil finde sted",
+        "en": "Likelihood that the vulnerability will occur"
+      },
+      "impact_placeholder": {
+        "da": "Vælg værdi fra 1 til 5",
+        "en": "Select value from 1 to 5"
+      },
+      "likelihood_placeholder": {
+        "da": "Vælg værdi fra 1 til 5",
+        "en": "Select value from 1 to 5"
+      },
+      "risk_level": {
+        "da": "Risikoniveau (Impact x Sandsynlighed)",
+        "en": "Risk level (Impact x Likelihood)"
+      }
+    },
+    "step_4": {
+      "step_label": {
+        "da": "Sårbarhed",
+        "en": "Vulnerability"
+      },
+      "step_header": {
+        "da": "Kapabiliteter til at håndtere sårbarhed",
+        "en": "Capabilities to mitigate vulnerability"
+      },
+      "card_impact": {
+        "da": "Indflydelse",
+        "en": "Impact"
+      },
+      "card_likelihood": {
+        "da": "Sandsynlighed",
+        "en": "Likelihood"
+      },
+      "card_risk_level": {
+        "da": "Risikoniveau (Impact x Sandsynlighed)",
+        "en": "Risk level (Impact x Likelihood)"
+      },
+      "capability_header": {
+        "da": "Kapabiliteter",
+        "en": "Capability"
+      },
+      "step_instruction": {
+        "da": "Vælg op til 5 kapabiliteter, der kan håndtere sårbarheden, og vurder derefter din opfattelse af 'Aktuel evne' og dens 'Vigtighed' på en skala fra 1 til 5. 1 = Meget lav evne og 5 = Meget høj evne, 1 = Meget lav vigtighed og 5 = Meget høj vigtighed.",
+        "en": "Select up to 5 capabilities that can address the vulnerability, then rate your perception of 'Current Capability' and its 'Importance' on a scale of 1 to 5. 1 = Very Low Capability and 5 = Very High Capability, 1 = Very Low importance and 5 = Very high importance."
+      },
+      "prev": {
+        "da": "Data fra tidligere trin",
+        "en": "Data from previous steps"
+      },
+      "capability_label": {
+        "da": "Kapabilitet",
+        "en": "Capability"
+      },
+      "capability_help": {
+        "da": "Vælg kapabiliteter der kan håndtere sårbarheden",
+        "en": "Choose capabilities that can handle the above vulnerability"
+      },
+      "capability_placeholder": {
+        "da": "Vælg kapaciteter, eller lad det stå tomt, hvis der ikke er mere relevant element",
+        "en": "Select capabilities or leave empty if no more applicable item"
+      },
+      "capability_options": {},
+      "current_ability_label": {
+        "da": "Nuværende evne",
+        "en": "Current Ability"
+      },
+      "current_ability_placeholder": {
+        "da": "Vælg værdi fra 1 til 5",
+        "en": "Select value from 1 to 5"
+      },
+      "importance_label": {
+        "da": "Vigtighed",
+        "en": "Importance"
+      },
+      "importance_placeholder": {
+        "da": "Vælg værdi fra 1 til 5",
+        "en": "Select value from 1 to 5"
+      },
+      "note_capability_label": {
+        "en": "Note",
+        "da": "Note"
+      },
+      "note_capability_placeholder": {
+        "en": "Voluntary completion, required if 'Other' is selected.",
+        "da": "Frivillig udfyldelse, påkrævet, hvis 'Andet' er valgt."
+      }
+    }
+  },
+  "survey": {
+    "V1": {
+      "undefined": {
+        "en": "",
+        "da": ""
+      },
+      "None": {
+        "en": "",
+        "da": ""
+      },
+      "Indkøb": {
+        "da": "Indkøb",
+        "en": "Purchase"
+      },
+      "Produktion": {
+        "da": "Produktion",
+        "en": "Production"
+      },
+      "Salg": {
+        "da": "Salg",
+        "en": "Sales"
+      },
+      "Produktudvikling": {
+        "da": "Produktudvikling",
+        "en": "Product Development"
+      },
+      "Økonomi / IT": {
+        "da": "Økonomi / IT",
+        "en": "Economy / IT"
+      },
+      "Andet": {
+        "da": "Andet",
+        "en": "Other"
+      },
+      "S1_1": {
+        "en": "V1.1 Asset turnover",
+        "da": "S1.1 Aktivers omsætningshastighed"
+      },
+      "S1_2": {
+        "en": "V1.2 Access to liquidity",
+        "da": "S1.2 Adgang til likviditet"
+      },
+      "S1_3": {
+        "en": "V1.3 High level of net working capital",
+        "da": "S1.3 Høj binding i arbejdskapital (net working capital - NWC)"
+      },
+      "S1_4": {
+        "en": "V1.4 Low cash flow",
+        "da": "S1.4 Lavt cash flow"
+      },
+      "S1_5": {
+        "en": "V1.5 Other",
+        "da": "S1.5 Andet"
+      },
+      "S2_1": {
+        "en": "V2.1 Unpredictability of demand",
+        "da": "S2.1 Uforudsigelig efterspørgsel"
+      },
+      "S2_2": {
+        "en": "V2.2 Lacks of sale",
+        "da": "S2.2 Manglende salg"
+      },
+      "S2_3": {
+        "en": "V2.3 Product development pipeline",
+        "da": "S2.3 Produktudviklingspipeline"
+      },
+      "S2_4": {
+        "en": "V2.4 Insufficient sales pipeline",
+        "da": "S2.4 Utilstrækkelig salgspipeline"
+      },
+      "S2_5": {
+        "en": "V2.5 Customers frequently make changes in orders",
+        "da": "S2.5 Kunder ændrer hyppigt på ordrer"
+      },
+      "S2_6": {
+        "en": "V2.6 Customer dependency",
+        "da": "S2.6 Kundeafhængighed"
+      },
+      "S2_7": {
+        "en": "V2.7 Insufficient product assortment",
+        "da": "S2.7 Utilstrækkeligt produktsortiment"
+      },
+      "S2_8": {
+        "en": "V2.8 Too large assortment",
+        "da": "S2.8 For stort sortiment"
+      },
+      "S2_9": {
+        "en": "V2.9 Product liability/compensation",
+        "da": "S2.9 Produktansvar/kundeerstatning"
+      },
+      "S2_10": {
+        "en": "V2.10 Brand image",
+        "da": "S2.10 Brandimage"
+      },
+      "S2_11": {
+        "en": "V2.11 Time to market challenges",
+        "da": "S2.11 Time to market udfordringer"
+      },
+      "S2_12": {
+        "en": "V2.12 Time pressure",
+        "da": "S2.12 Presset på tid"
+      },
+      "S2_13": {
+        "en": "V2.13 Unprofitable customers",
+        "da": "S2.13 Ikke profitable kunder"
+      },
+      "S2_14": {
+        "en": "V2.14 Lack of market focus",
+        "da": "S2.14 Manglende markedsfokus"
+      },
+      "S2_15": {
+        "en": "V2.15 Too low transport capacity",
+        "da": "S2.15 For lav transportkapacitet"
+      },
+      "S2_16": {
+        "en": "V2.16 Other",
+        "da": "S2.16 Andet"
+      },
+      "S3_1": {
+        "en": "V3.1 Too low production capacity",
+        "da": "S3.1 For lav produktionskapacitet"
+      },
+      "S3_2": {
+        "en": "V3.2 Reliability of equipments",
+        "da": "S3.2 Udstyrs pålidelighed"
+      },
+      "S3_3": {
+        "en": "V3.3 Manufacturing does not take place at the right locations",
+        "da": "S3.3 Produktion sker ikke på de rigtige lokationer"
+      },
+      "S3_4": {
+        "en": "V3.4 Undocumented processes",
+        "da": "S3.4 Udokumenterede processer"
+      },
+      "S3_5": {
+        "en": "V3.5 A too-high operational focus",
+        "da": "S3.5 For driftsorienteret"
+      },
+      "S3_6": {
+        "en": "V3.6 Lack of cross-functional collaboration (silo-culture)",
+        "da": "S3.6 Mangel på tværgående samarbejde (silodannelse)"
+      },
+      "S3_7": {
+        "en": "V3.7 Lack of human resources",
+        "da": "S3.7 Mangel på menneskelige ressourcer"
+      },
+      "S3_8": {
+        "en": "V3.8 Lack of competencies",
+        "da": "S3.8 Mangel på kompetencer"
+      },
+      "S3_9": {
+        "en": "V3.9 Too much tacit knowledge",
+        "da": "S3.9 For meget tavs viden"
+      },
+      "S3_10": {
+        "en": "V3.10 Too high staff turnover",
+        "da": "S3.10 For høj personaleomsætning"
+      },
+      "S3_11": {
+        "en": "V3.11 Too dependent on key persons",
+        "da": "S3.11 For afhængig af nøglepersoner"
+      },
+      "S3_12": {
+        "en": "V3.12 Lack of financial resources",
+        "da": "S3.12 For få finansielle ressourcer"
+      },
+      "S3_13": {
+        "en": "V3.13 Quality",
+        "da": "S3.13 Kvalitet"
+      },
+      "S3_14": {
+        "en": "V3.14 Lack of maintenance",
+        "da": "S3.14 Manglende vedligehold"
+      },
+      "S3_15": {
+        "en": "V3.15 Insufficient foundation of production (master data)",
+        "da": "S3.15 Utilstrækkeligt produktionsgrundlag"
+      },
+      "S3_16": {
+        "en": "V3.16 Other",
+        "da": "S3.16 Andet"
+      },
+      "S4_1": {
+        "en": "V4.1 Insufficient systems",
+        "da": "S4.1 Utilstrækkelige systemer"
+      },
+      "S4_2": {
+        "en": "V4.2 Lack of IT security",
+        "da": "S4.2 Mangler IT-sikkerhed"
+      },
+      "S4_3": {
+        "en": "V4.3 Lack of Quality Management",
+        "da": "S4.3 Mangler kvalitetsstyring"
+      },
+      "S4_4": {
+        "en": "V4.4 Too low data quality",
+        "da": "S4.4 For lav datakvalitet"
+      },
+      "S4_5": {
+        "en": "V4.5 Too low data accessibility",
+        "da": "S4.5 For lav datatilgængelighed"
+      },
+      "S4_6": {
+        "en": "V4.6 Too few/wrong KPI's",
+        "da": "S4.6 For få/forkerte KPI'er"
+      },
+      "S4_7": {
+        "en": "V4.7 Conflicting KPI's",
+        "da": "S4.7 Modstridende KPI'er"
+      },
+      "S4_8": {
+        "en": "V4.8 Insufficient use of systems",
+        "da": "S4.8 Utilstrækkelig anvendelse af systemer"
+      },
+      "S4_9": {
+        "en": "V4.9 Other",
+        "da": "S4.9 Andet"
+      },
+      "S5_1": {
+        "en": "V5.1 Too low supplier capacity",
+        "da": "S5.1 For lav leverandørkapacitet"
+      },
+      "S5_2": {
+        "en": "V5.2 Lack of accessibility of raw materials and supplies",
+        "da": "S5.2 Manglende tilgængelighed af råvarer og forsyninger"
+      },
+      "S5_3": {
+        "en": "V5.3 Too low supplier reliability",
+        "da": "S5.3 For lav leverandørpålidelighed"
+      },
+      "S5_4": {
+        "en": "V5.4 Dependency on Supplier Relations",
+        "da": "S5.4 Afhængighed af leverandørrelationer"
+      },
+      "S5_5": {
+        "en": "V5.5 Lack of access to supplier competencies",
+        "da": "S5.5 Manglende adgang til leverandørkompetencer"
+      },
+      "S5_6": {
+        "en": "V5.6 Too little focus on new suppliers",
+        "da": "S5.6 For lidt fokus på nye leverandører"
+      },
+      "S5_7": {
+        "en": "V5.7 Supplier bankruptcy",
+        "da": "S5.7 Leverandørkonkurs"
+      },
+      "S5_8": {
+        "en": "V5.8 Requirements for product purity",
+        "da": "S5.8 Krav til produktrenhed"
+      },
+      "S5_9": {
+        "en": "V5.9 Other",
+        "da": "S5.9 Andet"
+      },
+      "S6_1": {
+        "en": "V6.1 Lack of transparency",
+        "da": "S6.1 Manglende gennemsigtighed"
+      },
+      "S6_2": {
+        "en": "V6.2 Price pressures from customers/suppliers",
+        "da": "S6.2 Prispres fra kunder/leverandører"
+      },
+      "S6_3": {
+        "en": "V6.3 Too high/low growth",
+        "da": "S6.3 For høj/lav vækst"
+      },
+      "S6_4": {
+        "en": "V6.4 Import and export restrictions/channels",
+        "da": "S6.4 Im- og eksportrestriktioner/kanaler"
+      },
+      "S6_5": {
+        "en": "V6.5 Too high complexity",
+        "da": "S6.5 For stor kompleksitet"
+      },
+      "S6_6": {
+        "en": "V6.6 Other",
+        "da": "S6.6 Andet"
+      },
+      "S7_1": {
+        "en": "V7.1 Geopolitical disruptions",
+        "da": "S7.1 Geopolitiske forstyrrelser"
+      },
+      "S7_2": {
+        "en": "V7.2 Fluctuations in prices and exchange rates",
+        "da": "S7.2 Udsving i priser og valutakurser"
+      },
+      "S7_3": {
+        "en": "V7.3 Terrorism/sabotage",
+        "da": "S7.3 Terrorisme/sabotage"
+      },
+      "S7_4": {
+        "en": "V7.4 Espionage/theft",
+        "da": "S7.4 Spionage/tyveri"
+      },
+      "S7_5": {
+        "en": "V7.5 Cyber-attack",
+        "da": "S7.5 Cyberangreb"
+      },
+      "S7_6": {
+        "en": "V7.6 Competitors innovation",
+        "da": "S7.6 Konkurrenternes innovation"
+      },
+      "S7_7": {
+        "en": "V7.7 Social/demographic/cultural changes",
+        "da": "S7.7 Sociale/demografiske/ kulturelle ændringer"
+      },
+      "S7_8": {
+        "en": "V7.8 Requirements for CSR/sustainability/ESG/UN SDG's",
+        "da": "S7.8 Krav om CSR/bæredygtighed/FN's verdensmål/ESG/kædeansvar"
+      },
+      "S7_9": {
+        "en": "V7.9 Political regulatory changes",
+        "da": "S7.9 Politiske regulatoriske ændringer"
+      },
+      "S7_10": {
+        "en": "V7.10 Stakeholders/NGO's",
+        "da": "S7.10 Interessenter/NGO'er"
+      },
+      "S7_11": {
+        "en": "V7.11 Disruptions",
+        "da": "S7.11 Disruptions"
+      },
+      "S7_12": {
+        "en": "V7.12 Unclear/lack of IPR",
+        "da": "S7.12 Uklar/manglende IP- rettigheder"
+      },
+      "S7_13": {
+        "en": "V7.13 Strikes",
+        "da": "S7.13 Strejke(r)"
+      },
+      "S7_14": {
+        "en": "V7.14 Other",
+        "da": "S7.14 Andet"
+      },
+      "K1_1": {
+        "en": "C1.1 Degree of asset utilization",
+        "da": "K1.1 Aktivernes udnyttelsesgrad"
+      },
+      "K1_2": {
+        "en": "C1.2 Access to capital",
+        "da": "K1.2 Adgang til likviditet"
+      },
+      "K1_3": {
+        "en": "C1.3 Insurances",
+        "da": "K1.3 Forsikringer"
+      },
+      "K1_4": {
+        "en": "C1.4 Price margin",
+        "da": "K1.4 Prismargen"
+      },
+      "K1_5": {
+        "en": "C1.5 Cost estimates/costing",
+        "da": "K1.5 For- og efterkalkulation"
+      },
+      "K1_6": {
+        "en": "C1.6 Cash flow",
+        "da": "K1.6 Cash flow"
+      },
+      "K1_7": {
+        "en": "C1.7 Terms of payment",
+        "da": "K1.7 Betalingsbetingelser/konditioner"
+      },
+      "K1_8": {
+        "en": "C1.8 Focus on net working capital",
+        "da": "K1.8 Fokus på arbejdskapital (NWC)"
+      },
+      "K1_9": {
+        "en": "C1.9 Focus on customer/product profitability",
+        "da": "K1.9 Fokus på kunde-/produktlønsomhed"
+      },
+      "K1_10": {
+        "en": "C1.10 Other",
+        "da": "K1.10 Andet"
+      },
+      "K2_1": {
+        "en": "C2.1 Customer loyalty/retention",
+        "da": "K2.1 Kundeloyalitet/-fastholdelse"
+      },
+      "K2_2": {
+        "en": "C2.2 Market share",
+        "da": "K2.2 Markedsandele"
+      },
+      "K2_3": {
+        "en": "C2.3 Capability to create customer relations",
+        "da": "K2.3 Evne til at skabe kunderelationer"
+      },
+      "K2_4": {
+        "en": "C2.4 Capability to market dispersion",
+        "da": "K2.4 Evne til markedsspredning"
+      },
+      "K2_5": {
+        "en": "C2.5 Customer communication",
+        "da": "K2.5 Kundekommunikation"
+      },
+      "K2_6": {
+        "en": "C2.6 Customer segmentation",
+        "da": "K2.6 Kundesegmentering"
+      },
+      "K2_7": {
+        "en": "C2.7 Forecasting",
+        "da": "K2.7 Forecasting"
+      },
+      "K2_8": {
+        "en": "C2.8 Collaboration on forecasting",
+        "da": "K2.8 Samarbejde om forecasting"
+      },
+      "K2_9": {
+        "en": "C2.9 Product differentiation",
+        "da": "K2.9 Produktdifferentiering"
+      },
+      "K2_10": {
+        "en": "C2.10 Alternative distribution channels",
+        "da": "K2.10 Alternative distributionskanaler"
+      },
+      "K2_11": {
+        "en": "C2.11 Attractive product assortment",
+        "da": "K2.11 Attraktivt produktsortiment"
+      },
+      "K2_12": {
+        "en": "C2.12 Sales Pipeline",
+        "da": "K2.12 Salgspipeline"
+      },
+      "K2_13": {
+        "en": "C2.13 Development projects (and pipeline)",
+        "da": "K2.13 Udviklingsprojekter/-pipeline"
+      },
+      "K2_14": {
+        "en": "C2.14 Faster time to market",
+        "da": "K2.14 Hurtigere time to market (TTM)"
+      },
+      "K2_15": {
+        "en": "C2.15 Capability of product pruning",
+        "da": "K2.15 Evnen til at produktsanere"
+      },
+      "K2_16": {
+        "en": "C2.16 Other",
+        "da": "K2.16 Andet"
+      },
+      "K3_1": {
+        "en": "C3.1 Component commonality",
+        "da": "K3.1 Fælles komponenter"
+      },
+      "K3_2": {
+        "en": "C3.2 Increased standard products/components",
+        "da": "K3.2 Flere standardprodukter/komponenter"
+      },
+      "K3_3": {
+        "en": "C3.3 Modular product design",
+        "da": "K3.3 Modulært produktdesign"
+      },
+      "K3_4": {
+        "en": "C3.4 Capability to reduce product variability",
+        "da": "K3.4 Evne til at reducere produktvarianter"
+      },
+      "K3_5": {
+        "en": "C3.5 Excess capacity",
+        "da": "K3.5 Reservekapacitet"
+      },
+      "K3_6": {
+        "en": "C3.6 Manufacturing foundation",
+        "da": "K3.6 Produktionsgrundlag"
+      },
+      "K3_7": {
+        "en": "C3.7 Phasing products in and out",
+        "da": "K3.7 Ind- og udfasning af produkter"
+      },
+      "K3_8": {
+        "en": "C3.8 Capability to prevent errors",
+        "da": "K3.8 Evne til at forebygge fejl"
+      },
+      "K3_9": {
+        "en": "C3.9 Quality management",
+        "da": "K3.9 Kvalitet/kvalitetsstyring"
+      },
+      "K3_10": {
+        "en": "C3.10 Productivity/elimination of waste",
+        "da": "K3.10 Produktivitet/eliminering af spild"
+      },
+      "K3_11": {
+        "en": "C3.11 Optimize manufacturing lead-time",
+        "da": "K3.11 Optimere produktionstid"
+      },
+      "K3_12": {
+        "en": "C3.12 Fast Changeovers",
+        "da": "K3.12 Hurtig omstilling"
+      },
+      "K3_13": {
+        "en": "C3.13 Flexible/scalable capacity",
+        "da": "K3.13 Fleksibel/skalerbar kapacitet"
+      },
+      "K3_14": {
+        "en": "C3.14 Postpone manufacturing",
+        "da": "K3.14 Udskyde disponering/produktion"
+      },
+      "K3_15": {
+        "en": "C3.15 Systematic maintenance",
+        "da": "K3.15 Systematisk vedligeholdelse"
+      },
+      "K3_16": {
+        "en": "C3.16 Standardized workflows/processes",
+        "da": "K3.16 Standardiserede arbejdsgange/processer"
+      },
+      "K3_17": {
+        "en": "C3.17 Documented workflows/processes",
+        "da": "K3.17 Dokumentation af arbejdsgange/processer"
+      },
+      "K3_18": {
+        "en": "C3.18 Continuous improvement",
+        "da": "K3.18 Kontinuerlige forbedringer"
+      },
+      "K3_19": {
+        "en": "C3.19 Manufacturing at the right locations",
+        "da": "K3.19 Produktion de rigtige steder"
+      },
+      "K3_20": {
+        "en": "C3.20 Outsourcing - make or buy analyses",
+        "da": "K3.20 Outsourcing - Make or Buy analyser"
+      },
+      "K3_21": {
+        "en": "C3.21 Other",
+        "da": "K3.21 Andet"
+      },
+      "K4_1": {
+        "en": "C4.1 IT-supported inventory management",
+        "da": "K4.1 IT-understøttet lagerstyring"
+      },
+      "K4_2": {
+        "en": "C4.2 Location management",
+        "da": "K4.2 Lokationsstyring"
+      },
+      "K4_3": {
+        "en": "C4.3 Safety stock",
+        "da": "K4.3 Sikkerhedslager"
+      },
+      "K4_4": {
+        "en": "C4.4 Min/max inventory management",
+        "da": "K4.4 Min./max. Styring"
+      },
+      "K4_5": {
+        "en": "C4.5 ABC inventory management",
+        "da": "K4.5 ABC-vareanalyser"
+      },
+      "K4_6": {
+        "en": "C4.6 Focus on death goods/obsolescence",
+        "da": "K4.6 Fokus på døde varer/ukurans"
+      },
+      "K4_7": {
+        "en": "C4.7 Other",
+        "da": "K4.7 Andet"
+      },
+      "K5_1": {
+        "en": "C5.1 Being an attractive customer",
+        "da": "K5.1 At være en attraktiv kunde"
+      },
+      "K5_2": {
+        "en": "C5.2 Substitution of raw materials, semi-finished products, and components",
+        "da": "K5.2 Substitution af råvarer, halvfabrikata og komponenter"
+      },
+      "K5_3": {
+        "en": "C5.3 Increased suppliers/sources of supply",
+        "da": "K5.3 Flere leverandører/forsyningskilder"
+      },
+      "K5_4": {
+        "en": "C5.4 Capability to create supplier relations",
+        "da": "K5.4 Evne til at skabe leverandørrelationer"
+      },
+      "K5_5": {
+        "en": "C5.5 Prioritization (segmentation) of suppliers",
+        "da": "K5.5 Prioriterer (segmenterer) leverandører"
+      },
+      "K5_6": {
+        "en": "C5.6 Supplier assessment and auditing",
+        "da": "K5.6 Leverandørvurdering og -audit"
+      },
+      "K5_7": {
+        "en": "C5.7 Supplier development",
+        "da": "K5.7 Leverandørudvikling"
+      },
+      "K5_8": {
+        "en": "C5.8 Knowledge about the supply market",
+        "da": "K5.8 Viden om forsyningsmarkedet"
+      },
+      "K5_9": {
+        "en": "C5.9 Differentiated approach towards the suppliers",
+        "da": "K5.9 Differentieret tilgang til leverandørerne"
+      },
+      "K5_10": {
+        "en": "C5.10 Preferred part list",
+        "da": "K5.10 Preferred part liste"
+      },
+      "K5_11": {
+        "en": "C5.11 Preferred supplier list",
+        "da": "K5.11 Preferred leverandør liste"
+      },
+      "K5_12": {
+        "en": "C5.12 Other",
+        "da": "K5.12 Andet"
+      },
+      "K6_1": {
+        "en": "C6.1 Exchange of information - internally",
+        "da": "K6.1 Informationsudveksling - internt"
+      },
+      "K6_2": {
+        "en": "C6.2 Exchange of information - externally",
+        "da": "K6.2 Informationsudveksling - eksternt"
+      },
+      "K6_3": {
+        "en": "C6.3 Use of contemporary information technology",
+        "da": "K6.3 Brug af tidssvarende informationsteknologi"
+      },
+      "K6_4": {
+        "en": "C6.4 Cyber security",
+        "da": "K6.4 Cybersikkerhed"
+      },
+      "K6_5": {
+        "en": "C6.5 Monitoring Early Warning Signals",
+        "da": "K6.5 Overvågning af early warning signaler"
+      },
+      "K6_6": {
+        "en": "C6.6 Ownership of master data",
+        "da": "K6.6 Ejerskab af stamdata"
+      },
+      "K6_7": {
+        "en": "C6.7 Utilizing the potential of systems in use",
+        "da": "K6.7 Brug af systemers potentiale"
+      },
+      "K6_8": {
+        "en": "C6.8 Other",
+        "da": "K6.8 Andet"
+      },
+      "K7_1": {
+        "en": "C7.1 Relationship management",
+        "da": "K7.1 Relationsledelse"
+      },
+      "K7_2": {
+        "en": "C7.2 Delegated accountability",
+        "da": "K7.2 Uddelegering og ansvarliggøres"
+      },
+      "K7_3": {
+        "en": "C7.3 Execution skills",
+        "da": "K7.3 Eksekveringsevne/evnen til at beslutte"
+      },
+      "K7_4": {
+        "en": "C7.4 Employee involvement",
+        "da": "K7.4 Medarbejderinvolvering"
+      },
+      "K7_5": {
+        "en": "C7.5 Learning/benchmarking",
+        "da": "K7.5 Læring/benchmarking"
+      },
+      "K7_6": {
+        "en": "C7.6 Communication",
+        "da": "K7.6 Kommunikation"
+      },
+      "K7_7": {
+        "en": "C7.7 Access to qualified labor",
+        "da": "K7.7 Adgang til kvalificeret arbejdskraft"
+      },
+      "K7_8": {
+        "en": "C7.8 Capability to attract new employees",
+        "da": "K7.8 Evner at tiltrække nye medarbejdere"
+      },
+      "K7_9": {
+        "en": "C7.9 Crisis management",
+        "da": "K7.9 Kriseledelse"
+      },
+      "K7_10": {
+        "en": "C7.10 Risk management",
+        "da": "K7.10 Risikoledelse"
+      },
+      "K7_11": {
+        "en": "C7.11 Lobbyism",
+        "da": "K7.11 Lobbyisme"
+      },
+      "K7_12": {
+        "en": "C7.12 Width in Competency Profiles",
+        "da": "K7.12 Bredde i kompetenceprofiler"
+      },
+      "K7_13": {
+        "en": "C7.13 Creative problem-solving",
+        "da": "K7.13 Kreativ problemløsning"
+      },
+      "K7_14": {
+        "en": "C7.14 Focus on Core Competencies",
+        "da": "K7.14 Fokus på kernekompetencer"
+      },
+      "K7_15": {
+        "en": "C7.15 Design for manufacturing/supply chain",
+        "da": "K7.15 Design for manufacturing/supply chain •"
+      },
+      "K7_16": {
+        "en": "C7.16 Sales and Operations Planning",
+        "da": "K7.16 Sales & Operations Planning"
+      },
+      "K7_17": {
+        "en": "C7.17 Digitalization",
+        "da": "K7.17 Digitalisering"
+      },
+      "K7_18": {
+        "en": "C7.18 Right KPI's functional and corporate levels",
+        "da": "K7.18 Rette KPI'er på funktions- og virksomhedsniveau"
+      },
+      "K7_19": {
+        "en": "C7.19 Intellectual property rights",
+        "da": "K7.19 IP-rettigheder"
+      },
+      "K7_20": {
+        "en": "C7.20 Work based on documented supply chain strategy",
+        "da": "K7.20 Arbejder ud fra nedfældet supply chain strategi"
+      },
+      "K7_21": {
+        "en": "C7.21 Cultural understanding",
+        "da": "K7.21 Kulturforståelse"
+      },
+      "K7_22": {
+        "en": "C7.22 Cross training",
+        "da": "K7.22 Krydstræning"
+      },
+      "K7_23": {
+        "en": "C7.23 Other",
+        "da": "K7.23 Andet"
+      }
+    }
+  },
+  "capability_stacked_chart": {
+    "description_primary": {
+      "en": "Capability distribution by category - each chart shows capabilities within a specific category with horizontal bars representing the range between importance and current ability ratings (1-5 scale).",
+      "da": "Kapabilitetsfordeling efter kategori - hvert diagram viser kapabiliteter inden for en specifik kategori med vandrette søjler, der repræsenterer intervallet mellem vigtighed og nuværende evnevurderinger (1-5 skala)."
+    },
+    "description_secondary": {
+      "en": "Each bar extends from the minimum value (either importance or current ability) to the maximum value, visualizing the gap or alignment between these two measures.",
+      "da": "Hver søjle strækker sig fra minimumværdien (enten vigtighed eller nuværende evne) til maksimumværdien og visualiserer kløften eller tilpasningen mellem disse to mål."
+    },
+    "chart_title_k1": {
+      "en": "Financial Capabilities",
+      "da": "Finansielle kapabiliteter"
+    },
+    "chart_title_k2": {
+      "en": "Sales & Marketing Capabilities",
+      "da": "Salgs- og marketingkapabiliteter"
+    },
+    "chart_title_k3": {
+      "en": "Production Capabilities",
+      "da": "Produktionskapabiliteter"
+    },
+    "chart_title_k4": {
+      "en": "Inventory Capabilities",
+      "da": "Lagerkapabiliteter"
+    },
+    "chart_title_k5": {
+      "en": "Supplier Capabilities",
+      "da": "Leverandørkapabiliteter"
+    },
+    "chart_title_k6": {
+      "en": "Information Systems Capabilities",
+      "da": "Informationssystemkapabiliteter"
+    },
+    "chart_title_k7": {
+      "en": "Organizational Capabilities",
+      "da": "Organisatoriske kapabiliteter"
+    },
+    "x_axis_label": {
+      "en": "Rating Scale (Importance ↔ Current Ability)",
+      "da": "Vurderingsskala (Vigtighed ↔ Nuværende evne)"
+    },
+    "y_axis_label": {
+      "en": "Number of People",
+      "da": "Antal personer"
+    },
+    "tooltip_people": {
+      "en": "People",
+      "da": "Personer"
+    },
+    "tooltip_avg_importance": {
+      "en": "Avg Importance",
+      "da": "Gns. vigtighed"
+    },
+    "tooltip_avg_current_ability": {
+      "en": "Avg Current Ability",
+      "da": "Gns. nuværende evne"
+    },
+    "category_distribution_title": {
+      "en": "Capability Distribution by Category",
+      "da": "Kapabilitetsfordeling efter kategori"
+    }
+  }
+}

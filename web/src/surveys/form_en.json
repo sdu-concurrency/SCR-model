@@ -1,0 +1,1395 @@
+[
+	{
+		"$formkit": "step",
+		"id": "step_1",
+		"name": "step_1",
+		"key": "step_1",
+		"label": "Job Function",
+		"stepActionsClass": "mt-4",
+		"children": [
+			{
+				"$formkit": "select",
+				"name": "job_function",
+				"id": "job_function",
+				"label": "Job Function",
+				"placeholder": "Click and choose which department your job function best fits into.",
+				"validation": "required",
+				"options": {
+					"Indkøb": "Purchase",
+					"Produktion": "Production",
+					"Salg": "Sales",
+					"Produktudvikling": "Product Development",
+					"Økonomi / IT": "Economy / IT",
+					"Andet": "Other"
+				}
+			},
+			{
+				"$formkit": "text",
+				"id": "job_function_other",
+				"name": "job_function_other",
+				"if": "$get(job_function).value === 'Andet'",
+				"key": "job_function_other",
+				"placeholder": "If 'Other' is selected, indicate other department below.",
+				"label": "Job Function, other",
+				"validation": "required"
+			},
+			{
+				"$formkit": "text",
+				"name": "virksomhed",
+				"id": "virksomhed",
+				"label": "Company",
+				"placeholder": "Enter company name in this field",
+				"validation": "required"
+			},
+			{
+				"$formkit": "hidden",
+				"id": "dato",
+				"name": "dato"
+			}
+		]
+	},
+	{
+		"$formkit": "step",
+		"id": "step_2",
+		"name": "step_2",
+		"key": "step_2",
+		"label": "Prioritization",
+		"stepActionsClass": "mt-4",
+		"children": [
+			{
+				"$el": "h2",
+				"children": "Prioritization",
+				"attrs": {
+					"class": "text-2xl mb-4"
+				}
+			},
+			{
+				"$el": "p",
+				"children": "Click below and select up to 10 vulnerabilities that you believe are important to the company's supply chain performance and results. The vulnerabilities are prioritized, so that the vulnerability that, according to your assessment, is most important is number 1. The one with the second most importance is number 2, etc.",
+				"attrs": {
+					"class": "mb-4"
+				}
+			},
+			{
+				"$cmp": "Divider",
+				"props": {
+					"layout": "horizontal"
+				},
+				"attrs": {
+					"class": "flex w-full"
+				}
+			},
+			{
+				"$formkit": "list",
+				"id": "priority_list",
+				"name": "priority_list",
+				"children": [
+					{
+						"$formkit": "group",
+						"id": "priority_group_1",
+						"name": "priority_group_1",
+						"children": [
+							{
+								"$el": "h2",
+								"children": "Vulnerability 1",
+								"attrs": {
+									"class": "text-xl"
+								}
+							},
+							{
+								"$formkit": "select",
+								"id": "vulnerability_1",
+								"name": "vulnerability",
+								"label": "Vulnerability",
+								"validation": "distinct_vulnerability|required|required_note_if_other|no_none",
+								"placeholder": "Select Vulnerability",
+								"options": {
+									"None": "-",
+									"S1_1": "V1.1 Asset turnover",
+									"S1_2": "V1.2 Access to liquidity",
+									"S1_3": "V1.3 High level of net working capital",
+									"S1_4": "V1.4 Low cash flow",
+									"S1_5": "V1.5 Other",
+									"S2_1": "V2.1 Unpredictability of demand",
+									"S2_2": "V2.2 Lack of sale",
+									"S2_3": "V2.3 Product development pipeline",
+									"S2_4": "V2.4 Insufficient sales pipeline",
+									"S2_5": "V2.5 Customers frequently make changes in orders",
+									"S2_6": "V2.6 Customer dependency",
+									"S2_7": "V2.7 Insufficient product assortment",
+									"S2_8": "V2.8 Too large assortment",
+									"S2_9": "V2.9 Product liability/compensation",
+									"S2_10": "V2.10 Brand image",
+									"S2_11": "V2.11 Time to market challenges",
+									"S2_12": "V2.12 Time pressure",
+									"S2_13": "V2.13 Unprofitable customers",
+									"S2_14": "V2.14 Lack of market focus",
+									"S2_15": "V2.15 Too low transport capacity",
+									"S2_16": "V2.16 Other",
+									"S3_1": "V3.1 Too low production capacity",
+									"S3_2": "V3.2 Reliability of equipment's",
+									"S3_3": "V3.3 Manufacturing does not take place at the right locations",
+									"S3_4": "V3.4 Undocumented processes",
+									"S3_5": "V3.5 A too-high operational focus",
+									"S3_6": "V3.6 Lack of cross-functional collaboration (silo-culture)",
+									"S3_7": "V3.7 Lack of human resources",
+									"S3_8": "V3.8 Lack of competencies",
+									"S3_9": "V3.9 Too much tacit knowledge",
+									"S3_10": "V3.10 Too high staff turnover",
+									"S3_11": "V3.11 Too dependent on key persons",
+									"S3_12": "V3.12 Lack of financial resources",
+									"S3_13": "V3.13 Quality",
+									"S3_14": "V3.14 Lack of maintenance",
+									"S3_15": "V3.15 Insufficient foundation of production (master data)",
+									"S3_16": "V3.16 Other",
+									"S4_1": "V4.1 Insufficient systems",
+									"S4_2": "V4.2 Lack of IT security",
+									"S4_3": "V4.3 Lack of Quality Management",
+									"S4_4": "V4.4 Too low data quality",
+									"S4_5": "V4.5 Too low data accessibility",
+									"S4_6": "V4.6 Too few/wrong KPIs",
+									"S4_7": "V4.7 Conflicting KPIs",
+									"S4_8": "V4.8 Insufficient use of systems",
+									"S4_9": "V4.9 Other",
+									"S5_1": "V5.1 Too low supplier capacity",
+									"S5_2": "V5.2 Lack of accessibility of raw materials and supplies",
+									"S5_3": "V5.3 Too low supplier reliability",
+									"S5_4": "V5.4 Dependency on Supplier Relations",
+									"S5_5": "V5.5 Lack of access to supplier competencies",
+									"S5_6": "V5.6 Too little focus on new suppliers",
+									"S5_7": "V5.7 Supplier bankruptcy",
+									"S5_8": "V5.8 Requirements for product purity",
+									"S5_9": "V5.9 Other",
+									"S6_1": "V6.1 Lack of transparency",
+									"S6_2": "V6.2 Price pressures from customers/suppliers",
+									"S6_3": "V6.3 Too high/low growth",
+									"S6_4": "V6.4 Import and export restrictions/channels",
+									"S6_5": "V6.5 Too high complexity",
+									"S6_6": "V6.6 Other",
+									"S7_1": "V7.1 Geopolitical disruptions",
+									"S7_2": "V7.2 Fluctuations in prices and exchange rates",
+									"S7_3": "V7.3 Terrorism/sabotage",
+									"S7_4": "V7.4 Espionage/theft",
+									"S7_5": "V7.5 Cyber-attack",
+									"S7_6": "V7.6 Competitors innovation",
+									"S7_7": "V7.7 Social/demographic/cultural changes",
+									"S7_8": "V7.8 Requirements for CSR/sustainability/ESG/UN SDGs",
+									"S7_9": "V7.9 Political regulatory changes",
+									"S7_10": "V7.10 Stakeholders/NGOs",
+									"S7_11": "V7.11 Disruptions",
+									"S7_12": "V7.12 Unclear/lack of IPR",
+									"S7_13": "V7.13 Strikes",
+									"S7_14": "V7.14 Other"
+								}
+							},
+							{
+								"$formkit": "text",
+								"id": "note_vulnerability_1",
+								"name": "note_vulnerability",
+								"label": "Note",
+								"placeholder": "Voluntary completion, required if 'Other' is selected."
+							}
+						]
+					}
+				]
+			},
+			{
+				"$el": "div",
+				"attrs": {
+					"class": "flex w-full justify-between gap-4"
+				},
+				"children": [
+					{
+						"$cmp": "AddQuestionButton",
+						"if": "$get(priority_list).value.length < 10",
+						"key": "add_question_button",
+						"props": {
+							"label": "Add new vulnerability",
+							"add_target": "priority_list",
+							"add_survey_step_index": 1,
+							"onAddQuestion": "$survey.onAddQuestion"
+						}
+					},
+					{
+						"$cmp": "DeleteQuestionButton",
+						"if": "$get(priority_list).value.length > 1",
+						"key": "delete_question_button",
+						"props": {
+							"label": "Remove latest vulnerability",
+							"delete_target": "priority_list",
+							"delete_survey_step_index": 1,
+							"onDeleteQuestion": "$survey.onDeleteQuestion"
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		"$formkit": "step",
+		"id": "step_3",
+		"name": "step_3",
+		"key": "step_3",
+		"label": "Risk Assessment",
+		"stepActionsClass": "mt-4",
+		"children": [
+			{
+				"$el": "h2",
+				"children": "Risk assessment of Vulnerabilities",
+				"attrs": {
+					"class": "text-2xl mb-4"
+				}
+			},
+			{
+				"$el": "p",
+				"children": "Here you assess how much the individual vulnerabilities will affect your company's supply chain performance (Influence/Impact). Very low impact = 1 and very high impact = 5. You also assess the probability that the individual vulnerabilities will actually occur. Very low probability = 1 and very high probability = 5."
+			},
+			{
+				"$cmp": "Divider",
+				"props": {
+					"layout": "horizontal"
+				},
+				"attrs": {
+					"class": "flex w-full"
+				}
+			},
+			{
+				"$formkit": "list",
+				"id": "risk_list",
+				"name": "risk_list",
+				"children": [
+					{
+						"for": [
+							"item",
+							"key",
+							"$get(priority_list).value"
+						],
+						"$formkit": "group",
+						"id": "$: \"risk_group_\" + ($key + 1)",
+						"key": "$: \"risk_group_\" + ($key + 1)",
+						"name": "$: \"risk_group_\" + ($key + 1)",
+						"attrs": {
+							"class": "mt-4"
+						},
+						"children": [
+							{
+								"$el": "h1",
+								"attrs": {
+									"class": "text-xl"
+								},
+								"if": "$get('vulnerability_' + ($key + 1)).value",
+								"key": "header",
+								"children": "$: ($key + 1) + \". \" + $t('survey.V1.' + $item.vulnerability)"
+							},
+							{
+								"$el": "span",
+								"attrs": {
+									"class": "text-sm"
+								},
+								"if": "$get('note_vulnerability_' + ($key + 1)).value",
+								"key": "note",
+								"children": "$get('note_vulnerability_' + ($key + 1)).value"
+							},
+							{
+								"$formkit": "hidden",
+								"id": "$: \"risk_vulnerability_\" + ($key + 1)",
+								"name": "vulnerability",
+								"modelValue": "$get('vulnerability_' + ($key + 1)).value"
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"impact_\" + ($key + 1)",
+								"name": "impact",
+								"label": "Influence/ Impact on the supply chain",
+								"placeholder": "Select value from 1 to 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								],
+								"validation": "required"
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"likelihood_\" + ($key + 1)",
+								"name": "likelihood",
+								"label": "Likelihood that the vulnerability will occur",
+								"placeholder": "Select value from 1 to 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								],
+								"validation": "required"
+							},
+							{
+								"$formkit": "hidden",
+								"number": "integer",
+								"id": "$: \"risk_level_\" + ($key + 1)",
+								"name": "risk_level",
+								"modelValue": "$get('impact_' + ($key + 1)).value * $get('likelihood_' + ($key + 1)).value"
+							},
+							{
+								"$cmp": "Message",
+								"props": {
+									"severity": "info"
+								},
+								"if": "$get('impact_' + ($key + 1)).value && $get('likelihood_' + ($key + 1)).value",
+								"key": "risk_message",
+								"children": "$: \"Risk level (Impact x Likelihood): \" + ($get('risk_level_' + ($key + 1)).value)"
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"for": [
+			"item",
+			"key",
+			"$get(priority_list).value"
+		],
+		"$formkit": "step",
+		"id": "$: \"step_\" + ($key + 4)",
+		"name": "$: \"step_\" + ($key + 4)",
+		"key": "$: \"step_\" + ($key + 4)",
+		"label": "$: \"Vulnerability \" + ($key + 1)",
+		"stepActionsClass": "mt-4",
+		"__raw__sectionsSchema": {
+			"stepNext": {
+				"$el": "div",
+				"if": "$isLastStep === false || $stepIndex === 0",
+				"children": [
+					{
+						"$cmp": "FormKit",
+						"bind": "$nextAttrs",
+						"props": {
+							"type": "button",
+							"label": {
+								"if": "$nextLabel",
+								"then": "$nextLabel",
+								"else": "$ui.next.value"
+							},
+							"disabled": false,
+							"data-next": "$isLastStep === false",
+							"onClick": "$handlers.next"
+						}
+					}
+				]
+			},
+			"stepPrevious": {
+				"$el": "div",
+				"if": "$isFirstStep === false",
+				"children": [
+					{
+						"$cmp": "FormKit",
+						"bind": "$previousAttrs",
+						"props": {
+							"type": "button",
+							"label": {
+								"if": "$previousLabel",
+								"then": "$previousLabel",
+								"else": "$ui.prev.value"
+							},
+							"data-prev": "$isFirstStep === false",
+							"disabled": false,
+							"onClick": "$handlers.previous"
+						}
+					}
+				]
+			}
+		},
+		"children": [
+			{
+				"$el": "h2",
+				"children": "$: \"Capabilities to mitigate vulnerability \" + ($key + 1)",
+				"attrs": {
+					"class": "text-2xl mb-4"
+				}
+			},
+			{
+				"$el": "h2",
+				"children": "Select up to 5 capabilities that can address the vulnerability, then rate your perception of 'Current Capability' and its 'Importance' on a scale of 1 to 5. 1 = Very Low Capability and 5 = Very High Capability, 1 = Very Low importance and 5 = Very high importance.",
+				"attrs": {
+					"class": "mb-4"
+				}
+			},
+			{
+				"$el": "h3",
+				"attrs": {
+					"class": "text-xl font-bold"
+				},
+				"if": "$get('vulnerability_' + ($key + 1)).value",
+				"key": "header_vulnerability",
+				"children": "$: $t('survey.V1.' + ($get('vulnerability_' + ($key + 1)).value))"
+			},
+			{
+				"$el": "span",
+				"attrs": {
+					"class": "text-sm"
+				},
+				"if": "$get('note_vulnerability_' + ($key + 1)).value",
+				"key": "header_note_vulnerability",
+				"children": "$get('note_vulnerability_' + ($key + 1)).value"
+			},
+			{
+				"$el": "div",
+				"attrs": {
+					"class": "flex flex-row mt-2 w-full"
+				},
+				"children": [
+					{
+						"$el": "div",
+						"attrs": {
+							"class": "card w-full text-base/loose"
+						},
+						"children": [
+							{
+								"$el": "div",
+								"attrs": {
+									"class": "p-4"
+								},
+								"children": [
+									{
+										"$el": "h2",
+										"attrs": {
+											"class": "text-lg font-bold"
+										},
+										"children": "Impact"
+									},
+									{
+										"$el": "p",
+										"attrs": {
+											"class": "p-4"
+										},
+										"children": "$get('impact_' + ($key + 1)).value"
+									}
+								]
+							}
+						]
+					},
+					{
+						"$cmp": "Divider",
+						"props": {
+							"layout": "vertical"
+						},
+						"attrs": {
+							"class": "flex w-full"
+						}
+					},
+					{
+						"$el": "div",
+						"attrs": {
+							"class": "card w-full"
+						},
+						"children": [
+							{
+								"$el": "div",
+								"attrs": {
+									"class": "p-4"
+								},
+								"children": [
+									{
+										"$el": "h2",
+										"attrs": {
+											"class": "text-lg font-bold"
+										},
+										"children": "Likelihood"
+									},
+									{
+										"$el": "p",
+										"attrs": {
+											"class": "p-4"
+										},
+										"children": "$get('likelihood_' + ($key + 1)).value"
+									}
+								]
+							}
+						]
+					},
+					{
+						"$cmp": "Divider",
+						"props": {
+							"layout": "vertical"
+						},
+						"attrs": {
+							"class": "flex w-full"
+						}
+					},
+					{
+						"$el": "div",
+						"attrs": {
+							"class": "card w-full"
+						},
+						"children": [
+							{
+								"$el": "div",
+								"attrs": {
+									"class": "p-4"
+								},
+								"children": [
+									{
+										"$el": "h2",
+										"attrs": {
+											"class": "text-lg font-bold"
+										},
+										"children": "Risk level (Impact x Likelihood)"
+									},
+									{
+										"$el": "p",
+										"attrs": {
+											"class": "p-4"
+										},
+										"children": "$get('risk_level_' + ($key + 1)).value"
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			{
+				"$el": "p",
+				"attrs": {
+					"class": "text-sm text-right italic"
+				},
+				"children": "Data from previous steps"
+			},
+			{
+				"$formkit": "hidden",
+				"id": "$: \"cap_vulnerability_\" + ($key + 1)",
+				"name": "vulnerability",
+				"modelValue": "$get('vulnerability_' + ($key + 1)).value"
+			},
+			{
+				"$formkit": "list",
+				"id": "$: \"capability_list_\" + ($key + 1)",
+				"name": "capability_list",
+				"children": [
+					{
+						"$el": "h2",
+						"children": "Capability 1)",
+						"attrs": {
+							"class": "text-xl"
+						}
+					},
+					{
+						"$formkit": "group",
+						"id": "$: \"capability_group_\" + ($key + 1)",
+						"name": "capability_group",
+						"children": [
+							{
+								"$formkit": "select",
+								"id": "$: \"capability_\" + ($key + 1) + \"_1\"",
+								"name": "capability",
+								"validation": "distinct_capability|required|required_note_if_other|no_none",
+								"label": "Capability",
+								"help": "Choose capabilities that can handle the above vulnerability",
+								"placeholder": "Select capabilities or leave empty if no more applicable item",
+								"options": {
+									"None": "-",
+									"K1_1": "C1.1 Degree of asset utilization",
+									"K1_2": "C1.2 Access to capital",
+									"K1_3": "C1.3 Insurances",
+									"K1_4": "C1.4 Price margin",
+									"K1_5": "C1.5 Cost estimates/costing",
+									"K1_6": "C1.6 Cash flow",
+									"K1_7": "C1.7 Terms of payment",
+									"K1_8": "C1.8 Focus on net working capital",
+									"K1_9": "C1.9 Focus on customer/product profitability",
+									"K1_10": "C1.10 Other",
+									"K2_1": "C2.1 Customer loyalty/retention",
+									"K2_2": "C2.2 Market share",
+									"K2_3": "C2.3 Capability to create customer relations",
+									"K2_4": "C2.4 Capability to market dispersion",
+									"K2_5": "C2.5 Customer communication",
+									"K2_6": "C2.6 Customer segmentation",
+									"K2_7": "C2.7 Forecasting",
+									"K2_8": "C2.8 Collaboration on forecasting",
+									"K2_9": "C2.9 Product differentiation",
+									"K2_10": "C2.10 Alternative distribution channels",
+									"K2_11": "C2.11 Attractive product assortment",
+									"K2_12": "C2.12 Sales Pipeline",
+									"K2_13": "C2.13 Development projects (and pipeline)",
+									"K2_14": "C2.14 Faster time to market",
+									"K2_15": "C2.15 Capability of product pruning",
+									"K2_16": "C2.16 Other",
+									"K3_1": "C3.1 Component commonality",
+									"K3_2": "C3.2 Increased standard products/components",
+									"K3_3": "C3.3 Modular product design",
+									"K3_4": "C3.4 Capability to reduce product variability",
+									"K3_5": "C3.5 Excess capacity",
+									"K3_6": "C3.6 Manufacturing foundation",
+									"K3_7": "C3.7 Phasing products in and out",
+									"K3_8": "C3.8 Capability to prevent errors",
+									"K3_9": "C3.9 Quality management",
+									"K3_10": "C3.10 Productivity/elimination of waste",
+									"K3_11": "C3.11 Optimize manufacturing lead-time",
+									"K3_12": "C3.12 Fast Changeovers",
+									"K3_13": "C3.13 Flexible/scalable capacity",
+									"K3_14": "C3.14 Postpone manufacturing",
+									"K3_15": "C3.15 Systematic maintenance",
+									"K3_16": "C3.16 Standardized workflows/processes",
+									"K3_17": "C3.17 Documented workflows/processes",
+									"K3_18": "C3.18 Continuous improvement",
+									"K3_19": "C3.19 Manufacturing at the right locations",
+									"K3_20": "C3.20 Outsourcing - make or buy analyses",
+									"K3_21": "C3.21 Other",
+									"K4_1": "C4.1 IT-supported inventory management",
+									"K4_2": "C4.2 Location management",
+									"K4_3": "C4.3 Safety stock",
+									"K4_4": "C4.4 Min/max inventory management",
+									"K4_5": "C4.5 ABC inventory management",
+									"K4_6": "C4.6 Focus on death goods/obsolescence",
+									"K4_7": "C4.7 Other",
+									"K5_1": "C5.1 Being an attractive customer",
+									"K5_2": "C5.2 Substitution of raw materials, semi-finished products, and components",
+									"K5_3": "C5.3 Increased suppliers/sources of supply",
+									"K5_4": "C5.4 Capability to create supplier relations",
+									"K5_5": "C5.5 Prioritization (segmentation) of suppliers",
+									"K5_6": "C5.6 Supplier assessment and auditing",
+									"K5_7": "C5.7 Supplier development",
+									"K5_8": "C5.8 Knowledge about the supply market",
+									"K5_9": "C5.9 Differentiated approach towards the suppliers",
+									"K5_10": "C5.10 Preferred part list",
+									"K5_11": "C5.11 Preferred supplier list",
+									"K5_12": "C5.12 Other",
+									"K6_1": "C6.1 Exchange of information - internally",
+									"K6_2": "C6.2 Exchange of information - externally",
+									"K6_3": "C6.3 Use of contemporary information technology",
+									"K6_4": "C6.4 Cyber security",
+									"K6_5": "C6.5 Monitoring Early Warning Signals",
+									"K6_6": "C6.6 Ownership of master data",
+									"K6_7": "C6.7 Utilizing the potential of systems in use",
+									"K6_8": "C6.8 Other",
+									"K7_1": "C7.1 Relationship management",
+									"K7_2": "C7.2 Delegated accountability",
+									"K7_3": "C7.3 Execution skills",
+									"K7_4": "C7.4 Employee involvement",
+									"K7_5": "C7.5 Learning/benchmarking",
+									"K7_6": "C7.6 Communication",
+									"K7_7": "C7.7 Access to qualified labor",
+									"K7_8": "C7.8 Capability to attract new employees",
+									"K7_9": "C7.9 Crisis management",
+									"K7_10": "C7.10 Risk management",
+									"K7_11": "C7.11 Lobbyism",
+									"K7_12": "C7.12 Width in Competency Profiles",
+									"K7_13": "C7.13 Creative problem-solving",
+									"K7_14": "C7.14 Focus on Core Competencies",
+									"K7_15": "C7.15 Design for manufacturing/supply chain",
+									"K7_16": "C7.16 Sales and Operations Planning",
+									"K7_17": "C7.17 Digitalization",
+									"K7_18": "C7.18 Right KPI's functional and corporate levels",
+									"K7_19": "C7.19 Intellectual property rights",
+									"K7_20": "C7.20 Work based on documented supply chain strategy",
+									"K7_21": "C7.21 Cultural understanding",
+									"K7_22": "C7.22 Cross training",
+									"K7_23": "C7.23 Other"
+								}
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"current_ability_\" + ($key + 1) + \"_1\"",
+								"name": "current_ability",
+								"label": "Current Ability",
+								"placeholder": "Select value from 1 to 5",
+								"validation": "required",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"importance_\" + ($key + 1) + \"_1\"",
+								"name": "importance",
+								"label": "Importance",
+								"placeholder": "Select value from 1 to 5",
+								"validation": "required",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "text",
+								"id": "$: \"note_capability_\" + ($key + 1) + \"_1\"",
+								"name": "note_capability",
+								"label": "Note",
+								"placeholder": "Voluntary completion, required if 'Other' is selected."
+							}
+						]
+					},
+					{
+						"$el": "h2",
+						"children": "Capability 2)",
+						"attrs": {
+							"class": "text-xl"
+						}
+					},
+					{
+						"$formkit": "group",
+						"id": "$: \"capability_group_\" + ($key + 1)",
+						"name": "capability_group",
+						"children": [
+							{
+								"$formkit": "select",
+								"id": "$: \"capability_\" + ($key + 1) + \"_2\"",
+								"name": "capability",
+								"validation": "distinct_capability|required_note_if_other",
+								"label": "Capability",
+								"help": "Choose capabilities that can handle the above vulnerability",
+								"placeholder": "Select capabilities or leave empty if no more applicable item",
+								"options": {
+									"None": "-",
+									"K1_1": "C1.1 Degree of asset utilization",
+									"K1_2": "C1.2 Access to capital",
+									"K1_3": "C1.3 Insurances",
+									"K1_4": "C1.4 Price margin",
+									"K1_5": "C1.5 Cost estimates/costing",
+									"K1_6": "C1.6 Cash flow",
+									"K1_7": "C1.7 Terms of payment",
+									"K1_8": "C1.8 Focus on net working capital",
+									"K1_9": "C1.9 Focus on customer/product profitability",
+									"K1_10": "C1.10 Other",
+									"K2_1": "C2.1 Customer loyalty/retention",
+									"K2_2": "C2.2 Market share",
+									"K2_3": "C2.3 Capability to create customer relations",
+									"K2_4": "C2.4 Capability to market dispersion",
+									"K2_5": "C2.5 Customer communication",
+									"K2_6": "C2.6 Customer segmentation",
+									"K2_7": "C2.7 Forecasting",
+									"K2_8": "C2.8 Collaboration on forecasting",
+									"K2_9": "C2.9 Product differentiation",
+									"K2_10": "C2.10 Alternative distribution channels",
+									"K2_11": "C2.11 Attractive product assortment",
+									"K2_12": "C2.12 Sales Pipeline",
+									"K2_13": "C2.13 Development projects (and pipeline)",
+									"K2_14": "C2.14 Faster time to market",
+									"K2_15": "C2.15 Capability of product pruning",
+									"K2_16": "C2.16 Other",
+									"K3_1": "C3.1 Component commonality",
+									"K3_2": "C3.2 Increased standard products/components",
+									"K3_3": "C3.3 Modular product design",
+									"K3_4": "C3.4 Capability to reduce product variability",
+									"K3_5": "C3.5 Excess capacity",
+									"K3_6": "C3.6 Manufacturing foundation",
+									"K3_7": "C3.7 Phasing products in and out",
+									"K3_8": "C3.8 Capability to prevent errors",
+									"K3_9": "C3.9 Quality management",
+									"K3_10": "C3.10 Productivity/elimination of waste",
+									"K3_11": "C3.11 Optimize manufacturing lead-time",
+									"K3_12": "C3.12 Fast Changeovers",
+									"K3_13": "C3.13 Flexible/scalable capacity",
+									"K3_14": "C3.14 Postpone manufacturing",
+									"K3_15": "C3.15 Systematic maintenance",
+									"K3_16": "C3.16 Standardized workflows/processes",
+									"K3_17": "C3.17 Documented workflows/processes",
+									"K3_18": "C3.18 Continuous improvement",
+									"K3_19": "C3.19 Manufacturing at the right locations",
+									"K3_20": "C3.20 Outsourcing - make or buy analyses",
+									"K3_21": "C3.21 Other",
+									"K4_1": "C4.1 IT-supported inventory management",
+									"K4_2": "C4.2 Location management",
+									"K4_3": "C4.3 Safety stock",
+									"K4_4": "C4.4 Min/max inventory management",
+									"K4_5": "C4.5 ABC inventory management",
+									"K4_6": "C4.6 Focus on death goods/obsolescence",
+									"K4_7": "C4.7 Other",
+									"K5_1": "C5.1 Being an attractive customer",
+									"K5_2": "C5.2 Substitution of raw materials semi-finished products and components",
+									"K5_3": "C5.3 Increased suppliers/sources of supply",
+									"K5_4": "C5.4 Capability to create supplier relations",
+									"K5_5": "C5.5 Prioritization (segmentation) of suppliers",
+									"K5_6": "C5.6 Supplier assessment and auditing",
+									"K5_7": "C5.7 Supplier development",
+									"K5_8": "C5.8 Knowledge about the supply market",
+									"K5_9": "C5.9 Differentiated approach towards the suppliers",
+									"K5_10": "C5.10 Preferred part list",
+									"K5_11": "C5.11 Preferred supplier list",
+									"K5_12": "C5.12 Other",
+									"K6_1": "C6.1 Exchange of information - internally",
+									"K6_2": "C6.2 Exchange of information - externally",
+									"K6_3": "C6.3 Use of contemporary information technology",
+									"K6_4": "C6.4 Cyber security",
+									"K6_5": "C6.5 Monitoring Early Warning Signals",
+									"K6_6": "C6.6 Ownership of master data",
+									"K6_7": "C6.7 Utilizing the potential of systems in use",
+									"K6_8": "C6.8 Other",
+									"K7_1": "C7.1 Relationship management",
+									"K7_2": "C7.2 Delegated accountability",
+									"K7_3": "C7.3 Execution skills",
+									"K7_4": "C7.4 Employee involvement",
+									"K7_5": "C7.5 Learning/benchmarking",
+									"K7_6": "C7.6 Communication",
+									"K7_7": "C7.7 Access to qualified labor",
+									"K7_8": "C7.8 Capability to attract new employees",
+									"K7_9": "C7.9 Crisis management",
+									"K7_10": "C7.10 Risk management",
+									"K7_11": "C7.11 Lobbyism",
+									"K7_12": "C7.12 Width in Competency Profiles",
+									"K7_13": "C7.13 Creative problem-solving",
+									"K7_14": "C7.14 Focus on Core Competencies",
+									"K7_15": "C7.15 Design for manufacturing/supply chain",
+									"K7_16": "C7.16 Sales and Operations Planning",
+									"K7_17": "C7.17 Digitalization",
+									"K7_18": "C7.18 Right KPI's functional and corporate levels",
+									"K7_19": "C7.19 Intellectual property rights",
+									"K7_20": "C7.20 Work based on documented supply chain strategy",
+									"K7_21": "C7.21 Cultural understanding",
+									"K7_22": "C7.22 Cross training",
+									"K7_23": "C7.23 Other"
+								}
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"current_ability_\" + ($key + 1) + \"_2\"",
+								"name": "current_ability",
+								"label": "Current Ability",
+								"placeholder": "Select value from 1 to 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"importance_\" + ($key + 1) + \"_2\"",
+								"name": "importance",
+								"label": "Importance",
+								"placeholder": "Select value from 1 to 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "text",
+								"id": "$: \"note_capability_\" + ($key + 1) + \"_2\"",
+								"name": "note_capability",
+								"label": "Note",
+								"placeholder": "Voluntary completion, required if 'Other' is selected."
+							}
+						]
+					},
+					{
+						"$el": "h2",
+						"children": "Capability 3)",
+						"attrs": {
+							"class": "text-xl"
+						}
+					},
+					{
+						"$formkit": "group",
+						"id": "$: \"capability_group_\" + ($key + 1)",
+						"name": "capability_group",
+						"children": [
+							{
+								"$formkit": "select",
+								"id": "$: \"capability_\" + ($key + 1) + \"_3\"",
+								"name": "capability",
+								"validation": "distinct_capability|required_note_if_other",
+								"label": "Capability",
+								"help": "Choose capabilities that can handle the above vulnerability",
+								"placeholder": "Select capabilities or leave empty if no more applicable item",
+								"options": {
+									"None": "-",
+									"K1_1": "C1.1 Degree of asset utilization",
+									"K1_2": "C1.2 Access to capital",
+									"K1_3": "C1.3 Insurances",
+									"K1_4": "C1.4 Price margin",
+									"K1_5": "C1.5 Cost estimates/costing",
+									"K1_6": "C1.6 Cash flow",
+									"K1_7": "C1.7 Terms of payment",
+									"K1_8": "C1.8 Focus on net working capital",
+									"K1_9": "C1.9 Focus on customer/product profitability",
+									"K1_10": "C1.10 Other",
+									"K2_1": "C2.1 Customer loyalty/retention",
+									"K2_2": "C2.2 Market share",
+									"K2_3": "C2.3 Capability to create customer relations",
+									"K2_4": "C2.4 Capability to market dispersion",
+									"K2_5": "C2.5 Customer communication",
+									"K2_6": "C2.6 Customer segmentation",
+									"K2_7": "C2.7 Forecasting",
+									"K2_8": "C2.8 Collaboration on forecasting",
+									"K2_9": "C2.9 Product differentiation",
+									"K2_10": "C2.10 Alternative distribution channels",
+									"K2_11": "C2.11 Attractive product assortment",
+									"K2_12": "C2.12 Sales Pipeline",
+									"K2_13": "C2.13 Development projects (and pipeline)",
+									"K2_14": "C2.14 Faster time to market",
+									"K2_15": "C2.15 Capability of product pruning",
+									"K2_16": "C2.16 Other",
+									"K3_1": "C3.1 Component commonality",
+									"K3_2": "C3.2 Increased standard products/components",
+									"K3_3": "C3.3 Modular product design",
+									"K3_4": "C3.4 Capability to reduce product variability",
+									"K3_5": "C3.5 Excess capacity",
+									"K3_6": "C3.6 Manufacturing foundation",
+									"K3_7": "C3.7 Phasing products in and out",
+									"K3_8": "C3.8 Capability to prevent errors",
+									"K3_9": "C3.9 Quality management",
+									"K3_10": "C3.10 Productivity/elimination of waste",
+									"K3_11": "C3.11 Optimize manufacturing lead-time",
+									"K3_12": "C3.12 Fast Changeovers",
+									"K3_13": "C3.13 Flexible/scalable capacity",
+									"K3_14": "C3.14 Postpone manufacturing",
+									"K3_15": "C3.15 Systematic maintenance",
+									"K3_16": "C3.16 Standardized workflows/processes",
+									"K3_17": "C3.17 Documented workflows/processes",
+									"K3_18": "C3.18 Continuous improvement",
+									"K3_19": "C3.19 Manufacturing at the right locations",
+									"K3_20": "C3.20 Outsourcing - make or buy analyses",
+									"K3_21": "C3.21 Other",
+									"K4_1": "C4.1 IT-supported inventory management",
+									"K4_2": "C4.2 Location management",
+									"K4_3": "C4.3 Safety stock",
+									"K4_4": "C4.4 Min/max inventory management",
+									"K4_5": "C4.5 ABC inventory management",
+									"K4_6": "C4.6 Focus on death goods/obsolescence",
+									"K4_7": "C4.7 Other",
+									"K5_1": "C5.1 Being an attractive customer",
+									"K5_2": "C5.2 Substitution of raw materials semi-finished products and components",
+									"K5_3": "C5.3 Increased suppliers/sources of supply",
+									"K5_4": "C5.4 Capability to create supplier relations",
+									"K5_5": "C5.5 Prioritization (segmentation) of suppliers",
+									"K5_6": "C5.6 Supplier assessment and auditing",
+									"K5_7": "C5.7 Supplier development",
+									"K5_8": "C5.8 Knowledge about the supply market",
+									"K5_9": "C5.9 Differentiated approach towards the suppliers",
+									"K5_10": "C5.10 Preferred part list",
+									"K5_11": "C5.11 Preferred supplier list",
+									"K5_12": "C5.12 Other",
+									"K6_1": "C6.1 Exchange of information - internally",
+									"K6_2": "C6.2 Exchange of information - externally",
+									"K6_3": "C6.3 Use of contemporary information technology",
+									"K6_4": "C6.4 Cyber security",
+									"K6_5": "C6.5 Monitoring Early Warning Signals",
+									"K6_6": "C6.6 Ownership of master data",
+									"K6_7": "C6.7 Utilizing the potential of systems in use",
+									"K6_8": "C6.8 Other",
+									"K7_1": "C7.1 Relationship management",
+									"K7_2": "C7.2 Delegated accountability",
+									"K7_3": "C7.3 Execution skills",
+									"K7_4": "C7.4 Employee involvement",
+									"K7_5": "C7.5 Learning/benchmarking",
+									"K7_6": "C7.6 Communication",
+									"K7_7": "C7.7 Access to qualified labor",
+									"K7_8": "C7.8 Capability to attract new employees",
+									"K7_9": "C7.9 Crisis management",
+									"K7_10": "C7.10 Risk management",
+									"K7_11": "C7.11 Lobbyism",
+									"K7_12": "C7.12 Width in Competency Profiles",
+									"K7_13": "C7.13 Creative problem-solving",
+									"K7_14": "C7.14 Focus on Core Competencies",
+									"K7_15": "C7.15 Design for manufacturing/supply chain",
+									"K7_16": "C7.16 Sales and Operations Planning",
+									"K7_17": "C7.17 Digitalization",
+									"K7_18": "C7.18 Right KPI's functional and corporate levels",
+									"K7_19": "C7.19 Intellectual property rights",
+									"K7_20": "C7.20 Work based on documented supply chain strategy",
+									"K7_21": "C7.21 Cultural understanding",
+									"K7_22": "C7.22 Cross training",
+									"K7_23": "C7.23 Other"
+								}
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"current_ability_\" + ($key + 1) + \"_3\"",
+								"name": "current_ability",
+								"label": "Current Ability",
+								"placeholder": "Select value from 1 to 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"importance_\" + ($key + 1) + \"_3\"",
+								"name": "importance",
+								"label": "Importance",
+								"placeholder": "Select value from 1 to 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "text",
+								"id": "$: \"note_capability_\" + ($key + 1) + \"_3\"",
+								"name": "note_capability",
+								"label": "Note",
+								"placeholder": "Voluntary completion, required if 'Other' is selected."
+							}
+						]
+					},
+					{
+						"$el": "h2",
+						"children": "Capability 4)",
+						"attrs": {
+							"class": "text-xl"
+						}
+					},
+					{
+						"$formkit": "group",
+						"id": "$: \"capability_group_\" + ($key + 1)",
+						"name": "capability_group",
+						"children": [
+							{
+								"$formkit": "select",
+								"id": "$: \"capability_\" + ($key + 1) + \"_4\"",
+								"name": "capability",
+								"validation": "distinct_capability|required_note_if_other",
+								"label": "Capability",
+								"help": "Choose capabilities that can handle the above vulnerability",
+								"placeholder": "Select capabilities or leave empty if no more applicable item",
+								"options": {
+									"None": "-",
+									"K1_1": "C1.1 Degree of asset utilization",
+									"K1_2": "C1.2 Access to capital",
+									"K1_3": "C1.3 Insurances",
+									"K1_4": "C1.4 Price margin",
+									"K1_5": "C1.5 Cost estimates/costing",
+									"K1_6": "C1.6 Cash flow",
+									"K1_7": "C1.7 Terms of payment",
+									"K1_8": "C1.8 Focus on net working capital",
+									"K1_9": "C1.9 Focus on customer/product profitability",
+									"K1_10": "C1.10 Other",
+									"K2_1": "C2.1 Customer loyalty/retention",
+									"K2_2": "C2.2 Market share",
+									"K2_3": "C2.3 Capability to create customer relations",
+									"K2_4": "C2.4 Capability to market dispersion",
+									"K2_5": "C2.5 Customer communication",
+									"K2_6": "C2.6 Customer segmentation",
+									"K2_7": "C2.7 Forecasting",
+									"K2_8": "C2.8 Collaboration on forecasting",
+									"K2_9": "C2.9 Product differentiation",
+									"K2_10": "C2.10 Alternative distribution channels",
+									"K2_11": "C2.11 Attractive product assortment",
+									"K2_12": "C2.12 Sales Pipeline",
+									"K2_13": "C2.13 Development projects (and pipeline)",
+									"K2_14": "C2.14 Faster time to market",
+									"K2_15": "C2.15 Capability of product pruning",
+									"K2_16": "C2.16 Other",
+									"K3_1": "C3.1 Component commonality",
+									"K3_2": "C3.2 Increased standard products/components",
+									"K3_3": "C3.3 Modular product design",
+									"K3_4": "C3.4 Capability to reduce product variability",
+									"K3_5": "C3.5 Excess capacity",
+									"K3_6": "C3.6 Manufacturing foundation",
+									"K3_7": "C3.7 Phasing products in and out",
+									"K3_8": "C3.8 Capability to prevent errors",
+									"K3_9": "C3.9 Quality management",
+									"K3_10": "C3.10 Productivity/elimination of waste",
+									"K3_11": "C3.11 Optimize manufacturing lead-time",
+									"K3_12": "C3.12 Fast Changeovers",
+									"K3_13": "C3.13 Flexible/scalable capacity",
+									"K3_14": "C3.14 Postpone manufacturing",
+									"K3_15": "C3.15 Systematic maintenance",
+									"K3_16": "C3.16 Standardized workflows/processes",
+									"K3_17": "C3.17 Documented workflows/processes",
+									"K3_18": "C3.18 Continuous improvement",
+									"K3_19": "C3.19 Manufacturing at the right locations",
+									"K3_20": "C3.20 Outsourcing - make or buy analyses",
+									"K3_21": "C3.21 Other",
+									"K4_1": "C4.1 IT-supported inventory management",
+									"K4_2": "C4.2 Location management",
+									"K4_3": "C4.3 Safety stock",
+									"K4_4": "C4.4 Min/max inventory management",
+									"K4_5": "C4.5 ABC inventory management",
+									"K4_6": "C4.6 Focus on death goods/obsolescence",
+									"K4_7": "C4.7 Other",
+									"K5_1": "C5.1 Being an attractive customer",
+									"K5_2": "C5.2 Substitution of raw materials semi-finished products and components",
+									"K5_3": "C5.3 Increased suppliers/sources of supply",
+									"K5_4": "C5.4 Capability to create supplier relations",
+									"K5_5": "C5.5 Prioritization (segmentation) of suppliers",
+									"K5_6": "C5.6 Supplier assessment and auditing",
+									"K5_7": "C5.7 Supplier development",
+									"K5_8": "C5.8 Knowledge about the supply market",
+									"K5_9": "C5.9 Differentiated approach towards the suppliers",
+									"K5_10": "C5.10 Preferred part list",
+									"K5_11": "C5.11 Preferred supplier list",
+									"K5_12": "C5.12 Other",
+									"K6_1": "C6.1 Exchange of information - internally",
+									"K6_2": "C6.2 Exchange of information - externally",
+									"K6_3": "C6.3 Use of contemporary information technology",
+									"K6_4": "C6.4 Cyber security",
+									"K6_5": "C6.5 Monitoring Early Warning Signals",
+									"K6_6": "C6.6 Ownership of master data",
+									"K6_7": "C6.7 Utilizing the potential of systems in use",
+									"K6_8": "C6.8 Other",
+									"K7_1": "C7.1 Relationship management",
+									"K7_2": "C7.2 Delegated accountability",
+									"K7_3": "C7.3 Execution skills",
+									"K7_4": "C7.4 Employee involvement",
+									"K7_5": "C7.5 Learning/benchmarking",
+									"K7_6": "C7.6 Communication",
+									"K7_7": "C7.7 Access to qualified labor",
+									"K7_8": "C7.8 Capability to attract new employees",
+									"K7_9": "C7.9 Crisis management",
+									"K7_10": "C7.10 Risk management",
+									"K7_11": "C7.11 Lobbyism",
+									"K7_12": "C7.12 Width in Competency Profiles",
+									"K7_13": "C7.13 Creative problem-solving",
+									"K7_14": "C7.14 Focus on Core Competencies",
+									"K7_15": "C7.15 Design for manufacturing/supply chain",
+									"K7_16": "C7.16 Sales and Operations Planning",
+									"K7_17": "C7.17 Digitalization",
+									"K7_18": "C7.18 Right KPI's functional and corporate levels",
+									"K7_19": "C7.19 Intellectual property rights",
+									"K7_20": "C7.20 Work based on documented supply chain strategy",
+									"K7_21": "C7.21 Cultural understanding",
+									"K7_22": "C7.22 Cross training",
+									"K7_23": "C7.23 Other"
+								}
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"current_ability_\" + ($key + 1) + \"_4\"",
+								"name": "current_ability",
+								"label": "Current Ability",
+								"placeholder": "Select value from 1 to 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"importance_\" + ($key + 1) + \"_4\"",
+								"name": "importance",
+								"label": "Importance",
+								"placeholder": "Select value from 1 to 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "text",
+								"id": "$: \"note_capability_\" + ($key + 1) + \"_4\"",
+								"name": "note_capability",
+								"label": "Note",
+								"placeholder": "Voluntary completion, required if 'Other' is selected."
+							}
+						]
+					},
+					{
+						"$el": "h2",
+						"children": "Capability 5)",
+						"attrs": {
+							"class": "text-xl"
+						}
+					},
+					{
+						"$formkit": "group",
+						"id": "$: \"capability_group_\" + ($key + 1)",
+						"name": "capability_group",
+						"children": [
+							{
+								"$formkit": "select",
+								"id": "$: \"capability_\" + ($key + 1) + \"_5\"",
+								"name": "capability",
+								"validation": "distinct_capability|required_note_if_other",
+								"label": "Capability",
+								"help": "Choose capabilities that can handle the above vulnerability",
+								"placeholder": "Select capabilities or leave empty if no more applicable item",
+								"options": {
+									"None": "-",
+									"K1_1": "C1.1 Degree of asset utilization",
+									"K1_2": "C1.2 Access to capital",
+									"K1_3": "C1.3 Insurances",
+									"K1_4": "C1.4 Price margin",
+									"K1_5": "C1.5 Cost estimates/costing",
+									"K1_6": "C1.6 Cash flow",
+									"K1_7": "C1.7 Terms of payment",
+									"K1_8": "C1.8 Focus on net working capital",
+									"K1_9": "C1.9 Focus on customer/product profitability",
+									"K1_10": "C1.10 Other",
+									"K2_1": "C2.1 Customer loyalty/retention",
+									"K2_2": "C2.2 Market share",
+									"K2_3": "C2.3 Capability to create customer relations",
+									"K2_4": "C2.4 Capability to market dispersion",
+									"K2_5": "C2.5 Customer communication",
+									"K2_6": "C2.6 Customer segmentation",
+									"K2_7": "C2.7 Forecasting",
+									"K2_8": "C2.8 Collaboration on forecasting",
+									"K2_9": "C2.9 Product differentiation",
+									"K2_10": "C2.10 Alternative distribution channels",
+									"K2_11": "C2.11 Attractive product assortment",
+									"K2_12": "C2.12 Sales Pipeline",
+									"K2_13": "C2.13 Development projects (and pipeline)",
+									"K2_14": "C2.14 Faster time to market",
+									"K2_15": "C2.15 Capability of product pruning",
+									"K2_16": "C2.16 Other",
+									"K3_1": "C3.1 Component commonality",
+									"K3_2": "C3.2 Increased standard products/components",
+									"K3_3": "C3.3 Modular product design",
+									"K3_4": "C3.4 Capability to reduce product variability",
+									"K3_5": "C3.5 Excess capacity",
+									"K3_6": "C3.6 Manufacturing foundation",
+									"K3_7": "C3.7 Phasing products in and out",
+									"K3_8": "C3.8 Capability to prevent errors",
+									"K3_9": "C3.9 Quality management",
+									"K3_10": "C3.10 Productivity/elimination of waste",
+									"K3_11": "C3.11 Optimize manufacturing lead-time",
+									"K3_12": "C3.12 Fast Changeovers",
+									"K3_13": "C3.13 Flexible/scalable capacity",
+									"K3_14": "C3.14 Postpone manufacturing",
+									"K3_15": "C3.15 Systematic maintenance",
+									"K3_16": "C3.16 Standardized workflows/processes",
+									"K3_17": "C3.17 Documented workflows/processes",
+									"K3_18": "C3.18 Continuous improvement",
+									"K3_19": "C3.19 Manufacturing at the right locations",
+									"K3_20": "C3.20 Outsourcing - make or buy analyses",
+									"K3_21": "C3.21 Other",
+									"K4_1": "C4.1 IT-supported inventory management",
+									"K4_2": "C4.2 Location management",
+									"K4_3": "C4.3 Safety stock",
+									"K4_4": "C4.4 Min/max inventory management",
+									"K4_5": "C4.5 ABC inventory management",
+									"K4_6": "C4.6 Focus on death goods/obsolescence",
+									"K4_7": "C4.7 Other",
+									"K5_1": "C5.1 Being an attractive customer",
+									"K5_2": "C5.2 Substitution of raw materials semi-finished products and components",
+									"K5_3": "C5.3 Increased suppliers/sources of supply",
+									"K5_4": "C5.4 Capability to create supplier relations",
+									"K5_5": "C5.5 Prioritization (segmentation) of suppliers",
+									"K5_6": "C5.6 Supplier assessment and auditing",
+									"K5_7": "C5.7 Supplier development",
+									"K5_8": "C5.8 Knowledge about the supply market",
+									"K5_9": "C5.9 Differentiated approach towards the suppliers",
+									"K5_10": "C5.10 Preferred part list",
+									"K5_11": "C5.11 Preferred supplier list",
+									"K5_12": "C5.12 Other",
+									"K6_1": "C6.1 Exchange of information - internally",
+									"K6_2": "C6.2 Exchange of information - externally",
+									"K6_3": "C6.3 Use of contemporary information technology",
+									"K6_4": "C6.4 Cyber security",
+									"K6_5": "C6.5 Monitoring Early Warning Signals",
+									"K6_6": "C6.6 Ownership of master data",
+									"K6_7": "C6.7 Utilizing the potential of systems in use",
+									"K6_8": "C6.8 Other",
+									"K7_1": "C7.1 Relationship management",
+									"K7_2": "C7.2 Delegated accountability",
+									"K7_3": "C7.3 Execution skills",
+									"K7_4": "C7.4 Employee involvement",
+									"K7_5": "C7.5 Learning/benchmarking",
+									"K7_6": "C7.6 Communication",
+									"K7_7": "C7.7 Access to qualified labor",
+									"K7_8": "C7.8 Capability to attract new employees",
+									"K7_9": "C7.9 Crisis management",
+									"K7_10": "C7.10 Risk management",
+									"K7_11": "C7.11 Lobbyism",
+									"K7_12": "C7.12 Width in Competency Profiles",
+									"K7_13": "C7.13 Creative problem-solving",
+									"K7_14": "C7.14 Focus on Core Competencies",
+									"K7_15": "C7.15 Design for manufacturing/supply chain",
+									"K7_16": "C7.16 Sales and Operations Planning",
+									"K7_17": "C7.17 Digitalization",
+									"K7_18": "C7.18 Right KPI's functional and corporate levels",
+									"K7_19": "C7.19 Intellectual property rights",
+									"K7_20": "C7.20 Work based on documented supply chain strategy",
+									"K7_21": "C7.21 Cultural understanding",
+									"K7_22": "C7.22 Cross training",
+									"K7_23": "C7.23 Other"
+								}
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"current_ability_\" + ($key + 1) + \"_5\"",
+								"name": "current_ability",
+								"label": "Current Ability",
+								"placeholder": "Select value from 1 to 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "select",
+								"id": "$: \"importance_\" + ($key + 1) + \"_5\"",
+								"name": "importance",
+								"label": "Importance",
+								"placeholder": "Select value from 1 to 5",
+								"options": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							{
+								"$formkit": "text",
+								"id": "$: \"note_capability_\" + ($key + 1) + \"_5\"",
+								"name": "note_capability",
+								"label": "Note",
+								"placeholder": "Voluntary completion, required if 'Other' is selected."
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"$formkit": "step",
+		"key": "step_99_summary",
+		"id": "step_99_summary",
+		"name": "step_99_summary",
+		"label": "Summary",
+		"props": {
+			"validStepIcon": "submit"
+		},
+		"stepActionsClass": "mt-4",
+		"children": [
+			{
+				"$cmp": "FormResultSummary",
+				"props": {
+					"data": "$get(form).value",
+					"hide-job-function": "$is_super",
+					"is-show-summary": "$isShowSummary"
+				}
+			},
+			{
+				"$formkit": "submit",
+				"outerClass": "mt-4 float-right"
+			}
+		]
+	}
+]

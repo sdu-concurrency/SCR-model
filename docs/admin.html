@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Guide - SCR Model Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="https://github.com/sdu-concurrency/SCR-model/blob/main/favicon.svg?raw=true">
+</head>
+<body>
+    <a href="https://github.com/sdu-concurrency/SCR-model" class="github-fork-ribbon" target="_blank" aria-label="Fork me on GitHub">Fork me on GitHub</a>
+    
+    <header class="header">
+        <h1>Supply Chain Resilience Assessment Tool</h1>
+        <p>Admin & Platform Management Guide</p>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">SCR-Model Docs</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="installation.html">Installation</a></li>
+                <li><a href="session-manager.html">Session Manager</a></li>
+                <li><a href="survey-participant.html">Survey Participant</a></li>
+                <li><a href="admin.html" class="active">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main">
+        <section class="hero">
+            <h2>🛡️ Admin & Platform Management Guide</h2>
+            <p>
+                Comprehensive guide for platform administrators working directly with the PocketBase 
+                backend, including account management, password resets, and question set configuration.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>📋 Table of Contents</h2>
+            <div class="toc">
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#pocketbase-basics">PocketBase Basics</a></li>
+                    <li><a href="#authentication-tiers">Authentication Tiers</a></li>
+                    <li><a href="#create-admin-account">Create an Admin Account</a></li>
+                    <li><a href="#reset-password">Reset a Super User Password</a></li>
+                    <li><a href="#add-question-set">Add a New Question Set</a></li>
+                    <li><a href="#verification">Verification Checklist</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    <li><a href="#json-schemas">JSON Schema Reference</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="overview">
+            <h2>🎯 Overview</h2>
+            
+            <h3>About PocketBase</h3>
+            <p>
+                <a href="https://pocketbase.io/" target="_blank">PocketBase</a> is the backend service for this project. 
+                It stores all data in an embedded SQLite database at <code>back/pb_data/</code> and exposes 
+                two interfaces:
+            </p>
+            
+            <ul>
+                <li><strong>Admin UI</strong> - <code>http://127.0.0.1:8090/_/</code> - a browser-based dashboard for managing collections, records, and settings</li>
+                <li><strong>REST API</strong> - <code>http://127.0.0.1:8090/api/</code> - used by the frontend</li>
+            </ul>
+
+            <h3>Starting the backend</h3>
+            <p>
+                To start the backend locally, run from the <code>back/</code> directory:
+            </p>
+            <pre><code>go run main.go serve --http=127.0.0.1:8090</code></pre>
+
+            <div class="info-box">
+                <h4>First-Time Admin Setup</h4>
+                <p>
+                    No admin account is pre-created. On the very first startup, PocketBase detects that
+                    no superuser exists and shows a setup wizard at <code>/_/</code>. Complete the wizard
+                    to create your own admin account with the email and password of your choice.
+                </p>
+                <p>
+                    <strong>Choose a strong, unique password</strong> — this account has full access to
+                    all data and settings.
+                </p>
+            </div>
+
+            <h3>Two separate authentication tiers</h3>
+            <p>
+                This project uses two distinct authentication systems that must not be confused:
+            </p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Account type</th>
+                        <th>Collection</th>
+                        <th>Purpose</th>
+                        <th>Who uses it</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>PocketBase admin</strong></td>
+                        <td><code>_superusers</code></td>
+                        <td>Full backend access via <code>/_/</code></td>
+                        <td>Platform administrators only</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Session manager</strong></td>
+                        <td><code>app_users</code> with <code>role = super</code></td>
+                        <td>Create and run assessment sessions via the web app</td>
+                        <td>Researchers and facilitators</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <h4>⚠️ Important Note</h4>
+                <p>
+                    The web application refers to <code>app_users</code> records with <code>role = super</code> 
+                    as "super users". This is an application-level concept and is completely separate from the 
+                    PocketBase <code>_superusers</code> collection.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="pocketbase-basics">
+            <h2>🗄️ PocketBase Basics</h2>
+            
+            <h3>Admin UI</h3>
+            <p>
+                The PocketBase admin UI is accessible at <code>http://127.0.0.1:8090/_/</code>. After logging in 
+                you will see the <strong>Collections</strong> panel on the left and the record table for the 
+                selected collection in the main area.
+            </p>
+
+            <h3>Key collections</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Collection</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>_superusers</code></td>
+                        <td>PocketBase admin accounts - full backend access</td>
+                    </tr>
+                    <tr>
+                        <td><code>app_users</code></td>
+                        <td>Application user accounts; <code>role</code> is <code>normal</code> (participant) or <code>super</code> (session manager)</td>
+                    </tr>
+                    <tr>
+                        <td><code>questions</code></td>
+                        <td>Question set definitions containing vulnerability and capability JSON schemas</td>
+                    </tr>
+                    <tr>
+                        <td><code>sessions</code></td>
+                        <td>Assessment session records, each referencing one <code>questions</code> record</td>
+                    </tr>
+                    <tr>
+                        <td><code>tokens</code></td>
+                        <td>Short-lived login tokens for session participants</td>
+                    </tr>
+                    <tr>
+                        <td><code>surveys</code></td>
+                        <td>Completed survey responses</td>
+                    </tr>
+                    <tr>
+                        <td><code>survey_schemas</code></td>
+                        <td>Survey form structure</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>The <code>pwordtext</code> field</h3>
+            <p>
+                <code>app_users</code> records have a helper field called <code>pwordtext</code>. When a session is 
+                first created, the backend generates a random 5-character password and stores it in both the 
+                real PocketBase password hash and in <code>pwordtext</code> so the session manager can see it 
+                on screen.
+            </p>
+            <p>
+                Once the session manager logs in and sets their own password via the web app (the 
+                <code>/auth-set</code> endpoint), the real password hash is updated and <code>pwordtext</code> is 
+                cleared to an empty string.
+            </p>
+
+            <div class="warning-box">
+                <h4>⚠️ Important</h4>
+                <p>
+                    <code>pwordtext</code> is only a convenience display field. The real authentication secret is 
+                    always the PocketBase password hash. If you edit only <code>pwordtext</code>, you are 
+                    <strong>not</strong> changing the account password.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="authentication-tiers">
+            <h2>🔐 Authentication Tiers Explained</h2>
+            
+            <h3>PocketBase Superusers (<code>_superusers</code>)</h3>
+            <ul>
+                <li>Full backend access via <code>/_/</code></li>
+                <li>Can manage all collections, records, and settings</li>
+                <li>Used only by platform administrators</li>
+                <li>Email + password authentication</li>
+                <li>No relationship to application session managers</li>
+            </ul>
+
+            <h3>Application Super Users (<code>app_users</code> with <code>role = super</code>)</h3>
+            <ul>
+                <li>Session managers who create and facilitate assessment sessions</li>
+                <li>Access the web application, not the PocketBase admin UI</li>
+                <li>Token-based authentication (auto-generated on session creation)</li>
+                <li>Can create sessions, view results, manage participants</li>
+            </ul>
+        </section>
+
+        <section class="section" id="create-admin-account">
+            <h2>👤 Create an Admin Account</h2>
+            
+            <h3>When to create</h3>
+            <p>
+                Create a new PocketBase admin account when you need to give another person direct access 
+                to the backend UI at <code>/_/</code>. Admin accounts live in the <code>_superusers</code> 
+                collection and have no relationship with application session managers.
+            </p>
+
+            <h3>Steps</h3>
+            <ol>
+                <li>Open <code>http://127.0.0.1:8090/_/</code> and log in with an existing admin account.</li>
+                <li>In the left sidebar, click <strong>_superusers</strong> under the <strong>System</strong> section.</li>
+                <li>Click <strong>+ New Record</strong> in the top-right corner.</li>
+                <li>Enter the new admin's <strong>email address</strong> and a strong <strong>password</strong>.</li>
+                <li>Click <strong>Create</strong> to save the record.</li>
+                <li>Share the credentials with the new admin securely.</li>
+                <li>Ask the new admin to log in and change their password immediately.</li>
+            </ol>
+
+            <div class="info-box">
+                <h4>Expected result</h4>
+                <p>
+                    The new account can log in to <code>/_/</code> and manage all collections, records, and settings.
+                </p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Warning</h4>
+                <p>
+                    Admin accounts have unrestricted write access to the database. Only create accounts 
+                    for people who need this level of access.
+                </p>
+            </div>
+
+            <h3>Alternative: create via CLI</h3>
+            <p>
+                You can also create a superuser directly from the command line without opening the UI - 
+                useful on first deployment or when the UI is inaccessible.
+            </p>
+
+            <h4>Local / development (from the <code>back/</code> directory):</h4>
+            <pre><code>go run main.go superuser create EMAIL PASS</code></pre>
+
+            <h4>Docker (replace <code>&lt;container&gt;</code> with your container name or ID):</h4>
+            <pre><code>docker exec &lt;container&gt; /pb/pocketbase superuser create EMAIL PASS</code></pre>
+
+            <p>
+                See the <a href="https://pocketbase.io/docs/going-to-production/#minimal-setup" target="_blank">PocketBase production docs</a> for more details.
+            </p>
+        </section>
+
+        <section class="section" id="reset-password">
+            <h2>🔄 Reset a Super User Password</h2>
+            
+            <h3>Overview</h3>
+            <p>
+                In this project a "super user" is an <code>app_users</code> record with <code>role = super</code>. 
+                These accounts are session managers who create and facilitate assessment sessions through the 
+                web application.
+            </p>
+            <p>
+                The application assigns a random password when a session is created. If a session manager 
+                forgets their password, you can reset it from the PocketBase admin UI by editing the 
+                <code>pwordtext</code> field of the record - this triggers the reset password mechanism on the 
+                next login.
+            </p>
+
+            <h3>Understanding the two password fields</h3>
+            <p>
+                When you open an <code>app_users</code> record in PocketBase you will see:
+            </p>
+            <ul>
+                <li><strong>change password</strong> toggle - reveals the Password and Confirm fields when enabled</li>
+                <li><strong>pwordtext</strong> - the plaintext helper field (only shown to admins)</li>
+            </ul>
+            <p>
+                To fully reset the password you must update both:
+            </p>
+            <ol>
+                <li>The real PocketBase password (via the <strong>change password</strong> toggle)</li>
+                <li>The <code>pwordtext</code> field to match, so the session manager can enter the system until they set their own</li>
+            </ol>
+
+            <h3>Steps</h3>
+            <ol>
+                <li>Open <code>http://127.0.0.1:8090/_/</code> and log in.</li>
+                <li>Click <strong>app_users</strong> in the left sidebar.</li>
+                <li>Find the session manager's record - look for <code>role = super</code> in the role column. You can also filter by typing <code>role = "super"</code> in the search bar.</li>
+                <li>Click the record row to open the edit panel.</li>
+                <li>Scroll down and verify that <code>role</code> is set to <code>super</code>.</li>
+                <li>
+                    <p><strong>Option A:</strong> Toggle <strong>change password</strong> to enable the password fields.</p>
+                    <ol type="a">
+                        <li>Enter the new password in both <strong>Password</strong> and <strong>Confirm</strong>.</li>
+                        <li>Click <strong>Save changes</strong>.</li>
+                    </ol>
+                </li>
+                <li>
+                    <p><strong>Option B:</strong> Update the <code>pwordtext</code> field to the new password value.</p>
+                    <ol type="a">
+                        <li>This approach will trigger reset password mechanism on the next login.</li>
+                        <li>Click <strong>Save changes</strong>.</li>
+                    </ol>
+                </li>
+                <li>Provide the new password to the session manager via a secure channel.</li>
+                <li>Ask them to log in and set their own permanent password through the web application.</li>
+            </ol>
+        </section>
+
+        <section class="section" id="add-question-set">
+            <h2>➕ Add a New Vulnerability and Capability Set</h2>
+            
+            <h3>Overview</h3>
+            <p>
+                Assessment question sets are stored in the <code>questions</code> collection. Each record 
+                defines a complete survey configuration including a vulnerability schema and a capability 
+                schema. The session creation form in the web application loads all records from this collection 
+                and presents them as options in the <strong>Session question set</strong> dropdown.
+            </p>
+
+            <h3>Record fields</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Required</th>
+                        <th>Validation</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>name</code></td>
+                        <td>Yes</td>
+                        <td>Any text</td>
+                        <td>Identifies the question set, e.g. <code>supply_chain</code> or <code>cybersecurity</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>version</code></td>
+                        <td>Yes</td>
+                        <td>Must match <code>v1</code>, <code>v2</code>, <code>v3</code>, etc.</td>
+                        <td>Incremented when revising an existing set</td>
+                    </tr>
+                    <tr>
+                        <td><code>description</code></td>
+                        <td>No</td>
+                        <td>Any text</td>
+                        <td>Short human-readable summary shown in the UI</td>
+                    </tr>
+                    <tr>
+                        <td><code>vulnerability_schema</code></td>
+                        <td>Yes</td>
+                        <td>Valid JSON array</td>
+                        <td>Categories and items for the vulnerability assessment</td>
+                    </tr>
+                    <tr>
+                        <td><code>capability_schema</code></td>
+                        <td>Yes</td>
+                        <td>Valid JSON array</td>
+                        <td>Categories and items for the capability assessment</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p>
+                The combination of <code>name</code> and <code>version</code> should be unique across all records.
+            </p>
+
+            <h3>JSON schema structure</h3>
+            <p>
+                Both schemas follow the same structure: a JSON array of category objects. Each category 
+                has a multilingual <code>label</code> and an <code>items</code> array. Each item has a stable 
+                <code>value</code> key (used as the internal identifier in survey responses) and a multilingual 
+                <code>label</code>.
+            </p>
+
+            <pre><code>[
+  {
+    "label": { "en": "1. Finance", "da": "1. \u00d8konomi/finans" },
+    "items": [
+      {
+        "value": "S1_1",
+        "label": { "en": "Asset turnover", "da": "Aktivers oms\u00e6tningshastighed" }
+      },
+      {
+        "value": "S1_2",
+        "label": { "en": "Access to liquidity", "da": "Adgang til likviditet" }
+      }
+    ]
+  },
+  {
+    "label": { "en": "2. Customers / demand", "da": "2. Kunder/eftersp\u00f8rgslen" },
+    "items": [
+      {
+        "value": "S2_1",
+        "label": { "en": "Concentration of customers", "da": "Kundekoncentration" }
+      }
+    ]
+  }
+]</code></pre>
+
+            <div class="warning-box">
+                <h4>⚠️ Important</h4>
+                <p>
+                    The <code>value</code> keys are persisted in survey response records. 
+                    <strong>Do not change existing value keys</strong> after surveys have been collected - 
+                    doing so will break the mapping between responses and questions.
+                </p>
+            </div>
+
+            <h3>Steps to add a new question set</h3>
+            <ol>
+                <li>Open <code>http://127.0.0.1:8090/_/</code> and log in.</li>
+                <li>Click <strong>questions</strong> in the left sidebar.</li>
+                <li>Click <strong>+ New Record</strong> in the top-right corner.</li>
+                <li>Fill in the <strong>name</strong> field (e.g. <code>cybersecurity</code>).</li>
+                <li>Fill in the <strong>version</strong> field using the format <code>v1</code>.</li>
+                <li>Optionally fill in <strong>description</strong> with a short note about the question set.</li>
+                <li>Click the <strong>vulnerability_schema</strong> field and replace the <code>null</code> value with your JSON array.</li>
+                <li>Click the <strong>capability_schema</strong> field and replace the <code>null</code> value with your JSON array.</li>
+                <li>Click <strong>Create</strong> to save the record.</li>
+                <li>After saving, navigate to the web application at <code>http://localhost:5173/admin</code>, log in, and open the session creation form. The new question set should appear immediately in the <strong>Session question set</strong> dropdown.</li>
+            </ol>
+
+            <div class="info-box">
+                <h4>📊 Note</h4>
+                <p>
+                    The frontend loads question sets sorted by creation date with the newest first. The 
+                    most recently added question set will appear at the top of the dropdown and will be 
+                    pre-selected by default.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="verification">
+            <h2>✅ Verification Checklist</h2>
+            <p>
+                After making changes in PocketBase, work through this checklist before handing the system back:
+            </p>
+
+            <h3>New admin account</h3>
+            <ul>
+                <li>✅ Log out of the current admin session</li>
+                <li>✅ Log back in using the new admin account credentials</li>
+                <li>✅ Confirm that collections and records are accessible</li>
+            </ul>
+
+            <h3>Super user password reset</h3>
+            <ul>
+                <li>✅ Confirm that <code>pwordtext</code> in the <code>app_users</code> record matches the new password</li>
+                <li>✅ Test logging in to the web application using the session manager's username and the new password</li>
+                <li>✅ The session manager should be prompted to set their own permanent password on first login</li>
+            </ul>
+
+            <h3>New question set</h3>
+            <ul>
+                <li>✅ The <code>questions</code> record is visible in the collection list view</li>
+                <li>✅ The <code>name</code> and <code>version</code> are correct</li>
+                <li>✅ Both <code>vulnerability_schema</code> and <code>capability_schema</code> contain valid JSON arrays</li>
+                <li>✅ The new question set name appears in the session creation dropdown at <code>http://localhost:5173/admin</code></li>
+                <li>✅ Create a test session using the new question set and confirm it is created successfully</li>
+            </ul>
+        </section>
+
+        <section class="section" id="troubleshooting">
+            <h2>❓ Troubleshooting</h2>
+
+            <h3>New question set does not appear in the web UI</h3>
+            <ol>
+                <li>Confirm the record was saved - check the <code>questions</code> collection list view.</li>
+                <li>Reload the session creation page; the frontend queries the API on every page load.</li>
+                <li>Check browser developer tools for API errors on the <code>/api/collections/questions/records</code> request.</li>
+            </ol>
+
+            <h3>Password reset did not work - session manager cannot log in</h3>
+            <p>
+                Open the <code>app_users</code> record and confirm that <strong>change password</strong> was 
+                toggled on before saving. If only <code>pwordtext</code> was updated, the real password hash was 
+                not changed. Toggle <strong>change password</strong>, re-enter the password, and save again.
+            </p>
+
+            <h3>JSON editor shows an error</h3>
+            <p>
+                Common causes:
+            </p>
+            <ul>
+                <li>Trailing comma after the last item in an array or object</li>
+                <li>Missing quotes around string keys or values</li>
+                <li><code>null</code> left in the field instead of replaced with a JSON array</li>
+            </ul>
+            <p>
+                The PocketBase JSON editor highlights syntax errors inline. Paste your JSON into a validator 
+                (e.g. <a href="https://jsonlint.com" target="_blank">jsonlint.com</a>) before pasting into 
+                PocketBase if you are unsure.
+            </p>
+
+            <h3>The <code>questions</code> record saves but the frontend shows an error</h3>
+            <p>
+                Check that both schemas are JSON <strong>arrays</strong> (starting with <code>[</code>), not objects 
+                (starting with <code>{</code>). The frontend expects an array of category objects.
+            </p>
+        </section>
+
+        <section class="section" id="json-schemas">
+            <h2>📄 JSON Schema Reference</h2>
+            <p>
+                Below are the complete <code>vulnerability_schema</code> and <code>capability_schema</code> values 
+                from the default <code>supply_chain / v1</code> question set. Use these as a reference or starting 
+                template when creating a new question set.
+            </p>
+
+            <h3>Default Vulnerability Schema</h3>
+            <p>
+                The vulnerability schema includes 7 categories with multiple items each, covering all aspects 
+                of supply chain vulnerability:
+            </p>
+            <ul>
+                <li><strong>Finance:</strong> Asset turnover, Access to liquidity, Net working capital, Low cash flow</li>
+                <li><strong>Customers / demand:</strong> Customer concentration, Dependence on key customers, Demand volatility</li>
+                <li><strong>Processes / organization:</strong> Dependency on key personnel, Limited production flexibility, Single-source production</li>
+                <li><strong>Systems / data:</strong> Outdated IT systems, Lack of data visibility, Cybersecurity vulnerabilities</li>
+                <li><strong>Purchasing / sourcing:</strong> Supplier concentration, Long lead times, Single-source components</li>
+                <li><strong>Supply chain end-to-end:</strong> Geographic concentration, Limited visibility, Complexity</li>
+                <li><strong>Environment:</strong> Climate-related risks, Regulatory and compliance risks, Geopolitical risks</li>
+            </ul>
+
+            <h3>Default Capability Schema</h3>
+            <p>
+                The capability schema includes 7 categories with multiple items each, covering organizational 
+                capabilities:
+            </p>
+            <ul>
+                <li><strong>Finance:</strong> Financial reserves, Access to credit facilities, Financial risk management</li>
+                <li><strong>Customers / demand:</strong> Customer diversification, Demand forecasting, Customer relationship management</li>
+                <li><strong>Product / processes:</strong> Product standardization, Process flexibility, Lean/agile operations, Cross-training</li>
+                <li><strong>Inventory management:</strong> Safety stock levels, Inventory visibility, Buffer strategy</li>
+                <li><strong>Sourcing / purchasing:</strong> Multi-sourcing strategy, Supplier qualification, Long-term relationships, Local/nearshore sourcing</li>
+                <li><strong>Systems and data:</strong> Real-time visibility, ERP/planning system maturity, Data analytics, Cybersecurity posture</li>
+                <li><strong>Management and organization:</strong> Executive commitment, Business continuity planning, Crisis response, Supply chain risk culture</li>
+            </ul>
+
+            <div class="info-box">
+                <h4>📥 Complete Schemas Available</h4>
+                <p>
+                    The complete JSON schemas with all categories and items are available in the 
+                    <a href="docs/HANDBOOK_BACKEND.md" target="_blank">HANDBOOK_BACKEND.md</a> file in the repository.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>📖 Related Documentation</h2>
+            <div class="cards">
+                <div class="card">
+                    <h4>🛡️ Admin</h4>
+                    <p>You are currently reading the Admin guide.</p>
+                </div>
+                <div class="card">
+                    <h4>👔 Session Manager</h4>
+                    <p>Guide for session managers on creating sessions and viewing results.</p>
+                    <p><a href="session-manager.html" class="btn">Read More</a></p>
+                </div>
+                <div class="card">
+                    <h4>📝 Survey Participant</h4>
+                    <p>Step-by-step instructions for participants.</p>
+                    <p><a href="survey-participant.html" class="btn">Read More</a></p>
+                </div>
+                <div class="card">
+                    <h4>⚙️ Installation</h4>
+                    <p>Setup and deployment guide.</p>
+                    <p><a href="installation.html" class="btn">Read More</a></p>
+                </div>
+            </div>
+        </section>
+
+        <p class="back-to-top"><a href="#top">↑ Back to Top</a></p>
+    </main>
+
+    <footer class="footer">
+        <p><strong>Supply Chain Resilience Assessment Tool Documentation</strong></p>
+        <p>Developed by University of Southern Denmark (SDU) & Royal Danish Military Academy</p>
+        <p>Funded by Danish Industry Foundation (Industriens Fond)</p>
+        <div class="footer-links">
+            <a href="https://github.com/sdu-concurrency/SCR-model" target="_blank">GitHub Repository</a>
+            <a href="https://cyber-smv.dk/" target="_blank">Project Website</a>
+            <a href="https://industriensfond.dk/" target="_blank">Industriens Fond</a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+            Last updated: June 2025 | Documentation version: 1.0
+        </p>
+    </footer>
+</body>
+</html>
