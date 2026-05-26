@@ -2,6 +2,8 @@
 
 Open-source deployment of the **Supply Chain Resilience** assessment tool, combining the Go/PocketBase backend and Vue 3 frontend into a single Docker image.
 
+**[Documentation](https://sdu-concurrency.github.io/SCR-model/index.html)**
+
 ---
 
 ## Architecture
