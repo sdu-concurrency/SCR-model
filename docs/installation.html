@@ -8,8 +8,6 @@
     <link rel="icon" type="image/svg+xml" href="https://github.com/sdu-concurrency/SCR-model/blob/main/favicon.svg?raw=true">
 </head>
 <body>
-    <a href="https://github.com/sdu-concurrency/SCR-model" class="github-fork-ribbon" target="_blank" aria-label="Fork me on GitHub">Fork me on GitHub</a>
-    
     <header class="header">
         <h1>Supply Chain Resilience Assessment Tool</h1>
         <p>Installation & Setup Guide</p>
@@ -19,18 +17,19 @@
         <div class="nav-container">
             <a href="/" class="logo">SCR-Model Docs</a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="installation.html" class="active">Installation</a></li>
-                <li><a href="session-manager.html">Session Manager</a></li>
-                <li><a href="survey-participant.html">Survey Participant</a></li>
-                <li><a href="admin.html">Admin</a></li>
+                <li><a href="index.html"><span data-lang="en">Home</span><span data-lang="da">Hjem</span></a></li>
+                <li><a href="installation.html" class="active"><span data-lang="en">Installation</span><span data-lang="da">Installation</span></a></li>
+                <li><a href="session-manager.html"><span data-lang="en">Session Manager</span><span data-lang="da">Sessionsleder</span></a></li>
+                <li><a href="survey-participant.html"><span data-lang="en">Survey Participant</span><span data-lang="da">Undersøgelsesdeltager</span></a></li>
+                <li><a href="admin.html"><span data-lang="en">Admin</span><span data-lang="da">Administration</span></a></li>
             </ul>
+            <button class="lang-toggle" id="lang-toggle">DA</button>
         </div>
     </nav>
 
     <main class="main">
         <section class="hero">
-            <h2>⚙️ Installation & Setup</h2>
+            <h2>Installation & Setup</h2>
             <p>
                 Complete guide for setting up the Supply Chain Resilience Assessment Tool in development 
                 and production environments.
@@ -38,7 +37,7 @@
         </section>
 
         <section class="section">
-            <h2>📋 Table of Contents</h2>
+            <h2>Table of Contents</h2>
             <div class="toc">
                 <ul>
                     <li><a href="#overview">Overview</a></li>
@@ -53,7 +52,7 @@
         </section>
 
         <section class="section" id="overview">
-            <h2>🏗️ Overview</h2>
+            <h2>Overview</h2>
             <p>
                 The Supply Chain Resilience Assessment Tool is an open-source supply chain resilience and 
                 business continuity assessment platform. Developed by researchers at the 
@@ -72,7 +71,7 @@
         </section>
 
         <section class="section" id="architecture">
-            <h2>🗺️ Architecture</h2>
+            <h2>Architecture</h2>
             <p>
                 The application follows a client-server architecture with a Go backend and Vue.js frontend:
             </p>
@@ -112,7 +111,7 @@
         </section>
 
         <section class="section" id="prerequisites">
-            <h2>📦 Prerequisites</h2>
+            <h2>Prerequisites</h2>
             
             <h3>Development Environment</h3>
             <table>
@@ -162,7 +161,7 @@
         </section>
 
         <section class="section" id="development-setup">
-            <h2>💻 Development Setup</h2>
+            <h2>Development Setup</h2>
             
             <h3>1. Clone the repository</h3>
             <pre><code>git clone https://github.com/sdu-concurrency/SCR-model.git
@@ -216,7 +215,7 @@ BASE_URL="/"</code></pre>
         </section>
 
         <section class="section" id="production-docker">
-            <h2>🐳 Production (Docker)</h2>
+            <h2>Production (Docker)</h2>
             
             <h3>1. Build and run</h3>
             <pre><code>docker build -t scr-model .
@@ -252,7 +251,7 @@ docker run -d \
         </section>
 
         <section class="section" id="environment-variables">
-            <h2>⚙️ Environment Variables</h2>
+            <h2>Environment Variables</h2>
             <p>
                 This version requires no environment variables. The application runs fully self-contained.
             </p>
@@ -288,56 +287,22 @@ docker run -d \
                     </tr>
                 </tbody>
             </table>
-
-            <h3>Backend Environment Variables</h3>
-            <p>
-                The backend uses PocketBase's default SQLite storage at <code>./pb_data/</code>. 
-                No environment variables are required for core functionality.
-            </p>
-
-            <h4>Optional SMTP for email:</h4>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Variable</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>POCKETBASE_SMTP_HOST</code></td>
-                        <td>SMTP server hostname</td>
-                    </tr>
-                    <tr>
-                        <td><code>SMTP_PORT</code></td>
-                        <td>SMTP server port</td>
-                    </tr>
-                    <tr>
-                        <td><code>SMTP_USER</code></td>
-                        <td>SMTP username</td>
-                    </tr>
-                    <tr>
-                        <td><code>SMTP_PASSWORD</code></td>
-                        <td>SMTP password</td>
-                    </tr>
-                </tbody>
-            </table>
         </section>
 
         <section class="section" id="quick-links">
-            <h2>🔗 Quick Links</h2>
+            <h2>Quick Links</h2>
             <div class="cards">
                 <div class="card">
-                    <h4>📖 Related Documentation</h4>
+                    <h4>Related Documentation</h4>
                     <ul>
-                        <li><a href="back/README.md" target="_blank">Backend Docs</a></li>
-                        <li><a href="web/README.md" target="_blank">Frontend Docs</a></li>
-                        <li><a href="docs/HANDBOOK.md" target="_blank">User Handbook</a></li>
-                        <li><a href="docs/HANDBOOK_BACKEND.md" target="_blank">Admin Handbook</a></li>
+                        <li><a href="https://github.com/sdu-concurrency/SCR-model/blob/main/back/README.md" target="_blank">Backend Docs</a></li>
+                        <li><a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/README.md" target="_blank">Frontend Docs</a></li>
+                        <li><a href="https://github.com/sdu-concurrency/SCR-model/blob/main/docs/HANDBOOK.md" target="_blank">User Handbook</a></li>
+                        <li><a href="https://github.com/sdu-concurrency/SCR-model/blob/main/docs/HANDBOOK_BACKEND.md" target="_blank">Admin Handbook</a></li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h4>🔧 External Resources</h4>
+                    <h4>External Resources</h4>
                     <ul>
                         <li><a href="https://pocketbase.io/docs/" target="_blank">PocketBase Documentation</a></li>
                         <li><a href="https://formkit.com/essentials/schema" target="_blank">FormKit Schema Reference</a></li>
@@ -345,7 +310,7 @@ docker run -d \
                     </ul>
                 </div>
                 <div class="card">
-                    <h4>🌐 Project Links</h4>
+                    <h4>Project Links</h4>
                     <ul>
                         <li><a href="https://github.com/sdu-concurrency/SCR-model" target="_blank">GitHub Repository</a></li>
                         <li><a href="https://cyber-smv.dk/" target="_blank">Project Website</a></li>
@@ -355,44 +320,21 @@ docker run -d \
             </div>
         </section>
 
-        <section class="section">
-            <h2>🎯 Next Steps</h2>
-            <div class="cards">
-                <div class="card">
-                    <h3>✅ Complete Setup</h3>
-                    <p>Follow the <a href="#development-setup">development setup</a> or <a href="#production-docker">production deployment</a> guide above.</p>
-                </div>
-                <div class="card">
-                    <h3>📖 User Guides</h3>
-                    <p>Once setup is complete, refer to the role-specific documentation:</p>
-                    <ul>
-                        <li><a href="session-manager.html">Session Manager Guide</a></li>
-                        <li><a href="survey-participant.html">Survey Participant Guide</a></li>
-                        <li><a href="admin.html">Admin Guide</a></li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>🔍 Troubleshooting</h3>
-                    <p>Check the <a href="docs/KNOWN_ISSUES.md" target="_blank">KNOWN_ISSUES.md</a> for common problems and solutions.</p>
-                </div>
-            </div>
-        </section>
 
         <p class="back-to-top"><a href="#top">↑ Back to Top</a></p>
     </main>
 
     <footer class="footer">
-        <p><strong>Supply Chain Resilience Assessment Tool Documentation</strong></p>
-        <p>Developed by University of Southern Denmark (SDU) & Royal Danish Military Academy</p>
-        <p>Funded by Danish Industry Foundation (Industriens Fond)</p>
+        <p><strong><span data-lang="en">Supply Chain Resilience Assessment Tool Documentation</span><span data-lang="da">Dokumentation for Forsyningskæderobusthedsværktøjet</span></strong></p>
+        <p><span data-lang="en">Developed by University of Southern Denmark (SDU) &amp; Royal Danish Military Academy</span><span data-lang="da">Udviklet af Syddansk Universitet (SDU) og Forsvarsakademiet</span></p>
+        <p><span data-lang="en">Funded by Danish Industry Foundation (Industriens Fond)</span><span data-lang="da">Finansieret af Industriens Fond</span></p>
         <div class="footer-links">
-            <a href="https://github.com/sdu-concurrency/SCR-model" target="_blank">GitHub Repository</a>
+            <a href="https://github.com/sdu-concurrency/SCR-model" target="_blank">GitHub</a>
             <a href="https://cyber-smv.dk/" target="_blank">Project Website</a>
             <a href="https://industriensfond.dk/" target="_blank">Industriens Fond</a>
         </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
-            Last updated: June 2025 | Documentation version: 1.0
-        </p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">Last updated: June 2025 | Documentation version: 1.0</p>
     </footer>
+    <script src="i18n.js"></script>
 </body>
 </html>

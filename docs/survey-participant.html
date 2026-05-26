@@ -8,460 +8,538 @@
     <link rel="icon" type="image/svg+xml" href="https://github.com/sdu-concurrency/SCR-model/blob/main/favicon.svg?raw=true">
 </head>
 <body>
-    <a href="https://github.com/sdu-concurrency/SCR-model" class="github-fork-ribbon" target="_blank" aria-label="Fork me on GitHub">Fork me on GitHub</a>
-    
     <header class="header">
         <h1>Supply Chain Resilience Assessment Tool</h1>
-        <p>Survey Participant Guide</p>
+        <p><span data-lang="en">Survey Participant Guide</span><span data-lang="da">Vejledning til undersøgelsesdeltagere</span></p>
     </header>
 
     <nav class="nav">
         <div class="nav-container">
             <a href="/" class="logo">SCR-Model Docs</a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="installation.html">Installation</a></li>
-                <li><a href="session-manager.html">Session Manager</a></li>
-                <li><a href="survey-participant.html" class="active">Survey Participant</a></li>
-                <li><a href="admin.html">Admin</a></li>
+                <li><a href="index.html"><span data-lang="en">Home</span><span data-lang="da">Hjem</span></a></li>
+                <li><a href="installation.html"><span data-lang="en">Installation</span><span data-lang="da">Installation</span></a></li>
+                <li><a href="session-manager.html"><span data-lang="en">Session Manager</span><span data-lang="da">Sessionsleder</span></a></li>
+                <li><a href="survey-participant.html" class="active"><span data-lang="en">Survey Participant</span><span data-lang="da">Undersøgelsesdeltager</span></a></li>
+                <li><a href="admin.html"><span data-lang="en">Admin</span><span data-lang="da">Administration</span></a></li>
             </ul>
+            <button class="lang-toggle" id="lang-toggle">DA</button>
         </div>
     </nav>
 
     <main class="main">
         <section class="hero">
-            <h2>📝 Survey Participant Guide</h2>
-            <p>
-                Step-by-step instructions for participants on how to access and complete the 
-                Supply Chain Resilience survey.
-            </p>
+            <div data-lang="en">
+                <h2>Survey Participant Guide</h2>
+                <p>Step-by-step instructions for participants on how to access and complete the Supply Chain Resilience survey.</p>
+            </div>
+            <div data-lang="da">
+                <h2>Vejledning til undersøgelsesdeltagere</h2>
+                <p>Trinvis vejledning til deltagere i, hvordan man tilgår og udfylder Supply Chain Resilience-undersøgelsen.</p>
+            </div>
         </section>
 
         <section class="section">
-            <h2>📋 Table of Contents</h2>
-            <div class="toc">
-                <ul>
-                    <li><a href="#overview">Overview</a></li>
-                    <li><a href="#accessing-the-survey">Accessing the Survey</a></li>
-                    <li><a href="#survey-steps">Survey Steps</a></li>
-                    <li><a href="#submitting">Submitting</a></li>
-                    <li><a href="#saving-progress">Saving Progress</a></li>
-                    <li><a href="#tips">Tips & Best Practices</a></li>
-                    <li><a href="#faqs">Frequently Asked Questions</a></li>
-                </ul>
+            <div data-lang="en">
+                <h2>Table of Contents</h2>
+                <div class="toc">
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#accessing-the-survey">Accessing the Survey</a></li>
+                        <li><a href="#survey-steps">Survey Steps</a></li>
+                        <li><a href="#submitting">Submitting</a></li>
+                        <li><a href="#saving-progress">Saving Progress</a></li>
+                        <li><a href="#tips">Tips &amp; Best Practices</a></li>
+                        <li><a href="#faqs">Frequently Asked Questions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div data-lang="da">
+                <h2>Indholdsfortegnelse</h2>
+                <div class="toc">
+                    <ul>
+                        <li><a href="#overview">Oversigt</a></li>
+                        <li><a href="#accessing-the-survey">Tilgå undersøgelsen</a></li>
+                        <li><a href="#survey-steps">Undersøgelsestrin</a></li>
+                        <li><a href="#submitting">Indsendelse</a></li>
+                        <li><a href="#saving-progress">Gem fremskridt</a></li>
+                        <li><a href="#tips">Tips og bedste praksis</a></li>
+                        <li><a href="#faqs">Ofte stillede spørgsmål</a></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section class="section" id="overview">
-            <h2>🎯 Overview</h2>
-            
-            <h3>What is the Supply Chain Resilience Survey?</h3>
-            <p>
-                The Supply Chain Resilience Assessment Tool helps organizations identify vulnerabilities 
-                and assess capabilities across their supply chain. As a participant, you'll complete a 
-                structured survey that assesses your organization's resilience in 7 key areas.
-            </p>
-
-            <h3>Survey Structure</h3>
-            <p>
-                The survey consists of <strong>7 steps</strong> covering:
-            </p>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Step</th>
-                        <th>Area</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Job Function & Company</td>
-                        <td>Your role and organization details</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Vulnerability Ranking</td>
-                        <td>Rank top 10 vulnerabilities for your organization</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Finance</td>
-                        <td>Assess financial capabilities</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Customers / Demand</td>
-                        <td>Assess customer and demand-related capabilities</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Products / Processes</td>
-                        <td>Assess product and process capabilities</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Inventory Management</td>
-                        <td>Assess inventory and stock capabilities</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Sourcing / Purchasing & Systems & Management</td>
-                        <td>Assess sourcing, systems, and management capabilities</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>Time Required</h3>
-            <p>
-                The survey typically takes <strong>20-30 minutes</strong> to complete, depending on your 
-                familiarity with the topics. You can save your progress and return later.
-            </p>
+            <div data-lang="en">
+                <h2>Overview</h2>
+                <h3>What is the Supply Chain Resilience Survey?</h3>
+                <p>
+                    The Supply Chain Resilience Assessment Tool helps organizations identify vulnerabilities
+                    and assess capabilities across their supply chain. As a participant, you'll complete a
+                    structured survey that assesses your organization's resilience in 7 key areas.
+                </p>
+                <h3>Survey Structure</h3>
+                <p>The survey consists of <strong>7 steps</strong> covering:</p>
+                <table>
+                    <thead><tr><th>Step</th><th>Area</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>Job Function &amp; Company</td><td>Your role and organization details</td></tr>
+                        <tr><td>2</td><td>Vulnerability Ranking</td><td>Rank top 10 vulnerabilities for your organization</td></tr>
+                        <tr><td>3</td><td>Finance</td><td>Assess financial capabilities</td></tr>
+                        <tr><td>4</td><td>Customers / Demand</td><td>Assess customer and demand-related capabilities</td></tr>
+                        <tr><td>5</td><td>Products / Processes</td><td>Assess product and process capabilities</td></tr>
+                        <tr><td>6</td><td>Inventory Management</td><td>Assess inventory and stock capabilities</td></tr>
+                        <tr><td>7</td><td>Sourcing / Purchasing &amp; Systems &amp; Management</td><td>Assess sourcing, systems, and management capabilities</td></tr>
+                    </tbody>
+                </table>
+                <h3>Time Required</h3>
+                <p>The survey typically takes <strong>20-30 minutes</strong> to complete, depending on your familiarity with the topics. You can save your progress and return later.</p>
+            </div>
+            <div data-lang="da">
+                <h2>Oversigt</h2>
+                <h3>Hvad er Supply Chain Resilience-undersøgelsen?</h3>
+                <p>
+                    Supply Chain Resilience Assessment Tool hjælper organisationer med at identificere sårbarheder
+                    og vurdere kapaciteter på tværs af deres forsyningskæde. Som deltager udfylder du en
+                    struktureret undersøgelse, der vurderer din organisations robusthed inden for 7 nøgleområder.
+                </p>
+                <h3>Undersøgelsens struktur</h3>
+                <p>Undersøgelsen består af <strong>7 trin</strong>, der dækker:</p>
+                <table>
+                    <thead><tr><th>Trin</th><th>Område</th><th>Beskrivelse</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>Stillingsfunktion og virksomhed</td><td>Din rolle og organisationsoplysninger</td></tr>
+                        <tr><td>2</td><td>Sårbarhedsrangering</td><td>Ranger de 10 vigtigste sårbarheder for din organisation</td></tr>
+                        <tr><td>3</td><td>Økonomi</td><td>Vurder finansielle kapaciteter</td></tr>
+                        <tr><td>4</td><td>Kunder / efterspørgsel</td><td>Vurder kunde- og efterspørgselsrelaterede kapaciteter</td></tr>
+                        <tr><td>5</td><td>Produkter / processer</td><td>Vurder produkt- og proceskapaciteter</td></tr>
+                        <tr><td>6</td><td>Lagerstyring</td><td>Vurder lager- og lagringskapaciteter</td></tr>
+                        <tr><td>7</td><td>Indkøb / systemer og ledelse</td><td>Vurder indkøbs-, system- og ledelseskapaciteter</td></tr>
+                    </tbody>
+                </table>
+                <h3>Tidsforløb</h3>
+                <p>Undersøgelsen tager typisk <strong>20-30 minutter</strong> at gennemføre, afhængigt af dit kendskab til emnerne. Du kan gemme dine fremskridt og vende tilbage senere.</p>
+            </div>
         </section>
 
         <section class="section" id="accessing-the-survey">
-            <h2>🔗 Accessing the Survey</h2>
-            
-            <h3>Step-by-step</h3>
-            <ol>
-                <li>
-                    <p><strong>Receive your link</strong> from your session manager</p>
-                    <p>The link will look like: <code>/session/name/survey?u=your-user&t=your-token</code></p>
-                </li>
-                <li>
-                    <p><strong>Open the link</strong> in your web browser</p>
-                    <p>You can use Chrome, Firefox, Safari, Edge, or any modern browser.</p>
-                </li>
-                <li>
-                    <p><strong>View the Welcome page</strong></p>
-                    <p>You'll see a welcome message with information about the survey.</p>
-                </li>
-                <li>
-                    <p><strong>Click "Go to survey form"</strong> to begin</p>
-                </li>
-            </ol>
-
-            <div class="info-box">
-                <h4>🔐 No Password Required</h4>
-                <p>
-                    Your survey link contains a unique token, so you don't need to remember a password. 
-                    Simply click the link provided by your session manager and you're in!
-                </p>
+            <div data-lang="en">
+                <h2>Accessing the Survey</h2>
+                <h3>Step-by-step</h3>
+                <ol>
+                    <li><p><strong>Receive your link</strong> from your session manager</p>
+                        <p>The link will look like: <code>/session/name/survey?u=your-user&amp;t=your-token</code></p></li>
+                    <li><p><strong>Open the link</strong> in your web browser</p>
+                        <p>You can use Chrome, Firefox, Safari, Edge, or any modern browser.</p></li>
+                    <li><p><strong>View the Welcome page</strong></p>
+                        <p>You'll see a welcome message with information about the survey.</p></li>
+                    <li><p><strong>Click "Go to survey form"</strong> to begin</p></li>
+                </ol>
+                <div class="info-box">
+                    <h4>No Password Required</h4>
+                    <p>Your survey link contains a unique token, so you don't need to remember a password. Simply click the link provided by your session manager and you're in!</p>
+                </div>
+                <div class="warning-box">
+                    <h4>Important</h4>
+                    <p><strong>Do not share your link</strong> with others. Each link is unique to one participant and allows access to your specific survey responses.</p>
+                </div>
             </div>
-
-            <div class="warning-box">
-                <h4>⚠️ Important</h4>
-                <p>
-                    <strong>Do not share your link</strong> with others. Each link is unique to one participant 
-                    and allows access to your specific survey responses.
-                </p>
+            <div data-lang="da">
+                <h2>Tilgå undersøgelsen</h2>
+                <h3>Trin for trin</h3>
+                <ol>
+                    <li><p><strong>Modtag dit link</strong> fra din sessionsleder</p>
+                        <p>Linket vil se sådan ud: <code>/session/name/survey?u=your-user&amp;t=your-token</code></p></li>
+                    <li><p><strong>Åbn linket</strong> i din webbrowser</p>
+                        <p>Du kan bruge Chrome, Firefox, Safari, Edge eller en anden moderne browser.</p></li>
+                    <li><p><strong>Se velkomstsiden</strong></p>
+                        <p>Du vil se en velkomstbesked med information om undersøgelsen.</p></li>
+                    <li><p><strong>Klik på "Gå til undersøgelsesskema"</strong> for at begynde</p></li>
+                </ol>
+                <div class="info-box">
+                    <h4>Ingen adgangskode kræves</h4>
+                    <p>Dit undersøgelseslink indeholder et unikt token, så du behøver ikke huske en adgangskode. Klik blot på linket fra din sessionsleder, og du er i gang!</p>
+                </div>
+                <div class="warning-box">
+                    <h4>Vigtigt</h4>
+                    <p><strong>Del ikke dit link</strong> med andre. Hvert link er unikt for én deltager og giver adgang til dine specifikke svar.</p>
+                </div>
             </div>
         </section>
 
         <section class="section" id="survey-steps">
-            <h2>📋 Survey Steps</h2>
-
-            <h3>Step 1: Job Function & Company Information</h3>
-            <ol>
-                <li>Select your job function from the dropdown (Purchase, Production, Sales, Logistics, Management, etc.)</li>
-                <li>Enter your company name</li>
-                <li>Click <strong>Next</strong> to continue</li>
-            </ol>
-
-            <h3>Step 2: Vulnerability Ranking</h3>
-            <p>
-                In this step, you'll identify the top 10 vulnerabilities most relevant to your organization.
-            </p>
-            <ol>
-                <li>
-                    <p>You'll see <strong>7 categories</strong> of potential vulnerabilities:</p>
-                    <ul>
-                        <li>Finance</li>
-                        <li>Customers / demand</li>
-                        <li>Processes / organization</li>
-                        <li>Systems / data</li>
-                        <li>Purchasing / sourcing</li>
-                        <li>Supply chain end-to-end</li>
-                        <li>Environment</li>
-                    </ul>
-                </li>
-                <li>
-                    <p><strong>Drag and drop</strong> to rank the top 10 most relevant vulnerabilities for your organization</p>
-                </li>
-                <li>
-                    <p><strong>Order matters</strong> - rank from most important (#1) to least (#10)</p>
-                </li>
-                <li>Click <strong>Next</strong> to continue</li>
-            </ol>
-
-            <div class="info-box">
-                <h4>💡 Tip</h4>
-                <p>
-                    Think about which vulnerabilities have the greatest impact on your organization's 
-                    supply chain resilience. Consider both likelihood and severity.
-                </p>
+            <div data-lang="en">
+                <h2>Survey Steps</h2>
+                <h3>Step 1: Job Function &amp; Company Information</h3>
+                <ol>
+                    <li>Select your job function from the dropdown (Purchase, Production, Sales, Logistics, Management, etc.)</li>
+                    <li>Enter your company name</li>
+                    <li>Click <strong>Next</strong> to continue</li>
+                </ol>
+                <h3>Step 2: Vulnerability Ranking</h3>
+                <p>In this step, you'll identify the top 10 vulnerabilities most relevant to your organization.</p>
+                <ol>
+                    <li><p>You'll see <strong>7 categories</strong> of potential vulnerabilities:</p>
+                        <ul>
+                            <li>Finance</li>
+                            <li>Customers / demand</li>
+                            <li>Processes / organization</li>
+                            <li>Systems / data</li>
+                            <li>Purchasing / sourcing</li>
+                            <li>Supply chain end-to-end</li>
+                            <li>Environment</li>
+                        </ul></li>
+                    <li><p><strong>Drag and drop</strong> to rank the top 10 most relevant vulnerabilities for your organization</p></li>
+                    <li><p><strong>Order matters</strong> — rank from most important (#1) to least (#10)</p></li>
+                    <li>Click <strong>Next</strong> to continue</li>
+                </ol>
+                <div class="info-box">
+                    <h4>Tip</h4>
+                    <p>Think about which vulnerabilities have the greatest impact on your organization's supply chain resilience. Consider both likelihood and severity.</p>
+                </div>
+                <h3>Steps 3–7: Capability Assessments</h3>
+                <p>Each step covers a different capability area. You'll rate your organization's capability level in each area.</p>
+                <table>
+                    <thead><tr><th>Step</th><th>Area</th><th>Focus</th></tr></thead>
+                    <tbody>
+                        <tr><td>3</td><td>Finance</td><td>Financial reserves, credit access, risk management</td></tr>
+                        <tr><td>4</td><td>Customers / Demand</td><td>Customer diversification, demand forecasting, relationship management</td></tr>
+                        <tr><td>5</td><td>Products / Processes</td><td>Product standardization, process flexibility, lean operations, cross-training</td></tr>
+                        <tr><td>6</td><td>Inventory Management</td><td>Safety stock levels, inventory visibility, buffer strategy</td></tr>
+                        <tr><td>7</td><td>Sourcing / Purchasing &amp; Systems &amp; Management</td><td>Multi-sourcing, supplier qualification, IT systems, executive commitment, business continuity</td></tr>
+                    </tbody>
+                </table>
+                <h4>Rating Scale</h4>
+                <ul>
+                    <li><strong>1</strong> — Low capability (We don't have this capability or it's very weak)</li>
+                    <li><strong>2</strong> — Basic capability (We have some capability but it's limited)</li>
+                    <li><strong>3</strong> — Good capability (We have solid capability in this area)</li>
+                    <li><strong>4</strong> — Excellent capability (We have strong, well-developed capability)</li>
+                </ul>
+                <div class="info-box">
+                    <h4>Tip</h4>
+                    <p>Be honest in your assessments. The goal is to identify both strengths and areas for improvement. There are no "wrong" answers.</p>
+                </div>
             </div>
-
-            <h3>Steps 3-7: Capability Assessments</h3>
-            <p>
-                Each step covers a different capability area. You'll rate your organization's capability 
-                level in each area.
-            </p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Step</th>
-                        <th>Area</th>
-                        <th>Focus</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>3</td>
-                        <td>Finance</td>
-                        <td>Financial reserves, credit access, risk management</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Customers / Demand</td>
-                        <td>Customer diversification, demand forecasting, relationship management</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Products / Processes</td>
-                        <td>Product standardization, process flexibility, lean operations, cross-training</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Inventory Management</td>
-                        <td>Safety stock levels, inventory visibility, buffer strategy</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Sourcing / Purchasing & Systems & Management</td>
-                        <td>Multi-sourcing, supplier qualification, IT systems, executive commitment, business continuity</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h4>Rating Scale</h4>
-            <p>
-                For each item, rate the capability level:
-            </p>
-            <ul>
-                <li><strong>1</strong> - Low capability (We don't have this capability or it's very weak)</li>
-                <li><strong>2</strong> - Basic capability (We have some capability but it's limited)</li>
-                <li><strong>3</strong> - Good capability (We have solid capability in this area)</li>
-                <li><strong>4</strong> - Excellent capability (We have strong, well-developed capability)</li>
-            </ul>
-
-            <div class="info-box">
-                <h4>💡 Tip</h4>
-                <p>
-                    Be honest in your assessments. The goal is to identify both strengths and areas for 
-                    improvement. There are no "wrong" answers.
-                </p>
+            <div data-lang="da">
+                <h2>Undersøgelsestrin</h2>
+                <h3>Trin 1: Stillingsfunktion og virksomhedsoplysninger</h3>
+                <ol>
+                    <li>Vælg din stillingsfunktion fra rullemenuen (Indkøb, Produktion, Salg, Logistik, Ledelse osv.)</li>
+                    <li>Indtast dit firmanavn</li>
+                    <li>Klik på <strong>Næste</strong> for at fortsætte</li>
+                </ol>
+                <h3>Trin 2: Sårbarhedsrangering</h3>
+                <p>I dette trin identificerer du de 10 vigtigste sårbarheder for din organisation.</p>
+                <ol>
+                    <li><p>Du vil se <strong>7 kategorier</strong> af potentielle sårbarheder:</p>
+                        <ul>
+                            <li>Økonomi</li>
+                            <li>Kunder / efterspørgsel</li>
+                            <li>Processer / organisation</li>
+                            <li>Systemer / data</li>
+                            <li>Indkøb / forsyning</li>
+                            <li>Forsyningskæde fra ende til anden</li>
+                            <li>Miljø</li>
+                        </ul></li>
+                    <li><p><strong>Træk og slip</strong> for at rangere de 10 mest relevante sårbarheder for din organisation</p></li>
+                    <li><p><strong>Rækkefølgen betyder noget</strong> — ranger fra vigtigst (#1) til mindst vigtig (#10)</p></li>
+                    <li>Klik på <strong>Næste</strong> for at fortsætte</li>
+                </ol>
+                <div class="info-box">
+                    <h4>Tip</h4>
+                    <p>Tænk over, hvilke sårbarheder der har den største indvirkning på din organisations forsyningskæderobusthed. Overvej både sandsynlighed og alvorlighed.</p>
+                </div>
+                <h3>Trin 3–7: Kapacitetsvurderinger</h3>
+                <p>Hvert trin dækker et andet kapacitetsområde. Du vurderer din organisations kapacitetsniveau inden for hvert område.</p>
+                <table>
+                    <thead><tr><th>Trin</th><th>Område</th><th>Fokus</th></tr></thead>
+                    <tbody>
+                        <tr><td>3</td><td>Økonomi</td><td>Finansielle reserver, kreditadgang, risikostyring</td></tr>
+                        <tr><td>4</td><td>Kunder / efterspørgsel</td><td>Kundediversificering, efterspørgselsprognoser, relationsstyring</td></tr>
+                        <tr><td>5</td><td>Produkter / processer</td><td>Produktstandardisering, procesfleksibilitet, lean-drift, krydsuddannelse</td></tr>
+                        <tr><td>6</td><td>Lagerstyring</td><td>Sikkerhedslagerniveauer, lagersynlighed, buffers-strategi</td></tr>
+                        <tr><td>7</td><td>Indkøb / systemer og ledelse</td><td>Flerkildeindkøb, leverandørkvalificering, IT-systemer, ledelsesforpligtelse, forretningskontinuitet</td></tr>
+                    </tbody>
+                </table>
+                <h4>Vurderingsskala</h4>
+                <ul>
+                    <li><strong>1</strong> — Lav kapacitet (Vi har ikke denne kapacitet, eller den er meget svag)</li>
+                    <li><strong>2</strong> — Grundlæggende kapacitet (Vi har nogen kapacitet, men den er begrænset)</li>
+                    <li><strong>3</strong> — God kapacitet (Vi har solid kapacitet på dette område)</li>
+                    <li><strong>4</strong> — Fremragende kapacitet (Vi har stærk, veludviklet kapacitet)</li>
+                </ul>
+                <div class="info-box">
+                    <h4>Tip</h4>
+                    <p>Vær ærlig i dine vurderinger. Målet er at identificere både styrker og forbedringsområder. Der er ingen "forkerte" svar.</p>
+                </div>
             </div>
         </section>
 
         <section class="section" id="submitting">
-            <h2>✅ Submitting</h2>
-            
-            <h3>After completing Step 7</h3>
-            <ol>
-                <li>Review your responses (you can navigate back to any step)</li>
-                <li>Click <strong>Submit</strong> to finalize your responses</li>
-                <li>You'll see a confirmation page</li>
-                <li>Your session manager will be notified of your completion</li>
-            </ol>
-
-            <div class="info-box">
-                <h4>📧 What happens next?</h4>
-                <p>
-                    Once all participants in your session have completed their surveys, your session manager 
-                    will review the aggregated results and share insights with the group. The analysis will show:
-                </p>
-                <ul>
-                    <li>Which vulnerabilities were ranked highest across the organization</li>
-                    <li>Capability levels across different areas</li>
-                    <li>Comparison charts for cross-organizational alignment</li>
-                    <li>Actionable recommendations for improvement</li>
-                </ul>
+            <div data-lang="en">
+                <h2>Submitting</h2>
+                <h3>After completing Step 7</h3>
+                <ol>
+                    <li>Review your responses (you can navigate back to any step)</li>
+                    <li>Click <strong>Submit</strong> to finalize your responses</li>
+                    <li>You'll see a confirmation page</li>
+                    <li>Your session manager will be notified of your completion</li>
+                </ol>
+                <div class="info-box">
+                    <h4>What happens next?</h4>
+                    <p>Once all participants in your session have completed their surveys, your session manager will review the aggregated results and share insights with the group. The analysis will show:</p>
+                    <ul>
+                        <li>Which vulnerabilities were ranked highest across the organization</li>
+                        <li>Capability levels across different areas</li>
+                        <li>Comparison charts for cross-organizational alignment</li>
+                        <li>Actionable recommendations for improvement</li>
+                    </ul>
+                </div>
+                <div class="warning-box">
+                    <h4>Cannot edit after submission</h4>
+                    <p>Once you submit your survey, you cannot go back and change your responses. Make sure to review all your answers before clicking Submit.</p>
+                </div>
             </div>
-
-            <div class="warning-box">
-                <h4>⚠️ Cannot edit after submission</h4>
-                <p>
-                    Once you submit your survey, you cannot go back and change your responses. 
-                    Make sure to review all your answers before clicking Submit.
-                </p>
+            <div data-lang="da">
+                <h2>Indsendelse</h2>
+                <h3>Efter afslutning af trin 7</h3>
+                <ol>
+                    <li>Gennemgå dine svar (du kan navigere tilbage til et vilkårligt trin)</li>
+                    <li>Klik på <strong>Indsend</strong> for at færdiggøre dine svar</li>
+                    <li>Du vil se en bekræftelsesside</li>
+                    <li>Din sessionsleder vil blive underrettet om din afslutning</li>
+                </ol>
+                <div class="info-box">
+                    <h4>Hvad sker der derefter?</h4>
+                    <p>Når alle deltagere i din session har udfyldt deres undersøgelser, vil din sessionsleder gennemgå de aggregerede resultater og dele indsigt med gruppen. Analysen vil vise:</p>
+                    <ul>
+                        <li>Hvilke sårbarheder der blev rangeret højest på tværs af organisationen</li>
+                        <li>Kapacitetsniveauer på tværs af forskellige områder</li>
+                        <li>Sammenligningsdiagrammer til tværorganisatorisk tilpasning</li>
+                        <li>Handlingsrettede anbefalinger til forbedring</li>
+                    </ul>
+                </div>
+                <div class="warning-box">
+                    <h4>Kan ikke redigeres efter indsendelse</h4>
+                    <p>Når du indsender din undersøgelse, kan du ikke gå tilbage og ændre dine svar. Sørg for at gennemgå alle dine svar, inden du klikker Indsend.</p>
+                </div>
             </div>
         </section>
 
         <section class="section" id="saving-progress">
-            <h2>💾 Saving Progress</h2>
-            
-            <h3>Auto-save</h3>
-            <p>
-                The form <strong>automatically saves your progress</strong> as you go. If you:
-            </p>
-            <ul>
-                <li>Close your browser</li>
-                <li>Lose your internet connection</li>
-                <li>Need to take a break</li>
-            </ul>
-            <p>
-                ...your answers will be restored when you return using the same link.
-            </p>
-
-            <h3>Browser Requirements</h3>
-            <ul>
-                <li><strong>JavaScript must be enabled</strong> for the auto-save to work</li>
-                <li>Use a modern browser (Chrome, Firefox, Safari, Edge)</li>
-                <li>Don't use "Incognito" or "Private" mode if you want to save progress</li>
-            </ul>
-
-            <div class="info-box">
-                <h4>💾 Where is my data saved?</h4>
-                <p>
-                    Your survey progress is saved in your browser's local storage. This means:
-                </p>
+            <div data-lang="en">
+                <h2>Saving Progress</h2>
+                <h3>Auto-save</h3>
+                <p>The form <strong>automatically saves your progress</strong> as you go. If you:</p>
                 <ul>
-                    <li>Your data stays on your computer</li>
-                    <li>You can continue from any device if you use the same browser</li>
-                    <li>Your session manager cannot see incomplete responses until you submit</li>
+                    <li>Close your browser</li>
+                    <li>Lose your internet connection</li>
+                    <li>Need to take a break</li>
                 </ul>
+                <p>...your answers will be restored when you return using the same link.</p>
+                <h3>Browser Requirements</h3>
+                <ul>
+                    <li><strong>JavaScript must be enabled</strong> for the auto-save to work</li>
+                    <li>Use a modern browser (Chrome, Firefox, Safari, Edge)</li>
+                    <li>Don't use "Incognito" or "Private" mode if you want to save progress</li>
+                </ul>
+                <div class="info-box">
+                    <h4>Where is my data saved?</h4>
+                    <p>Your survey progress is saved in your browser's local storage. This means:</p>
+                    <ul>
+                        <li>Your data stays on your computer</li>
+                        <li>You can continue from any device if you use the same browser</li>
+                        <li>Your session manager cannot see incomplete responses until you submit</li>
+                    </ul>
+                </div>
+            </div>
+            <div data-lang="da">
+                <h2>Gem fremskridt</h2>
+                <h3>Automatisk lagring</h3>
+                <p>Skemaet <strong>gemmer automatisk dine fremskridt</strong> undervejs. Hvis du:</p>
+                <ul>
+                    <li>Lukker din browser</li>
+                    <li>Mister din internetforbindelse</li>
+                    <li>Skal holde en pause</li>
+                </ul>
+                <p>...vil dine svar blive gendannet, når du vender tilbage via det samme link.</p>
+                <h3>Browserkrav</h3>
+                <ul>
+                    <li><strong>JavaScript skal være aktiveret</strong> for at den automatiske lagring fungerer</li>
+                    <li>Brug en moderne browser (Chrome, Firefox, Safari, Edge)</li>
+                    <li>Undlad at bruge "Inkognito"- eller "Privat"-tilstand, hvis du ønsker at gemme fremskridt</li>
+                </ul>
+                <div class="info-box">
+                    <h4>Hvor gemmes mine data?</h4>
+                    <p>Dine undersøgelsesfremskridt gemmes i browserens lokale lager. Det betyder:</p>
+                    <ul>
+                        <li>Dine data forbliver på din computer</li>
+                        <li>Du kan fortsætte fra en vilkårlig enhed, hvis du bruger den samme browser</li>
+                        <li>Din sessionsleder kan ikke se ufuldstændige svar, før du indsender</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section class="section" id="tips">
-            <h2>💡 Tips & Best Practices</h2>
-            
-            <h3>Before Starting</h3>
-            <ul>
-                <li><strong>Set aside dedicated time</strong> - 20-30 minutes without interruptions</li>
-                <li><strong>Gather information</strong> - Have relevant data about your organization handy</li>
-                <li><strong>Understand the context</strong> - Think about your entire supply chain, not just your department</li>
-            </ul>
-
-            <h3>During the Survey</h3>
-            <ul>
-                <li><strong>Be honest</strong> - There are no right or wrong answers</li>
-                <li><strong>Take your time</strong> - Thoughtful responses lead to better insights</li>
-                <li><strong>Use the full scale</strong> - Don't be afraid to use both low and high ratings</li>
-                <li><strong>Save your link</strong> - Bookmark the survey link in case you need to return later</li>
-            </ul>
-
-            <h3>If You Get Stuck</h3>
-            <ul>
-                <li><strong>Contact your session manager</strong> - They can provide clarification</li>
-                <li><strong>Take a break</strong> - Your progress is saved automatically</li>
-                <li><strong>Check your token</strong> - If your link doesn't work, ask for a new one</li>
-            </ul>
+            <div data-lang="en">
+                <h2>Tips &amp; Best Practices</h2>
+                <h3>Before Starting</h3>
+                <ul>
+                    <li><strong>Set aside dedicated time</strong> — 20-30 minutes without interruptions</li>
+                    <li><strong>Gather information</strong> — Have relevant data about your organization handy</li>
+                    <li><strong>Understand the context</strong> — Think about your entire supply chain, not just your department</li>
+                </ul>
+                <h3>During the Survey</h3>
+                <ul>
+                    <li><strong>Be honest</strong> — There are no right or wrong answers</li>
+                    <li><strong>Take your time</strong> — Thoughtful responses lead to better insights</li>
+                    <li><strong>Use the full scale</strong> — Don't be afraid to use both low and high ratings</li>
+                    <li><strong>Save your link</strong> — Bookmark the survey link in case you need to return later</li>
+                </ul>
+                <h3>If You Get Stuck</h3>
+                <ul>
+                    <li><strong>Contact your session manager</strong> — They can provide clarification</li>
+                    <li><strong>Take a break</strong> — Your progress is saved automatically</li>
+                    <li><strong>Check your token</strong> — If your link doesn't work, ask for a new one</li>
+                </ul>
+            </div>
+            <div data-lang="da">
+                <h2>Tips og bedste praksis</h2>
+                <h3>Inden du starter</h3>
+                <ul>
+                    <li><strong>Afsæt dedikeret tid</strong> — 20-30 minutter uden forstyrrelser</li>
+                    <li><strong>Indsaml information</strong> — Hav relevante data om din organisation klar</li>
+                    <li><strong>Forstå konteksten</strong> — Tænk på hele din forsyningskæde, ikke kun din afdeling</li>
+                </ul>
+                <h3>Under undersøgelsen</h3>
+                <ul>
+                    <li><strong>Vær ærlig</strong> — Der er ingen rigtige eller forkerte svar</li>
+                    <li><strong>Tag dig tid</strong> — Gennemtænkte svar giver bedre indsigt</li>
+                    <li><strong>Brug hele skalaen</strong> — Vær ikke bange for at bruge både lave og høje vurderinger</li>
+                    <li><strong>Gem dit link</strong> — Sæt et bogmærke ved undersøgelseslinket, hvis du skal vende tilbage</li>
+                </ul>
+                <h3>Hvis du sidder fast</h3>
+                <ul>
+                    <li><strong>Kontakt din sessionsleder</strong> — De kan give afklaring</li>
+                    <li><strong>Hold en pause</strong> — Dine fremskridt gemmes automatisk</li>
+                    <li><strong>Tjek dit token</strong> — Hvis dit link ikke virker, bed om et nyt</li>
+                </ul>
+            </div>
         </section>
 
         <section class="section" id="faqs">
-            <h2>❓ Frequently Asked Questions</h2>
-
-            <h3>What if I lose my survey link?</h3>
-            <p>
-                Contact your session manager. They can generate a new token and send you a fresh link.
-            </p>
-
-            <h3>Can I change my answers after submitting?</h3>
-            <p>
-                No, once you submit your survey, your responses are final. This ensures data integrity 
-                for the analysis. Make sure to review all your answers before submitting.
-            </p>
-
-            <h3>What if I don't understand a question?</h3>
-            <p>
-                Each question includes a label/description. If you're still unsure, contact your session 
-                manager for clarification.
-            </p>
-
-            <h3>How long does the survey take?</h3>
-            <p>
-                Typically 20-30 minutes, but this can vary depending on your familiarity with the topics and 
-                the complexity of your organization's supply chain.
-            </p>
-
-            <h3>Can I use my phone or tablet?</h3>
-            <p>
-                Yes, the survey is responsive and works on desktop, tablet, and mobile devices. However, 
-                we recommend using a desktop or laptop for the best experience, especially for the 
-                drag-and-drop vulnerability ranking step.
-            </p>
-
-            <h3>What if I need to stop and come back later?</h3>
-            <p>
-                No problem! Your progress is saved automatically. Just use the same link to return and 
-                continue where you left off.
-            </p>
-
-            <h3>Will my individual responses be shared?</h3>
-            <p>
-                Your individual responses are <strong>confidential</strong>. The session manager can only see 
-                aggregated results across all participants. Your name and specific responses are not shared 
-                with other participants.
-            </p>
-
-            <h3>What happens to my data?</h3>
-            <p>
-                Your survey responses are stored securely in the system's database. They are used solely 
-                for the purpose of supply chain resilience assessment and are not shared with third parties.
-            </p>
-
-            <h3>Can I skip a question?</h3>
-            <p>
-                The survey requires responses for all questions before you can submit. If you're unsure 
-                about a particular question, provide your best estimate.
-            </p>
+            <div data-lang="en">
+                <h2>Frequently Asked Questions</h2>
+                <h3>What if I lose my survey link?</h3>
+                <p>Contact your session manager. They can generate a new token and send you a fresh link.</p>
+                <h3>Can I change my answers after submitting?</h3>
+                <p>No, once you submit your survey, your responses are final. This ensures data integrity for the analysis. Make sure to review all your answers before submitting.</p>
+                <h3>What if I don't understand a question?</h3>
+                <p>Each question includes a label/description. If you're still unsure, contact your session manager for clarification.</p>
+                <h3>How long does the survey take?</h3>
+                <p>Typically 20-30 minutes, but this can vary depending on your familiarity with the topics and the complexity of your organization's supply chain.</p>
+                <h3>Can I use my phone or tablet?</h3>
+                <p>Yes, the survey is responsive and works on desktop, tablet, and mobile devices. However, we recommend using a desktop or laptop for the best experience, especially for the drag-and-drop vulnerability ranking step.</p>
+                <h3>What if I need to stop and come back later?</h3>
+                <p>No problem! Your progress is saved automatically. Just use the same link to return and continue where you left off.</p>
+                <h3>Will my individual responses be shared?</h3>
+                <p>Your individual responses are <strong>confidential</strong>. The session manager can only see aggregated results across all participants. Your name and specific responses are not shared with other participants.</p>
+                <h3>What happens to my data?</h3>
+                <p>Your survey responses are stored securely in the system's database. They are used solely for the purpose of supply chain resilience assessment and are not shared with third parties.</p>
+                <h3>Can I skip a question?</h3>
+                <p>The survey requires responses for all questions before you can submit. If you're unsure about a particular question, provide your best estimate.</p>
+            </div>
+            <div data-lang="da">
+                <h2>Ofte stillede spørgsmål</h2>
+                <h3>Hvad hvis jeg mister mit undersøgelseslink?</h3>
+                <p>Kontakt din sessionsleder. De kan generere et nyt token og sende dig et nyt link.</p>
+                <h3>Kan jeg ændre mine svar efter indsendelse?</h3>
+                <p>Nej, når du indsender din undersøgelse, er dine svar endelige. Dette sikrer dataintegritet til analysen. Sørg for at gennemgå alle dine svar, inden du indsender.</p>
+                <h3>Hvad hvis jeg ikke forstår et spørgsmål?</h3>
+                <p>Hvert spørgsmål indeholder en etiket/beskrivelse. Hvis du stadig er usikker, kontakt din sessionsleder for afklaring.</p>
+                <h3>Hvor lang tid tager undersøgelsen?</h3>
+                <p>Typisk 20-30 minutter, men dette kan variere afhængigt af dit kendskab til emnerne og kompleksiteten af din organisations forsyningskæde.</p>
+                <h3>Kan jeg bruge min telefon eller tablet?</h3>
+                <p>Ja, undersøgelsen er responsiv og fungerer på desktop, tablet og mobile enheder. Vi anbefaler dog at bruge en desktop eller bærbar computer for den bedste oplevelse, især til træk-og-slip-sårbarhedsrangerings-trinnet.</p>
+                <h3>Hvad hvis jeg skal stoppe og vende tilbage senere?</h3>
+                <p>Intet problem! Dine fremskridt gemmes automatisk. Brug blot det samme link for at vende tilbage og fortsætte, hvor du slap.</p>
+                <h3>Vil mine individuelle svar blive delt?</h3>
+                <p>Dine individuelle svar er <strong>fortrolige</strong>. Sessionslederen kan kun se aggregerede resultater på tværs af alle deltagere. Dit navn og specifikke svar deles ikke med andre deltagere.</p>
+                <h3>Hvad sker der med mine data?</h3>
+                <p>Dine svar gemmes sikkert i systemets database. De bruges udelukkende til forsyningskæderobusthedsvurdering og deles ikke med tredjeparter.</p>
+                <h3>Kan jeg springe et spørgsmål over?</h3>
+                <p>Undersøgelsen kræver svar på alle spørgsmål, inden du kan indsende. Hvis du er usikker på et bestemt spørgsmål, giv dit bedste skøn.</p>
+            </div>
         </section>
 
         <section class="section">
-            <h2>📖 Related Documentation</h2>
-            <div class="cards">
-                <div class="card">
-                    <h4>📝 Survey Participant</h4>
-                    <p>You are currently reading the Survey Participant guide.</p>
+            <div data-lang="en">
+                <h2>Related Documentation</h2>
+                <div class="cards">
+                    <div class="card">
+                        <h4>Survey Participant</h4>
+                        <p>You are currently reading the Survey Participant guide.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Session Manager</h4>
+                        <p>Guide for session managers on creating sessions and viewing results.</p>
+                        <p><a href="session-manager.html" class="btn">Read More</a></p>
+                    </div>
+                    <div class="card">
+                        <h4>Admin</h4>
+                        <p>Platform administration and PocketBase backend management.</p>
+                        <p><a href="admin.html" class="btn">Read More</a></p>
+                    </div>
+                    <div class="card">
+                        <h4>Installation</h4>
+                        <p>Setup and deployment guide for development and production.</p>
+                        <p><a href="installation.html" class="btn">Read More</a></p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>👔 Session Manager</h4>
-                    <p>Guide for session managers on creating sessions and viewing results.</p>
-                    <p><a href="session-manager.html" class="btn">Read More</a></p>
-                </div>
-                <div class="card">
-                    <h4>🛡️ Admin</h4>
-                    <p>Platform administration and PocketBase backend management.</p>
-                    <p><a href="admin.html" class="btn">Read More</a></p>
-                </div>
-                <div class="card">
-                    <h4>⚙️ Installation</h4>
-                    <p>Setup and deployment guide for development and production.</p>
-                    <p><a href="installation.html" class="btn">Read More</a></p>
+            </div>
+            <div data-lang="da">
+                <h2>Relateret dokumentation</h2>
+                <div class="cards">
+                    <div class="card">
+                        <h4>Undersøgelsesdeltager</h4>
+                        <p>Du læser i øjeblikket vejledningen til undersøgelsesdeltagere.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Sessionsleder</h4>
+                        <p>Guide til sessionsledere om oprettelse af sessioner og visning af resultater.</p>
+                        <p><a href="session-manager.html" class="btn">Læs mere</a></p>
+                    </div>
+                    <div class="card">
+                        <h4>Administration</h4>
+                        <p>Platformsadministration og PocketBase-backendstyring.</p>
+                        <p><a href="admin.html" class="btn">Læs mere</a></p>
+                    </div>
+                    <div class="card">
+                        <h4>Installation</h4>
+                        <p>Opsætnings- og implementeringsvejledning til udvikling og produktion.</p>
+                        <p><a href="installation.html" class="btn">Læs mere</a></p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <p class="back-to-top"><a href="#top">↑ Back to Top</a></p>
+        <p class="back-to-top"><a href="#top"><span data-lang="en">↑ Back to Top</span><span data-lang="da">↑ Tilbage til toppen</span></a></p>
     </main>
 
     <footer class="footer">
-        <p><strong>Supply Chain Resilience Assessment Tool Documentation</strong></p>
-        <p>Developed by University of Southern Denmark (SDU) & Royal Danish Military Academy</p>
-        <p>Funded by Danish Industry Foundation (Industriens Fond)</p>
+        <p><strong><span data-lang="en">Supply Chain Resilience Assessment Tool Documentation</span><span data-lang="da">Dokumentation for Forsyningskæderobusthedsværktøjet</span></strong></p>
+        <p><span data-lang="en">Developed by University of Southern Denmark (SDU) &amp; Royal Danish Military Academy</span><span data-lang="da">Udviklet af Syddansk Universitet (SDU) og Forsvarsakademiet</span></p>
+        <p><span data-lang="en">Funded by Danish Industry Foundation (Industriens Fond)</span><span data-lang="da">Finansieret af Industriens Fond</span></p>
         <div class="footer-links">
-            <a href="https://github.com/sdu-concurrency/SCR-model" target="_blank">GitHub Repository</a>
+            <a href="https://github.com/sdu-concurrency/SCR-model" target="_blank">GitHub</a>
             <a href="https://cyber-smv.dk/" target="_blank">Project Website</a>
             <a href="https://industriensfond.dk/" target="_blank">Industriens Fond</a>
         </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
-            Last updated: June 2025 | Documentation version: 1.0
-        </p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">Last updated: June 2025 | Documentation version: 1.0</p>
     </footer>
+    <script src="i18n.js"></script>
 </body>
 </html>

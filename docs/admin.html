@@ -8,612 +8,573 @@
     <link rel="icon" type="image/svg+xml" href="https://github.com/sdu-concurrency/SCR-model/blob/main/favicon.svg?raw=true">
 </head>
 <body>
-    <a href="https://github.com/sdu-concurrency/SCR-model" class="github-fork-ribbon" target="_blank" aria-label="Fork me on GitHub">Fork me on GitHub</a>
-    
     <header class="header">
         <h1>Supply Chain Resilience Assessment Tool</h1>
-        <p>Admin & Platform Management Guide</p>
+        <p><span data-lang="en">Admin &amp; Platform Management Guide</span><span data-lang="da">Administratorvejledning til platformsadministration</span></p>
     </header>
 
     <nav class="nav">
         <div class="nav-container">
             <a href="/" class="logo">SCR-Model Docs</a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="installation.html">Installation</a></li>
-                <li><a href="session-manager.html">Session Manager</a></li>
-                <li><a href="survey-participant.html">Survey Participant</a></li>
-                <li><a href="admin.html" class="active">Admin</a></li>
+                <li><a href="index.html"><span data-lang="en">Home</span><span data-lang="da">Hjem</span></a></li>
+                <li><a href="installation.html"><span data-lang="en">Installation</span><span data-lang="da">Installation</span></a></li>
+                <li><a href="session-manager.html"><span data-lang="en">Session Manager</span><span data-lang="da">Sessionsleder</span></a></li>
+                <li><a href="survey-participant.html"><span data-lang="en">Survey Participant</span><span data-lang="da">Undersøgelsesdeltager</span></a></li>
+                <li><a href="admin.html" class="active"><span data-lang="en">Admin</span><span data-lang="da">Administration</span></a></li>
             </ul>
+            <button class="lang-toggle" id="lang-toggle">DA</button>
         </div>
     </nav>
 
     <main class="main">
         <section class="hero">
-            <h2>🛡️ Admin & Platform Management Guide</h2>
-            <p>
-                Comprehensive guide for platform administrators working directly with the PocketBase 
-                backend, including account management, password resets, and question set configuration.
-            </p>
+            <div data-lang="en">
+                <h2>Admin &amp; Platform Management</h2>
+                <p>Reference guide for platform administrators covering PocketBase administration, user management, and advanced configuration.</p>
+            </div>
+            <div data-lang="da">
+                <h2>Administrator- og platformsadministration</h2>
+                <p>Referencevejledning til platformsadministratorer, der dækker PocketBase-administration, brugerstyring og avanceret konfiguration.</p>
+            </div>
         </section>
 
         <section class="section">
-            <h2>📋 Table of Contents</h2>
-            <div class="toc">
-                <ul>
-                    <li><a href="#overview">Overview</a></li>
-                    <li><a href="#pocketbase-basics">PocketBase Basics</a></li>
-                    <li><a href="#authentication-tiers">Authentication Tiers</a></li>
-                    <li><a href="#create-admin-account">Create an Admin Account</a></li>
-                    <li><a href="#reset-password">Reset a Super User Password</a></li>
-                    <li><a href="#add-question-set">Add a New Question Set</a></li>
-                    <li><a href="#verification">Verification Checklist</a></li>
-                    <li><a href="#troubleshooting">Troubleshooting</a></li>
-                    <li><a href="#json-schemas">JSON Schema Reference</a></li>
-                </ul>
+            <div data-lang="en">
+                <h2>Table of Contents</h2>
+                <div class="toc">
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#pocketbase-basics">PocketBase Basics</a></li>
+                        <li><a href="#authentication-tiers">Authentication Tiers</a></li>
+                        <li><a href="#create-admin-account">Create Admin Account</a></li>
+                        <li><a href="#reset-password">Reset Superuser Password</a></li>
+                        <li><a href="#add-question-set">Add a New Question Set</a></li>
+                        <li><a href="#verification">Verification Checklist</a></li>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        <li><a href="#json-schemas">JSON Schema Reference</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div data-lang="da">
+                <h2>Indholdsfortegnelse</h2>
+                <div class="toc">
+                    <ul>
+                        <li><a href="#overview">Oversigt</a></li>
+                        <li><a href="#pocketbase-basics">PocketBase-grundlæggende</a></li>
+                        <li><a href="#authentication-tiers">Godkendelsesniveauer</a></li>
+                        <li><a href="#create-admin-account">Opret adminkonto</a></li>
+                        <li><a href="#reset-password">Nulstil superbrugerkodeord</a></li>
+                        <li><a href="#add-question-set">Tilføj nyt spørgsmålssæt</a></li>
+                        <li><a href="#verification">Verifikationstjekliste</a></li>
+                        <li><a href="#troubleshooting">Fejlfinding</a></li>
+                        <li><a href="#json-schemas">JSON-schemareference</a></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section class="section" id="overview">
-            <h2>🎯 Overview</h2>
-            
-            <h3>About PocketBase</h3>
-            <p>
-                <a href="https://pocketbase.io/" target="_blank">PocketBase</a> is the backend service for this project. 
-                It stores all data in an embedded SQLite database at <code>back/pb_data/</code> and exposes 
-                two interfaces:
-            </p>
-            
-            <ul>
-                <li><strong>Admin UI</strong> - <code>http://127.0.0.1:8090/_/</code> - a browser-based dashboard for managing collections, records, and settings</li>
-                <li><strong>REST API</strong> - <code>http://127.0.0.1:8090/api/</code> - used by the frontend</li>
-            </ul>
-
-            <h3>Starting the backend</h3>
-            <p>
-                To start the backend locally, run from the <code>back/</code> directory:
-            </p>
-            <pre><code>go run main.go serve --http=127.0.0.1:8090</code></pre>
-
-            <div class="info-box">
-                <h4>First-Time Admin Setup</h4>
+            <div data-lang="en">
+                <h2>Overview</h2>
                 <p>
-                    No admin account is pre-created. On the very first startup, PocketBase detects that
-                    no superuser exists and shows a setup wizard at <code>/_/</code>. Complete the wizard
-                    to create your own admin account with the email and password of your choice.
+                    The Supply Chain Resilience Assessment Tool is built on
+                    <a href="https://pocketbase.io/" target="_blank">PocketBase</a> — a single-binary Go backend
+                    that provides a SQLite database, REST API, and an integrated admin dashboard. Administrators
+                    manage the platform through the PocketBase Admin UI at <code>/_/</code>.
                 </p>
-                <p>
-                    <strong>Choose a strong, unique password</strong> — this account has full access to
-                    all data and settings.
-                </p>
+                <h3>Admin Responsibilities</h3>
+                <ul>
+                    <li>Creating and managing sessions (groups of participants)</li>
+                    <li>Managing user accounts and access tokens</li>
+                    <li>Adding new question sets for different survey versions</li>
+                    <li>Monitoring survey completion status</li>
+                    <li>Database backup and maintenance</li>
+                </ul>
             </div>
-
-            <h3>Two separate authentication tiers</h3>
-            <p>
-                This project uses two distinct authentication systems that must not be confused:
-            </p>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Account type</th>
-                        <th>Collection</th>
-                        <th>Purpose</th>
-                        <th>Who uses it</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>PocketBase admin</strong></td>
-                        <td><code>_superusers</code></td>
-                        <td>Full backend access via <code>/_/</code></td>
-                        <td>Platform administrators only</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Session manager</strong></td>
-                        <td><code>app_users</code> with <code>role = super</code></td>
-                        <td>Create and run assessment sessions via the web app</td>
-                        <td>Researchers and facilitators</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="warning-box">
-                <h4>⚠️ Important Note</h4>
+            <div data-lang="da">
+                <h2>Oversigt</h2>
                 <p>
-                    The web application refers to <code>app_users</code> records with <code>role = super</code> 
-                    as "super users". This is an application-level concept and is completely separate from the 
-                    PocketBase <code>_superusers</code> collection.
+                    Supply Chain Resilience Assessment Tool er bygget på
+                    <a href="https://pocketbase.io/" target="_blank">PocketBase</a> — en single-binary Go-backend,
+                    der leverer en SQLite-database, REST API og et integreret adminpanel. Administratorer
+                    administrerer platformen via PocketBase Admin UI på <code>/_/</code>.
                 </p>
+                <h3>Administratoransvar</h3>
+                <ul>
+                    <li>Oprette og administrere sessioner (grupper af deltagere)</li>
+                    <li>Administrere brugerkonti og adgangstokens</li>
+                    <li>Tilføje nye spørgsmålssæt til forskellige undersøgelsesversioner</li>
+                    <li>Overvåge undersøgelsesafslutningsstatus</li>
+                    <li>Databasesikkerhedskopi og vedligeholdelse</li>
+                </ul>
             </div>
         </section>
 
         <section class="section" id="pocketbase-basics">
-            <h2>🗄️ PocketBase Basics</h2>
-            
-            <h3>Admin UI</h3>
-            <p>
-                The PocketBase admin UI is accessible at <code>http://127.0.0.1:8090/_/</code>. After logging in 
-                you will see the <strong>Collections</strong> panel on the left and the record table for the 
-                selected collection in the main area.
-            </p>
-
-            <h3>Key collections</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Collection</th>
-                        <th>Purpose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>_superusers</code></td>
-                        <td>PocketBase admin accounts - full backend access</td>
-                    </tr>
-                    <tr>
-                        <td><code>app_users</code></td>
-                        <td>Application user accounts; <code>role</code> is <code>normal</code> (participant) or <code>super</code> (session manager)</td>
-                    </tr>
-                    <tr>
-                        <td><code>questions</code></td>
-                        <td>Question set definitions containing vulnerability and capability JSON schemas</td>
-                    </tr>
-                    <tr>
-                        <td><code>sessions</code></td>
-                        <td>Assessment session records, each referencing one <code>questions</code> record</td>
-                    </tr>
-                    <tr>
-                        <td><code>tokens</code></td>
-                        <td>Short-lived login tokens for session participants</td>
-                    </tr>
-                    <tr>
-                        <td><code>surveys</code></td>
-                        <td>Completed survey responses</td>
-                    </tr>
-                    <tr>
-                        <td><code>survey_schemas</code></td>
-                        <td>Survey form structure</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>The <code>pwordtext</code> field</h3>
-            <p>
-                <code>app_users</code> records have a helper field called <code>pwordtext</code>. When a session is 
-                first created, the backend generates a random 5-character password and stores it in both the 
-                real PocketBase password hash and in <code>pwordtext</code> so the session manager can see it 
-                on screen.
-            </p>
-            <p>
-                Once the session manager logs in and sets their own password via the web app (the 
-                <code>/auth-set</code> endpoint), the real password hash is updated and <code>pwordtext</code> is 
-                cleared to an empty string.
-            </p>
-
-            <div class="warning-box">
-                <h4>⚠️ Important</h4>
-                <p>
-                    <code>pwordtext</code> is only a convenience display field. The real authentication secret is 
-                    always the PocketBase password hash. If you edit only <code>pwordtext</code>, you are 
-                    <strong>not</strong> changing the account password.
-                </p>
+            <div data-lang="en">
+                <h2>PocketBase Basics</h2>
+                <h3>Accessing the Admin UI</h3>
+                <p>The PocketBase admin dashboard is available at: <code>http://&lt;your-host&gt;/_/</code></p>
+                <ul>
+                    <li><strong>Local development:</strong> <a href="http://127.0.0.1:8090/_/" target="_blank">http://127.0.0.1:8090/_/</a></li>
+                    <li><strong>Production (Docker):</strong> <a href="http://localhost:8080/_/" target="_blank">http://localhost:8080/_/</a></li>
+                </ul>
+                <h3>Key Collections</h3>
+                <table>
+                    <thead><tr><th>Collection</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>sessions</code></td><td>Survey sessions (groups of participants)</td></tr>
+                        <tr><td><code>session_users</code></td><td>Participant accounts linked to sessions</td></tr>
+                        <tr><td><code>app_settings</code></td><td>Global application settings</td></tr>
+                        <tr><td><code>questions</code></td><td>Survey question sets (JSON schema)</td></tr>
+                        <tr><td><code>forms</code></td><td>Submitted survey responses</td></tr>
+                        <tr><td><code>snapshots</code></td><td>Collections schema snapshots</td></tr>
+                    </tbody>
+                </table>
+                <div class="info-box">
+                    <h4>Tip</h4>
+                    <p>PocketBase provides a complete, searchable interface for all collections. You can filter, sort, and export data directly from the admin UI.</p>
+                </div>
+            </div>
+            <div data-lang="da">
+                <h2>PocketBase-grundlæggende</h2>
+                <h3>Tilgå adminpanelet</h3>
+                <p>PocketBase-adminpanelet er tilgængeligt på: <code>http://&lt;din-vært&gt;/_/</code></p>
+                <ul>
+                    <li><strong>Lokal udvikling:</strong> <a href="http://127.0.0.1:8090/_/" target="_blank">http://127.0.0.1:8090/_/</a></li>
+                    <li><strong>Produktion (Docker):</strong> <a href="http://localhost:8080/_/" target="_blank">http://localhost:8080/_/</a></li>
+                </ul>
+                <h3>Nøglesamlinger</h3>
+                <table>
+                    <thead><tr><th>Samling</th><th>Beskrivelse</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>sessions</code></td><td>Undersøgelsessessioner (grupper af deltagere)</td></tr>
+                        <tr><td><code>session_users</code></td><td>Deltagerkonti knyttet til sessioner</td></tr>
+                        <tr><td><code>app_settings</code></td><td>Globale applikationsindstillinger</td></tr>
+                        <tr><td><code>questions</code></td><td>Undersøgelsesspørgsmålssæt (JSON-skema)</td></tr>
+                        <tr><td><code>forms</code></td><td>Indsendte undersøgelsessvar</td></tr>
+                        <tr><td><code>snapshots</code></td><td>Samlingsstruktur-snapshots</td></tr>
+                    </tbody>
+                </table>
+                <div class="info-box">
+                    <h4>Tip</h4>
+                    <p>PocketBase leverer en komplet, søgbar brugerflade til alle samlinger. Du kan filtrere, sortere og eksportere data direkte fra adminpanelet.</p>
+                </div>
             </div>
         </section>
 
         <section class="section" id="authentication-tiers">
-            <h2>🔐 Authentication Tiers Explained</h2>
-            
-            <h3>PocketBase Superusers (<code>_superusers</code>)</h3>
-            <ul>
-                <li>Full backend access via <code>/_/</code></li>
-                <li>Can manage all collections, records, and settings</li>
-                <li>Used only by platform administrators</li>
-                <li>Email + password authentication</li>
-                <li>No relationship to application session managers</li>
-            </ul>
-
-            <h3>Application Super Users (<code>app_users</code> with <code>role = super</code>)</h3>
-            <ul>
-                <li>Session managers who create and facilitate assessment sessions</li>
-                <li>Access the web application, not the PocketBase admin UI</li>
-                <li>Token-based authentication (auto-generated on session creation)</li>
-                <li>Can create sessions, view results, manage participants</li>
-            </ul>
+            <div data-lang="en">
+                <h2>Authentication Tiers</h2>
+                <p>The platform has three levels of access:</p>
+                <table>
+                    <thead><tr><th>Role</th><th>Access Method</th><th>Capabilities</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Superuser / Admin</strong></td>
+                            <td>PocketBase Admin UI (<code>/_/</code>)</td>
+                            <td>Full platform management: manage all collections, users, settings, migrations</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Session Manager</strong></td>
+                            <td>App login (<code>/</code>) with email + password</td>
+                            <td>Create and manage sessions, view aggregated results and analysis charts</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Survey Participant</strong></td>
+                            <td>Token link (<code>/session/:name/survey?u=...&amp;t=...</code>)</td>
+                            <td>Complete the survey for their assigned session only</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="info-box">
+                    <h4>Session Manager accounts</h4>
+                    <p>Session Manager accounts are regular <code>users</code> in PocketBase but <em>not</em> superusers. They log in via the main app at <code>/</code>. Superuser accounts are completely separate and managed via <code>/_/</code>.</p>
+                </div>
+            </div>
+            <div data-lang="da">
+                <h2>Godkendelsesniveauer</h2>
+                <p>Platformen har tre adgangsniveauer:</p>
+                <table>
+                    <thead><tr><th>Rolle</th><th>Adgangsmetode</th><th>Kapaciteter</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Superbruger / Administrator</strong></td>
+                            <td>PocketBase Admin UI (<code>/_/</code>)</td>
+                            <td>Fuld platformsadministration: administrere alle samlinger, brugere, indstillinger og migrationer</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sessionsleder</strong></td>
+                            <td>App-login (<code>/</code>) med e-mail + adgangskode</td>
+                            <td>Oprette og administrere sessioner, se aggregerede resultater og analysediagrammer</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Undersøgelsesdeltager</strong></td>
+                            <td>Token-link (<code>/session/:name/survey?u=...&amp;t=...</code>)</td>
+                            <td>Udfylde undersøgelsen for deres tildelte session kun</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="info-box">
+                    <h4>Sessionslederkonti</h4>
+                    <p>Sessionslederkonti er almindelige <code>users</code> i PocketBase, men <em>ikke</em> superbrugere. De logger ind via hoved-appen på <code>/</code>. Superbrugerkonti er helt separate og administreres via <code>/_/</code>.</p>
+                </div>
+            </div>
         </section>
 
         <section class="section" id="create-admin-account">
-            <h2>👤 Create an Admin Account</h2>
-            
-            <h3>When to create</h3>
-            <p>
-                Create a new PocketBase admin account when you need to give another person direct access 
-                to the backend UI at <code>/_/</code>. Admin accounts live in the <code>_superusers</code> 
-                collection and have no relationship with application session managers.
-            </p>
-
-            <h3>Steps</h3>
-            <ol>
-                <li>Open <code>http://127.0.0.1:8090/_/</code> and log in with an existing admin account.</li>
-                <li>In the left sidebar, click <strong>_superusers</strong> under the <strong>System</strong> section.</li>
-                <li>Click <strong>+ New Record</strong> in the top-right corner.</li>
-                <li>Enter the new admin's <strong>email address</strong> and a strong <strong>password</strong>.</li>
-                <li>Click <strong>Create</strong> to save the record.</li>
-                <li>Share the credentials with the new admin securely.</li>
-                <li>Ask the new admin to log in and change their password immediately.</li>
-            </ol>
-
-            <div class="info-box">
-                <h4>Expected result</h4>
-                <p>
-                    The new account can log in to <code>/_/</code> and manage all collections, records, and settings.
-                </p>
+            <div data-lang="en">
+                <h2>Create Admin Account</h2>
+                <h3>First-time Setup</h3>
+                <p>On the very first start of the backend, PocketBase requires you to create a superuser account:</p>
+                <ol>
+                    <li>Start the backend: <code>go run main.go serve</code></li>
+                    <li>Open <a href="http://127.0.0.1:8090/_/" target="_blank">http://127.0.0.1:8090/_/</a></li>
+                    <li>PocketBase will redirect you to the setup page</li>
+                    <li>Enter your admin email and a strong password</li>
+                    <li>Click <strong>Create and login</strong></li>
+                </ol>
+                <div class="warning-box">
+                    <h4>Security</h4>
+                    <p>Use a strong, unique password for your superuser account. This account has full access to the database and all data.</p>
+                </div>
+                <h3>Creating Session Manager Accounts</h3>
+                <ol>
+                    <li>Log in to the admin UI at <code>/_/</code></li>
+                    <li>Navigate to <strong>Collections &gt; users</strong></li>
+                    <li>Click <strong>New record</strong></li>
+                    <li>Enter the email and password for the session manager</li>
+                    <li>Save the record</li>
+                    <li>The session manager can now log in at the main app URL (<code>/</code>)</li>
+                </ol>
             </div>
-
-            <div class="warning-box">
-                <h4>⚠️ Warning</h4>
-                <p>
-                    Admin accounts have unrestricted write access to the database. Only create accounts 
-                    for people who need this level of access.
-                </p>
+            <div data-lang="da">
+                <h2>Opret adminkonto</h2>
+                <h3>Førstegangsopsætning</h3>
+                <p>Ved første start af backend kræver PocketBase, at du opretter en superbrugerkonto:</p>
+                <ol>
+                    <li>Start backend: <code>go run main.go serve</code></li>
+                    <li>Åbn <a href="http://127.0.0.1:8090/_/" target="_blank">http://127.0.0.1:8090/_/</a></li>
+                    <li>PocketBase viderestiller dig til opsætningssiden</li>
+                    <li>Indtast din admin-e-mail og en stærk adgangskode</li>
+                    <li>Klik på <strong>Opret og log ind</strong></li>
+                </ol>
+                <div class="warning-box">
+                    <h4>Sikkerhed</h4>
+                    <p>Brug en stærk, unik adgangskode til din superbrugerkonto. Denne konto har fuld adgang til databasen og alle data.</p>
+                </div>
+                <h3>Opret sessionslederkonti</h3>
+                <ol>
+                    <li>Log ind på adminpanelet på <code>/_/</code></li>
+                    <li>Naviger til <strong>Samlinger &gt; users</strong></li>
+                    <li>Klik på <strong>Ny post</strong></li>
+                    <li>Indtast e-mail og adgangskode til sessionslederen</li>
+                    <li>Gem posten</li>
+                    <li>Sessionslederen kan nu logge ind på hoved-app-URL'en (<code>/</code>)</li>
+                </ol>
             </div>
-
-            <h3>Alternative: create via CLI</h3>
-            <p>
-                You can also create a superuser directly from the command line without opening the UI - 
-                useful on first deployment or when the UI is inaccessible.
-            </p>
-
-            <h4>Local / development (from the <code>back/</code> directory):</h4>
-            <pre><code>go run main.go superuser create EMAIL PASS</code></pre>
-
-            <h4>Docker (replace <code>&lt;container&gt;</code> with your container name or ID):</h4>
-            <pre><code>docker exec &lt;container&gt; /pb/pocketbase superuser create EMAIL PASS</code></pre>
-
-            <p>
-                See the <a href="https://pocketbase.io/docs/going-to-production/#minimal-setup" target="_blank">PocketBase production docs</a> for more details.
-            </p>
         </section>
 
         <section class="section" id="reset-password">
-            <h2>🔄 Reset a Super User Password</h2>
-            
-            <h3>Overview</h3>
-            <p>
-                In this project a "super user" is an <code>app_users</code> record with <code>role = super</code>. 
-                These accounts are session managers who create and facilitate assessment sessions through the 
-                web application.
-            </p>
-            <p>
-                The application assigns a random password when a session is created. If a session manager 
-                forgets their password, you can reset it from the PocketBase admin UI by editing the 
-                <code>pwordtext</code> field of the record - this triggers the reset password mechanism on the 
-                next login.
-            </p>
+            <div data-lang="en">
+                <h2>Reset Superuser Password</h2>
+                <p>If you forget your superuser password, you can reset it via the PocketBase CLI:</p>
+                <pre><code># Stop the server first, then run:
+./pocketbase superuser upsert new@email.com newpassword
 
-            <h3>Understanding the two password fields</h3>
-            <p>
-                When you open an <code>app_users</code> record in PocketBase you will see:
-            </p>
-            <ul>
-                <li><strong>change password</strong> toggle - reveals the Password and Confirm fields when enabled</li>
-                <li><strong>pwordtext</strong> - the plaintext helper field (only shown to admins)</li>
-            </ul>
-            <p>
-                To fully reset the password you must update both:
-            </p>
-            <ol>
-                <li>The real PocketBase password (via the <strong>change password</strong> toggle)</li>
-                <li>The <code>pwordtext</code> field to match, so the session manager can enter the system until they set their own</li>
-            </ol>
+# Or with go run:
+go run main.go superuser upsert new@email.com newpassword</code></pre>
+                <div class="info-box">
+                    <h4>Session Manager Password Reset</h4>
+                    <p>To reset a session manager's password, log in to the admin UI, navigate to <strong>Collections &gt; users</strong>, find the user, and update their password field.</p>
+                </div>
+            </div>
+            <div data-lang="da">
+                <h2>Nulstil superbrugerkodeord</h2>
+                <p>Hvis du glemmer dit superbrugerkodeord, kan du nulstille det via PocketBase CLI:</p>
+                <pre><code># Stop serveren først, kør derefter:
+./pocketbase superuser upsert ny@email.dk nyt_kodeord
 
-            <h3>Steps</h3>
-            <ol>
-                <li>Open <code>http://127.0.0.1:8090/_/</code> and log in.</li>
-                <li>Click <strong>app_users</strong> in the left sidebar.</li>
-                <li>Find the session manager's record - look for <code>role = super</code> in the role column. You can also filter by typing <code>role = "super"</code> in the search bar.</li>
-                <li>Click the record row to open the edit panel.</li>
-                <li>Scroll down and verify that <code>role</code> is set to <code>super</code>.</li>
-                <li>
-                    <p><strong>Option A:</strong> Toggle <strong>change password</strong> to enable the password fields.</p>
-                    <ol type="a">
-                        <li>Enter the new password in both <strong>Password</strong> and <strong>Confirm</strong>.</li>
-                        <li>Click <strong>Save changes</strong>.</li>
-                    </ol>
-                </li>
-                <li>
-                    <p><strong>Option B:</strong> Update the <code>pwordtext</code> field to the new password value.</p>
-                    <ol type="a">
-                        <li>This approach will trigger reset password mechanism on the next login.</li>
-                        <li>Click <strong>Save changes</strong>.</li>
-                    </ol>
-                </li>
-                <li>Provide the new password to the session manager via a secure channel.</li>
-                <li>Ask them to log in and set their own permanent password through the web application.</li>
-            </ol>
+# Eller med go run:
+go run main.go superuser upsert ny@email.dk nyt_kodeord</code></pre>
+                <div class="info-box">
+                    <h4>Nulstil sessionsleders kodeord</h4>
+                    <p>For at nulstille en sessionsleders kodeord skal du logge ind på adminpanelet, navigere til <strong>Samlinger &gt; users</strong>, finde brugeren og opdatere adgangskodefeltet.</p>
+                </div>
+            </div>
         </section>
 
         <section class="section" id="add-question-set">
-            <h2>➕ Add a New Vulnerability and Capability Set</h2>
-            
-            <h3>Overview</h3>
-            <p>
-                Assessment question sets are stored in the <code>questions</code> collection. Each record 
-                defines a complete survey configuration including a vulnerability schema and a capability 
-                schema. The session creation form in the web application loads all records from this collection 
-                and presents them as options in the <strong>Session question set</strong> dropdown.
-            </p>
-
-            <h3>Record fields</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Field</th>
-                        <th>Required</th>
-                        <th>Validation</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>name</code></td>
-                        <td>Yes</td>
-                        <td>Any text</td>
-                        <td>Identifies the question set, e.g. <code>supply_chain</code> or <code>cybersecurity</code></td>
-                    </tr>
-                    <tr>
-                        <td><code>version</code></td>
-                        <td>Yes</td>
-                        <td>Must match <code>v1</code>, <code>v2</code>, <code>v3</code>, etc.</td>
-                        <td>Incremented when revising an existing set</td>
-                    </tr>
-                    <tr>
-                        <td><code>description</code></td>
-                        <td>No</td>
-                        <td>Any text</td>
-                        <td>Short human-readable summary shown in the UI</td>
-                    </tr>
-                    <tr>
-                        <td><code>vulnerability_schema</code></td>
-                        <td>Yes</td>
-                        <td>Valid JSON array</td>
-                        <td>Categories and items for the vulnerability assessment</td>
-                    </tr>
-                    <tr>
-                        <td><code>capability_schema</code></td>
-                        <td>Yes</td>
-                        <td>Valid JSON array</td>
-                        <td>Categories and items for the capability assessment</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <p>
-                The combination of <code>name</code> and <code>version</code> should be unique across all records.
-            </p>
-
-            <h3>JSON schema structure</h3>
-            <p>
-                Both schemas follow the same structure: a JSON array of category objects. Each category 
-                has a multilingual <code>label</code> and an <code>items</code> array. Each item has a stable 
-                <code>value</code> key (used as the internal identifier in survey responses) and a multilingual 
-                <code>label</code>.
-            </p>
-
-            <pre><code>[
-  {
-    "label": { "en": "1. Finance", "da": "1. \u00d8konomi/finans" },
-    "items": [
-      {
-        "value": "S1_1",
-        "label": { "en": "Asset turnover", "da": "Aktivers oms\u00e6tningshastighed" }
-      },
-      {
-        "value": "S1_2",
-        "label": { "en": "Access to liquidity", "da": "Adgang til likviditet" }
-      }
-    ]
-  },
-  {
-    "label": { "en": "2. Customers / demand", "da": "2. Kunder/eftersp\u00f8rgslen" },
-    "items": [
-      {
-        "value": "S2_1",
-        "label": { "en": "Concentration of customers", "da": "Kundekoncentration" }
-      }
-    ]
-  }
-]</code></pre>
-
-            <div class="warning-box">
-                <h4>⚠️ Important</h4>
+            <div data-lang="en">
+                <h2>Add a New Question Set</h2>
                 <p>
-                    The <code>value</code> keys are persisted in survey response records. 
-                    <strong>Do not change existing value keys</strong> after surveys have been collected - 
-                    doing so will break the mapping between responses and questions.
+                    The survey uses FormKit JSON schemas stored in the <code>questions</code> collection.
+                    You can add new question sets or customize existing ones.
                 </p>
+                <h3>Steps</h3>
+                <ol>
+                    <li>Log in to the admin UI at <code>/_/</code></li>
+                    <li>Navigate to <strong>Collections &gt; questions</strong></li>
+                    <li>Click <strong>New record</strong></li>
+                    <li>Fill in the fields:
+                        <ul>
+                            <li><code>name</code> — Unique identifier for the question set</li>
+                            <li><code>lang</code> — Language code (<code>en</code> or <code>da</code>)</li>
+                            <li><code>schema</code> — FormKit JSON schema (see <a href="#json-schemas">JSON Schema Reference</a>)</li>
+                        </ul>
+                    </li>
+                    <li>Save the record</li>
+                </ol>
+                <div class="info-box">
+                    <h4>Existing Question Sets</h4>
+                    <p>
+                        The database is seeded with English and Danish question sets on first start.
+                        You can view and edit them in the <code>questions</code> collection.
+                        See the source files at
+                        <a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/src/surveys/" target="_blank">web/src/surveys/</a>
+                        for the JSON schema format.
+                    </p>
+                </div>
             </div>
-
-            <h3>Steps to add a new question set</h3>
-            <ol>
-                <li>Open <code>http://127.0.0.1:8090/_/</code> and log in.</li>
-                <li>Click <strong>questions</strong> in the left sidebar.</li>
-                <li>Click <strong>+ New Record</strong> in the top-right corner.</li>
-                <li>Fill in the <strong>name</strong> field (e.g. <code>cybersecurity</code>).</li>
-                <li>Fill in the <strong>version</strong> field using the format <code>v1</code>.</li>
-                <li>Optionally fill in <strong>description</strong> with a short note about the question set.</li>
-                <li>Click the <strong>vulnerability_schema</strong> field and replace the <code>null</code> value with your JSON array.</li>
-                <li>Click the <strong>capability_schema</strong> field and replace the <code>null</code> value with your JSON array.</li>
-                <li>Click <strong>Create</strong> to save the record.</li>
-                <li>After saving, navigate to the web application at <code>http://localhost:5173/admin</code>, log in, and open the session creation form. The new question set should appear immediately in the <strong>Session question set</strong> dropdown.</li>
-            </ol>
-
-            <div class="info-box">
-                <h4>📊 Note</h4>
+            <div data-lang="da">
+                <h2>Tilføj nyt spørgsmålssæt</h2>
                 <p>
-                    The frontend loads question sets sorted by creation date with the newest first. The 
-                    most recently added question set will appear at the top of the dropdown and will be 
-                    pre-selected by default.
+                    Undersøgelsen bruger FormKit JSON-skemaer gemt i <code>questions</code>-samlingen.
+                    Du kan tilføje nye spørgsmålssæt eller tilpasse eksisterende.
                 </p>
+                <h3>Trin</h3>
+                <ol>
+                    <li>Log ind på adminpanelet på <code>/_/</code></li>
+                    <li>Naviger til <strong>Samlinger &gt; questions</strong></li>
+                    <li>Klik på <strong>Ny post</strong></li>
+                    <li>Udfyld felterne:
+                        <ul>
+                            <li><code>name</code> — Unikt id for spørgsmålssættet</li>
+                            <li><code>lang</code> — Sprogkode (<code>en</code> eller <code>da</code>)</li>
+                            <li><code>schema</code> — FormKit JSON-skema (se <a href="#json-schemas">JSON-schemareference</a>)</li>
+                        </ul>
+                    </li>
+                    <li>Gem posten</li>
+                </ol>
+                <div class="info-box">
+                    <h4>Eksisterende spørgsmålssæt</h4>
+                    <p>
+                        Databasen seedes med engelske og danske spørgsmålssæt ved første start.
+                        Du kan se og redigere dem i <code>questions</code>-samlingen.
+                        Se kildefilerne på
+                        <a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/src/surveys/" target="_blank">web/src/surveys/</a>
+                        for JSON-skemaformatet.
+                    </p>
+                </div>
             </div>
         </section>
 
         <section class="section" id="verification">
-            <h2>✅ Verification Checklist</h2>
-            <p>
-                After making changes in PocketBase, work through this checklist before handing the system back:
-            </p>
-
-            <h3>New admin account</h3>
-            <ul>
-                <li>✅ Log out of the current admin session</li>
-                <li>✅ Log back in using the new admin account credentials</li>
-                <li>✅ Confirm that collections and records are accessible</li>
-            </ul>
-
-            <h3>Super user password reset</h3>
-            <ul>
-                <li>✅ Confirm that <code>pwordtext</code> in the <code>app_users</code> record matches the new password</li>
-                <li>✅ Test logging in to the web application using the session manager's username and the new password</li>
-                <li>✅ The session manager should be prompted to set their own permanent password on first login</li>
-            </ul>
-
-            <h3>New question set</h3>
-            <ul>
-                <li>✅ The <code>questions</code> record is visible in the collection list view</li>
-                <li>✅ The <code>name</code> and <code>version</code> are correct</li>
-                <li>✅ Both <code>vulnerability_schema</code> and <code>capability_schema</code> contain valid JSON arrays</li>
-                <li>✅ The new question set name appears in the session creation dropdown at <code>http://localhost:5173/admin</code></li>
-                <li>✅ Create a test session using the new question set and confirm it is created successfully</li>
-            </ul>
+            <div data-lang="en">
+                <h2>Verification Checklist</h2>
+                <p>After setup, verify the following to ensure everything is working correctly:</p>
+                <table>
+                    <thead><tr><th>Check</th><th>How to Verify</th></tr></thead>
+                    <tbody>
+                        <tr><td>Backend is running</td><td>Visit <code>http://&lt;host&gt;/api/health</code> — should return <code>{&quot;code&quot;:200,...}</code></td></tr>
+                        <tr><td>Admin UI accessible</td><td>Visit <code>http://&lt;host&gt;/_/</code> — should show login or dashboard</td></tr>
+                        <tr><td>Frontend loads</td><td>Visit <code>http://&lt;host&gt;/</code> — should show the app</td></tr>
+                        <tr><td>Migrations ran</td><td>In admin UI, verify collections: <code>sessions</code>, <code>session_users</code>, <code>questions</code>, <code>forms</code> exist</td></tr>
+                        <tr><td>Question data seeded</td><td>In admin UI, check <code>questions</code> collection has records</td></tr>
+                        <tr><td>Session manager login</td><td>Create a user account, then log in at <code>/</code></td></tr>
+                        <tr><td>Session creation</td><td>Log in as session manager, create a test session</td></tr>
+                        <tr><td>Participant survey</td><td>Open the participant link from a test session</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-lang="da">
+                <h2>Verifikationstjekliste</h2>
+                <p>Efter opsætning skal du verificere følgende for at sikre, at alt fungerer korrekt:</p>
+                <table>
+                    <thead><tr><th>Tjek</th><th>Sådan verificeres</th></tr></thead>
+                    <tbody>
+                        <tr><td>Backend kører</td><td>Besøg <code>http://&lt;vært&gt;/api/health</code> — bør returnere <code>{&quot;code&quot;:200,...}</code></td></tr>
+                        <tr><td>Admin UI tilgængeligt</td><td>Besøg <code>http://&lt;vært&gt;/_/</code> — bør vise login eller dashboard</td></tr>
+                        <tr><td>Frontend indlæses</td><td>Besøg <code>http://&lt;vært&gt;/</code> — bør vise appen</td></tr>
+                        <tr><td>Migrationer kørte</td><td>I adminpanelet: verificer at samlingerne <code>sessions</code>, <code>session_users</code>, <code>questions</code>, <code>forms</code> findes</td></tr>
+                        <tr><td>Spørgsmålsdata seeded</td><td>I adminpanelet: tjek at <code>questions</code>-samlingen har poster</td></tr>
+                        <tr><td>Sessionsleder-login</td><td>Opret en brugerkonto, log derefter ind på <code>/</code></td></tr>
+                        <tr><td>Sessionsoprettelse</td><td>Log ind som sessionsleder, opret en testsession</td></tr>
+                        <tr><td>Deltagerundersøgelse</td><td>Åbn deltagerlinket fra en testsession</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <section class="section" id="troubleshooting">
-            <h2>❓ Troubleshooting</h2>
-
-            <h3>New question set does not appear in the web UI</h3>
-            <ol>
-                <li>Confirm the record was saved - check the <code>questions</code> collection list view.</li>
-                <li>Reload the session creation page; the frontend queries the API on every page load.</li>
-                <li>Check browser developer tools for API errors on the <code>/api/collections/questions/records</code> request.</li>
-            </ol>
-
-            <h3>Password reset did not work - session manager cannot log in</h3>
-            <p>
-                Open the <code>app_users</code> record and confirm that <strong>change password</strong> was 
-                toggled on before saving. If only <code>pwordtext</code> was updated, the real password hash was 
-                not changed. Toggle <strong>change password</strong>, re-enter the password, and save again.
-            </p>
-
-            <h3>JSON editor shows an error</h3>
-            <p>
-                Common causes:
-            </p>
-            <ul>
-                <li>Trailing comma after the last item in an array or object</li>
-                <li>Missing quotes around string keys or values</li>
-                <li><code>null</code> left in the field instead of replaced with a JSON array</li>
-            </ul>
-            <p>
-                The PocketBase JSON editor highlights syntax errors inline. Paste your JSON into a validator 
-                (e.g. <a href="https://jsonlint.com" target="_blank">jsonlint.com</a>) before pasting into 
-                PocketBase if you are unsure.
-            </p>
-
-            <h3>The <code>questions</code> record saves but the frontend shows an error</h3>
-            <p>
-                Check that both schemas are JSON <strong>arrays</strong> (starting with <code>[</code>), not objects 
-                (starting with <code>{</code>). The frontend expects an array of category objects.
-            </p>
+            <div data-lang="en">
+                <h2>Troubleshooting</h2>
+                <h3>Cannot access admin UI</h3>
+                <ul>
+                    <li>Verify the backend is running: <code>go run main.go serve</code></li>
+                    <li>Check the port is correct (default: <code>8090</code> for dev, <code>8080</code> for Docker)</li>
+                    <li>Ensure no firewall is blocking the port</li>
+                    <li>Check server logs for errors</li>
+                </ul>
+                <h3>Migrations failed</h3>
+                <ul>
+                    <li>Delete <code>pb_data/</code> and restart to run a fresh migration</li>
+                    <li>Check Go version is 1.21+</li>
+                    <li>Check server logs for specific error messages</li>
+                </ul>
+                <h3>Session manager cannot log in</h3>
+                <ul>
+                    <li>Verify the user account exists in the <code>users</code> collection</li>
+                    <li>Check that the email is confirmed (or disable email verification in admin settings)</li>
+                    <li>Reset the password via the admin UI</li>
+                </ul>
+                <h3>Participant link not working</h3>
+                <ul>
+                    <li>Verify the token matches the <code>session_users</code> record</li>
+                    <li>Check the session is active and not expired</li>
+                    <li>Ensure the frontend can reach the backend API</li>
+                </ul>
+                <h3>Data not saving</h3>
+                <ul>
+                    <li>Check browser console for API errors</li>
+                    <li>Verify <code>VITE_API_URL</code> in <code>web/.env</code> points to the correct backend URL</li>
+                    <li>Check PocketBase collection rules allow writes</li>
+                </ul>
+                <div class="info-box">
+                    <h4>Getting Help</h4>
+                    <p>For additional help, see the
+                    <a href="https://github.com/sdu-concurrency/SCR-model/blob/main/docs/HANDBOOK_BACKEND.md" target="_blank">Admin Handbook</a>
+                    or open an issue on
+                    <a href="https://github.com/sdu-concurrency/SCR-model/issues" target="_blank">GitHub</a>.</p>
+                </div>
+            </div>
+            <div data-lang="da">
+                <h2>Fejlfinding</h2>
+                <h3>Kan ikke tilgå adminpanelet</h3>
+                <ul>
+                    <li>Verificer at backend kører: <code>go run main.go serve</code></li>
+                    <li>Tjek at porten er korrekt (standard: <code>8090</code> for udvikling, <code>8080</code> for Docker)</li>
+                    <li>Sørg for at ingen firewall blokerer porten</li>
+                    <li>Tjek serverlogge for fejl</li>
+                </ul>
+                <h3>Migrationer mislykkedes</h3>
+                <ul>
+                    <li>Slet <code>pb_data/</code> og genstart for at køre en frisk migration</li>
+                    <li>Tjek at Go-versionen er 1.21+</li>
+                    <li>Tjek serverlogge for specifikke fejlmeddelelser</li>
+                </ul>
+                <h3>Sessionsleder kan ikke logge ind</h3>
+                <ul>
+                    <li>Verificer at brugerkontoen findes i <code>users</code>-samlingen</li>
+                    <li>Tjek at e-mailen er bekræftet (eller deaktiver e-mailbekræftelse i adminindstillingerne)</li>
+                    <li>Nulstil adgangskoden via adminpanelet</li>
+                </ul>
+                <h3>Deltagerlink virker ikke</h3>
+                <ul>
+                    <li>Verificer at token matcher <code>session_users</code>-posten</li>
+                    <li>Tjek at sessionen er aktiv og ikke udløbet</li>
+                    <li>Sørg for at frontend kan nå backend-API'en</li>
+                </ul>
+                <h3>Data gemmes ikke</h3>
+                <ul>
+                    <li>Tjek browserkonsol for API-fejl</li>
+                    <li>Verificer at <code>VITE_API_URL</code> i <code>web/.env</code> peger på den korrekte backend-URL</li>
+                    <li>Tjek at PocketBase-samlingsregler tillader skrivning</li>
+                </ul>
+                <div class="info-box">
+                    <h4>Få hjælp</h4>
+                    <p>For yderligere hjælp, se
+                    <a href="https://github.com/sdu-concurrency/SCR-model/blob/main/docs/HANDBOOK_BACKEND.md" target="_blank">Administratorhåndbogen</a>
+                    eller opret et issue på
+                    <a href="https://github.com/sdu-concurrency/SCR-model/issues" target="_blank">GitHub</a>.</p>
+                </div>
+            </div>
         </section>
 
         <section class="section" id="json-schemas">
-            <h2>📄 JSON Schema Reference</h2>
-            <p>
-                Below are the complete <code>vulnerability_schema</code> and <code>capability_schema</code> values 
-                from the default <code>supply_chain / v1</code> question set. Use these as a reference or starting 
-                template when creating a new question set.
-            </p>
-
-            <h3>Default Vulnerability Schema</h3>
-            <p>
-                The vulnerability schema includes 7 categories with multiple items each, covering all aspects 
-                of supply chain vulnerability:
-            </p>
-            <ul>
-                <li><strong>Finance:</strong> Asset turnover, Access to liquidity, Net working capital, Low cash flow</li>
-                <li><strong>Customers / demand:</strong> Customer concentration, Dependence on key customers, Demand volatility</li>
-                <li><strong>Processes / organization:</strong> Dependency on key personnel, Limited production flexibility, Single-source production</li>
-                <li><strong>Systems / data:</strong> Outdated IT systems, Lack of data visibility, Cybersecurity vulnerabilities</li>
-                <li><strong>Purchasing / sourcing:</strong> Supplier concentration, Long lead times, Single-source components</li>
-                <li><strong>Supply chain end-to-end:</strong> Geographic concentration, Limited visibility, Complexity</li>
-                <li><strong>Environment:</strong> Climate-related risks, Regulatory and compliance risks, Geopolitical risks</li>
-            </ul>
-
-            <h3>Default Capability Schema</h3>
-            <p>
-                The capability schema includes 7 categories with multiple items each, covering organizational 
-                capabilities:
-            </p>
-            <ul>
-                <li><strong>Finance:</strong> Financial reserves, Access to credit facilities, Financial risk management</li>
-                <li><strong>Customers / demand:</strong> Customer diversification, Demand forecasting, Customer relationship management</li>
-                <li><strong>Product / processes:</strong> Product standardization, Process flexibility, Lean/agile operations, Cross-training</li>
-                <li><strong>Inventory management:</strong> Safety stock levels, Inventory visibility, Buffer strategy</li>
-                <li><strong>Sourcing / purchasing:</strong> Multi-sourcing strategy, Supplier qualification, Long-term relationships, Local/nearshore sourcing</li>
-                <li><strong>Systems and data:</strong> Real-time visibility, ERP/planning system maturity, Data analytics, Cybersecurity posture</li>
-                <li><strong>Management and organization:</strong> Executive commitment, Business continuity planning, Crisis response, Supply chain risk culture</li>
-            </ul>
-
-            <div class="info-box">
-                <h4>📥 Complete Schemas Available</h4>
+            <div data-lang="en">
+                <h2>JSON Schema Reference</h2>
                 <p>
-                    The complete JSON schemas with all categories and items are available in the 
-                    <a href="docs/HANDBOOK_BACKEND.md" target="_blank">HANDBOOK_BACKEND.md</a> file in the repository.
+                    Survey questions are defined as FormKit JSON schemas stored in the <code>questions</code> collection.
+                    Each schema defines the form structure for one step of the survey.
+                </p>
+                <h3>Schema Format</h3>
+                <p>Each question record in the <code>questions</code> collection has the following structure:</p>
+                <pre><code>{
+  "name": "form_en",      // Unique identifier
+  "lang": "en",          // Language code
+  "schema": [...]        // FormKit schema array
+}</code></pre>
+                <h3>FormKit Schema Documentation</h3>
+                <p>
+                    For detailed documentation on the FormKit schema format, see the
+                    <a href="https://formkit.com/essentials/schema" target="_blank">FormKit Schema Reference</a>.
+                    The survey uses FormKit v1 schema format with custom input types.
+                </p>
+                <h3>Source Files</h3>
+                <p>
+                    The bundled English and Danish schemas are in
+                    <a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/src/surveys/" target="_blank">web/src/surveys/</a>:
+                </p>
+                <ul>
+                    <li><a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/src/surveys/form_en.json" target="_blank"><code>form_en.json</code></a> — English survey schema</li>
+                    <li><a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/src/surveys/form_dk.json" target="_blank"><code>form_dk.json</code></a> — Danish survey schema</li>
+                </ul>
+                <p>
+                    These are seeded into the database automatically on first start via the migration at
+                    <a href="https://github.com/sdu-concurrency/SCR-model/blob/main/back/migrations/1779593600_seed_questions.go" target="_blank"><code>back/migrations/1779593600_seed_questions.go</code></a>.
+                </p>
+            </div>
+            <div data-lang="da">
+                <h2>JSON-schemareference</h2>
+                <p>
+                    Undersøgelsesspørgsmål er defineret som FormKit JSON-skemaer gemt i <code>questions</code>-samlingen.
+                    Hvert skema definerer formularstrukturen for ét trin i undersøgelsen.
+                </p>
+                <h3>Skemaformat</h3>
+                <p>Hver spørgsmålspost i <code>questions</code>-samlingen har følgende struktur:</p>
+                <pre><code>{
+  "name": "form_en",      // Unikt id
+  "lang": "en",          // Sprogkode
+  "schema": [...]        // FormKit-skema-array
+}</code></pre>
+                <h3>FormKit-schemadokumentation</h3>
+                <p>
+                    For detaljeret dokumentation om FormKit-skemaformatet, se
+                    <a href="https://formkit.com/essentials/schema" target="_blank">FormKit-schemareference</a>.
+                    Undersøgelsen bruger FormKit v1-skemaformat med brugerdefinerede inputtyper.
+                </p>
+                <h3>Kildefiler</h3>
+                <p>
+                    De medfølgende engelske og danske skemaer findes i
+                    <a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/src/surveys/" target="_blank">web/src/surveys/</a>:
+                </p>
+                <ul>
+                    <li><a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/src/surveys/form_en.json" target="_blank"><code>form_en.json</code></a> — Engelsk undersøgelsesskema</li>
+                    <li><a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/src/surveys/form_dk.json" target="_blank"><code>form_dk.json</code></a> — Dansk undersøgelsesskema</li>
+                </ul>
+                <p>
+                    Disse seedes automatisk ind i databasen ved første start via migrationen på
+                    <a href="https://github.com/sdu-concurrency/SCR-model/blob/main/back/migrations/1779593600_seed_questions.go" target="_blank"><code>back/migrations/1779593600_seed_questions.go</code></a>.
                 </p>
             </div>
         </section>
 
-        <section class="section">
-            <h2>📖 Related Documentation</h2>
-            <div class="cards">
-                <div class="card">
-                    <h4>🛡️ Admin</h4>
-                    <p>You are currently reading the Admin guide.</p>
-                </div>
-                <div class="card">
-                    <h4>👔 Session Manager</h4>
-                    <p>Guide for session managers on creating sessions and viewing results.</p>
-                    <p><a href="session-manager.html" class="btn">Read More</a></p>
-                </div>
-                <div class="card">
-                    <h4>📝 Survey Participant</h4>
-                    <p>Step-by-step instructions for participants.</p>
-                    <p><a href="survey-participant.html" class="btn">Read More</a></p>
-                </div>
-                <div class="card">
-                    <h4>⚙️ Installation</h4>
-                    <p>Setup and deployment guide.</p>
-                    <p><a href="installation.html" class="btn">Read More</a></p>
-                </div>
-            </div>
-        </section>
-
-        <p class="back-to-top"><a href="#top">↑ Back to Top</a></p>
+        <p class="back-to-top"><a href="#top"><span data-lang="en">↑ Back to Top</span><span data-lang="da">↑ Tilbage til toppen</span></a></p>
     </main>
 
     <footer class="footer">
-        <p><strong>Supply Chain Resilience Assessment Tool Documentation</strong></p>
-        <p>Developed by University of Southern Denmark (SDU) & Royal Danish Military Academy</p>
-        <p>Funded by Danish Industry Foundation (Industriens Fond)</p>
+        <p><strong><span data-lang="en">Supply Chain Resilience Assessment Tool Documentation</span><span data-lang="da">Dokumentation for Forsyningskæderobusthedsværktøjet</span></strong></p>
+        <p><span data-lang="en">Developed by University of Southern Denmark (SDU) &amp; Royal Danish Military Academy</span><span data-lang="da">Udviklet af Syddansk Universitet (SDU) og Forsvarsakademiet</span></p>
+        <p><span data-lang="en">Funded by Danish Industry Foundation (Industriens Fond)</span><span data-lang="da">Finansieret af Industriens Fond</span></p>
         <div class="footer-links">
-            <a href="https://github.com/sdu-concurrency/SCR-model" target="_blank">GitHub Repository</a>
+            <a href="https://github.com/sdu-concurrency/SCR-model" target="_blank">GitHub</a>
             <a href="https://cyber-smv.dk/" target="_blank">Project Website</a>
             <a href="https://industriensfond.dk/" target="_blank">Industriens Fond</a>
         </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
-            Last updated: June 2025 | Documentation version: 1.0
-        </p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">Last updated: June 2025 | Documentation version: 1.0</p>
     </footer>
+    <script src="i18n.js"></script>
 </body>
 </html>

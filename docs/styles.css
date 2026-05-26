@@ -1,15 +1,15 @@
 /* Supply Chain Resilience Documentation - GitHub Pages Style */
 
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --light-color: #ecf0f1;
-    --dark-color: #2c3e50;
+    --primary-color: #4a4a4a;
+    --secondary-color: #8b1a1a;
+    --accent-color: #c0392b;
+    --light-color: #f0eeee;
+    --dark-color: #2d2d2d;
     --text-color: #333;
-    --text-light: #7f8c8d;
+    --text-light: #6b7280;
     --bg-color: #ffffff;
-    --border-color: #bdc3c7;
+    --border-color: #d1cece;
     --success-color: #27ae60;
     --warning-color: #f39c12;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -30,7 +30,8 @@ body {
 
 /* Header */
 .header {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background-color: #4a4a4a;
+    border-bottom: 4px solid #8b1a1a;
     color: white;
     padding: 2rem 0;
     text-align: center;
@@ -178,7 +179,6 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -239,9 +239,16 @@ code {
     font-size: 0.9rem;
 }
 
+pre code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    font-size: inherit;
+}
+
 /* Info Boxes */
 .info-box {
-    background: #e3f2fd;
+    background: #fdf5f5;
     border-left: 4px solid var(--secondary-color);
     padding: 1rem 1.5rem;
     margin: 1.5rem 0;
@@ -313,7 +320,7 @@ li {
 }
 
 .btn:hover {
-    background: #2980b9;
+    background: #6b1010;
 }
 
 .btn-outline {
@@ -460,29 +467,30 @@ pre .function { color: #ffd54f; }
     }
 }
 
-/* GitHub Fork Ribbon */
-.github-fork-ribbon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-}
+/* Language Toggle */
+[data-lang="da"]:not(body) { display: none; }
 
-.github-fork-ribbon a {
-    background: #0366d6;
+body[data-lang="da"] [data-lang="en"] { display: none; }
+body[data-lang="da"] div[data-lang="da"],
+body[data-lang="da"] section[data-lang="da"] { display: block; }
+body[data-lang="da"] span[data-lang="da"] { display: inline; }
+body[data-lang="da"] td[data-lang="da"],
+body[data-lang="da"] th[data-lang="da"] { display: table-cell; }
+
+.lang-toggle {
+    background: var(--secondary-color);
     color: white;
-    text-decoration: none;
-    padding: 10px 0;
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
-    width: 120px;
-    transform: rotate(45deg);
-    display: block;
-    margin: -3px 0 0 3px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: background 0.3s ease;
+    margin-left: 1rem;
+    white-space: nowrap;
 }
 
-.github-fork-ribbon a:hover {
-    background: #005cc5;
+.lang-toggle:hover {
+    background: #6b1010;
 }

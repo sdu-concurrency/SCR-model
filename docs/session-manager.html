@@ -8,679 +8,620 @@
     <link rel="icon" type="image/svg+xml" href="https://github.com/sdu-concurrency/SCR-model/blob/main/favicon.svg?raw=true">
 </head>
 <body>
-    <a href="https://github.com/sdu-concurrency/SCR-model" class="github-fork-ribbon" target="_blank" aria-label="Fork me on GitHub">Fork me on GitHub</a>
-    
     <header class="header">
         <h1>Supply Chain Resilience Assessment Tool</h1>
-        <p>Session Manager Guide</p>
+        <p><span data-lang="en">Session Manager Guide</span><span data-lang="da">Sessionsledervejledning</span></p>
     </header>
 
     <nav class="nav">
         <div class="nav-container">
             <a href="/" class="logo">SCR-Model Docs</a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="installation.html">Installation</a></li>
-                <li><a href="session-manager.html" class="active">Session Manager</a></li>
-                <li><a href="survey-participant.html">Survey Participant</a></li>
-                <li><a href="admin.html">Admin</a></li>
+                <li><a href="index.html"><span data-lang="en">Home</span><span data-lang="da">Hjem</span></a></li>
+                <li><a href="installation.html"><span data-lang="en">Installation</span><span data-lang="da">Installation</span></a></li>
+                <li><a href="session-manager.html" class="active"><span data-lang="en">Session Manager</span><span data-lang="da">Sessionsleder</span></a></li>
+                <li><a href="survey-participant.html"><span data-lang="en">Survey Participant</span><span data-lang="da">Undersøgelsesdeltager</span></a></li>
+                <li><a href="admin.html"><span data-lang="en">Admin</span><span data-lang="da">Administration</span></a></li>
             </ul>
+            <button class="lang-toggle" id="lang-toggle">DA</button>
         </div>
     </nav>
 
     <main class="main">
         <section class="hero">
-            <h2>👔 Session Manager Guide</h2>
-            <p>
-                Comprehensive guide for session managers on creating sessions, managing users, 
-                and analyzing survey results.
-            </p>
+            <div data-lang="en">
+                <h2>Session Manager Guide</h2>
+                <p>Complete guide for session managers on creating and managing survey sessions, inviting participants, and analyzing results.</p>
+            </div>
+            <div data-lang="da">
+                <h2>Sessionsledervejledning</h2>
+                <p>Komplet guide til sessionsledere om oprettelse og administration af undersøgelsessessioner, invitation af deltagere og analyse af resultater.</p>
+            </div>
         </section>
 
         <section class="section">
-            <h2>📋 Table of Contents</h2>
-            <div class="toc">
-                <ul>
-                    <li><a href="#overview">Overview</a></li>
-                    <li><a href="#user-roles">User Roles</a></li>
-                    <li><a href="#getting-started">Getting Started</a></li>
-                    <li><a href="#creating-a-session">Creating a Session</a></li>
-                    <li><a href="#managing-users">Managing Users</a></li>
-                    <li><a href="#viewing-results">Viewing Results</a></li>
-                    <li><a href="#language-switching">Language Switching</a></li>
-                    <li><a href="#troubleshooting">Troubleshooting</a></li>
-                    <li><a href="#glossary">Glossary</a></li>
-                    <li><a href="#ui-walkthrough">UI Walkthrough (with Screenshots)</a>
-                        <ul>
-                            <li><a href="#ui-session-overview">Session Overview</a></li>
-                            <li><a href="#ui-user-summary">Individual Assessment Summary</a></li>
-                            <li><a href="#ui-analysis2">Phase 2 Analysis</a></li>
-                            <li><a href="#ui-analysis3">Phase 3 Analysis</a></li>
-                            <li><a href="#ui-advancing">Advancing the Phase</a></li>
-                        </ul>
-                    </li>
-                </ul>
+            <div data-lang="en">
+                <h2>Table of Contents</h2>
+                <div class="toc">
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#user-roles">User Roles</a></li>
+                        <li><a href="#getting-started">Getting Started</a></li>
+                        <li><a href="#creating-a-session">Creating a Session</a></li>
+                        <li><a href="#managing-users">Managing Users</a></li>
+                        <li><a href="#viewing-results">Viewing Results</a></li>
+                        <li><a href="#language-switching">Language Switching</a></li>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        <li><a href="#glossary">Glossary</a></li>
+                        <li><a href="#ui-walkthrough">UI Walkthrough</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div data-lang="da">
+                <h2>Indholdsfortegnelse</h2>
+                <div class="toc">
+                    <ul>
+                        <li><a href="#overview">Oversigt</a></li>
+                        <li><a href="#user-roles">Brugerroller</a></li>
+                        <li><a href="#getting-started">Kom i gang</a></li>
+                        <li><a href="#creating-a-session">Opret en session</a></li>
+                        <li><a href="#managing-users">Administrer brugere</a></li>
+                        <li><a href="#viewing-results">Se resultater</a></li>
+                        <li><a href="#language-switching">Sprogskift</a></li>
+                        <li><a href="#troubleshooting">Fejlfinding</a></li>
+                        <li><a href="#glossary">Ordliste</a></li>
+                        <li><a href="#ui-walkthrough">Brugerfladeoversigt</a></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section class="section" id="overview">
-            <h2>🎯 Overview</h2>
-            
-            <h3>What is this tool?</h3>
-            <p>
-                The Supply Chain Resilience Assessment Tool helps organizations identify vulnerabilities 
-                and assess capabilities across their supply chain. It works in four phases:
-            </p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Phase</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Map the supply chain</td>
-                        <td>Understand your supply chain structure</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Identify vulnerabilities and capabilities</td>
-                        <td>7-step survey for participants</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Prioritize and align</td>
-                        <td>Cross-organizational analysis & charts</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Prepare action plans</td>
-                        <td>Use the data to create concrete plans</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>About the project</h3>
-            <div class="info-box">
-                <h4>Project Details</h4>
+            <div data-lang="en">
+                <h2>Overview</h2>
                 <p>
-                    This tool is developed as part of the <strong>Cybersikkerhed og Forretningskontinuitet</strong> 
-                    (Cybersecurity and Business Continuity) project, funded by the 
-                    <a href="https://industriensfond.dk/projekt/cybersikkerhed-og-forretningskontinuitet/" target="_blank">Danish Industry Foundation (Industriens Fond)</a> 
-                    and carried out by researchers from the University of Southern Denmark (SDU) in partnership with 
-                    the Royal Danish Military Academy (Forsvarsakademiet).
+                    As a session manager, you coordinate the supply chain resilience assessment process for a group
+                    of participants. You create a session, invite participants, monitor their progress, and review
+                    the aggregated results to identify vulnerabilities and capabilities.
                 </p>
+                <h3>Session Manager Responsibilities</h3>
+                <ul>
+                    <li>Create survey sessions and configure participants</li>
+                    <li>Distribute unique survey links to participants</li>
+                    <li>Monitor survey completion status</li>
+                    <li>Review aggregated analysis results</li>
+                    <li>Facilitate group discussion based on findings</li>
+                </ul>
+                <h3>What You Can See</h3>
+                <p>After all participants complete the survey, you have access to:</p>
+                <ul>
+                    <li><strong>Vulnerability ranking charts</strong> — top-ranked vulnerabilities across the group</li>
+                    <li><strong>Capability stacked charts</strong> — capability levels per area, broken down by participant role</li>
+                    <li><strong>Gap analysis</strong> — comparison of vulnerabilities vs. capabilities</li>
+                    <li><strong>Individual vs. aggregate views</strong> — drill down into specific participant responses</li>
+                </ul>
+            </div>
+            <div data-lang="da">
+                <h2>Oversigt</h2>
                 <p>
-                    The project integrates cybersecurity into supply chain resilience work for Danish SMEs. 
-                    It builds directly on the earlier 
-                    <a href="https://industriensfond.dk/projekt/supply-chain-resilience/" target="_blank">Supply Chain Resilience project (2021-2023)</a>.
+                    Som sessionsleder koordinerer du forsyningskæderobusthedsvurderingsprocessen for en gruppe
+                    deltagere. Du opretter en session, inviterer deltagere, overvåger deres fremskridt og
+                    gennemgår de aggregerede resultater for at identificere sårbarheder og kapaciteter.
                 </p>
+                <h3>Sessionsleders ansvar</h3>
+                <ul>
+                    <li>Oprette undersøgelsessessioner og konfigurere deltagere</li>
+                    <li>Distribuere unikke undersøgelseslinks til deltagere</li>
+                    <li>Overvåge undersøgelsesafslutningsstatus</li>
+                    <li>Gennemgå aggregerede analyseresultater</li>
+                    <li>Facilitere gruppediskussion baseret på fund</li>
+                </ul>
+                <h3>Hvad du kan se</h3>
+                <p>Når alle deltagere har udfyldt undersøgelsen, har du adgang til:</p>
+                <ul>
+                    <li><strong>Sårbarhedsrangerings-diagrammer</strong> — bedst rangerede sårbarheder på tværs af gruppen</li>
+                    <li><strong>Kapacitetsstablede diagrammer</strong> — kapacitetsniveauer pr. område, opdelt efter deltagerrolle</li>
+                    <li><strong>Gab-analyse</strong> — sammenligning af sårbarheder vs. kapaciteter</li>
+                    <li><strong>Individuelle vs. aggregerede visninger</strong> — detaljeret indsigt i specifikke deltagersvar</li>
+                </ul>
             </div>
         </section>
 
         <section class="section" id="user-roles">
-            <h2>👥 User Roles</h2>
-            <p>
-                The system has three main user roles with different capabilities:
-            </p>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Role</th>
-                        <th>Capabilities</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Administrator</strong></td>
-                        <td>Creates sessions, views all data (PocketBase admin)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Session Manager</strong></td>
-                        <td>Views session overview, analysis dashboards, manages users</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Participant</strong></td>
-                        <td>Takes the survey (one per session)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div data-lang="en">
+                <h2>User Roles</h2>
+                <table>
+                    <thead><tr><th>Role</th><th>Description</th><th>Access</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Admin / Superuser</strong></td>
+                            <td>Platform administrator with full database access</td>
+                            <td>PocketBase Admin UI (<code>/_/</code>)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Session Manager</strong></td>
+                            <td>Creates and manages sessions, views results</td>
+                            <td>App login with email + password</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Survey Participant</strong></td>
+                            <td>Completes the survey for their assigned session</td>
+                            <td>Unique token link (no password)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-lang="da">
+                <h2>Brugerroller</h2>
+                <table>
+                    <thead><tr><th>Rolle</th><th>Beskrivelse</th><th>Adgang</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Administrator / Superbruger</strong></td>
+                            <td>Platformsadministrator med fuld databaseadgang</td>
+                            <td>PocketBase Admin UI (<code>/_/</code>)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sessionsleder</strong></td>
+                            <td>Opretter og administrerer sessioner, ser resultater</td>
+                            <td>App-login med e-mail + adgangskode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Undersøgelsesdeltager</strong></td>
+                            <td>Udfylder undersøgelsen for sin tildelte session</td>
+                            <td>Unikt token-link (ingen adgangskode)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <section class="section" id="getting-started">
-            <h2>🚀 Getting Started - Administrator</h2>
-            
-            <h3>Login</h3>
-            <ol>
-                <li>Open the application in your browser</li>
-                <li>Navigate to the <strong>admin panel</strong> - add <code>/admin</code> to the URL (e.g. <code>http://localhost:5173/admin</code>)</li>
-                <li>Enter the admin credentials you created during the first-time setup wizard.</li>
-            </ol>
-
-            <div class="info-box">
-                <h4>ℹ️ No default credentials</h4>
-                <p>
-                    There are no pre-set admin credentials. The admin account is created by you during
-                    the PocketBase setup wizard on first startup (<code>/_/</code>). Use whatever email
-                    and password you chose at that time.
-                </p>
+            <div data-lang="en">
+                <h2>Getting Started</h2>
+                <h3>Log in as Session Manager</h3>
+                <ol>
+                    <li>Open the application URL in your browser</li>
+                    <li>Click <strong>Sign In</strong></li>
+                    <li>Enter your email and password</li>
+                    <li>Click <strong>Sign In</strong></li>
+                </ol>
+                <div class="info-box">
+                    <h4>First Login</h4>
+                    <p>Your session manager account is created by a platform administrator. Contact your admin to receive your login credentials. You can change your password after your first login via the account settings.</p>
+                </div>
+                <h3>Home Page</h3>
+                <p>After logging in, you'll see the home page showing:</p>
+                <ul>
+                    <li>A list of all sessions you've created</li>
+                    <li>The status of each session (active, completed)</li>
+                    <li>Quick links to create a new session or view existing sessions</li>
+                </ul>
+            </div>
+            <div data-lang="da">
+                <h2>Kom i gang</h2>
+                <h3>Log ind som sessionsleder</h3>
+                <ol>
+                    <li>Åbn applikationens URL i din browser</li>
+                    <li>Klik på <strong>Log ind</strong></li>
+                    <li>Indtast din e-mail og adgangskode</li>
+                    <li>Klik på <strong>Log ind</strong></li>
+                </ol>
+                <div class="info-box">
+                    <h4>Første login</h4>
+                    <p>Din sessionslederkonto oprettes af en platformsadministrator. Kontakt din administrator for at modtage dine loginoplysninger. Du kan ændre din adgangskode efter dit første login via kontoindstillingerne.</p>
+                </div>
+                <h3>Startside</h3>
+                <p>Efter login vil du se startsiden, der viser:</p>
+                <ul>
+                    <li>En liste over alle sessioner, du har oprettet</li>
+                    <li>Status for hver session (aktiv, afsluttet)</li>
+                    <li>Hurtige links til at oprette en ny session eller se eksisterende sessioner</li>
+                </ul>
             </div>
         </section>
 
         <section class="section" id="creating-a-session">
-            <h2>🆕 Creating a Session</h2>
-            <p>
-                A <strong>session</strong> represents one assessment round for a specific organization or team.
-            </p>
-
-            <h3>Step-by-step</h3>
-            <ol>
-                <li>After logging in as admin, you'll see the <strong>Create Session</strong> form</li>
-                <li>Fill in the fields:</li>
-            </ol>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Field</th>
-                        <th>Required</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Session Name</strong></td>
-                        <td>✅</td>
-                        <td>A unique name for this assessment round. Click <strong>Validate</strong> to check availability</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Session Description</strong></td>
-                        <td>✅</td>
-                        <td>Brief description (e.g. "Q2 Supply Chain Review")</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Question Set</strong></td>
-                        <td>✅</td>
-                        <td>Currently only <code>supply_chain</code> available</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Contact Email</strong></td>
-                        <td>✅</td>
-                        <td>Email for session-related communications</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Contact Tel</strong></td>
-                        <td>No</td>
-                        <td>Optional phone number</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Start Date</strong></td>
-                        <td>No</td>
-                        <td>Session start (defaults to today)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>End Date</strong></td>
-                        <td>No</td>
-                        <td>Session end (defaults to 30 days from now)</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <ol start="3">
-                <li>Click <strong>Create</strong></li>
-            </ol>
-
-            <h3>What happens next?</h3>
-            <p>
-                The system automatically:
-            </p>
-            <ul>
-                <li>Creates <strong>10 participant accounts</strong> (named <code>[session]-n1</code> through <code>[session]-n10</code>)</li>
-                <li>Creates <strong>1 session manager account</strong> (named <code>[session]-s</code>)</li>
-                <li>Generates a <strong>unique login token</strong> for each user (valid for 1 month)</li>
-                <li>Shows the session manager credentials on screen</li>
-            </ul>
-
-            <div class="warning-box">
-                <h4>📋 Important</h4>
-                <p>
-                    Copy the session manager credentials immediately! The password is only shown once.
-                </p>
+            <div data-lang="en">
+                <h2>Creating a Session</h2>
+                <h3>Step-by-step</h3>
+                <ol>
+                    <li><p><strong>Click "New Session"</strong> on the home page</p></li>
+                    <li><p><strong>Fill in session details:</strong></p>
+                        <ul>
+                            <li><strong>Session Name</strong> — A unique identifier for the session (used in participant URLs)</li>
+                            <li><strong>Language</strong> — Choose <code>en</code> (English) or <code>da</code> (Danish) for the survey</li>
+                            <li><strong>Number of Participants</strong> — Up to 10 participants per session</li>
+                        </ul>
+                    </li>
+                    <li><p><strong>Click "Create Session"</strong></p></li>
+                    <li><p>The system automatically generates:</p>
+                        <ul>
+                            <li>10 participant accounts with unique tokens</li>
+                            <li>1 session manager view</li>
+                            <li>Survey links for each participant</li>
+                        </ul>
+                    </li>
+                    <li><p><strong>Distribute survey links</strong> to participants</p></li>
+                </ol>
+                <div class="info-box">
+                    <h4>Session Name</h4>
+                    <p>The session name is used in participant URLs: <code>/session/&lt;name&gt;/survey</code>. Use a short, URL-friendly name (lowercase, no spaces or special characters). Example: <code>company-q1-2025</code></p>
+                </div>
+                <div class="warning-box">
+                    <h4>Session Names are Unique</h4>
+                    <p>Each session name must be unique across the platform. If a session with the same name already exists, you'll receive an error.</p>
+                </div>
+            </div>
+            <div data-lang="da">
+                <h2>Opret en session</h2>
+                <h3>Trin for trin</h3>
+                <ol>
+                    <li><p><strong>Klik på "Ny session"</strong> på startsiden</p></li>
+                    <li><p><strong>Udfyld sessionsoplysninger:</strong></p>
+                        <ul>
+                            <li><strong>Sessionsnavn</strong> — Et unikt id for sessionen (bruges i deltager-URL'er)</li>
+                            <li><strong>Sprog</strong> — Vælg <code>en</code> (engelsk) eller <code>da</code> (dansk) for undersøgelsen</li>
+                            <li><strong>Antal deltagere</strong> — Op til 10 deltagere per session</li>
+                        </ul>
+                    </li>
+                    <li><p><strong>Klik på "Opret session"</strong></p></li>
+                    <li><p>Systemet genererer automatisk:</p>
+                        <ul>
+                            <li>10 deltagerkonti med unikke tokens</li>
+                            <li>1 sessionslederoversigt</li>
+                            <li>Undersøgelseslinks til hver deltager</li>
+                        </ul>
+                    </li>
+                    <li><p><strong>Distribuer undersøgelseslinks</strong> til deltagere</p></li>
+                </ol>
+                <div class="info-box">
+                    <h4>Sessionsnavn</h4>
+                    <p>Sessionsnavnet bruges i deltager-URL'er: <code>/session/&lt;navn&gt;/survey</code>. Brug et kort, URL-venligt navn (med små bogstaver, uden mellemrum eller specialtegn). Eksempel: <code>virksomhed-q1-2025</code></p>
+                </div>
+                <div class="warning-box">
+                    <h4>Sessionsnavne er unikke</h4>
+                    <p>Hvert sessionsnavn skal være unikt på tværs af platformen. Hvis en session med samme navn allerede eksisterer, modtager du en fejl.</p>
+                </div>
             </div>
         </section>
 
         <section class="section" id="managing-users">
-            <h2>👥 Managing Users</h2>
-
-            <h3>Viewing the user list</h3>
-            <p>
-                After creating a session, navigate to the session overview:
-            </p>
-            <pre><code>/session/[session-name]</code></pre>
-            
-            <p>
-                The page shows:
-            </p>
-            <ul>
-                <li>Session details (description, contact info, dates)</li>
-                <li>Phase progress tracker</li>
-                <li><strong>Assessment submission status</strong> - a table with all 11 users</li>
-                <li>For each user: username, status, and a <strong>Copy Link</strong> button</li>
-            </ul>
-
-            <h3>User statuses</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Status</th>
-                        <th>Meaning</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Ready</strong></td>
-                        <td>User has been created but hasn't started</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Unfinished</strong></td>
-                        <td>User has started the survey but hasn't submitted</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Done</strong></td>
-                        <td>User has completed and submitted the survey</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>Distributing access links</h3>
-            <ol>
-                <li>Click <strong>Copy Link</strong> next to a user to copy their unique survey link</li>
-                <li>Send this link to the participant (via email, chat, etc.)</li>
-                <li>The link contains a built-in token - the participant does NOT need a password</li>
-            </ol>
+            <div data-lang="en">
+                <h2>Managing Users</h2>
+                <h3>Participant Accounts</h3>
+                <p>
+                    When you create a session, the system automatically creates 10 participant accounts.
+                    Each account has:
+                </p>
+                <ul>
+                    <li>A username in the format <code>&lt;session-name&gt;_user_N</code></li>
+                    <li>A unique login token</li>
+                    <li>An auto-generated password (shown once at session creation)</li>
+                    <li>A survey link: <code>/session/&lt;name&gt;/survey?u=&lt;username&gt;&amp;t=&lt;token&gt;</code></li>
+                </ul>
+                <h3>Viewing Session Users</h3>
+                <ol>
+                    <li>Navigate to your session on the home page</li>
+                    <li>Click <strong>View Session</strong></li>
+                    <li>The session view shows all participant accounts with their status</li>
+                </ol>
+                <h3>User Status Indicators</h3>
+                <table>
+                    <thead><tr><th>Status</th><th>Meaning</th></tr></thead>
+                    <tbody>
+                        <tr><td>Not started</td><td>Participant has not opened the survey yet</td></tr>
+                        <tr><td>In progress</td><td>Participant has started but not submitted</td></tr>
+                        <tr><td>Completed</td><td>Participant has submitted the survey</td></tr>
+                    </tbody>
+                </table>
+                <h3>Sharing Participant Links</h3>
+                <p>To share a participant's survey link:</p>
+                <ol>
+                    <li>In the session view, locate the participant</li>
+                    <li>Click the copy icon next to their survey link</li>
+                    <li>Send the link to the participant via email or messaging app</li>
+                </ol>
+                <div class="info-box">
+                    <h4>Link Security</h4>
+                    <p>Each link contains a unique token. Do not share a participant's link with anyone else, as it grants access to that participant's specific survey.</p>
+                </div>
+            </div>
+            <div data-lang="da">
+                <h2>Administrer brugere</h2>
+                <h3>Deltagerkonti</h3>
+                <p>
+                    Når du opretter en session, opretter systemet automatisk 10 deltagerkonti.
+                    Hver konto har:
+                </p>
+                <ul>
+                    <li>Et brugernavn i formatet <code>&lt;sessionsnavn&gt;_user_N</code></li>
+                    <li>Et unikt login-token</li>
+                    <li>En automatisk genereret adgangskode (vist én gang ved sessionsoprettelse)</li>
+                    <li>Et undersøgelseslink: <code>/session/&lt;navn&gt;/survey?u=&lt;brugernavn&gt;&amp;t=&lt;token&gt;</code></li>
+                </ul>
+                <h3>Se sessionsbrugere</h3>
+                <ol>
+                    <li>Naviger til din session på startsiden</li>
+                    <li>Klik på <strong>Se session</strong></li>
+                    <li>Sessionsoversigten viser alle deltagerkonti med deres status</li>
+                </ol>
+                <h3>Brugerstatusindikatorer</h3>
+                <table>
+                    <thead><tr><th>Status</th><th>Betydning</th></tr></thead>
+                    <tbody>
+                        <tr><td>Ikke startet</td><td>Deltager har endnu ikke åbnet undersøgelsen</td></tr>
+                        <tr><td>I gang</td><td>Deltager har startet men ikke indsendt</td></tr>
+                        <tr><td>Afsluttet</td><td>Deltager har indsendt undersøgelsen</td></tr>
+                    </tbody>
+                </table>
+                <h3>Del deltagerlinks</h3>
+                <p>Sådan deler du en deltagers undersøgelseslink:</p>
+                <ol>
+                    <li>Find deltageren i sessionsoversigten</li>
+                    <li>Klik på kopieringsikonet ved siden af deres undersøgelseslink</li>
+                    <li>Send linket til deltageren via e-mail eller beskedapp</li>
+                </ol>
+                <div class="info-box">
+                    <h4>Linksikkerhed</h4>
+                    <p>Hvert link indeholder et unikt token. Del ikke en deltagers link med andre, da det giver adgang til den specifikke deltagers undersøgelse.</p>
+                </div>
+            </div>
         </section>
 
         <section class="section" id="viewing-results">
-            <h2>📊 Viewing Results - Session Manager</h2>
-
-            <h3>Session Overview Dashboard</h3>
-            <p>
-                As a session manager (username ending in <code>-s</code>):
-            </p>
-            <ol>
-                <li>Log in with your session manager credentials on the home page</li>
-                <li>You'll be redirected to the session overview</li>
-                <li>The overview shows completion status for each participant</li>
-            </ol>
-
-            <h3>Analysis Dashboards</h3>
-            <p>
-                Access the analysis views from the session overview:
-            </p>
-            <ul>
-                <li><strong>Analysis 2</strong> - Vulnerability assessment results with charts</li>
-                <li><strong>Analysis 3</strong> - Capability prioritization visualization</li>
-            </ul>
-            
-            <p>
-                These views aggregate all participants' responses and show:
-            </p>
-            <ul>
-                <li>Which vulnerabilities were ranked highest across the organization</li>
-                <li>Capability levels across different areas</li>
-                <li>Comparison charts for cross-organizational alignment</li>
-            </ul>
-
-            <div class="info-box">
-                <h4>📊 Tip</h4>
-                <p>
-                    The analysis becomes more meaningful as more participants submit their surveys.
-                </p>
+            <div data-lang="en">
+                <h2>Viewing Results</h2>
+                <p>The session manager has access to two analysis views once survey submissions are available:</p>
+                <h3>Analysis View</h3>
+                <p>The main analysis page shows:</p>
+                <ul>
+                    <li><strong>Vulnerability Rankings</strong> — A ranked list of the top vulnerabilities selected by all participants, showing consensus and divergence</li>
+                    <li><strong>Capability Assessment</strong> — Stacked bar charts showing capability levels across all areas, broken down by job function</li>
+                    <li><strong>Risk Level Badges</strong> — Color-coded risk indicators per vulnerability category</li>
+                    <li><strong>Capability Gap</strong> — Visual comparison of vulnerability rankings vs. capability levels</li>
+                </ul>
+                <h3>Form Results Summary</h3>
+                <p>A detailed table view of all submitted responses, allowing you to:</p>
+                <ul>
+                    <li>See individual participant responses</li>
+                    <li>Compare responses across participants</li>
+                    <li>Export data for further analysis</li>
+                </ul>
+                <div class="info-box">
+                    <h4>When are results available?</h4>
+                    <p>Results are visible as soon as at least one participant submits their survey. You don't need to wait for all participants to complete the survey to start reviewing results.</p>
+                </div>
             </div>
-
-            <h3>Setting your password</h3>
-            <p>
-                As a session manager, you'll be prompted to set a password on first login:
-            </p>
-            <ol>
-                <li>Enter a secure password</li>
-                <li>Confirm the password</li>
-                <li>Click <strong>Save</strong></li>
-            </ol>
-            <p>
-                This password replaces the auto-generated token for future logins.
-            </p>
+            <div data-lang="da">
+                <h2>Se resultater</h2>
+                <p>Sessionslederen har adgang til to analysevisninger, når undersøgelsesindsendelser er tilgængelige:</p>
+                <h3>Analysevisning</h3>
+                <p>Hoved-analysesiden viser:</p>
+                <ul>
+                    <li><strong>Sårbarhedsrangering</strong> — En rangeret liste over de vigtigste sårbarheder valgt af alle deltagere, der viser konsensus og afvigelse</li>
+                    <li><strong>Kapacitetsvurdering</strong> — Stablede søjlediagrammer, der viser kapacitetsniveauer på tværs af alle områder, opdelt efter stillingsfunktion</li>
+                    <li><strong>Risikoniveaumærker</strong> — Farvekodede risikoindikatorer pr. sårbarhedskategori</li>
+                    <li><strong>Kapacitetsgab</strong> — Visuel sammenligning af sårbarhedsrangering vs. kapacitetsniveauer</li>
+                </ul>
+                <h3>Resultatoversigt for formular</h3>
+                <p>En detaljeret tabelvisning af alle indsendte svar, der giver dig mulighed for:</p>
+                <ul>
+                    <li>Se individuelle deltagersvar</li>
+                    <li>Sammenligne svar på tværs af deltagere</li>
+                    <li>Eksportere data til yderligere analyse</li>
+                </ul>
+                <div class="info-box">
+                    <h4>Hvornår er resultater tilgængelige?</h4>
+                    <p>Resultater er synlige, så snart mindst én deltager indsender sin undersøgelse. Du behøver ikke vente på, at alle deltagere har udfyldt undersøgelsen for at begynde at gennemgå resultaterne.</p>
+                </div>
+            </div>
         </section>
 
         <section class="section" id="language-switching">
-            <h2>🌐 Language Switching</h2>
-            <p>
-                The interface supports <strong>English</strong> and <strong>Danish (Dansk)</strong>.
-            </p>
-
-            <h3>To switch:</h3>
-            <ol>
-                <li>Click the <strong>🌐</strong> (globe) icon in the top-right corner</li>
-                <li>Select your preferred language from the dropdown</li>
-                <li>The entire interface switches immediately</li>
-            </ol>
-
-            <div class="info-box">
-                <h4>🇩🇰 Danish Support</h4>
+            <div data-lang="en">
+                <h2>Language Switching</h2>
                 <p>
-                    Danish translations cover the survey form, analysis views, and admin interface.
+                    The application supports <strong>English</strong> and <strong>Danish</strong>. When you create a session,
+                    you select the survey language for that session. Participants will see the survey in the language you selected.
                 </p>
+                <p>The session manager interface can be switched between languages at any time using the language toggle button in the navigation bar.</p>
+                <h3>Survey Language vs. UI Language</h3>
+                <ul>
+                    <li><strong>Survey language</strong> — set at session creation; determines which question set is used for participants</li>
+                    <li><strong>UI language</strong> — the session manager can switch anytime; does not affect participant surveys</li>
+                </ul>
+            </div>
+            <div data-lang="da">
+                <h2>Sprogskift</h2>
+                <p>
+                    Applikationen understøtter <strong>engelsk</strong> og <strong>dansk</strong>. Når du opretter en session,
+                    vælger du undersøgelsessprog for den session. Deltagere vil se undersøgelsen på det valgte sprog.
+                </p>
+                <p>Sessionsleder-brugerfladen kan til enhver tid skiftes mellem sprog ved hjælp af sprogskift-knappen i navigationslinjen.</p>
+                <h3>Undersøgelsessprog vs. brugerfladesprog</h3>
+                <ul>
+                    <li><strong>Undersøgelsessprog</strong> — indstilles ved sessionsoprettelse; bestemmer hvilket spørgsmålssæt der bruges til deltagere</li>
+                    <li><strong>Brugerfladesprog</strong> — sessionslederen kan skifte til enhver tid; påvirker ikke deltagerundersøgelser</li>
+                </ul>
             </div>
         </section>
 
         <section class="section" id="troubleshooting">
-            <h2>❓ Troubleshooting</h2>
-
-            <h3>"Session name is not available"</h3>
-            <p>
-                The session name must be unique. Try a different name or check if a session with that name 
-                already exists.
-            </p>
-
-            <h3>"Access restrict, user do not have privilege"</h3>
-            <p>
-                You're trying to access a page your account doesn't have permission for. Common causes:
-            </p>
-            <ul>
-                <li>A participant trying to access the admin panel</li>
-                <li>A PocketBase admin trying to access analysis views (use a session manager account instead)</li>
-            </ul>
-
-            <h3>"Failed to authenticate"</h3>
-            <p>
-                Check that your username and password/token are correct. For participants, make sure you're 
-                using the link provided by your session manager.
-            </p>
-
-            <h3>Survey answers not saving</h3>
-            <p>
-                Ensure JavaScript is enabled in your browser. The survey auto-saves to local storage as 
-                you progress through the form.
-            </p>
-
-            <h3>Token expired</h3>
-            <p>
-                Session user tokens are valid for 1 month. If a token expires:
-            </p>
-            <ol>
-                <li>Go to the session overview page (<code>/session/[session-name]</code>)</li>
-                <li>Find the user in the <strong>Assessment submission status</strong> table</li>
-                <li>Click <strong>Reload New Token</strong> for that user</li>
-                <li>Click <strong>Copy Link</strong> and share the updated link with the participant</li>
-            </ol>
+            <div data-lang="en">
+                <h2>Troubleshooting</h2>
+                <h3>Cannot log in</h3>
+                <ul>
+                    <li>Verify your email and password are correct</li>
+                    <li>Check that your account exists (contact your admin)</li>
+                    <li>Try resetting your password via the "Forgot password" link</li>
+                    <li>Ensure the backend server is running</li>
+                </ul>
+                <h3>Session creation fails</h3>
+                <ul>
+                    <li>Check that the session name is unique and URL-friendly (lowercase, no spaces)</li>
+                    <li>Verify your account has permission to create sessions</li>
+                    <li>Check the browser console for error details</li>
+                </ul>
+                <h3>Participant link not working</h3>
+                <ul>
+                    <li>Verify the link was copied correctly (no missing characters)</li>
+                    <li>Check that the session is still active</li>
+                    <li>Ask the participant to try in a different browser or incognito mode</li>
+                    <li>Contact your admin to verify the participant token</li>
+                </ul>
+                <h3>Results not showing</h3>
+                <ul>
+                    <li>Confirm at least one participant has submitted the survey</li>
+                    <li>Refresh the page</li>
+                    <li>Check that you are viewing the correct session</li>
+                </ul>
+                <h3>Charts not loading</h3>
+                <ul>
+                    <li>Ensure JavaScript is enabled in your browser</li>
+                    <li>Try a hard reload (Ctrl+Shift+R or Cmd+Shift+R)</li>
+                    <li>Check browser console for errors</li>
+                </ul>
+            </div>
+            <div data-lang="da">
+                <h2>Fejlfinding</h2>
+                <h3>Kan ikke logge ind</h3>
+                <ul>
+                    <li>Verificer at din e-mail og adgangskode er korrekte</li>
+                    <li>Tjek at din konto eksisterer (kontakt din administrator)</li>
+                    <li>Prøv at nulstille din adgangskode via "Glemt adgangskode"-linket</li>
+                    <li>Sørg for at backend-serveren kører</li>
+                </ul>
+                <h3>Sessionsoprettelse mislykkes</h3>
+                <ul>
+                    <li>Tjek at sessionsnavnet er unikt og URL-venligt (med små bogstaver, uden mellemrum)</li>
+                    <li>Verificer at din konto har tilladelse til at oprette sessioner</li>
+                    <li>Tjek browserkonsol for fejldetaljer</li>
+                </ul>
+                <h3>Deltagerlink virker ikke</h3>
+                <ul>
+                    <li>Verificer at linket er kopieret korrekt (ingen manglende tegn)</li>
+                    <li>Tjek at sessionen stadig er aktiv</li>
+                    <li>Bed deltageren om at prøve i en anden browser eller inkognitotilstand</li>
+                    <li>Kontakt din administrator for at verificere deltagerens token</li>
+                </ul>
+                <h3>Resultater vises ikke</h3>
+                <ul>
+                    <li>Bekræft at mindst én deltager har indsendt undersøgelsen</li>
+                    <li>Opdater siden</li>
+                    <li>Tjek at du ser den korrekte session</li>
+                </ul>
+                <h3>Diagrammer indlæses ikke</h3>
+                <ul>
+                    <li>Sørg for at JavaScript er aktiveret i din browser</li>
+                    <li>Prøv en hård genindlæsning (Ctrl+Shift+R eller Cmd+Shift+R)</li>
+                    <li>Tjek browserkonsol for fejl</li>
+                </ul>
+            </div>
         </section>
 
         <section class="section" id="glossary">
-            <h2>📚 Glossary</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Term</th>
-                        <th>Definition</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Session</strong></td>
-                        <td>One assessment round - contains 10 participants + 1 manager</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Token</strong></td>
-                        <td>A unique login key for participants (no password needed)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Vulnerability</strong></td>
-                        <td>A weakness in the supply chain that could cause disruption</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Capability</strong></td>
-                        <td>An organizational strength that helps manage supply chain risk</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Session Manager</strong></td>
-                        <td>The super user of a session - can view all results</td>
-                    </tr>
-                    <tr>
-                        <td><strong>PocketBase</strong></td>
-                        <td>The backend framework (database + API + admin UI)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>FormKit</strong></td>
-                        <td>The library used to build and render the survey forms</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div data-lang="en">
+                <h2>Glossary</h2>
+                <table>
+                    <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Session</strong></td><td>A group of up to 10 participants completing the survey together for a shared analysis</td></tr>
+                        <tr><td><strong>Session Manager</strong></td><td>The person who creates and manages a session and reviews results</td></tr>
+                        <tr><td><strong>Participant</strong></td><td>An individual who completes the survey as part of a session</td></tr>
+                        <tr><td><strong>Token</strong></td><td>A unique string that authenticates a participant's survey link without a password</td></tr>
+                        <tr><td><strong>Vulnerability</strong></td><td>A potential weakness or risk factor in the supply chain</td></tr>
+                        <tr><td><strong>Capability</strong></td><td>An organizational ability or resource that helps mitigate vulnerabilities</td></tr>
+                        <tr><td><strong>Capability Gap</strong></td><td>The difference between a vulnerability's risk level and the organization's capability to address it</td></tr>
+                        <tr><td><strong>FormKit Schema</strong></td><td>A JSON-based definition of the survey form structure and questions</td></tr>
+                        <tr><td><strong>PocketBase</strong></td><td>The open-source backend framework powering the platform (Go + SQLite)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-lang="da">
+                <h2>Ordliste</h2>
+                <table>
+                    <thead><tr><th>Begreb</th><th>Definition</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Session</strong></td><td>En gruppe på op til 10 deltagere, der udfylder undersøgelsen sammen til en fælles analyse</td></tr>
+                        <tr><td><strong>Sessionsleder</strong></td><td>Den person, der opretter og administrerer en session og gennemgår resultater</td></tr>
+                        <tr><td><strong>Deltager</strong></td><td>En person, der udfylder undersøgelsen som del af en session</td></tr>
+                        <tr><td><strong>Token</strong></td><td>En unik streng, der autentificerer en deltagers undersøgelseslink uden adgangskode</td></tr>
+                        <tr><td><strong>Sårbarhed</strong></td><td>En potentiel svaghed eller risikofaktor i forsyningskæden</td></tr>
+                        <tr><td><strong>Kapacitet</strong></td><td>En organisatorisk evne eller ressource, der hjælper med at afbøde sårbarheder</td></tr>
+                        <tr><td><strong>Kapacitetsgab</strong></td><td>Forskellen mellem en sårbarhedens risikoniveau og organisationens evne til at håndtere den</td></tr>
+                        <tr><td><strong>FormKit-skema</strong></td><td>En JSON-baseret definition af undersøgelsesformularens struktur og spørgsmål</td></tr>
+                        <tr><td><strong>PocketBase</strong></td><td>Det open source-backend-framework, der driver platformen (Go + SQLite)</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <section class="section">
-            <h2>📖 Related Documentation</h2>
-            <div class="cards">
-                <div class="card">
-                    <h4>👔 Session Manager</h4>
-                    <p>You are currently reading the Session Manager guide.</p>
+            <div data-lang="en">
+                <h2>Related Documentation</h2>
+                <div class="cards">
+                    <div class="card">
+                        <h4>Session Manager</h4>
+                        <p>You are currently reading the Session Manager guide.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Survey Participant</h4>
+                        <p>Guide for participants on how to complete the survey.</p>
+                        <p><a href="survey-participant.html" class="btn">Read More</a></p>
+                    </div>
+                    <div class="card">
+                        <h4>Admin</h4>
+                        <p>Platform administration and PocketBase backend management.</p>
+                        <p><a href="admin.html" class="btn">Read More</a></p>
+                    </div>
+                    <div class="card">
+                        <h4>Installation</h4>
+                        <p>Setup and deployment guide for development and production.</p>
+                        <p><a href="installation.html" class="btn">Read More</a></p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>📝 Survey Participant</h4>
-                    <p>Guide for participants on how to complete the survey.</p>
-                    <p><a href="survey-participant.html" class="btn">Read More</a></p>
-                </div>
-                <div class="card">
-                    <h4>🛡️ Admin</h4>
-                    <p>Platform administration and PocketBase backend management.</p>
-                    <p><a href="admin.html" class="btn">Read More</a></p>
-                </div>
-                <div class="card">
-                    <h4>⚙️ Installation</h4>
-                    <p>Setup and deployment guide for development and production.</p>
-                    <p><a href="installation.html" class="btn">Read More</a></p>
+            </div>
+            <div data-lang="da">
+                <h2>Relateret dokumentation</h2>
+                <div class="cards">
+                    <div class="card">
+                        <h4>Sessionsleder</h4>
+                        <p>Du læser i øjeblikket sessionsledervejledningen.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Undersøgelsesdeltager</h4>
+                        <p>Guide til deltagere i, hvordan man udfylder undersøgelsen.</p>
+                        <p><a href="survey-participant.html" class="btn">Læs mere</a></p>
+                    </div>
+                    <div class="card">
+                        <h4>Administration</h4>
+                        <p>Platformsadministration og PocketBase-backendstyring.</p>
+                        <p><a href="admin.html" class="btn">Læs mere</a></p>
+                    </div>
+                    <div class="card">
+                        <h4>Installation</h4>
+                        <p>Opsætnings- og implementeringsvejledning til udvikling og produktion.</p>
+                        <p><a href="installation.html" class="btn">Læs mere</a></p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ═══════════════════════════════════════════════════════════════ -->
-        <section class="section" id="ui-walkthrough">
-            <h2>🖥️ UI Walkthrough (with Screenshots)</h2>
-            <p>
-                The following screenshots show the actual session manager interface running
-                against a live session named <strong>"test"</strong> with participants
-                <code>test-n1</code> through <code>test-n8</code>.
-            </p>
-
-            <!-- ── Session Overview ── -->
-            <h3 id="ui-session-overview">Session Overview (<code>/session/:sessionName</code>)</h3>
-            <p>
-                After login you land on the session overview. The top of the page shows:
-            </p>
-            <ul>
-                <li>The <strong>session name</strong> and a horizontal <strong>phase indicator</strong> (the active phase is highlighted in dark red).</li>
-                <li>Session metadata: description, contact email and phone number.</li>
-                <li>A small <strong>organisation chart</strong> thumbnailing all participant icons.</li>
-            </ul>
-            <figure style="margin:1rem 0;">
-                <img src="screenshots/sm_02_top.png" alt="Session overview – top section showing session name and phase indicator"
-                     style="max-width:100%;border:1px solid #e2e8f0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08);" />
-                <figcaption style="font-size:.8rem;color:#64748b;margin-top:.4rem;">
-                    Session overview – top area with session name and active phase indicator.
-                </figcaption>
-            </figure>
-
-            <p>Scrolling down reveals the <strong>Assessment Submission Status</strong> section:</p>
-            <ul>
-                <li>Users who have submitted show a green <strong>Done</strong> badge and a <strong>Summary</strong> link.</li>
-                <li>Users who have not yet submitted show a blue <strong>Ready</strong> badge.</li>
-                <li>Each user entry shows <strong>Token Status</strong>, expiry time, a <strong>Reload new Token</strong> button, and a <strong>Copy Link</strong> button.</li>
-            </ul>
-            <figure style="margin:1rem 0;">
-                <img src="screenshots/sm_01_overview.png" alt="Session overview – participant list with Done/Ready badges"
-                     style="max-width:100%;border:1px solid #e2e8f0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08);" />
-                <figcaption style="font-size:.8rem;color:#64748b;margin-top:.4rem;">
-                    Full session overview scroll – participant list. Users test-n1, test-n2, test-n3 have
-                    <strong>Done</strong> status; the remaining users are <strong>Ready</strong>.
-                </figcaption>
-            </figure>
-
-            <!-- ── Individual Summary ── -->
-            <h3 id="ui-user-summary">Individual Assessment Summary (<code>/session/:sessionName/survey/:username/view</code>)</h3>
-            <p>
-                Click the <strong>Summary</strong> link next to any <strong>Done</strong> user.
-                The breadcrumb shows <em>🏠 &gt; username</em>.
-            </p>
-            <p>The card contains:</p>
-            <ul>
-                <li><strong>Job Function</strong> and <strong>Company</strong> of the participant, plus submission date.</li>
-                <li>A sortable <strong>vulnerability table</strong> with columns:
-                    <em>Vulnerability · Impact · Likelihood · Risk Level (Impact × Likelihood)</em>.</li>
-                <li>A <strong>▶</strong> expander per row; clicking it reveals the capabilities
-                    selected for that vulnerability (Capability · Importance · Current Ability · Difference).</li>
-                <li><strong>+ Expand All</strong> / <strong>— Collapse All</strong> buttons for the whole table.</li>
-            </ul>
-            <figure style="margin:1rem 0;">
-                <img src="screenshots/sm_04_user_summary_n1.png" alt="Individual assessment summary for test-n1"
-                     style="max-width:100%;border:1px solid #e2e8f0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08);" />
-                <figcaption style="font-size:.8rem;color:#64748b;margin-top:.4rem;">
-                    Assessment summary for <strong>test-n1</strong> (Job Function: Purchase, Company: Test Company).
-                </figcaption>
-            </figure>
-
-            <p>Example with all rows expanded (test-n3 – 4 vulnerabilities × 3 capabilities each):</p>
-            <figure style="margin:1rem 0;">
-                <img src="screenshots/sm_08_user_n3_expanded.png" alt="Expanded assessment summary for test-n3"
-                     style="max-width:100%;border:1px solid #e2e8f0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08);" />
-                <figcaption style="font-size:.8rem;color:#64748b;margin-top:.4rem;">
-                    Expanded view for <strong>test-n3</strong> (Sales, Beta Manufacturing GmbH). The
-                    <strong>Difference</strong> badge (orange/green/red) = Importance − Current Ability.
-                </figcaption>
-            </figure>
-
-            <h4>Risk Level colour coding</h4>
-            <table>
-                <thead><tr><th>Score (Impact × Likelihood)</th><th>Level</th><th>Badge colour</th></tr></thead>
-                <tbody>
-                    <tr><td>1 – 8</td><td>Low</td><td style="background:#16a34a;color:#fff;font-weight:600;">Low (green)</td></tr>
-                    <tr><td>9 – 16</td><td>Medium</td><td style="background:#f97316;color:#fff;font-weight:600;">Medium (orange)</td></tr>
-                    <tr><td>17 – 25</td><td>High</td><td style="background:#dc2626;color:#fff;font-weight:600;">High (red)</td></tr>
-                </tbody>
-            </table>
-
-            <!-- ── Phase 2 Analysis ── -->
-            <h3 id="ui-analysis2">Phase 2 Analysis (<code>/session/:sessionName/analysis2</code>)</h3>
-            <p>
-                Click <strong>Summary</strong> in the Phase 2 panel header on the session overview.
-                This page aggregates all submitted assessments.
-            </p>
-            <figure style="margin:1rem 0;">
-                <img src="screenshots/sm_06_analysis2.png" alt="Phase 2 Analysis page"
-                     style="max-width:100%;border:1px solid #e2e8f0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08);" />
-                <figcaption style="font-size:.8rem;color:#64748b;margin-top:.4rem;">
-                    Phase 2 Analysis for session "test". Shows vulnerability frequency/risk bar chart,
-                    a sortable vulnerability table, functional vulnerability summary grouped by job function,
-                    and capability charts.
-                </figcaption>
-            </figure>
-
-            <p>Key sections on this page:</p>
-            <table>
-                <thead><tr><th>Section</th><th>What it shows</th></tr></thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Summary of Selected Vulnerabilities</strong> (bar chart)</td>
-                        <td>
-                            Blue = occurrence count; Red = average risk level;
-                            Yellow = total risk among all participants who selected it.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Vulnerability table</strong></td>
-                        <td>Sortable: Vulnerability · Total Risk Level · Occurrences · Average Level.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Functional Vulnerabilities table</strong></td>
-                        <td>Grouped by Job Function with priority rank per vulnerability.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Summary Vulnerabilities</strong></td>
-                        <td>Expandable rows showing each vulnerability's occurrence count and per-participant breakdown.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Summary of Capabilities</strong> (bar chart)</td>
-                        <td>Blue = how often each capability was selected; Red = sum of capability gaps.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Capability Distribution by Category</strong></td>
-                        <td>Groups capabilities by category, showing frequency and gap.</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- ── Phase 3 Analysis ── -->
-            <h3 id="ui-analysis3">Phase 3 Analysis (<code>/session/:sessionName/analysis3</code>)</h3>
-            <p>
-                Available after advancing to Phase 3. This page shows the <strong>session manager's own
-                assessment</strong> — the vulnerabilities and capabilities they entered via their survey form.
-                It requires the session manager to have submitted their own form first; if not, the page
-                shows: <em>"Assessment data is missing, make sure you have submitted the form."</em>
-            </p>
-            <p>The page displays:</p>
-            <ul>
-                <li><strong>Company</strong> name and <strong>Date</strong> of submission.</li>
-                <li>A sortable <strong>vulnerability table</strong> (same layout as the individual
-                    summary view): Vulnerability · Impact · Likelihood · Risk Level badge.</li>
-                <li><strong>+ Expand All</strong> / <strong>— Collapse All</strong> buttons to reveal
-                    the capabilities for each vulnerability (Capability · Importance · Current Ability ·
-                    Difference).</li>
-                <li>A <strong>Print</strong> button to produce a print-friendly layout.</li>
-            </ul>
-            <figure style="margin:1rem 0;">
-                <img src="screenshots/sm_09_analysis3_filled.png" alt="Phase 3 Analysis – filled with session manager's assessment"
-                     style="max-width:100%;border:1px solid #e2e8f0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08);" />
-                <figcaption style="font-size:.8rem;color:#64748b;margin-top:.4rem;">
-                    Phase 3 Analysis with all rows expanded. The session manager's two vulnerabilities
-                    (S2_4 – Insufficient sales pipeline, risk&nbsp;20; S1_5 – Other (Finance), risk&nbsp;12)
-                    are visible with their associated capabilities and gap scores.
-                </figcaption>
-            </figure>
-
-            <!-- ── Advancing phases ── -->
-            <h3 id="ui-advancing">Advancing the Phase</h3>
-            <p>
-                When at least one participant has status <strong>Done</strong> in Phase 2, an
-                info banner appears inside the Phase 2 panel with an
-                <strong>Advance to Phase 3</strong> button.
-                Clicking it updates <code>current_step</code> to <code>3</code> and reloads the page.
-            </p>
-            <p>
-                To roll back from Phase 3 to Phase 2, a <strong>Back to Phase 2</strong> button
-                appears in the Phase 3 panel header.
-            </p>
-
-        </section>
-        <!-- ═══════════════════════════════════════════════════════════════ -->
-
-        <p class="back-to-top"><a href="#top">↑ Back to Top</a></p>
+        <p class="back-to-top"><a href="#top"><span data-lang="en">↑ Back to Top</span><span data-lang="da">↑ Tilbage til toppen</span></a></p>
     </main>
 
     <footer class="footer">
-        <p><strong>Supply Chain Resilience Assessment Tool Documentation</strong></p>
-        <p>Developed by University of Southern Denmark (SDU) & Royal Danish Military Academy</p>
-        <p>Funded by Danish Industry Foundation (Industriens Fond)</p>
+        <p><strong><span data-lang="en">Supply Chain Resilience Assessment Tool Documentation</span><span data-lang="da">Dokumentation for Forsyningskæderobusthedsværktøjet</span></strong></p>
+        <p><span data-lang="en">Developed by University of Southern Denmark (SDU) &amp; Royal Danish Military Academy</span><span data-lang="da">Udviklet af Syddansk Universitet (SDU) og Forsvarsakademiet</span></p>
+        <p><span data-lang="en">Funded by Danish Industry Foundation (Industriens Fond)</span><span data-lang="da">Finansieret af Industriens Fond</span></p>
         <div class="footer-links">
-            <a href="https://github.com/sdu-concurrency/SCR-model" target="_blank">GitHub Repository</a>
+            <a href="https://github.com/sdu-concurrency/SCR-model" target="_blank">GitHub</a>
             <a href="https://cyber-smv.dk/" target="_blank">Project Website</a>
             <a href="https://industriensfond.dk/" target="_blank">Industriens Fond</a>
         </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
-            Last updated: June 2025 | Documentation version: 1.0
-        </p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">Last updated: June 2025 | Documentation version: 1.0</p>
     </footer>
+    <script src="i18n.js"></script>
 </body>
 </html>
