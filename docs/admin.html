@@ -226,8 +226,35 @@
         <section class="section" id="create-admin-account">
             <div data-lang="en">
                 <h2>Create Admin Account</h2>
-                <h3>First-time Setup</h3>
-                <p>On the very first start of the backend, PocketBase requires you to create a superuser account:</p>
+                <p>There are two ways to create an admin account (pocketbase's superuser account). Choose the method that best fits your workflow.</p>
+
+                <h3>Method 1: Via CLI</h3>
+                <p>Use the PocketBase CLI to create a superuser from the command line. This works even when the server is not running.</p>
+                <pre><code># Using the standalone PocketBase binary:
+./pocketbase superuser create admin@example.com yourpassword
+
+# Or with Go run (when using PocketBase as a framework):
+go run main.go superuser create admin@example.com yourpassword
+
+# Or via Docker (when running in a container):
+docker exec -it dk-if-open /backend superuser create admin@example.com yourpassword</code></pre>
+                <p>Additional <code>superuser</code> subcommands:</p>
+                <table>
+                    <thead><tr><th>Command</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>superuser create EMAIL PASS</code></td><td>Create a new superuser</td></tr>
+                        <tr><td><code>superuser upsert EMAIL PASS</code></td><td>Create a new superuser, or update the password if it already exists</td></tr>
+                        <tr><td><code>superuser list</code></td><td>List all existing superusers</td></tr>
+                    </tbody>
+                </table>
+                <div class="info-box">
+                    <h4>Reference</h4>
+                    <p>See the official <a href="https://pocketbase.io/docs/" target="_blank">PocketBase documentation</a> for more details on CLI commands and superuser management.</p>
+                </div>
+
+                <h3>Method 2: From the Admin Panel</h3>
+                <h4>First-time Setup</h4>
+                <p>On the very first start of the backend, PocketBase requires you to create a superuser account through the setup wizard:</p>
                 <ol>
                     <li>Start the backend: <code>go run main.go serve</code></li>
                     <li>Open <a href="http://127.0.0.1:8090/_/" target="_blank">http://127.0.0.1:8090/_/</a></li>
@@ -235,10 +262,21 @@
                     <li>Enter your admin email and a strong password</li>
                     <li>Click <strong>Create and login</strong></li>
                 </ol>
+                <h4>Adding Additional Superusers</h4>
+                <p>After the initial setup, you can create additional superuser accounts directly from the PocketBase admin dashboard:</p>
+                <ol>
+                    <li>Log in to the admin UI at <code>/_/</code></li>
+                    <li>Navigate to <strong>Collections &gt; _superusers</strong></li>
+                    <li>Click <strong>New record</strong></li>
+                    <li>Enter the email and password for the new superuser</li>
+                    <li>Click <strong>Create</strong></li>
+                </ol>
+
                 <div class="warning-box">
                     <h4>Security</h4>
                     <p>Use a strong, unique password for your superuser account. This account has full access to the database and all data.</p>
                 </div>
+
                 <h3>Creating Session Manager Accounts</h3>
                 <ol>
                     <li>Log in to the admin UI at <code>/_/</code></li>
@@ -251,8 +289,35 @@
             </div>
             <div data-lang="da">
                 <h2>Opret adminkonto</h2>
-                <h3>Førstegangsopsætning</h3>
-                <p>Ved første start af backend kræver PocketBase, at du opretter en superbrugerkonto:</p>
+                <p>Der er to måder at oprette en admin bruger (PocketBase-superbruger) på. Vælg den metode, der passer bedst til din arbejdsgang.</p>
+
+                <h3>Metode 1: Via CLI</h3>
+                <p>Brug PocketBase CLI til at oprette en superbruger fra kommandolinjen. Dette virker også når serveren ikke kører.</p>
+                <pre><code># Ved brug af den selvstændige PocketBase-binær:
+./pocketbase superuser create admin@example.com dit_kodeord
+
+# Eller med Go run (når PocketBase bruges som framework):
+go run main.go superuser create admin@example.com dit_kodeord
+
+# Eller via Docker (når du kører i en container):
+docker exec -it dk-if-open /backend superuser create admin@example.com dit_kodeord</code></pre>
+                <p>Yderligere <code>superuser</code>-underkommandoer:</p>
+                <table>
+                    <thead><tr><th>Kommando</th><th>Beskrivelse</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>superuser create EMAIL KODEORD</code></td><td>Opret en ny superbruger</td></tr>
+                        <tr><td><code>superuser upsert EMAIL KODEORD</code></td><td>Opret en ny superbruger, eller opdater adgangskoden hvis den allerede findes</td></tr>
+                        <tr><td><code>superuser list</code></td><td>Vis alle eksisterende superbrugere</td></tr>
+                    </tbody>
+                </table>
+                <div class="info-box">
+                    <h4>Reference</h4>
+                    <p>Se den officielle <a href="https://pocketbase.io/docs/" target="_blank">PocketBase-dokumentation</a> for flere detaljer om CLI-kommandoer og superbrugeradministration.</p>
+                </div>
+
+                <h3>Metode 2: Fra adminpanelet</h3>
+                <h4>Førstegangsopsætning</h4>
+                <p>Ved første start af backend kræver PocketBase, at du opretter en superbrugerkonto via opsætningsguiden:</p>
                 <ol>
                     <li>Start backend: <code>go run main.go serve</code></li>
                     <li>Åbn <a href="http://127.0.0.1:8090/_/" target="_blank">http://127.0.0.1:8090/_/</a></li>
@@ -260,10 +325,21 @@
                     <li>Indtast din admin-e-mail og en stærk adgangskode</li>
                     <li>Klik på <strong>Opret og log ind</strong></li>
                 </ol>
+                <h4>Tilføjelse af yderligere superbrugere</h4>
+                <p>Efter den indledende opsætning kan du oprette yderligere superbrugerkonti direkte fra PocketBase-adminpanelet:</p>
+                <ol>
+                    <li>Log ind på adminpanelet på <code>/_/</code></li>
+                    <li>Naviger til <strong>Samlinger &gt; _superusers</strong></li>
+                    <li>Klik på <strong>Ny post</strong></li>
+                    <li>Indtast e-mail og adgangskode til den nye superbruger</li>
+                    <li>Klik på <strong>Opret</strong></li>
+                </ol>
+
                 <div class="warning-box">
                     <h4>Sikkerhed</h4>
                     <p>Brug en stærk, unik adgangskode til din superbrugerkonto. Denne konto har fuld adgang til databasen og alle data.</p>
                 </div>
+
                 <h3>Opret sessionslederkonti</h3>
                 <ol>
                     <li>Log ind på adminpanelet på <code>/_/</code></li>
@@ -284,7 +360,10 @@
 ./pocketbase superuser upsert new@email.com newpassword
 
 # Or with go run:
-go run main.go superuser upsert new@email.com newpassword</code></pre>
+go run main.go superuser upsert new@email.com newpassword
+
+# Or via Docker:
+docker exec -it dk-if-open /backend superuser upsert new@email.com newpassword</code></pre>
                 <div class="info-box">
                     <h4>Session Manager Password Reset</h4>
                     <p>To reset a session manager's password, log in to the admin UI, navigate to <strong>Collections &gt; users</strong>, find the user, and update their password field.</p>
@@ -297,7 +376,10 @@ go run main.go superuser upsert new@email.com newpassword</code></pre>
 ./pocketbase superuser upsert ny@email.dk nyt_kodeord
 
 # Eller med go run:
-go run main.go superuser upsert ny@email.dk nyt_kodeord</code></pre>
+go run main.go superuser upsert ny@email.dk nyt_kodeord
+
+# Eller via Docker:
+docker exec -it dk-if-open /backend superuser upsert ny@email.dk nyt_kodeord</code></pre>
                 <div class="info-box">
                     <h4>Nulstil sessionsleders kodeord</h4>
                     <p>For at nulstille en sessionsleders kodeord skal du logge ind på adminpanelet, navigere til <strong>Samlinger &gt; users</strong>, finde brugeren og opdatere adgangskodefeltet.</p>
