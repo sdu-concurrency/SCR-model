@@ -14,12 +14,13 @@ FROM node:lts-alpine3.23 AS build-front-stage
 
 WORKDIR /app
 
-ENV NODE_ENV=production
 ENV VITE_APP_TITLE="Process model - Supply Chain Resilience"
 ENV VITE_API_URL="/"
 # Copy the package.json and install dependencies
 COPY web/package*.json ./
 RUN npm install
+# Set production mode after installing devDependencies (needed for vue-tsc etc.)
+ENV NODE_ENV=production
 # Copy rest of the files
 COPY web ./
 
