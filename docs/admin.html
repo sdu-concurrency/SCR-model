@@ -152,7 +152,7 @@
                         <tr><td><code>sessions</code></td><td>Undersøgelsessessioner (grupper af deltagere)</td></tr>
                         <tr><td><code>session_users</code></td><td>Deltagerkonti knyttet til sessioner</td></tr>
                         <tr><td><code>app_settings</code></td><td>Globale applikationsindstillinger</td></tr>
-                        <tr><td><code>questions</code></td><td>Undersøgelsesspørgsmålssæt (JSON-skema)</td></tr>
+                        <tr><td><code>questions</code></td><td>Undersøgelsesspørgsmålssæt (JSON-schema)</td></tr>
                         <tr><td><code>forms</code></td><td>Indsendte undersøgelsessvar</td></tr>
                         <tr><td><code>snapshots</code></td><td>Samlingsstruktur-snapshots</td></tr>
                     </tbody>
@@ -197,7 +197,7 @@
                 <h2>Godkendelsesniveauer</h2>
                 <p>Platformen har tre adgangsniveauer:</p>
                 <table>
-                    <thead><tr><th>Rolle</th><th>Adgangsmetode</th><th>Kapaciteter</th></tr></thead>
+                    <thead><tr><th>Rolle</th><th>Adgangsmetode</th><th>Kapabiliteter</th></tr></thead>
                     <tbody>
                         <tr>
                             <td><strong>Superbruger / Administrator</strong></td>
@@ -422,7 +422,7 @@ docker exec -it dk-if-open /backend superuser upsert ny@email.dk nyt_kodeord</co
             <div data-lang="da">
                 <h2>Tilføj nyt spørgsmålssæt</h2>
                 <p>
-                    Undersøgelsen bruger FormKit JSON-skemaer gemt i <code>questions</code>-samlingen.
+                    Undersøgelsen bruger FormKit JSON-schema gemt i <code>questions</code>-samlingen.
                     Du kan tilføje nye spørgsmålssæt eller tilpasse eksisterende.
                 </p>
                 <h3>Trin</h3>
@@ -434,7 +434,7 @@ docker exec -it dk-if-open /backend superuser upsert ny@email.dk nyt_kodeord</co
                         <ul>
                             <li><code>name</code> — Unikt id for spørgsmålssættet</li>
                             <li><code>lang</code> — Sprogkode (<code>en</code> eller <code>da</code>)</li>
-                            <li><code>schema</code> — FormKit JSON-skema (se <a href="#json-schemas">JSON-schemareference</a>)</li>
+                            <li><code>schema</code> — FormKit JSON-schema (se <a href="#json-schemas">JSON-schemareference</a>)</li>
                         </ul>
                     </li>
                     <li>Gem posten</li>
@@ -446,7 +446,7 @@ docker exec -it dk-if-open /backend superuser upsert ny@email.dk nyt_kodeord</co
                         Du kan se og redigere dem i <code>questions</code>-samlingen.
                         Se kildefilerne på
                         <a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/src/surveys/" target="_blank">web/src/surveys/</a>
-                        for JSON-skemaformatet.
+                        for JSON-schemaformatet.
                     </p>
                 </div>
             </div>
@@ -611,30 +611,30 @@ docker exec -it dk-if-open /backend superuser upsert ny@email.dk nyt_kodeord</co
             <div data-lang="da">
                 <h2>JSON-schemareference</h2>
                 <p>
-                    Undersøgelsesspørgsmål er defineret som FormKit JSON-skemaer gemt i <code>questions</code>-samlingen.
-                    Hvert skema definerer formularstrukturen for ét trin i undersøgelsen.
+                    Undersøgelsesspørgsmål er defineret som FormKit JSON-schema gemt i <code>questions</code>-samlingen.
+                    Hvert schema definerer formularstrukturen for ét trin i undersøgelsen.
                 </p>
-                <h3>Skemaformat</h3>
+                <h3>Schemaformat</h3>
                 <p>Hver spørgsmålspost i <code>questions</code>-samlingen har følgende struktur:</p>
                 <pre><code>{
   "name": "form_en",      // Unikt id
   "lang": "en",          // Sprogkode
-  "schema": [...]        // FormKit-skema-array
+  "schema": [...]        // FormKit-schema-array
 }</code></pre>
                 <h3>FormKit-schemadokumentation</h3>
                 <p>
-                    For detaljeret dokumentation om FormKit-skemaformatet, se
+                    For detaljeret dokumentation om FormKit-schemaformatet, se
                     <a href="https://formkit.com/essentials/schema" target="_blank">FormKit-schemareference</a>.
-                    Undersøgelsen bruger FormKit v1-skemaformat med brugerdefinerede inputtyper.
+                    Undersøgelsen bruger FormKit v1-schemaformat med brugerdefinerede inputtyper.
                 </p>
                 <h3>Kildefiler</h3>
                 <p>
-                    De medfølgende engelske og danske skemaer findes i
+                    De medfølgende engelske og danske schema findes i
                     <a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/src/surveys/" target="_blank">web/src/surveys/</a>:
                 </p>
                 <ul>
-                    <li><a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/src/surveys/form_en.json" target="_blank"><code>form_en.json</code></a> — Engelsk undersøgelsesskema</li>
-                    <li><a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/src/surveys/form_dk.json" target="_blank"><code>form_dk.json</code></a> — Dansk undersøgelsesskema</li>
+                    <li><a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/src/surveys/form_en.json" target="_blank"><code>form_en.json</code></a> — Engelsk undersøgelsesschema</li>
+                    <li><a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/src/surveys/form_dk.json" target="_blank"><code>form_dk.json</code></a> — Dansk undersøgelsesschema</li>
                 </ul>
                 <p>
                     Disse seedes automatisk ind i databasen ved første start via migrationen på
