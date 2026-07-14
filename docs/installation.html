@@ -10,7 +10,7 @@
 <body>
     <header class="header">
         <h1>Supply Chain Resilience Assessment Tool</h1>
-        <p>Installation & Setup Guide</p>
+        <p><span data-lang="en">Installation & Setup Guide</span><span data-lang="da">Installations- og opsætningsvejledning</span></p>
     </header>
 
     <nav class="nav">
@@ -20,7 +20,7 @@
                 <li><a href="index.html"><span data-lang="en">Home</span><span data-lang="da">Hjem</span></a></li>
                 <li><a href="installation.html" class="active"><span data-lang="en">Installation</span><span data-lang="da">Installation</span></a></li>
                 <li><a href="session-manager.html"><span data-lang="en">Session Manager</span><span data-lang="da">Sessionsleder</span></a></li>
-                <li><a href="survey-participant.html"><span data-lang="en">Survey Participant</span><span data-lang="da">Undersøgelsesdeltager</span></a></li>
+                <li><a href="survey-participant.html"><span data-lang="en">Survey Participant</span><span data-lang="da">Deltager</span></a></li>
                 <li><a href="admin.html"><span data-lang="en">Admin</span><span data-lang="da">Administration</span></a></li>
             </ul>
             <button class="lang-toggle" id="lang-toggle">DA</button>
@@ -29,52 +29,106 @@
 
     <main class="main">
         <section class="hero">
-            <h2>Installation & Setup</h2>
-            <p>
-                Complete guide for setting up the Supply Chain Resilience Assessment Tool in development 
-                and production environments.
-            </p>
+            <div data-lang="en">
+                <h2>Installation & Setup</h2>
+                <p>
+                    Complete guide for setting up the Supply Chain Resilience Assessment Tool in development 
+                    and production environments.
+                </p>
+            </div>
+            <div data-lang="da">
+                <h2>Installation & setup</h2>
+                <p>
+                    Komplet guide til opsætning af Supply Chain Resilience softwaret.
+                </p>
+            </div>
         </section>
 
         <section class="section">
-            <h2>Table of Contents</h2>
-            <div class="toc">
-                <ul>
-                    <li><a href="#overview">Overview</a></li>
-                    <li><a href="#architecture">Architecture</a></li>
-                    <li><a href="#prerequisites">Prerequisites</a></li>
-                    <li><a href="#development-setup">Development Setup</a></li>
-                    <li><a href="#production-docker">Production (Docker)</a></li>
-                    <li><a href="#environment-variables">Environment Variables</a></li>
-                    <li><a href="#quick-links">Quick Links</a></li>
-                </ul>
+            <div data-lang="en">
+                <h2>Table of Contents</h2>
+                <div class="toc">
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#architecture">Architecture</a></li>
+                        <li><a href="#prerequisites">Prerequisites</a></li>
+                        <li><a href="#development-setup">Development Setup</a></li>
+                        <li><a href="#production-docker">Production (Docker)</a></li>
+                        <li><a href="#environment-variables">Environment Variables</a></li>
+                        <li><a href="#quick-links">Quick Links</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div data-lang="da">
+                <h2>Indholdsfortegnelse</h2>
+                <div class="toc">
+                    <ul>
+                        <li><a href="#overview">Oversigt</a></li>
+                        <li><a href="#architecture">Arkitektur</a></li>
+                        <li><a href="#prerequisites">Forudsætninger</a></li>
+                        <li><a href="#development-setup">Udviklingssetup</a></li>
+                        <li><a href="#production-docker">Produktion (Docker)</a></li>
+                        <li><a href="#environment-variables">Miljøvariabler</a></li>
+                        <li><a href="#quick-links">Hurtige links</a></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section class="section" id="overview">
-            <h2>Overview</h2>
-            <p>
-                The Supply Chain Resilience Assessment Tool is an open-source supply chain resilience and 
-                business continuity assessment platform. Developed by researchers at the 
-                <strong>University of Southern Denmark (SDU)</strong> in partnership with the 
-                <strong>Royal Danish Military Academy (Forsvarsakademiet)</strong>, funded by the 
-                <strong>Danish Industry Foundation (Industriens Fond)</strong> as part of the 
-                <a href="https://industriensfond.dk/projekt/cybersikkerhed-og-forretningskontinuitet/" target="_blank">Cybersikkerhed og Forretningskontinuitet</a> project (2023-2026).
-            </p>
-            <p>
-                The tool helps organizations map their supply chain vulnerabilities and capabilities through 
-                structured multi-step surveys, then visualizes results for cross-organizational alignment and 
-                action planning. It is used in the first step of the company process within the broader 
-                cybersecurity and business continuity programme - see 
-                <a href="https://cyber-smv.dk/" target="_blank">cyber-smv.dk</a> for more.
-            </p>
+            <div data-lang="en">
+                <h2>Overview</h2>
+                <p>
+                    The Supply Chain Resilience Assessment Tool is an open-source supply chain resilience and 
+                    business continuity assessment platform. Developed by researchers at the 
+                    <strong>University of Southern Denmark (SDU)</strong> in partnership with the 
+                    <strong>Royal Danish Military Academy (Forsvarsakademiet)</strong>, funded by the 
+                    <strong>Danish Industry Foundation (Industriens Fond)</strong> as part of the 
+                    <a href="https://industriensfond.dk/projekt/cybersikkerhed-og-forretningskontinuitet/" target="_blank">Cybersikkerhed og Forretningskontinuitet</a> project (2023-2026).
+                </p>
+                <p>
+                    The tool helps organizations map their supply chain vulnerabilities and capabilities through 
+                    structured multi-step surveys, then visualizes results for cross-organizational alignment and 
+                    action planning. It is used in the first step of the company process within the broader 
+                    cybersecurity and business continuity programme - see 
+                    <a href="https://cyber-smv.dk/" target="_blank">cyber-smv.dk</a> for more.
+                </p>
+            </div>
+            <div data-lang="da">
+                <h2>Oversigt</h2>
+                <p>
+                    Supply Chain Resilience softwaret er en open source-platform til vurdering af 
+                    forsyningskæders robusthed og forretningskontinuitet. Værktøjet er udviklet af forskere 
+                    fra <strong>Syddansk Universitet (SDU)</strong> i samarbejde med 
+                    <strong>Forsvarsakademiet</strong> og finansieret af 
+                    <strong>Industriens Fond</strong> som en del af projektet 
+                    <a href="https://industriensfond.dk/projekt/cybersikkerhed-og-forretningskontinuitet/" target="_blank">Cybersikkerhed og Forretningskontinuitet</a> (2023–2026).
+                </p>
+                <p>
+                    Værktøjet hjælper deltagerne at kortlægge sårbarheder og kapabiliteter i virksomhedens 
+                    forsyningskæder gennem en struktureret proces i fire faser. Resultaterne visualiseres 
+                    efterfølgende for at understøtte fælles forståelse på tværs af organisationen samt 
+                    planlægning af konkrete indsatser. Vi anbefaler, at virksomheder starter med at arbejde 
+                    med Supply Chain Process modellen gennem dette software inden man bevæger sig ud i de 
+                    øvrige værktøjer om cybersikkerhed og forretningskontinuitet – læs mere på 
+                    <a href="https://cyber-smv.dk/" target="_blank">cyber-smv.dk</a>.
+                </p>
+            </div>
         </section>
 
         <section class="section" id="architecture">
-            <h2>Architecture</h2>
-            <p>
-                The application follows a client-server architecture with a Go backend and Vue.js frontend:
-            </p>
+            <div data-lang="en">
+                <h2>Architecture</h2>
+                <p>
+                    The application follows a client-server architecture with a Go backend and Vue.js frontend:
+                </p>
+            </div>
+            <div data-lang="da">
+                <h2>Arkitektur</h2>
+                <p>
+                    Applikationen er bygget efter en klient-server-arkitektur med en backend i Go og en frontend i Vue.js:
+                </p>
+            </div>
             
             <pre><code>dk-if-open/
 ├── back/                  # Go backend (PocketBase framework)
@@ -93,27 +147,49 @@
 ├── Dockerfile             # Multi-stage production build
 └── docs/                  # Documentation</code></pre>
 
-            <h3>How it works</h3>
-            <ol>
-                <li><strong>An admin</strong> creates a session - 10 participant accounts + 1 session manager are auto-generated</li>
-                <li><strong>Participants</strong> log in with a unique token and complete a 7-step survey assessing vulnerabilities and capabilities</li>
-                <li><strong>The session manager</strong> views aggregated analysis with charts and prioritization</li>
-            </ol>
-
-            <p>
-                The backend is built on <a href="https://pocketbase.io/" target="_blank">PocketBase</a> (Go/SQLite), 
-                providing the API, admin dashboard, and authentication. The frontend is a 
-                <a href="https://vuejs.org/" target="_blank">Vue 3</a> single-page application with 
-                <a href="https://formkit.com/" target="_blank">FormKit</a> for survey forms, 
-                <a href="https://primevue.org/" target="_blank">PrimeVue</a> for UI components, and 
-                <a href="https://www.chartjs.org/" target="_blank">Chart.js</a> for data visualization.
-            </p>
+            <div data-lang="en">
+                <h3>How it works</h3>
+                <ol>
+                    <li><strong>An admin</strong> creates a session - 10 participant accounts + 1 session manager are auto-generated</li>
+                    <li><strong>Participants</strong> log in with a unique token and complete a 7-step survey assessing vulnerabilities and capabilities</li>
+                    <li><strong>The session manager</strong> views aggregated analysis with charts and prioritization</li>
+                </ol>
+                <p>
+                    The backend is built on <a href="https://pocketbase.io/" target="_blank">PocketBase</a> (Go/SQLite), 
+                    providing the API, admin dashboard, and authentication. The frontend is a 
+                    <a href="https://vuejs.org/" target="_blank">Vue 3</a> single-page application with 
+                    <a href="https://formkit.com/" target="_blank">FormKit</a> for survey forms, 
+                    <a href="https://primevue.org/" target="_blank">PrimeVue</a> for UI components, and 
+                    <a href="https://www.chartjs.org/" target="_blank">Chart.js</a> for data visualization.
+                </p>
+            </div>
+            <div data-lang="da">
+                <h3>Sådan virker det</h3>
+                <ol>
+                    <li><strong>En administrator</strong> opretter en session – 10 deltagerkonti og 1 session manager-konto oprettes automatisk</li>
+                    <li><strong>Deltagerne</strong> logger ind med et unikt token og vælger sårbarheder, som risikovurderes og vurderer kapabiliteter</li>
+                    <li><strong>Sessionslederen</strong> får adgang til en samlet analyse med grafer og prioritering</li>
+                </ol>
+                <p>
+                    Backenden er bygget på <a href="https://pocketbase.io/" target="_blank">PocketBase</a> (Go/SQLite), 
+                    der leverer API, adminpanel og autentifikation. Frontenden er en 
+                    <a href="https://vuejs.org/" target="_blank">Vue 3</a> single-page-applikation med 
+                    <a href="https://formkit.com/" target="_blank">FormKit</a> til spørgeskemaer, 
+                    <a href="https://primevue.org/" target="_blank">PrimeVue</a> til UI-komponenter og 
+                    <a href="https://www.chartjs.org/" target="_blank">Chart.js</a> til datavisualisering.
+                </p>
+            </div>
         </section>
 
         <section class="section" id="prerequisites">
-            <h2>Prerequisites</h2>
-            
-            <h3>Development Environment</h3>
+            <div data-lang="en">
+                <h2>Prerequisites</h2>
+                <h3>Development Environment</h3>
+            </div>
+            <div data-lang="da">
+                <h2>Forudsætninger</h2>
+                <h3>Udviklingsmiljø</h3>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -141,7 +217,12 @@
                 </tbody>
             </table>
 
-            <h3>Production Environment (Docker)</h3>
+            <div data-lang="en">
+                <h3>Production Environment (Docker)</h3>
+            </div>
+            <div data-lang="da">
+                <h3>Produktionsmiljø (Docker)</h3>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -161,63 +242,128 @@
         </section>
 
         <section class="section" id="development-setup">
-            <h2>Development Setup</h2>
-            
-            <h3>1. Clone the repository</h3>
+            <div data-lang="en">
+                <h2>Development Setup</h2>
+                <h3>1. Clone the repository</h3>
+            </div>
+            <div data-lang="da">
+                <h2>Udviklingssetup</h2>
+                <h3>1. Klon repositoriet</h3>
+            </div>
             <pre><code>git clone https://github.com/sdu-concurrency/SCR-model.git
 cd SCR-model</code></pre>
 
-            <h3>2. Start the backend</h3>
+            <div data-lang="en">
+                <h3>2. Start the backend</h3>
+            </div>
+            <div data-lang="da">
+                <h3>2. Start backenden</h3>
+            </div>
             <pre><code>cd back
 go run main.go serve --http=127.0.0.1:8090</code></pre>
             
-            <div class="info-box">
-                <h4>Backend Details</h4>
-                <p>
-                    The backend starts on <code>http://127.0.0.1:8090</code>:
-                </p>
-                <ul>
-                    <li><strong>REST API:</strong> <code>http://127.0.0.1:8090/api/</code></li>
-                    <li><strong>Admin UI:</strong> <code>http://127.0.0.1:8090/_/</code></li>
-                </ul>
-                <p>
-                    <strong>⚠️ Important:</strong> Migrations run automatically on first start, creating all
-                    collections and seeding question data. On the very first start you will be prompted by
-                    PocketBase to create your superuser account at <code>http://127.0.0.1:8090/_/</code>
-                    before you can access the admin UI.
-                </p>
+            <div data-lang="en">
+                <div class="info-box">
+                    <h4>Backend Details</h4>
+                    <p>
+                        The backend starts on <code>http://127.0.0.1:8090</code>:
+                    </p>
+                    <ul>
+                        <li><strong>REST API:</strong> <code>http://127.0.0.1:8090/api/</code></li>
+                        <li><strong>Admin UI:</strong> <code>http://127.0.0.1:8090/_/</code></li>
+                    </ul>
+                    <p>
+                        <strong>⚠️ Important:</strong> Migrations run automatically on first start, creating all
+                        collections and seeding question data. On the very first start you will be prompted by
+                        PocketBase to create your superuser account at <code>http://127.0.0.1:8090/_/</code>
+                        before you can access the admin UI.
+                    </p>
+                </div>
+            </div>
+            <div data-lang="da">
+                <div class="info-box">
+                    <h4>Backend-detaljer</h4>
+                    <p>
+                        Backenden starter på <code>http://127.0.0.1:8090</code>:
+                    </p>
+                    <ul>
+                        <li><strong>REST API:</strong> <code>http://127.0.0.1:8090/api/</code></li>
+                        <li><strong>Admin UI:</strong> <code>http://127.0.0.1:8090/_/</code></li>
+                    </ul>
+                    <p>
+                        <strong>⚠️ Vigtigt:</strong> Migrationer kører automatisk ved første start og opretter alle
+                        samlinger og seed-spørgsmålsdata. Ved allerførste start vil PocketBase bede dig om at
+                        oprette din superbrugerkonto på <code>http://127.0.0.1:8090/_/</code>
+                        før du kan tilgå adminpanelet.
+                    </p>
+                </div>
             </div>
 
-            <h3>3. Start the frontend</h3>
+            <div data-lang="en">
+                <h3>3. Start the frontend</h3>
+            </div>
+            <div data-lang="da">
+                <h3>3. Start frontenden</h3>
+            </div>
             <pre><code>cd web
 cp .env.example .env          # create config from template
 npm install                   # install dependencies
 npm run dev                   # start Vite dev server</code></pre>
 
-            <div class="info-box">
-                <h4>Frontend Configuration</h4>
-                <p>
-                    Edit <code>web/.env</code> with:
-                </p>
-                <pre><code>VITE_APP_TITLE="Supply Chain Resilience"
+            <div data-lang="en">
+                <div class="info-box">
+                    <h4>Frontend Configuration</h4>
+                    <p>
+                        Edit <code>web/.env</code> with:
+                    </p>
+                    <pre><code>VITE_APP_TITLE="Supply Chain Resilience"
 VITE_API_URL=http://127.0.0.1:8090
 BASE_URL="/"</code></pre>
-                <p>
-                    The frontend dev server starts at <code>http://localhost:5173</code> 
-                    (falls back to <code>:5174</code> if busy).
-                </p>
+                    <p>
+                        The frontend dev server starts at <code>http://localhost:5173</code> 
+                        (falls back to <code>:5174</code> if busy).
+                    </p>
+                </div>
+            </div>
+            <div data-lang="da">
+                <div class="info-box">
+                    <h4>Frontend-konfiguration</h4>
+                    <p>
+                        Redigér <code>web/.env</code> med:
+                    </p>
+                    <pre><code>VITE_APP_TITLE="Supply Chain Resilience"
+VITE_API_URL=http://127.0.0.1:8090
+BASE_URL="/"</code></pre>
+                    <p>
+                        Frontend-udviklingsserveren starter på <code>http://localhost:5173</code> 
+                        (falder tilbage på <code>:5174</code> hvis optaget).
+                    </p>
+                </div>
             </div>
 
-            <h3>4. Open the application</h3>
-            <p>
-                Visit <a href="http://localhost:5173" target="_blank"><code>http://localhost:5173</code></a> in your browser.
-            </p>
+            <div data-lang="en">
+                <h3>4. Open the application</h3>
+                <p>
+                    Visit <a href="http://localhost:5173" target="_blank"><code>http://localhost:5173</code></a> in your browser.
+                </p>
+            </div>
+            <div data-lang="da">
+                <h3>4. Åbn programmet</h3>
+                <p>
+                    Besøg <a href="http://localhost:5173" target="_blank"><code>http://localhost:5173</code></a> i din browser.
+                </p>
+            </div>
         </section>
 
         <section class="section" id="production-docker">
-            <h2>Production (Docker)</h2>
-            
-            <h3>1. Build and run</h3>
+            <div data-lang="en">
+                <h2>Production (Docker)</h2>
+                <h3>1. Build and run</h3>
+            </div>
+            <div data-lang="da">
+                <h2>Produktion (Docker)</h2>
+                <h3>1. Byg og kør</h3>
+            </div>
             <pre><code>docker build -t scr-model .
 docker run -d \
   --name scr-model \
@@ -225,41 +371,84 @@ docker run -d \
   -v scr-data:/pb_data \
   scr-model</code></pre>
             
-            <div class="info-box">
-                <h4>Production Details</h4>
-                <p>
-                    The application will be available at <code>http://localhost:8080/</code>.
-                </p>
-                <p>
-                    The Dockerfile bundles both the Go backend and compiled Vue frontend into a single 
-                    Alpine container. The frontend is served as static files from <code>/pb_public</code>.
-                </p>
+            <div data-lang="en">
+                <div class="info-box">
+                    <h4>Production Details</h4>
+                    <p>
+                        The application will be available at <code>http://localhost:8080/</code>.
+                    </p>
+                    <p>
+                        The Dockerfile bundles both the Go backend and compiled Vue frontend into a single 
+                        Alpine container. The frontend is served as static files from <code>/pb_public</code>.
+                    </p>
+                </div>
+            </div>
+            <div data-lang="da">
+                <div class="info-box">
+                    <h4>Produktionsdetaljer</h4>
+                    <p>
+                        Applikationen vil være tilgængelig på <code>http://localhost:8080/</code>.
+                    </p>
+                    <p>
+                        Dockerfilen samler både Go-backenden og den kompilerede Vue-frontend i en enkelt 
+                        Alpine-container. Frontenden serveres som statiske filer fra <code>/pb_public</code>.
+                    </p>
+                </div>
             </div>
 
-            <h3>2. Persistent data</h3>
-            <p>
-                The SQLite database is stored in <code>/pb_data</code>. Mount a volume to persist data:
-            </p>
+            <div data-lang="en">
+                <h3>2. Persistent data</h3>
+                <p>
+                    The SQLite database is stored in <code>/pb_data</code>. Mount a volume to persist data:
+                </p>
+            </div>
+            <div data-lang="da">
+                <h3>2. Vedvarende data</h3>
+                <p>
+                    SQLite-databasen er gemt i <code>/pb_data</code>. Monter et volume for at bevare data:
+                </p>
+            </div>
             <pre><code>-v $(pwd)/pb_data:/pb_data</code></pre>
             
-            <div class="warning-box">
-                <h4>⚠️ Data Persistence</h4>
-                <p>
-                    Always mount a volume for production use to prevent data loss when the container restarts.
-                </p>
+            <div data-lang="en">
+                <div class="warning-box">
+                    <h4>⚠️ Data Persistence</h4>
+                    <p>
+                        Always mount a volume for production use to prevent data loss when the container restarts.
+                    </p>
+                </div>
+            </div>
+            <div data-lang="da">
+                <div class="warning-box">
+                    <h4>⚠️ Data-persistens</h4>
+                    <p>
+                        Monter altid et volume til produktionsbrug for at forhindre datatab, når containeren genstarter.
+                    </p>
+                </div>
             </div>
         </section>
 
         <section class="section" id="environment-variables">
-            <h2>Environment Variables</h2>
-            <p>
-                This version requires no environment variables. The application runs fully self-contained.
-            </p>
-
-            <h3>Frontend Environment Variables</h3>
-            <p>
-                For development, the frontend reads from <code>web/.env</code>:
-            </p>
+            <div data-lang="en">
+                <h2>Environment Variables</h2>
+                <p>
+                    This version requires no environment variables. The application runs fully self-contained.
+                </p>
+                <h3>Frontend Environment Variables</h3>
+                <p>
+                    For development, the frontend reads from <code>web/.env</code>:
+                </p>
+            </div>
+            <div data-lang="da">
+                <h2>Miljøvariabler</h2>
+                <p>
+                    Denne version kræver ingen miljøvariabler. Applikationen kører fuldt selvstændigt.
+                </p>
+                <h3>Frontend-miljøvariabler</h3>
+                <p>
+                    Til udvikling læser frontenden fra <code>web/.env</code>:
+                </p>
+            </div>
             
             <table>
                 <thead>
@@ -290,9 +479,14 @@ docker run -d \
         </section>
 
         <section class="section" id="quick-links">
-            <h2>Quick Links</h2>
+            <div data-lang="en">
+                <h2>Quick Links</h2>
+            </div>
+            <div data-lang="da">
+                <h2>Hurtige links</h2>
+            </div>
             <div class="cards">
-                <div class="card">
+                <div data-lang="en" class="card">
                     <h4>Related Documentation</h4>
                     <ul>
                         <li><a href="https://github.com/sdu-concurrency/SCR-model/blob/main/back/README.md" target="_blank">Backend Docs</a></li>
@@ -301,7 +495,16 @@ docker run -d \
                         <li><a href="admin.html">Admin Handbook</a></li>
                     </ul>
                 </div>
-                <div class="card">
+                <div data-lang="da" class="card">
+                    <h4>Relateret dokumentation</h4>
+                    <ul>
+                        <li><a href="https://github.com/sdu-concurrency/SCR-model/blob/main/back/README.md" target="_blank">Backend-dokumentation</a></li>
+                        <li><a href="https://github.com/sdu-concurrency/SCR-model/blob/main/web/README.md" target="_blank">Frontend-dokumentation</a></li>
+                        <li><a href="session-manager.html">Brugerhåndbog</a></li>
+                        <li><a href="admin.html">Administratorhåndbog</a></li>
+                    </ul>
+                </div>
+                <div data-lang="en" class="card">
                     <h4>External Resources</h4>
                     <ul>
                         <li><a href="https://pocketbase.io/docs/" target="_blank">PocketBase Documentation</a></li>
@@ -309,7 +512,15 @@ docker run -d \
                         <li><a href="https://vuejs.org/guide/introduction.html" target="_blank">Vue 3 Documentation</a></li>
                     </ul>
                 </div>
-                <div class="card">
+                <div data-lang="da" class="card">
+                    <h4>Eksterne ressourcer</h4>
+                    <ul>
+                        <li><a href="https://pocketbase.io/docs/" target="_blank">PocketBase-dokumentation</a></li>
+                        <li><a href="https://formkit.com/essentials/schema" target="_blank">FormKit-schemareference</a></li>
+                        <li><a href="https://vuejs.org/guide/introduction.html" target="_blank">Vue 3-dokumentation</a></li>
+                    </ul>
+                </div>
+                <div data-lang="en" class="card">
                     <h4>Project Links</h4>
                     <ul>
                         <li><a href="https://github.com/sdu-concurrency/SCR-model" target="_blank">GitHub Repository</a></li>
@@ -317,11 +528,19 @@ docker run -d \
                         <li><a href="https://www.scr-smv.dk" target="_blank">SCR-SMV Website</a></li>
                     </ul>
                 </div>
+                <div data-lang="da" class="card">
+                    <h4>Projektlinks</h4>
+                    <ul>
+                        <li><a href="https://github.com/sdu-concurrency/SCR-model" target="_blank">GitHub-kodearkiv</a></li>
+                        <li><a href="https://cyber-smv.dk/" target="_blank">Projektwebsite</a></li>
+                        <li><a href="https://www.scr-smv.dk" target="_blank">SCR-SMV-website</a></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
 
-        <p class="back-to-top"><a href="#top">↑ Back to Top</a></p>
+        <p class="back-to-top"><a href="#top"><span data-lang="en">↑ Back to Top</span><span data-lang="da">↑ Tilbage til toppen</span></a></p>
     </main>
 
     <footer class="footer">

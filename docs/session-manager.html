@@ -10,7 +10,7 @@
 <body>
     <header class="header">
         <h1>Supply Chain Resilience Assessment Tool</h1>
-        <p><span data-lang="en">Session Manager Guide</span><span data-lang="da">Sessionsledervejledning</span></p>
+        <p><span data-lang="en">Session Manager Guide</span><span data-lang="da">Vejledning til session manager</span></p>
     </header>
 
     <nav class="nav">
@@ -20,7 +20,7 @@
                 <li><a href="index.html"><span data-lang="en">Home</span><span data-lang="da">Hjem</span></a></li>
                 <li><a href="installation.html"><span data-lang="en">Installation</span><span data-lang="da">Installation</span></a></li>
                 <li><a href="session-manager.html" class="active"><span data-lang="en">Session Manager</span><span data-lang="da">Sessionsleder</span></a></li>
-                <li><a href="survey-participant.html"><span data-lang="en">Survey Participant</span><span data-lang="da">Undersøgelsesdeltager</span></a></li>
+                <li><a href="survey-participant.html"><span data-lang="en">Survey Participant</span><span data-lang="da">Deltager</span></a></li>
                 <li><a href="admin.html"><span data-lang="en">Admin</span><span data-lang="da">Administration</span></a></li>
             </ul>
             <button class="lang-toggle" id="lang-toggle">DA</button>
@@ -34,8 +34,8 @@
                 <p>Complete guide for session managers on creating and managing survey sessions, inviting participants, and analyzing results.</p>
             </div>
             <div data-lang="da">
-                <h2>Sessionsledervejledning</h2>
-                <p>Komplet guide til sessionsledere om oprettelse og administration af undersøgelsessessioner, invitation af deltagere og analyse af resultater.</p>
+                <h2>Vejledning til session manager</h2>
+                <p>Komplet vejledning til session managers om oprettelse og administration af sessioner, invitation af deltagere samt analyse af resultater.</p>
             </div>
         </section>
 
@@ -62,7 +62,7 @@
                     <ul>
                         <li><a href="#overview">Oversigt</a></li>
                         <li><a href="#user-roles">Brugerroller</a></li>
-                        <li><a href="#getting-started">Kom i gang</a></li>
+                        <li><a href="#getting-started">Kom godt i gang</a></li>
                         <li><a href="#creating-a-session">Opret en session</a></li>
                         <li><a href="#managing-users">Administrer brugere</a></li>
                         <li><a href="#viewing-results">Se resultater</a></li>
@@ -102,25 +102,25 @@
             <div data-lang="da">
                 <h2>Oversigt</h2>
                 <p>
-                    Som sessionsleder koordinerer du forsyningskæderobusthedsvurderingsprocessen for en gruppe
-                    deltagere. Du opretter en session, inviterer deltagere, overvåger deres fremskridt og
-                    gennemgår de aggregerede resultater for at identificere sårbarheder og kapabiliteter.
+                    Som session manager koordinerer du processen for vurdering af forsyningskædens robusthed for en gruppe
+                    deltagere. Du opretter en session, inviterer deltagere, følger deres fremskridt og
+                    gennemgår de samlede resultater for at identificere sårbarheder og kapabiliteter.
                 </p>
-                <h3>Sessionsleders ansvar</h3>
+                <h3>Session manageres ansvar</h3>
                 <ul>
-                    <li>Oprette undersøgelsessessioner og konfigurere deltagere</li>
-                    <li>Distribuere unikke undersøgelseslinks til deltagere</li>
-                    <li>Overvåge undersøgelsesafslutningsstatus</li>
-                    <li>Gennemgå aggregerede analyseresultater</li>
-                    <li>Facilitere gruppediskussion baseret på fund</li>
+                    <li>Opret sessioner og konfigurer deltagere</li>
+                    <li>Distribuer unikke links til softwaret til deltagerne</li>
+                    <li>Følg status for gennemførelse af vurderingerne</li>
+                    <li>Gennemgå de samlede analyseresultater</li>
+                    <li>Facilitér gruppediskussioner med udgangspunkt i resultaterne</li>
                 </ul>
                 <h3>Hvad du kan se</h3>
-                <p>Når alle deltagere har udfyldt undersøgelsen, har du adgang til:</p>
+                <p>Når alle deltagere har gennemført deres vurderinger i softwaret får du adgang til:</p>
                 <ul>
-                    <li><strong>Sårbarhedsrangerings-diagrammer</strong> — bedst rangerede sårbarheder på tværs af gruppen</li>
-                    <li><strong>Kapabilitetsstablede diagrammer</strong> — kapabilitetsniveauer pr. område, opdelt efter deltagerrolle</li>
-                    <li><strong>Gab-analyse</strong> — sammenligning af sårbarheder vs. kapabiliteter</li>
-                    <li><strong>Individuelle vs. aggregerede visninger</strong> — detaljeret indsigt i specifikke deltagersvar</li>
+                    <li><strong>Rangering af sårbarheder</strong> - de højest prioriterede sårbarheder på tværs af gruppen</li>
+                    <li><strong>Stablede diagrammer over kapabiliteter</strong> - kapabilitetsniveauer inden for hvert område, opdelt efter deltagernes roller</li>
+                    <li><strong>Gapanalyse</strong> - sammenligning af sårbarheder og kapabiliteter</li>
+                    <li><strong>Individuelle og samlede visninger</strong> - mulighed for at gå i dybden med de enkelte deltageres besvarelser</li>
                 </ul>
             </div>
         </section>
@@ -155,19 +155,19 @@
                     <thead><tr><th>Rolle</th><th>Beskrivelse</th><th>Adgang</th></tr></thead>
                     <tbody>
                         <tr>
-                            <td><strong>Administrator / Superbruger</strong></td>
-                            <td>Platformsadministrator med fuld databaseadgang</td>
+                            <td><strong>Administrator</strong></td>
+                            <td>Platformadministrator med fuld databaseadgang</td>
                             <td>PocketBase Admin UI (<code>/_/</code>)</td>
                         </tr>
                         <tr>
                             <td><strong>Sessionsleder</strong></td>
-                            <td>Opretter og administrerer sessioner, ser resultater</td>
-                            <td>App-login med e-mail + adgangskode</td>
+                            <td>Opretter og administrerer sessioner samt ser resultater</td>
+                            <td>Login i appen med e-mail og adgangskode</td>
                         </tr>
                         <tr>
-                            <td><strong>Undersøgelsesdeltager</strong></td>
-                            <td>Udfylder undersøgelsen for sin tildelte session</td>
-                            <td>Unikt token-link (ingen adgangskode)</td>
+                            <td><strong>Deltager</strong></td>
+                            <td>Gennemfører spørgeskemaet for den tildelte session</td>
+                            <td>Unikt tokenlink (ingen adgangskode)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -197,24 +197,24 @@
                 </ul>
             </div>
             <div data-lang="da">
-                <h2>Kom i gang</h2>
+                <h2>Kom godt i gang</h2>
                 <h3>Log ind som sessionsleder</h3>
                 <ol>
-                    <li>Åbn applikationens URL i din browser</li>
+                    <li>Åbn applikationens webadresse i din browser</li>
                     <li>Klik på <strong>Log ind</strong></li>
-                    <li>Indtast din e-mail og adgangskode</li>
+                    <li>Indtast din e-mailadresse og adgangskode</li>
                     <li>Klik på <strong>Log ind</strong></li>
                 </ol>
                 <div class="info-box">
                     <h4>Første login</h4>
-                    <p>Din sessionslederkonto oprettes af en platformsadministrator. Kontakt din administrator for at modtage dine loginoplysninger. Du kan ændre din adgangskode efter dit første login via kontoindstillingerne.</p>
+                    <p>Din session manager-konto oprettes af en platformadministrator. Kontakt din administrator for at få dine loginoplysninger. Du kan ændre din adgangskode efter første login via kontoindstillingerne.</p>
                 </div>
-                <h3>Startside</h3>
-                <p>Efter login vil du se startsiden, der viser:</p>
+                <h3>Hjemmeside</h3>
+                <p>Når du er logget ind, vises forsiden med:</p>
                 <ul>
-                    <li>En liste over alle sessioner, du har oprettet</li>
-                    <li>Status for hver session (aktiv, afsluttet)</li>
-                    <li>Hurtige links til at oprette en ny session eller se eksisterende sessioner</li>
+                    <li>En liste over alle de sessioner, du har oprettet</li>
+                    <li>Status for hver session (aktiv, gennemført)</li>
+                    <li>Genveje til at oprette en ny session eller se eksisterende sessioner</li>
                 </ul>
             </div>
         </section>
@@ -255,31 +255,31 @@
                 <h2>Opret en session</h2>
                 <h3>Trin for trin</h3>
                 <ol>
-                    <li><p><strong>Klik på "Ny session"</strong> på startsiden</p></li>
+                    <li><p><strong>Klik på "Ny session"</strong> på forsiden</p></li>
                     <li><p><strong>Udfyld sessionsoplysninger:</strong></p>
                         <ul>
-                            <li><strong>Sessionsnavn</strong> — Et unikt id for sessionen (bruges i deltager-URL'er)</li>
-                            <li><strong>Sprog</strong> — Vælg <code>en</code> (engelsk) eller <code>da</code> (dansk) for undersøgelsen</li>
-                            <li><strong>Antal deltagere</strong> — Op til 10 deltagere per session</li>
+                            <li><strong>Sessionsnavn</strong> - Et unikt navn til sessionen (anvendes i deltagernes URL'er)</li>
+                            <li><strong>Sprog</strong> - Vælg <code>en</code> (engelsk) eller <code>da</code> (dansk)</li>
+                            <li><strong>Antal deltagere</strong> - Op til 10 deltagere pr. session</li>
                         </ul>
                     </li>
                     <li><p><strong>Klik på "Opret session"</strong></p></li>
-                    <li><p>Systemet genererer automatisk:</p>
+                    <li><p>Systemet opretter automatisk:</p>
                         <ul>
                             <li>10 deltagerkonti med unikke tokens</li>
-                            <li>1 sessionslederoversigt</li>
-                            <li>Undersøgelseslinks til hver deltager</li>
+                            <li>1 session manager-visning</li>
+                            <li>Et unikt link til hver deltager</li>
                         </ul>
                     </li>
-                    <li><p><strong>Distribuer undersøgelseslinks</strong> til deltagere</p></li>
+                    <li><p><strong>Distribuer linkene</strong> til deltagerne</p></li>
                 </ol>
                 <div class="info-box">
                     <h4>Sessionsnavn</h4>
-                    <p>Sessionsnavnet bruges i deltager-URL'er: <code>/session/&lt;navn&gt;/survey</code>. Brug et kort, URL-venligt navn (med små bogstaver, uden mellemrum eller specialtegn). Eksempel: <code>virksomhed-q1-2025</code></p>
+                    <p>Sessionsnavnet anvendes i deltagernes URL'er: <code>/session/&lt;navn&gt;/survey</code>. Brug et kort og URL-venligt navn (små bogstaver, ingen mellemrum eller specialtegn). Eksempel: <code>company-q1-2025</code></p>
                 </div>
                 <div class="warning-box">
-                    <h4>Sessionsnavne er unikke</h4>
-                    <p>Hvert sessionsnavn skal være unikt på tværs af platformen. Hvis en session med samme navn allerede eksisterer, modtager du en fejl.</p>
+                    <h4>Sessionsnavne skal være unikke</h4>
+                    <p>Hvert sessionsnavn skal være unikt på tværs af platformen. Hvis der allerede findes en session med det samme navn, vises en fejlmeddelelse.</p>
                 </div>
             </div>
         </section>
@@ -335,34 +335,34 @@
                 <ul>
                     <li>Et brugernavn i formatet <code>&lt;sessionsnavn&gt;_user_N</code></li>
                     <li>Et unikt login-token</li>
-                    <li>En automatisk genereret adgangskode (vist én gang ved sessionsoprettelse)</li>
-                    <li>Et undersøgelseslink: <code>/session/&lt;navn&gt;/survey?u=&lt;brugernavn&gt;&amp;t=&lt;token&gt;</code></li>
+                    <li>En automatisk genereret adgangskode (vises kun én gang ved oprettelsen af sessionen)</li>
+                    <li>Et link til spørgeskemaet: <code>/session/&lt;navn&gt;/survey?u=&lt;brugernavn&gt;&amp;t=&lt;token&gt;</code></li>
                 </ul>
-                <h3>Se sessionsbrugere</h3>
+                <h3>Visning af deltagere i en session</h3>
                 <ol>
-                    <li>Naviger til din session på startsiden</li>
-                    <li>Klik på <strong>Se session</strong></li>
-                    <li>Sessionsoversigten viser alle deltagerkonti med deres status</li>
+                    <li>Gå til din session fra forsiden</li>
+                    <li>Klik på <strong>Vis session</strong></li>
+                    <li>Sessionens oversigt viser alle deltagerkonti samt deres status</li>
                 </ol>
-                <h3>Brugerstatusindikatorer</h3>
+                <h3>Statusindikatorer for deltagere</h3>
                 <table>
                     <thead><tr><th>Status</th><th>Betydning</th></tr></thead>
                     <tbody>
-                        <tr><td>Ikke startet</td><td>Deltager har endnu ikke åbnet undersøgelsen</td></tr>
-                        <tr><td>I gang</td><td>Deltager har startet men ikke indsendt</td></tr>
-                        <tr><td>Afsluttet</td><td>Deltager har indsendt undersøgelsen</td></tr>
+                        <tr><td>Ikke startet</td><td>Deltageren har endnu ikke åbnet softwaret</td></tr>
+                        <tr><td>I gang</td><td>Deltageren er i gang, men har endnu ikke indsendt det</td></tr>
+                        <tr><td>Færdiggjort</td><td>Deltageren har indsendt svarene</td></tr>
                     </tbody>
                 </table>
-                <h3>Del deltagerlinks</h3>
-                <p>Sådan deler du en deltagers undersøgelseslink:</p>
+                <h3>Deling af deltagerlinks</h3>
+                <p>Sådan deler du et spørgeskemalink med en deltager:</p>
                 <ol>
                     <li>Find deltageren i sessionsoversigten</li>
-                    <li>Klik på kopieringsikonet ved siden af deres undersøgelseslink</li>
-                    <li>Send linket til deltageren via e-mail eller beskedapp</li>
+                    <li>Klik på kopieringsikonet ved siden af deltagerens spørgeskemalink</li>
+                    <li>Send linket til deltageren via e-mail eller en beskedapp</li>
                 </ol>
                 <div class="info-box">
-                    <h4>Linksikkerhed</h4>
-                    <p>Hvert link indeholder et unikt token. Del ikke en deltagers link med andre, da det giver adgang til den specifikke deltagers undersøgelse.</p>
+                    <h4>Sikkerhed for links</h4>
+                    <p>Hvert link indeholder et unikt token. Del ikke en deltagers link med andre, da det giver adgang til den pågældende deltagers specifikke svar.</p>
                 </div>
             </div>
         </section>
@@ -392,26 +392,26 @@
                 </div>
             </div>
             <div data-lang="da">
-                <h2>Se resultater</h2>
-                <p>Sessionslederen har adgang til to analysevisninger, når undersøgelsesindsendelser er tilgængelige:</p>
+                <h2>Visning af resultater</h2>
+                <p>Session manageren har adgang til to analysevisninger, når der er indsendt besvarelser:</p>
                 <h3>Analysevisning</h3>
-                <p>Hoved-analysesiden viser:</p>
+                <p>Den primære analyseside viser:</p>
                 <ul>
-                    <li><strong>Sårbarhedsrangering</strong> — En rangeret liste over de vigtigste sårbarheder valgt af alle deltagere, der viser konsensus og afvigelse</li>
-                    <li><strong>Kapabilitetsvurdering</strong> — Stablede søjlediagrammer, der viser kapabilitetsniveauer på tværs af alle områder, opdelt efter stillingsfunktion</li>
-                    <li><strong>Risikoniveaumærker</strong> — Farvekodede risikoindikatorer pr. sårbarhedskategori</li>
-                    <li><strong>Kapabilitetsgab</strong> — Visuel sammenligning af sårbarhedsrangering vs. kapabilitetsniveauer</li>
+                    <li><strong>Rangering af sårbarheder</strong> - en prioriteret liste over de væsentligste sårbarheder, som deltagerne har identificeret, med visning af både enighed og forskelle i vurderingerne</li>
+                    <li><strong>Kapabilitetsvurdering</strong> - stablede søjlediagrammer, der viser kapabilitetsniveauer på tværs af alle områder, opdelt efter jobfunktion</li>
+                    <li><strong>Risikoniveauer</strong> - farvekodede indikatorer for risikoniveau inden for hver sårbarhedskategori</li>
+                    <li><strong>Kapabilitetsgab</strong> - en visuel sammenligning mellem rangeringen af sårbarheder og kapabilitetsniveauerne</li>
                 </ul>
-                <h3>Resultatoversigt for formular</h3>
-                <p>En detaljeret tabelvisning af alle indsendte svar, der giver dig mulighed for:</p>
+                <h3>Oversigt over spørgeskemabesvarelser</h3>
+                <p>En detaljeret tabelvisning over alle indsendte besvarelser, hvor du kan:</p>
                 <ul>
-                    <li>Se individuelle deltagersvar</li>
-                    <li>Sammenligne svar på tværs af deltagere</li>
-                    <li>Eksportere data til yderligere analyse</li>
+                    <li>Se de enkelte deltageres besvarelser</li>
+                    <li>Sammenligne besvarelser på tværs af deltagere</li>
+                    <li>Eksportere data til videre analyse</li>
                 </ul>
                 <div class="info-box">
-                    <h4>Hvornår er resultater tilgængelige?</h4>
-                    <p>Resultater er synlige, så snart mindst én deltager indsender sin undersøgelse. Du behøver ikke vente på, at alle deltagere har udfyldt undersøgelsen for at begynde at gennemgå resultaterne.</p>
+                    <h4>Hvornår er resultaterne tilgængelige?</h4>
+                    <p>Resultaterne bliver synlige, så snart mindst én deltager har tastet sine vurderinger. Du behøver derfor ikke at vente, til alle deltagere har gennemført vurderingerne, før du kan begynde at gennemgå resultaterne.</p>
                 </div>
             </div>
         </section>
@@ -434,13 +434,13 @@
                 <h2>Sprogskift</h2>
                 <p>
                     Applikationen understøtter <strong>engelsk</strong> og <strong>dansk</strong>. Når du opretter en session,
-                    vælger du undersøgelsessprog for den session. Deltagere vil se undersøgelsen på det valgte sprog.
+                    vælger du sprog for den pågældende session. Deltagerne vil se sårbarhederne og kapabiliteterne på det valgte sprog.
                 </p>
-                <p>Sessionsleder-brugerfladen kan til enhver tid skiftes mellem sprog ved hjælp af sprogskift-knappen i navigationslinjen.</p>
-                <h3>Undersøgelsessprog vs. brugerfladesprog</h3>
+                <p>Session managerens brugergrænseflade kan til enhver tid skiftes mellem sprog ved hjælp af sprogknappen i navigationsbjælken.</p>
+                <h3>Sprog vs. brugergrænsefladens sprog</h3>
                 <ul>
-                    <li><strong>Undersøgelsessprog</strong> — indstilles ved sessionsoprettelse; bestemmer hvilket spørgsmålssæt der bruges til deltagere</li>
-                    <li><strong>Brugerfladesprog</strong> — sessionslederen kan skifte til enhver tid; påvirker ikke deltagerundersøgelser</li>
+                    <li><strong>Sprog</strong> - angives ved oprettelse af sessionen og bestemmer, hvilket spørgsmålssæt deltagerne får vist</li>
+                    <li><strong>Brugergrænsefladens sprog</strong> - kan til enhver tid skiftes af session manageren og påvirker ikke deltagernes spørgeskemaer</li>
                 </ul>
             </div>
         </section>
@@ -485,35 +485,35 @@
                 <h2>Fejlfinding</h2>
                 <h3>Kan ikke logge ind</h3>
                 <ul>
-                    <li>Verificer at din e-mail og adgangskode er korrekte</li>
-                    <li>Tjek at din konto eksisterer (kontakt din administrator)</li>
-                    <li>Prøv at nulstille din adgangskode via "Glemt adgangskode"-linket</li>
-                    <li>Sørg for at backend-serveren kører</li>
+                    <li>Kontrollér, at din e-mailadresse og adgangskode er korrekte</li>
+                    <li>Kontrollér, at din konto findes (kontakt din administrator)</li>
+                    <li>Prøv at nulstille din adgangskode via linket "Glemt adgangskode"</li>
+                    <li>Sørg for, at backend-serveren kører</li>
                 </ul>
-                <h3>Sessionsoprettelse mislykkes</h3>
+                <h3>Kan ikke oprette en session</h3>
                 <ul>
-                    <li>Tjek at sessionsnavnet er unikt og URL-venligt (med små bogstaver, uden mellemrum)</li>
-                    <li>Verificer at din konto har tilladelse til at oprette sessioner</li>
-                    <li>Tjek browserkonsol for fejldetaljer</li>
+                    <li>Kontrollér, at sessionsnavnet er unikt og URL-venligt (små bogstaver, ingen mellemrum)</li>
+                    <li>Kontrollér, at din konto har tilladelse til at oprette sessioner</li>
+                    <li>Se browserens udviklerkonsol for fejlmeddelelser</li>
                 </ul>
                 <h3>Deltagerlink virker ikke</h3>
                 <ul>
-                    <li>Verificer at linket er kopieret korrekt (ingen manglende tegn)</li>
-                    <li>Tjek at sessionen stadig er aktiv</li>
-                    <li>Bed deltageren om at prøve i en anden browser eller inkognitotilstand</li>
-                    <li>Kontakt din administrator for at verificere deltagerens token</li>
+                    <li>Kontrollér, at linket er kopieret korrekt (ingen manglende tegn)</li>
+                    <li>Kontrollér, at sessionen stadig er aktiv</li>
+                    <li>Bed deltageren om at prøve i en anden browser eller i inkognitotilstand (privat browsing)</li>
+                    <li>Kontakt din administrator for at få bekræftet deltagerens token</li>
                 </ul>
                 <h3>Resultater vises ikke</h3>
                 <ul>
-                    <li>Bekræft at mindst én deltager har indsendt undersøgelsen</li>
+                    <li>Kontrollér, at mindst én deltager har indsendt spørgeskemaet</li>
                     <li>Opdater siden</li>
-                    <li>Tjek at du ser den korrekte session</li>
+                    <li>Kontrollér, at du ser den korrekte session</li>
                 </ul>
                 <h3>Diagrammer indlæses ikke</h3>
                 <ul>
-                    <li>Sørg for at JavaScript er aktiveret i din browser</li>
+                    <li>Kontrollér, at JavaScript er aktiveret i din browser</li>
                     <li>Prøv en hård genindlæsning (Ctrl+Shift+R eller Cmd+Shift+R)</li>
-                    <li>Tjek browserkonsol for fejl</li>
+                    <li>Se browserens udviklerkonsol for fejlmeddelelser</li>
                 </ul>
             </div>
         </section>
@@ -541,14 +541,14 @@
                 <table>
                     <thead><tr><th>Begreb</th><th>Definition</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>Session</strong></td><td>En gruppe på op til 10 deltagere, der udfylder undersøgelsen sammen til en fælles analyse</td></tr>
+                        <tr><td><strong>Session</strong></td><td>En gruppe på op til 10 deltagere, der gennemfører vurderinger individuelt og i fællesskab med henblik på en fælles analyse</td></tr>
                         <tr><td><strong>Sessionsleder</strong></td><td>Den person, der opretter og administrerer en session og gennemgår resultater</td></tr>
-                        <tr><td><strong>Deltager</strong></td><td>En person, der udfylder undersøgelsen som del af en session</td></tr>
-                        <tr><td><strong>Token</strong></td><td>En unik streng, der autentificerer en deltagers undersøgelseslink uden adgangskode</td></tr>
+                        <tr><td><strong>Deltager</strong></td><td>En person, der gennemfører vurderingerne som en del af en session</td></tr>
+                        <tr><td><strong>Token</strong></td><td>En unik tegnstreng, der giver en deltager adgang til softwaret uden brug af adgangskode</td></tr>
                         <tr><td><strong>Sårbarhed</strong></td><td>En potentiel svaghed eller risikofaktor i forsyningskæden</td></tr>
                         <tr><td><strong>Kapabilitet</strong></td><td>En organisatorisk evne eller ressource, der hjælper med at afbøde sårbarheder</td></tr>
-                        <tr><td><strong>Kapabilitetsgab</strong></td><td>Forskellen mellem en sårbarhedens risikoniveau og organisationens evne til at håndtere den</td></tr>
-                        <tr><td><strong>FormKit-schema</strong></td><td>En JSON-baseret definition af undersøgelsesformularens struktur og spørgsmål</td></tr>
+                        <tr><td><strong>Kapabilitetsgab</strong></td><td>Forskellen mellem en sårbarheds risikoniveau og organisationens evne til at håndtere den</td></tr>
+                        <tr><td><strong>FormKit skema</strong></td><td>En JSON-baseret definition af formlayoutet</td></tr>
                         <tr><td><strong>PocketBase</strong></td><td>Det open source-backend-framework, der driver platformen (Go + SQLite)</td></tr>
                     </tbody>
                 </table>
@@ -585,11 +585,11 @@
                 <div class="cards">
                     <div class="card">
                         <h4>Sessionsleder</h4>
-                        <p>Du læser i øjeblikket sessionsledervejledningen.</p>
+                        <p>Du læser i øjeblikket vejledningen til session managers.</p>
                     </div>
                     <div class="card">
-                        <h4>Undersøgelsesdeltager</h4>
-                        <p>Guide til deltagere i, hvordan man udfylder undersøgelsen.</p>
+                        <h4>Deltager</h4>
+                        <p>Vejledning til deltagere om, hvordan softwaret bruges.</p>
                         <p><a href="survey-participant.html" class="btn">Læs mere</a></p>
                     </div>
                     <div class="card">
