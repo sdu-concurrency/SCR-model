@@ -13,7 +13,7 @@ onMounted(() => {
     if (formConfig?.parent!.value) {
       value.value = { form: formConfig?.parent!.value }
     } else {
-      value.value = props['data-prop'] as Object
+      value.value = props.dataProp as Object
     }
   }
 })
@@ -46,10 +46,10 @@ defineExpose({
     ref="summary"
     v-if="isActive"
     :data="value"
-    :hide-job-function="props['hide-job-function']"
-    :is-show-summary="props['is-show-summary']"
-    :job-function-schema="props['job-function-schema']"
-    :vulnerability-schema="props['vulnerability-schema']"
-    :capability-schema="props['capability-schema']"
+    :hide-job-function="props.hideJobFunction"
+    :is-show-summary="props.isShowSummary"
+    :job-function-schema="props.jobFunctionSchema"
+    :vulnerability-schema="props.vulnerabilitySchema"
+    :capability-schema="props.capabilitySchema"
   ></FormResultSummaryNew>
 </template>
