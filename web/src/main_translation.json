@@ -664,6 +664,22 @@
           "da": "Sandsynlighed",
           "en": "Likelihood"
         },
+        "risk_level_formula": {
+          "da": "Risikoniveau (Impact x Sandsynlighed):",
+          "en": "Risk level (Impact x Likelihood):"
+        },
+        "risk_level_low": {
+          "da": "Lav",
+          "en": "Low"
+        },
+        "risk_level_medium": {
+          "da": "Middel",
+          "en": "Medium"
+        },
+        "risk_level_high": {
+          "da": "Høj",
+          "en": "High"
+        },
         "risk_management_likelihood_help_list": {
           "1": {
             "da": "Very Likely: Næsten sikker på at forekomme.",
