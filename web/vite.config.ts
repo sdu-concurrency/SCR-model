@@ -32,7 +32,7 @@ export default defineConfig(({ mode }) => {
       VueI18nPlugin({
         /* options */
         // locale messages resource pre-compile option
-        include: resolve(dirname(fileURLToPath(import.meta.url)), 'src/i18n/**')
+        include: resolve(dirname(fileURLToPath(import.meta.url)), 'src/i18n/**/*.json')
       }),
       {
         name: 'translation', // the name of your custom plugin. Could be anything.
