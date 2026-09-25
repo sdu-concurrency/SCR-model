@@ -27,12 +27,12 @@ const isActive = computed(() => {
 })
 
 const props = defineProps({
-  'data-prop': Object,
-  'hide-job-function': Boolean,
-  'is-show-summary': Boolean,
-  'job-function-schema': Array,
-  'vulnerability-schema': Array,
-  'capability-schema': Array
+  dataProp: Object,
+  hideJobFunction: Boolean,
+  isShowSummary: Boolean,
+  jobFunctionSchema: Array,
+  vulnerabilitySchema: Array,
+  capabilitySchema: Array
 })
 
 const beforePrint = () => summary.value?.beforePrint()
