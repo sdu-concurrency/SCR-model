@@ -2,6 +2,8 @@
 import { computed, ref, inject, onMounted } from 'vue'
 import { parentSymbol, useFormKitNodeById } from '@formkit/vue'
 import { useI18n } from 'vue-i18n'
+import { normalizeQuestionSchema, resolveLabel } from '@/composables/useQuestionLabels'
+import { config } from '@/config'
 const { t } = useI18n()
 const now = ref(new Date().toISOString().split('T')[0])
 const isOther = ref(false)
@@ -13,13 +15,35 @@ onMounted(() => {
   useFormKitNodeById('job_function', async (node) => {})
 })
 
-const jobFunctionOptions = ref({
-  Indkøb: t('form.new.step_1.select_jobfunction_options.Indkøb', l),
-  Produktion: t('form.new.step_1.select_jobfunction_options.Produktion', l),
-  Salg: t('form.new.step_1.select_jobfunction_options.Salg', l),
-  Produktudvikling: t('form.new.step_1.select_jobfunction_options.Produktudvikling', l),
-  'Økonomi / IT': t('form.new.step_1.select_jobfunction_options.Økonomi / IT', l),
-  Andet: t('form.new.step_1.select_jobfunction_options.Andet', l)
+const props = defineProps({
+  jobFunctionSchema: {
+    type: Array,
+    default: null
+  }
+})
+
+const isOtherValue = (value) => value === 'Andet' || value === 'Other'
+
+// Job function options resolved from the question schema (dynamic).
+// Falls back to the static i18n options for legacy question sets without a schema.
+const jobFunctionOptions = computed(() => {
+  const options = {}
+  for (const category of normalizeQuestionSchema(props.jobFunctionSchema)) {
+    for (const item of category.items ?? []) {
+      options[item.value] = resolveLabel(item.label, l.value || 'en', item.value)
+    }
+  }
+  if (Object.keys(options).length > 0) {
+    return options
+  }
+  return {
+    Indkøb: t('form.new.step_1.select_jobfunction_options.Indkøb', l),
+    Produktion: t('form.new.step_1.select_jobfunction_options.Produktion', l),
+    Salg: t('form.new.step_1.select_jobfunction_options.Salg', l),
+    Produktudvikling: t('form.new.step_1.select_jobfunction_options.Produktudvikling', l),
+    'Økonomi / IT': t('form.new.step_1.select_jobfunction_options.Økonomi / IT', l),
+    Andet: t('form.new.step_1.select_jobfunction_options.Andet', l)
+  }
 })
 </script>
 
@@ -36,7 +60,7 @@ const jobFunctionOptions = ref({
       @node="
         (node) => {
           node.on('commit', ({ payload }) => {
-            isOther = payload === 'Andet' ? true : false
+            isOther = isOtherValue(payload) ? true : false
           })
         }
       "
@@ -51,6 +75,14 @@ const jobFunctionOptions = ref({
       validation="required"
     ></FormKit>
     <FormKit
+      v-if="config.companyName"
+      type="hidden"
+      id="company"
+      name="company"
+      :value="config.companyName"
+    ></FormKit>
+    <FormKit
+      v-else
       type="text"
       id="company"
       name="company"

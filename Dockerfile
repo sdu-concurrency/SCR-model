@@ -16,6 +16,17 @@ WORKDIR /app
 
 ENV VITE_APP_TITLE="Process model - Supply Chain Resilience"
 ENV VITE_API_URL="/"
+# Self-hosted company branding (build-time, all optional):
+#   VITE_COMPANY_NAME - prefills and hides the survey's step-1 company field
+#   VITE_LOGO_PATH    - header logo path, file placed in web/public (e.g. /logo.png)
+#   VITE_LANDING_HTML - landing page HTML fragment path, file placed in web/public
+#                       (e.g. /landing.html; plain HTML, Tailwind not available)
+ARG VITE_COMPANY_NAME=""
+ARG VITE_LOGO_PATH=""
+ARG VITE_LANDING_HTML=""
+ENV VITE_COMPANY_NAME=${VITE_COMPANY_NAME} \
+    VITE_LOGO_PATH=${VITE_LOGO_PATH} \
+    VITE_LANDING_HTML=${VITE_LANDING_HTML}
 # Copy the package.json and install dependencies
 COPY web/package*.json ./
 RUN npm install

@@ -6,6 +6,7 @@ import Select from 'primevue/select'
 import Button from 'primevue/button'
 import Drawer from 'primevue/drawer'
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
+import { config } from '@/config'
 
 const { t } = useI18n()
 const breakpoints = useBreakpoints(breakpointsTailwind)
@@ -46,7 +47,11 @@ const langs = ref([
   >
     <template #start>
       <div class="flex align-items-center gap-2 h-14">
-        <img class="object-contain h-full md:h-auto max-h-14" src="/scr smv logo.jpg" />
+        <img
+          class="object-contain h-full md:h-auto max-h-14"
+          :src="config.logoPath || '/scr smv logo.jpg'"
+          :alt="config.companyName || 'logo'"
+        />
       </div>
     </template>
 

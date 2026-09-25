@@ -360,7 +360,7 @@ function showErrors(node) {
         :label="t('form.new.step_1.step_label', l)"
         stepActionsClass="mt-4"
       >
-        <JobFunction />
+        <JobFunction :job-function-schema="questions.job_function_schema" />
       </FormKit>
 
       <FormKit
@@ -450,7 +450,12 @@ function showErrors(node) {
         </FormKit>
       </FormKit>
       <FormKit type="step" label="Summary" name="summary" key="summary">
-        <FormResultSummaryNew :data="values" :hide-job-function="false" :is-show-summary="true" />
+        <FormResultSummaryNew
+          :data="values"
+          :hide-job-function="false"
+          :is-show-summary="true"
+          :job-function-schema="questions.job_function_schema"
+        />
         <template #stepNext>
           <FormKit type="submit" />
         </template>

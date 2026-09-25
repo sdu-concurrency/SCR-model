@@ -13,12 +13,23 @@ function resolveLabel(labelVal) {
 }
 
 import { useResponseMapper } from '../composables/responseMapper'
+import { useQuestionLabels } from '../composables/useQuestionLabels'
 
 const props = defineProps({
   data: Object,
   'hide-job-function': Boolean,
-  'is-show-summary': Boolean
+  'is-show-summary': Boolean,
+  'job-function-schema': {
+    type: Array,
+    default: null
+  }
 })
+
+// Locale-aware resolved label map (empty map if no schema provided)
+const resolvedJobFunctionLabels = useQuestionLabels(
+  computed(() => props.jobFunctionSchema ?? []),
+  locale
+)
 const date = computed(() => {
   if (props.isShowSummary === false) {
     return ''
@@ -37,10 +48,20 @@ const job_function = computed(() => {
   ) {
     return ''
   }
-  if (props.data.form.step_1.job_function === 'Andet') {
+  if (
+    props.data.form.step_1.job_function === 'Andet' ||
+    props.data.form.step_1.job_function === 'Other'
+  ) {
     return props.data.form.step_1.job_function_other
+  } else if (props.data.form.step_1.job_function) {
+    // Prefer the question schema (dynamic options), then the legacy i18n
+    // labels, then the raw stored value.
+    return (
+      resolvedJobFunctionLabels.value[props.data.form.step_1.job_function] ||
+      useResponseMapper(t, 'V1', props.data.form.step_1.job_function)
+    )
   } else {
-    return useResponseMapper(t, 'V1', props.data.form.step_1.job_function)
+    return ''
   }
 })
 
