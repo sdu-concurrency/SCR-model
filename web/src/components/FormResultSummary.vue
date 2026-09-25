@@ -29,7 +29,10 @@ const isActive = computed(() => {
 const props = defineProps({
   'data-prop': Object,
   'hide-job-function': Boolean,
-  'is-show-summary': Boolean
+  'is-show-summary': Boolean,
+  'job-function-schema': Array,
+  'vulnerability-schema': Array,
+  'capability-schema': Array
 })
 
 const beforePrint = () => summary.value?.beforePrint()
@@ -45,5 +48,8 @@ defineExpose({
     :data="value"
     :hide-job-function="props['hide-job-function']"
     :is-show-summary="props['is-show-summary']"
+    :job-function-schema="props['job-function-schema']"
+    :vulnerability-schema="props['vulnerability-schema']"
+    :capability-schema="props['capability-schema']"
   ></FormResultSummaryNew>
 </template>

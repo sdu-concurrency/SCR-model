@@ -22,14 +22,43 @@ const props = defineProps({
   'job-function-schema': {
     type: Array,
     default: null
+  },
+  'vulnerability-schema': {
+    type: Array,
+    default: null
+  },
+  'capability-schema': {
+    type: Array,
+    default: null
   }
 })
 
-// Locale-aware resolved label map (empty map if no schema provided)
+// Locale-aware resolved label maps (empty map if no schema provided)
 const resolvedJobFunctionLabels = useQuestionLabels(
   computed(() => props.jobFunctionSchema ?? []),
   locale
 )
+const resolvedVulnerabilityLabels = useQuestionLabels(
+  computed(() => props.vulnerabilitySchema ?? []),
+  locale
+)
+const resolvedCapabilityLabels = useQuestionLabels(
+  computed(() => props.capabilitySchema ?? []),
+  locale
+)
+
+// Prefer the multilingual question schema (re-resolved when the locale
+// changes), then fall back to the label stored with the response (a plain
+// string in the locale active at fill time), then to the raw value.
+function vulnerabilityLabel(vulnerability) {
+  const value = vulnerability?.value ?? ''
+  return resolvedVulnerabilityLabels.value[value] || resolveLabel(vulnerability?.label) || value
+}
+
+function capabilityLabel(capability) {
+  const value = capability?.value ?? ''
+  return resolvedCapabilityLabels.value[value] || resolveLabel(capability?.label) || value
+}
 const date = computed(() => {
   if (props.isShowSummary === false) {
     return ''
@@ -104,7 +133,7 @@ const items = computed(() => {
   let index = 2
   while (props.data.form[key + index]) {
     const vulnerability = props.data.form[key + index]
-    const vulnerability_label = `${vulnerability.vulnerability.value} - ${resolveLabel(vulnerability.vulnerability.label)}`
+    const vulnerability_label = `${vulnerability.vulnerability.value} - ${vulnerabilityLabel(vulnerability.vulnerability)}`
     const note_vulnerability = vulnerability.vulnerability.note
     index++
     const impact = vulnerability.risk_management.horizontal.index + 1
@@ -118,6 +147,7 @@ const items = computed(() => {
       }
     })
     res.push({
+      key: vulnerability.vulnerability.value,
       vulnerability: vulnerability_label,
       note_vulnerability,
       impact,
@@ -132,7 +162,7 @@ const items = computed(() => {
 const expandedRows = ref([])
 
 const expandAll = () => {
-  expandedRows.value = items.value.reduce((acc, p) => (acc[p.vulnerability] = true) && acc, {})
+  expandedRows.value = items.value.reduce((acc, p) => (acc[p.key] = true) && acc, {})
 }
 const collapseAll = () => {
   expandedRows.value = null
@@ -176,7 +206,7 @@ window.addEventListener('afterprint', () => {
     <DataTable
       v-model:expandedRows="expandedRows"
       :value="items"
-      dataKey="vulnerability"
+      dataKey="key"
       class="print:text-xs print:mt-0 print:overflow-visible"
       :pt="{
         tableContainer: 'print:!max-h-none',
@@ -237,7 +267,7 @@ window.addEventListener('afterprint', () => {
             <Column field="capability" :header="$t('survey_summary.table_columns.capability')">
               <template #body="slotProps">
                 <div class="flex flex-col">
-                  <span>{{ slotProps.data.value }} - {{ resolveLabel(slotProps.data.label) }}</span>
+                  <span>{{ slotProps.data.value }} - {{ capabilityLabel(slotProps.data) }}</span>
                   <span class="text-xs font-light">{{ slotProps.data.note }}</span>
                 </div>
               </template></Column

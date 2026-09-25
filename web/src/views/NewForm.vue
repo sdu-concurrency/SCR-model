@@ -455,6 +455,8 @@ function showErrors(node) {
           :hide-job-function="false"
           :is-show-summary="true"
           :job-function-schema="questions.job_function_schema"
+          :vulnerability-schema="questions.vulnerability_schema"
+          :capability-schema="questions.capability_schema"
         />
         <template #stepNext>
           <FormKit type="submit" />

@@ -10,6 +10,7 @@ const props = defineProps({
   username: String
 })
 const state = reactive({ survey: {} })
+const questions = ref(null)
 
 const fetchData = async () => {
   // cross-collection filters (user.username, session.name) are rejected by
@@ -26,6 +27,13 @@ const fetchData = async () => {
   })
 
   state.survey = data
+
+  // Question schemas let the summary re-resolve multilingual labels when the
+  // locale changes (stored response labels are single-locale strings).
+  const sessionRec = data[0]?.expand?.session
+  questions.value = sessionRec?.questions
+    ? await api.collection('questions').getOne(sessionRec.questions)
+    : await api.collection('questions').getFirstListItem()
 }
 
 const home = ref({
@@ -70,6 +78,9 @@ const summary = ref(null)
         :data="state.survey[0].response"
         :hide-job-function="false"
         :is-show-summary="true"
+        :job-function-schema="questions?.job_function_schema"
+        :vulnerability-schema="questions?.vulnerability_schema"
+        :capability-schema="questions?.capability_schema"
       ></FormResultSummary>
       <div v-else>
         <p>{{ $t('survey_summary.data_missing') }}</p>
