@@ -2,7 +2,6 @@
 import { computed, ref, onMounted, onUnmounted } from 'vue'
 import Chart from 'primevue/chart'
 import { useI18n } from 'vue-i18n'
-import { useResponseMapper } from '../composables/responseMapper.ts'
 
 // ============================================================================
 // Constants
@@ -76,6 +75,10 @@ const props = defineProps({
   sessionName: {
     type: String,
     required: true
+  },
+  capabilityLabels: {
+    type: Object,
+    default: null
   }
 })
 
@@ -181,7 +184,7 @@ function createCapabilityDataset(capabilityKey, capabilityData, capabilityIndex,
   const color = getCapabilityColor(capabilityIndex)
 
   return {
-    label: useResponseMapper(t, 'V1', capabilityKey),
+    label: props.capabilityLabels?.[capabilityKey] || capabilityKey,
     data,
     backgroundColor: color,
     borderColor: color,

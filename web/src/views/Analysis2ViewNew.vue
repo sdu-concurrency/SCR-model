@@ -18,10 +18,10 @@ import Accordion from 'primevue/accordion'
 import AccordionPanel from 'primevue/accordionpanel'
 import AccordionHeader from 'primevue/accordionheader'
 import AccordionContent from 'primevue/accordioncontent'
-import { useResponseMapper } from '../composables/responseMapper.ts'
 import { useI18n } from 'vue-i18n'
 import CapabilityStackedChart from '../components/CapabilityStackedChart.vue'
-const { t } = useI18n()
+import { useQuestionLabels } from '../composables/useQuestionLabels'
+const { t, locale } = useI18n()
 const twConfig = resolveConfig(tailwindConfig)
 const { api } = usePocketbaseStore()
 const props = defineProps({
@@ -47,6 +47,38 @@ state.surveys = await api.collection('surveys').getFullList({
   filter: `user.role = "normal" && session.name = "${props.sessionName}"`,
   expand: 'user,session'
 })
+
+// Question schemas are the single source of multilingual labels (the legacy
+// survey.V1 i18n keys were removed).
+const questions = ref(null)
+const sessionRec = state.surveys[0]?.expand?.session
+questions.value = sessionRec?.questions
+  ? await api.collection('questions').getOne(sessionRec.questions)
+  : await api.collection('questions').getFirstListItem()
+
+// Locale-aware label maps, re-resolved when the language changes
+const resolvedJobFunctionLabels = useQuestionLabels(
+  computed(() => questions.value?.job_function_schema ?? []),
+  locale
+)
+const resolvedVulnerabilityLabels = useQuestionLabels(
+  computed(() => questions.value?.vulnerability_schema ?? []),
+  locale
+)
+const resolvedCapabilityLabels = useQuestionLabels(
+  computed(() => questions.value?.capability_schema ?? []),
+  locale
+)
+
+const vulLabel = (value) => resolvedVulnerabilityLabels.value[value] || value
+const capLabel = (value) => resolvedCapabilityLabels.value[value] || value
+// job_function values may carry a "_N" dedup suffix; resolve the base value
+const jobLabel = (jobFunction) => {
+  const m = String(jobFunction).match(/^(.+)_(\d+)$/)
+  const base = m ? m[1] : jobFunction
+  const label = resolvedJobFunctionLabels.value[base] || base
+  return m ? `${label}_${m[2]}` : label
+}
 
 const common_vulnerabilities = computed(() => {
   const res = []
@@ -89,7 +121,7 @@ const common_vulnerabilities = computed(() => {
 
 const common_vulnerabilities_count_chart_data = computed(() => {
   return {
-    labels: common_vulnerabilities.value.map((e) => useResponseMapper(t, 'V1', e.vulnerability)),
+    labels: common_vulnerabilities.value.map((e) => vulLabel(e.vulnerability)),
     datasets: [
       {
         label: t('analysis_2.common_vulnerabilities_count_label'),
@@ -313,7 +345,7 @@ const capability_chart_data = computed(() => {
   // Build sorted entries so labels and data stay in sync
   const entries = Object.entries(cap)
     .map(([key, funcs]) => ({
-      label: useResponseMapper(t, 'V1', key),
+      label: capLabel(key),
       count: funcs.length,
       avgDiff: funcs.reduce((acc, c) => acc + c.diff, 0) / funcs.length
     }))
@@ -611,7 +643,7 @@ const printPage = async function () {
         <Column field="vulnerability" :header="$t('analysis_2.vulnerability')">
           <template #body="slotProps">
             <div class="flex flex-col">
-              <span>{{ useResponseMapper($t, 'V1', slotProps.data.vulnerability) }}</span>
+              <span>{{ vulLabel(slotProps.data.vulnerability) }}</span>
               <span
                 v-for="note in slotProps.data.note_vulnerability"
                 :key="note"
@@ -670,7 +702,7 @@ const printPage = async function () {
       >
         <Column field="job_function" sortable :header="$t('analysis_2.job_function')">
           <template #body="functionalSlotProps">
-            {{ useResponseMapper($t, 'V1', functionalSlotProps.data.job_function) }}
+            {{ jobLabel(functionalSlotProps.data.job_function) }}
           </template>
         </Column>
         <Column field="priority" sortable :header="$t('analysis_2.priority')"> </Column>
@@ -707,7 +739,7 @@ const printPage = async function () {
                 >
                   <div class="flex flex-col">
                     <span>
-                      {{ useResponseMapper($t, 'V1', slotProps.data.vulnerability) }}
+                      {{ vulLabel(slotProps.data.vulnerability) }}
                       <RiskLevelBadge
                         class="ml-1"
                         :risk_level="slotProps.data.risk_level"
@@ -730,7 +762,7 @@ const printPage = async function () {
                     >
                       <Column field="value" :header="$t('analysis_2.capability')">
                         <template #body="slotProps">
-                          {{ useResponseMapper($t, 'V1', slotProps.data.value) }}
+                          {{ capLabel(slotProps.data.value) }}
                         </template>
                       </Column>
                       <Column field="importance" :header="$t('analysis_2.importance')"></Column>
@@ -754,7 +786,7 @@ const printPage = async function () {
         <template #groupheader="slotProps">
           <p class="text-lg">
             <span class="font-bold">{{ $t('analysis_2.job_function') }}</span
-            >: {{ useResponseMapper($t, 'V1', slotProps.data.job_function) }}
+            >: {{ jobLabel(slotProps.data.job_function) }}
           </p>
         </template>
       </DataTable>
@@ -783,7 +815,7 @@ const printPage = async function () {
 
         <Column field="vulnerability" :header="$t('analysis_3.table_columns.vulnerability')">
           <template #body="slotProps">
-            {{ useResponseMapper($t, 'V1', slotProps.data.vulnerability) }}
+            {{ vulLabel(slotProps.data.vulnerability) }}
           </template>
         </Column>
 
@@ -836,7 +868,7 @@ const printPage = async function () {
               <DataTable :value="slotProps.data.capability_list" size="small" class="print:text-xs">
                 <Column field="capability" :header="$t('analysis_2.capability')">
                   <template #body="slotProps">
-                    {{ useResponseMapper($t, 'V1', slotProps.data.capability) }}
+                    {{ capLabel(slotProps.data.capability) }}
                     <div class="flex flex-col gap-1">
                       <div
                         v-for="(job_function, index) in slotProps.data.job_functions"
@@ -914,6 +946,7 @@ const printPage = async function () {
             <CapabilityStackedChart
               :capabilities-data="summary"
               :session-name="props.sessionName"
+              :capability-labels="resolvedCapabilityLabels"
             />
           </div>
         </template>

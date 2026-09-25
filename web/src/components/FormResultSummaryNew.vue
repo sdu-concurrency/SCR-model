@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { useThrottleFn, useMediaQuery } from '@vueuse/core'
 const print = useMediaQuery('print')
 
-const { t, locale } = useI18n()
+const { locale } = useI18n()
 
 function resolveLabel(labelVal) {
   if (!labelVal) return ''
@@ -12,7 +12,6 @@ function resolveLabel(labelVal) {
   return labelVal
 }
 
-import { useResponseMapper } from '../composables/responseMapper'
 import { useQuestionLabels } from '../composables/useQuestionLabels'
 
 const props = defineProps({
@@ -83,11 +82,10 @@ const job_function = computed(() => {
   ) {
     return props.data.form.step_1.job_function_other
   } else if (props.data.form.step_1.job_function) {
-    // Prefer the question schema (dynamic options), then the legacy i18n
-    // labels, then the raw stored value.
+    // Prefer the question schema (dynamic options), then the raw stored value.
     return (
       resolvedJobFunctionLabels.value[props.data.form.step_1.job_function] ||
-      useResponseMapper(t, 'V1', props.data.form.step_1.job_function)
+      props.data.form.step_1.job_function
     )
   } else {
     return ''
