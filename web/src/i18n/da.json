@@ -191,6 +191,10 @@
         "risk_management_sub_label": "Vælg sandsynligheden for, at sårbarheden opstår, og den potentielle alvorlighed af sårbarhedens indvirkning. Overvej følgende definitioner:",
         "risk_management_impact": "Indflydelse",
         "risk_management_likelihood": "Sandsynlighed",
+        "risk_level_formula": "Risikoniveau (Impact x Sandsynlighed):",
+        "risk_level_low": "Lav",
+        "risk_level_medium": "Middel",
+        "risk_level_high": "Høj",
         "risk_management_likelihood_help_list": {
           "1": "Very Likely: Næsten sikker på at forekomme.",
           "2": "Likely: Vil sandsynligvis forekomme.",
@@ -205,10 +209,6 @@
           "4": "Significant: Stor påvirkning, kræver en betydelig indsats og ressourcer at genoprette.",
           "5": "Severe: Katastrofal påvirkning, der potentielt kan føre til virksomhedssvigt."
         },
-        "risk_level_formula": "Risikoniveau = Sandsynlighed × Indflydelse",
-        "risk_level_low": "Lav (1–8)",
-        "risk_level_medium": "Middel (9–16)",
-        "risk_level_high": "Høj (17–25)",
         "capability_label": "Kapabiliteter til at håndtere sårbarhed",
         "capability_help": "Vælg op til 5 kapabiliteter, der kan håndtere sårbarheden, og vurder derefter din opfattelse af 'Aktuel evne' og dens 'Vigtighed' på en skala fra 1 til 5. 1 = Meget lav evne og 5 = Meget høj evne, 1 = Meget lav vigtighed og 5 = Meget høj vigtighed.",
         "current_ability_label": "Nuværende evne",

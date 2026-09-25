@@ -4,7 +4,7 @@ import { usePocketbaseStore } from '@/stores/pb'
 import Breadcrumb from 'primevue/breadcrumb'
 import Card from 'primevue/card'
 
-const { api } = usePocketbaseStore()
+const { api, user } = usePocketbaseStore()
 const props = defineProps({
   sessionName: String,
   username: String
@@ -12,8 +12,16 @@ const props = defineProps({
 const state = reactive({ survey: {} })
 
 const fetchData = async () => {
+  // cross-collection filters (user.username, session.name) are rejected by
+  // PocketBase unless the request comes from a superuser, so normal users
+  // (participants) filter by their own relation ids instead
+  const filter =
+    user?.role === 'normal'
+      ? `user = "${user.id}" && session = "${user.session}"`
+      : `user.username = "${props.username}" && session.name = "${props.sessionName}"`
+
   const data = await api.collection('surveys').getFullList({
-    filter: `user.username = "${props.username}" && session.name = "${props.sessionName}"`,
+    filter,
     expand: 'user,session'
   })
 

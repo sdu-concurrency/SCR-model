@@ -199,6 +199,10 @@
         "risk_management_sub_label": "Select the likelihood of the vulnerability occurring and the potential severity of the vulnerability's impact. Consider the following definitions:",
         "risk_management_impact": "Impact",
         "risk_management_likelihood": "Likelihood",
+        "risk_level_formula": "Risk level (Impact x Likelihood):",
+        "risk_level_low": "Low",
+        "risk_level_medium": "Medium",
+        "risk_level_high": "High",
         "risk_management_likelihood_help_list": {
           "1": "Very Likely: Almost certain to occur.",
           "2": "Likely: Probably will occur.",
@@ -213,10 +217,6 @@
           "4": "Significant: Major impact, requires substantial effort and resources to recover.",
           "5": "Severe: Catastrophic impact, potentially leading to business failure."
         },
-        "risk_level_formula": "Risk Level = Likelihood × Impact",
-        "risk_level_low": "Low (1–8)",
-        "risk_level_medium": "Medium (9–16)",
-        "risk_level_high": "High (17–25)",
         "capability_label": "Capabilities to mitigate vulnerability",
         "capability_help": "Select up to 5 capabilities that can address the vulnerability, then rate your perception of 'Current ability' and its 'Importance' on a scale of 1 to 5. 1 = Very Low Capability and 5 = Very High Capability, 1 = Very Low importance and 5 = Very high importance.",
         "current_ability_label": "Current Ability",
