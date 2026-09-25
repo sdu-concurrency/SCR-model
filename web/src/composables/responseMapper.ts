@@ -1,5 +1,6 @@
 import { type ComposerTranslation } from 'vue-i18n'
 import { toValue } from 'vue'
+import i18n from '@/i18n'
 
 export function useJobFunctionMapper(t: ComposerTranslation, vul_key: any) {
   if (!vul_key) {
@@ -30,5 +31,6 @@ export function useResponseMapper(t: ComposerTranslation, survey_name: string, r
     return ''
   }
   const value = toValue(res_key)
-  return t('survey.' + survey_name + '.' + value, res_key)
+  const key = 'survey.' + survey_name + '.' + value
+  return i18n.global.te(key) ? t(key) : String(value)
 }
